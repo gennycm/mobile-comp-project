@@ -15,15 +15,17 @@
         tools:context=".MapsActivity"
         android:name="com.google.android.gms.maps.SupportMapFragment" />
 
-    <EditText
-        android:layout_margin="8dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+    <fragment
+        android:background="@color/colorWhite"
+        android:id="@+id/place_autocomplete_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search" />
+        android:name="com.google.android.gms.location.places.ui.SupportPlaceAutocompleteFragment" />
+
 
     <RelativeLayout
+        android:layout_margin="8dp"
+        android:padding="8dp"
         android:id="@+id/optionsDialog"
         android:background="@color/colorWhite"
         android:layout_alignParentBottom="true"
@@ -39,7 +41,6 @@
             />
 
         <LinearLayout
-            android:layout_margin="8dp"
             android:layout_alignParentBottom="true"
             android:orientation="horizontal"
             android:layout_width="match_parent"

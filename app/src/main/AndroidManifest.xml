@@ -21,7 +21,9 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".MainScreen">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".MainScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
