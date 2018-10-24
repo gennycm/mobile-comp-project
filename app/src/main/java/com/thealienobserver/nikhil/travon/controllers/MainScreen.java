@@ -1,5 +1,6 @@
-package com.thealienobserver.nikhil.travon;
+package com.thealienobserver.nikhil.travon.controllers;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -9,7 +10,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +31,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.thealienobserver.nikhil.travon.R;
 
 import java.io.IOException;
 import java.util.List;
@@ -138,5 +142,30 @@ public class MainScreen extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void navigate(View view) {
+        Button clickedButton = (Button) view;
+        TextView placeName = findViewById(R.id.placeName);
+
+
+        if(clickedButton.getText().toString().toUpperCase().equals("NEWS")) {
+            LatLng currentLocation = this.locationMarker.getPosition();
+            Geocoder geocoder = new Geocoder(MainScreen.this, Locale.getDefault());
+            String country = null;
+            try {
+                List<Address> adresses = geocoder.getFromLocation(currentLocation.latitude, currentLocation.longitude, 1);
+                country = adresses.get(0).getCountryCode();
+                Log.d("Country Code", country);
+            } catch (IOException e) {
+
+            }
+
+
+            Intent newsIntent = new Intent(this, NewsScreen.class);
+            newsIntent.putExtra(NewsScreen.COUNTRY_CODE_PARAM, country);
+            newsIntent.putExtra(NewsScreen.LAT_LON_PARAM, currentLocation);
+            startActivity(newsIntent);
+        }
     }
 }
