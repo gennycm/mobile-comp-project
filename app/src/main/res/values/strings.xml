@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Travon</string>
     <integer name="google_play_services_version">12211000</integer>
+    <string name="weatherStr">Weather</string>
+    <string name="eventsStr">Events</string>
+    <string name="newsStr">News</string>
+
+    <!-- Menu -->
+    <string name="welcoming">Welcoming</string>
+    <string name="recommendedPlaces">Recomended places</string>
+    <string name="costOfLiving">Cost of living</string>
+    <string name="findingRooms">Finding rooms</string>
+    <string name="services">Services</string>
+    <string name="immigration">Immigration</string>
+
+
 </resources>

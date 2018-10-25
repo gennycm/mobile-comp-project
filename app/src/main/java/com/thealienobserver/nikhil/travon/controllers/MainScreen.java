@@ -85,7 +85,7 @@ public class MainScreen extends AppCompatActivity {
 
             @Override
             public void onError(Status status) {
-                Toast.makeText(getApplication().getApplicationContext(),"Unable to find place.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication().getApplicationContext(), "Unable to find place.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -93,7 +93,7 @@ public class MainScreen extends AppCompatActivity {
     }
 
     private void updateUserSelectedLocation(LatLng location) {
-        if(locationMarker == null) {
+        if (locationMarker == null) {
             locationMarker = mapInstance.addMarker(new MarkerOptions().position(location));
         } else {
             locationMarker.setPosition(location);
@@ -104,8 +104,9 @@ public class MainScreen extends AppCompatActivity {
             List<Address> adresses = geocoder.getFromLocation(location.latitude, location.longitude, 1);
 
             String locality = adresses.get(0).getLocality();
+            Log.d("location", adresses.toString());
             RelativeLayout optionsDialog = findViewById(R.id.optionsDialog);
-            if(locality != null && locality.length() > 0) {
+            if (locality != null && locality.length() > 0) {
                 placeName.setText(locality);
                 optionsDialog.setVisibility(View.VISIBLE);
                 locationMarker.setTitle(locality);
@@ -118,24 +119,24 @@ public class MainScreen extends AppCompatActivity {
         }
     }
 
-    private void moveMapToPlace(LatLng place){
+    private void moveMapToPlace(LatLng place) {
         mapInstance.moveCamera(CameraUpdateFactory.newLatLngZoom(place, 10));
     }
 
     private void setMapToUserLocation() {
         FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        if ( ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
-            ActivityCompat.requestPermissions( this, new String[] { android.Manifest.permission.ACCESS_COARSE_LOCATION  }, 10 );
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
         }
-        if ( Build.VERSION.SDK_INT >= 23 &&
-                ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return  ;
+        if (Build.VERSION.SDK_INT >= 23 &&
+                ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
         }
         fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                if(location != null) {
+                if (location != null) {
                     LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
                     updateUserSelectedLocation(userLocation);
                     moveMapToPlace(userLocation);
@@ -149,7 +150,7 @@ public class MainScreen extends AppCompatActivity {
         TextView placeName = findViewById(R.id.placeName);
 
 
-        if(clickedButton.getText().toString().toUpperCase().equals("NEWS")) {
+        if (clickedButton.getText().toString().toUpperCase().equals("NEWS")) {
             LatLng currentLocation = this.locationMarker.getPosition();
             Geocoder geocoder = new Geocoder(MainScreen.this, Locale.getDefault());
             String country = null;
@@ -167,5 +168,14 @@ public class MainScreen extends AppCompatActivity {
             newsIntent.putExtra(NewsScreen.LAT_LON_PARAM, currentLocation);
             startActivity(newsIntent);
         }
+    }
+
+    public void openMainMenu(View view) {
+        LatLng currentLocation = this.locationMarker.getPosition();
+        Intent menuIntent = new Intent(this, MenuScreen.class);
+        menuIntent.putExtra(MenuScreen.LATITUDE, currentLocation.latitude);
+        menuIntent.putExtra(MenuScreen.LONGITUDE, currentLocation.longitude);
+        startActivity(menuIntent);
+
     }
 }

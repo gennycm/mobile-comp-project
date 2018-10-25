@@ -35,6 +35,7 @@
         android:layout_margin="8dp"
         android:padding="8dp"
         android:id="@+id/optionsDialog"
+        android:onClick="openMainMenu"
         android:background="@color/colorWhite"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
@@ -58,20 +59,20 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Weather"/>
+                android:text="@string/weatherStr"/>
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Events"/>
+                android:text="@string/eventsStr"/>
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="navigate"
-                android:text="News"/>
+                android:text="@string/newsStr"/>
 
         </LinearLayout>
 
