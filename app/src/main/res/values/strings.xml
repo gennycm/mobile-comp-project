@@ -7,11 +7,19 @@
 
     <!-- Menu -->
     <string name="welcoming">Welcoming</string>
-    <string name="recommendedPlaces">Recomended places</string>
+    <string name="recommendedPlaces">Recommended places</string>
     <string name="costOfLiving">Cost of living</string>
     <string name="findingRooms">Finding rooms</string>
     <string name="services">Services</string>
     <string name="immigration">Immigration</string>
+    <string name="title_activity_recommended_places_screen">RecommendedPlacesScreen</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_recommended_places">RecommendedPlacesActivity</string>
+    <string name="title_activity_main">MainActivity</string>
 
 
 </resources>

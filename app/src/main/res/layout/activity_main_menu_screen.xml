@@ -113,9 +113,12 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/recommendedPlacesRow"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="openRecommendedPlaces"
                 android:orientation="horizontal"
                 android:weightSum="1">
 
@@ -124,6 +127,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight=".20"
                     android:gravity="center"
+                    android:clickable="false"
+
                     android:orientation="vertical">
 
                     <ImageView
@@ -135,23 +140,27 @@
                         android:cropToPadding="false"
                         android:gravity="center"
                         android:textColor="#FFFFFF"
+                        android:clickable="false"
                         android:textSize="10sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight=".80">
+                    android:layout_weight=".80"
+                    android:clickable="false"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
+                        android:clickable="false"
+
                         android:fontFamily="@font/montserrat"
                         android:gravity="center_vertical"
                         android:text="@string/recommendedPlaces"
-                        android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>
 
@@ -263,7 +272,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                         android:layout_width="40dp"
+                        android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
@@ -279,7 +288,7 @@
                     android:layout_weight=".80">
 
                     <TextView
-                         android:layout_width="wrap_content"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
@@ -308,7 +317,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                         android:layout_width="40dp"
+                        android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
@@ -324,7 +333,7 @@
                     android:layout_weight=".80">
 
                     <TextView
-                         android:layout_width="wrap_content"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
