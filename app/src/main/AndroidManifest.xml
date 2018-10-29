@@ -32,11 +32,66 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ImmNav1Screen"
+            android:label="Menu"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".ImmiList1"
+            android:label="Go Back"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".ImmNav1Screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".ImmiList2"
+            android:label="Go Back"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".ImmNav1Screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".ImmiList3"
+            android:label="Go Back"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".ImmNav1Screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".ImmiList4"
+            android:label="Go Back"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".ImmNav1Screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".controllers.NewsScreen" />
         <activity
             android:name=".controllers.MenuScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        
+
     </application>
 
 </manifest>
