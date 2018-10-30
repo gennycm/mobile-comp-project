@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <LinearLayout android:orientation="vertical" android:layout_height="match_parent" android:layout_width="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView android:layout_height="300dp" android:layout_width="match_parent" android:src="@mipmap/ic_launcher" android:padding="8dp" android:scaleType="fitXY" android:id="@+id/iv_recommended_place"/>
+
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:padding="8dp" android:id="@+id/tv_title" android:textStyle="bold" android:text="Title"/>
+
+
+    -<ScrollView android:layout_height="wrap_content" android:layout_width="match_parent">
+
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:padding="8dp" android:id="@+id/tv_description" android:text="Description" android:scrollbars="vertical"/>
+
+</ScrollView>
+
+</LinearLayout>
