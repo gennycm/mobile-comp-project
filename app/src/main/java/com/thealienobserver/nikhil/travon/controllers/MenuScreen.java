@@ -10,6 +10,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -55,8 +58,6 @@ public class MenuScreen extends AppCompatActivity implements GoogleApiClient.Con
         super.onStart();
         if (mGoogleApiClient != null)
             mGoogleApiClient.connect();
-
-
     }
 
     @Override
