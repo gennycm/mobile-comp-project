@@ -41,6 +41,8 @@ public class MainScreen extends AppCompatActivity {
 
     private Marker locationMarker;
     private GoogleMap mapInstance;
+    private String city;
+    private String mSelectedPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,7 @@ public class MainScreen extends AppCompatActivity {
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
+                city= place.getName().toString();
                 LatLng searchedPlace = place.getLatLng();
                 updateUserSelectedLocation(searchedPlace);
                 moveMapToPlace(searchedPlace);
@@ -104,6 +107,7 @@ public class MainScreen extends AppCompatActivity {
             List<Address> adresses = geocoder.getFromLocation(location.latitude, location.longitude, 1);
 
             String locality = adresses.get(0).getLocality();
+            mSelectedPlace = locality;
             Log.d("location", adresses.toString());
             RelativeLayout optionsDialog = findViewById(R.id.optionsDialog);
             if (locality != null && locality.length() > 0) {
@@ -168,6 +172,24 @@ public class MainScreen extends AppCompatActivity {
             newsIntent.putExtra(NewsScreen.LAT_LON_PARAM, currentLocation);
             startActivity(newsIntent);
         }
+        else if(clickedButton.getText().toString().toUpperCase().equals("WEATHER")){
+            LatLng currentLocation = this.locationMarker.getPosition();
+            Geocoder geocoder = new Geocoder(MainScreen.this, Locale.getDefault());
+            String country = null;
+            try {
+                List<Address> adresses = geocoder.getFromLocation(currentLocation.latitude, currentLocation.longitude, 1);
+                country = adresses.get(0).getCountryCode();
+                Log.d("Country Code", country);
+            } catch (IOException e) {
+
+            }
+            Intent weatherIntent = new Intent(this, WeatherScreen.class);
+            weatherIntent.putExtra(WeatherScreen.COUNTRY_CODE_PARAM, country);
+            weatherIntent.putExtra(WeatherScreen.LAT_LON_PARAM, currentLocation);
+            weatherIntent.putExtra(WeatherScreen.LATITUDE, currentLocation.latitude);
+            weatherIntent.putExtra(WeatherScreen.LONGITUDE, currentLocation.longitude);
+            startActivity(weatherIntent);
+        }
 
         if (clickedButton.getId() == R.id.eventsButton) {
             LatLng currentLocation = this.locationMarker.getPosition();
@@ -181,6 +203,7 @@ public class MainScreen extends AppCompatActivity {
     public void openMainMenu(View view) {
         LatLng currentLocation = this.locationMarker.getPosition();
         Intent menuIntent = new Intent(this, MenuScreen.class);
+        menuIntent.putExtra(MenuScreen.CITY, mSelectedPlace);
         menuIntent.putExtra(MenuScreen.LATITUDE, currentLocation.latitude);
         menuIntent.putExtra(MenuScreen.LONGITUDE, currentLocation.longitude);
         startActivity(menuIntent);

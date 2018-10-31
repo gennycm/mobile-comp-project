@@ -32,6 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".controllers.WeatherScreen"/>
+
         <activity android:name=".ImmNav1Screen"
             android:label="Menu"
             android:theme="@style/AppTheme"
@@ -90,9 +93,12 @@
         <activity android:name=".controllers.NewsScreen" />
         <activity
             android:name=".controllers.MenuScreen"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
 
         <activity android:name=".controllers.EventsScreen" />
+        <activity android:name=".controllers.RecommendedPlaces" />
+        <activity android:name=".controllers.DetailActivity" />
     </application>
 
 </manifest>
