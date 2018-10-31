@@ -93,8 +93,11 @@
         <activity android:name=".controllers.NewsScreen" />
         <activity
             android:name=".controllers.MenuScreen"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
+        </activity>
+        <activity android:name=".controllers.RecommendedPlaces" />
+        <activity android:name=".controllers.DetailActivity" />
     </application>
 
 </manifest>

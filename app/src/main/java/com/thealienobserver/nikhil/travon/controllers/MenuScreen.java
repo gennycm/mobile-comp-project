@@ -3,13 +3,20 @@ package com.thealienobserver.nikhil.travon.controllers;
 import android.content.Intent;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.view.View;
+import android.widget.LinearLayout;
 
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.location.places.Place;
@@ -17,15 +24,23 @@ import com.google.android.gms.location.places.PlaceBuffer;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.model.LatLng;
 import com.thealienobserver.nikhil.travon.R;
+import com.thealienobserver.nikhil.travon.apihandlers.MainMenuHandler;
+import com.thealienobserver.nikhil.travon.models.RecommendedPlace;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class MenuScreen extends AppCompatActivity {
-    private GoogleApiClient mGoogleApiClient;
+    public static final String PlaceID = "PLACE_ID";
     public static final String LATITUDE = "LATITUDE";
-    public static final String LONGITUDE = "longitude";
+    public static final String LONGITUDE = "LONGITUDE";
+    public static final String CITY = "CITY";
+
     private String mLatitude;
     private String mLongitude;
+    private String mCity;
+    private TextView cityTextView;
+    private ImageView cityImageview;
 
 
     @Override
@@ -33,58 +48,31 @@ public class MenuScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu_screen);
 
+        cityTextView = findViewById(R.id.cityTextView);
+        cityImageview = findViewById(R.id.cityImageView);
+
+        mLatitude = String.valueOf(getIntent().getDoubleExtra(LATITUDE, 0.0));
+        mLongitude = String.valueOf(getIntent().getDoubleExtra(LONGITUDE, 0.0));
+        mCity = getIntent().getStringExtra(CITY);
+
+        cityTextView.setText(mCity);
+
+        MainMenuHandler mainMenuHandler = new MainMenuHandler(this, cityImageview);
+        mainMenuHandler.getPlaceID(mLongitude, mLatitude);
 
 
-        mLatitude = getIntent().getStringExtra(LATITUDE);
-        mLatitude = getIntent().getStringExtra(LATITUDE);
-
-        mGoogleApiClient = new GoogleApiClient
-                .Builder(this)
-                .addApi(Places.GEO_DATA_API)
-                .addApi(Places.PLACE_DETECTION_API)
-                .build();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (mGoogleApiClient != null)
-            mGoogleApiClient.connect();
-    }
-
-    @Override
-    protected void onStop() {
-        if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
-            mGoogleApiClient.disconnect();
-        }
-        super.onStop();
     }
 
 
-    private void findPlaceById(String id) {
-        if (TextUtils.isEmpty(id) || mGoogleApiClient == null || !mGoogleApiClient.isConnected())
-            return;
+    public void openRecommendedplace(View view) {
 
-        Places.GeoDataApi.getPlaceById(mGoogleApiClient, id).setResultCallback(new ResultCallback<PlaceBuffer>() {
-            @Override
-            public void onResult(PlaceBuffer places) {
-                if (places.getStatus().isSuccess()) {
-                    Place place = places.get(0);
-                    Log.d("place", place.toString());
-                }
-
-                //Release the PlaceBuffer to prevent a memory leak
-                places.release();
-            }
-        });
-    }
-
-    public void openRecommendedPlaces(View view) {
-        Toast.makeText(getApplicationContext(), "This is my Toast message!", Toast.LENGTH_LONG).show();
-
-        //  Intent recommendedPlacesIntent = new Intent(MenuScreen.this, RecommendedPlacesActivity.class);
-      //  startActivity(recommendedPlacesIntent);
+        Intent intent = new Intent(MenuScreen.this, RecommendedPlaces.class);
+        intent.putExtra(LATITUDE, mLatitude);
+        intent.putExtra(LONGITUDE, mLongitude);
+        intent.putExtra(CITY, mCity);
+        startActivity(intent);
 
     }
+
 
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <RelativeLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/container" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    -<android.support.v7.widget.CardView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/card_view" card_view:cardCornerRadius="4dp" android:layout_margin="8dp" android:layout_gravity="center" xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+
+    -<LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:orientation="vertical">
+
+    <ImageView android:layout_height="200dp" android:layout_width="match_parent" android:id="@+id/iv_recommended_place" android:scaleType="fitXY" android:padding="8dp"/>
+
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/tv_title" android:padding="8dp" android:text="Recommended Place Title" android:textStyle="bold"/>
+
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/tv_description" android:padding="8dp" android:text="Recommended Place Description" android:ellipsize="end" android:lines="5"/>
+
+</LinearLayout>
+
+</android.support.v7.widget.CardView>
+
+</RelativeLayout>

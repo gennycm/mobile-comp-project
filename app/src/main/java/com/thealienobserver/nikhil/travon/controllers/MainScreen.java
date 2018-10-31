@@ -41,6 +41,8 @@ public class MainScreen extends AppCompatActivity {
 
     private Marker locationMarker;
     private GoogleMap mapInstance;
+    private String city;
+    private String mSelectedPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,7 @@ public class MainScreen extends AppCompatActivity {
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
+                city= place.getName().toString();
                 LatLng searchedPlace = place.getLatLng();
                 updateUserSelectedLocation(searchedPlace);
                 moveMapToPlace(searchedPlace);
@@ -104,6 +107,7 @@ public class MainScreen extends AppCompatActivity {
             List<Address> adresses = geocoder.getFromLocation(location.latitude, location.longitude, 1);
 
             String locality = adresses.get(0).getLocality();
+            mSelectedPlace = locality;
             Log.d("location", adresses.toString());
             RelativeLayout optionsDialog = findViewById(R.id.optionsDialog);
             if (locality != null && locality.length() > 0) {
@@ -191,6 +195,7 @@ public class MainScreen extends AppCompatActivity {
     public void openMainMenu(View view) {
         LatLng currentLocation = this.locationMarker.getPosition();
         Intent menuIntent = new Intent(this, MenuScreen.class);
+        menuIntent.putExtra(MenuScreen.CITY, mSelectedPlace);
         menuIntent.putExtra(MenuScreen.LATITUDE, currentLocation.latitude);
         menuIntent.putExtra(MenuScreen.LONGITUDE, currentLocation.longitude);
         startActivity(menuIntent);
