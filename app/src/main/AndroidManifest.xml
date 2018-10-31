@@ -32,8 +32,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controllers.ImmNav1Screen"
-            android:label="Go Back"
+        <activity
+            android:name=".controllers.WeatherScreen"/>
+
+        <activity android:name=".ImmNav1Screen"
+            android:label="Menu"
             android:theme="@style/AppTheme"
             android:parentActivityName=".controllers.MenuScreen">
             <intent-filter>
