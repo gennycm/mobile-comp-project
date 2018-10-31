@@ -9,7 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -22,19 +24,23 @@ import com.google.android.gms.location.places.PlaceBuffer;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.model.LatLng;
 import com.thealienobserver.nikhil.travon.R;
+import com.thealienobserver.nikhil.travon.apihandlers.MainMenuHandler;
 import com.thealienobserver.nikhil.travon.models.RecommendedPlace;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
-public class MenuScreen extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class MenuScreen extends AppCompatActivity {
     public static final String PlaceID = "PLACE_ID";
-    public static final String CITY ="City" ;
-    private GoogleApiClient mGoogleApiClient;
     public static final String LATITUDE = "LATITUDE";
-    public static final String LONGITUDE = "longitude";
+    public static final String LONGITUDE = "LONGITUDE";
+    public static final String CITY = "CITY";
+
     private String mLatitude;
     private String mLongitude;
-    private String city;
+    private String mCity;
+    private TextView cityTextView;
+    private ImageView cityImageview;
 
 
     @Override
@@ -42,55 +48,19 @@ public class MenuScreen extends AppCompatActivity implements GoogleApiClient.Con
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu_screen);
 
-        mLatitude = String.valueOf(getIntent().getDoubleExtra(LATITUDE,0.0));
-        mLongitude = String.valueOf(getIntent().getDoubleExtra(LONGITUDE,0.0));
-        city= getIntent().getStringExtra(CITY);
+        cityTextView = findViewById(R.id.cityTextView);
+        cityImageview = findViewById(R.id.cityImageView);
 
-        mGoogleApiClient = new GoogleApiClient
-                .Builder(this)
-                .addApi(Places.GEO_DATA_API)
-                .addApi(Places.PLACE_DETECTION_API)
-                .build();
-    }
+        mLatitude = String.valueOf(getIntent().getDoubleExtra(LATITUDE, 0.0));
+        mLongitude = String.valueOf(getIntent().getDoubleExtra(LONGITUDE, 0.0));
+        mCity = getIntent().getStringExtra(CITY);
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (mGoogleApiClient != null)
-            mGoogleApiClient.connect();
-    }
+        cityTextView.setText(mCity);
 
-    @Override
-    protected void onStop() {
-        if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
-            mGoogleApiClient.disconnect();
-        }
-        super.onStop();
-    }
+        MainMenuHandler mainMenuHandler = new MainMenuHandler(this, cityImageview);
+        mainMenuHandler.getPlaceID(mLongitude, mLatitude);
 
 
-    private void findPlaceById(String id) {
-        if (TextUtils.isEmpty(id) || mGoogleApiClient == null || !mGoogleApiClient.isConnected())
-            return;
-
-        Places.GeoDataApi.getPlaceById(mGoogleApiClient, id).setResultCallback(new ResultCallback<PlaceBuffer>() {
-            @Override
-            public void onResult(PlaceBuffer places) {
-                if (places.getStatus().isSuccess()) {
-
-                    for (Place place : places) {
-
-                        Log.d("place", place.getPlaceTypes().toString());
-
-                    }
-
-
-                }
-
-                //Release the PlaceBuffer to prevent a memory leak
-                places.release();
-            }
-        });
     }
 
 
@@ -99,28 +69,10 @@ public class MenuScreen extends AppCompatActivity implements GoogleApiClient.Con
         Intent intent = new Intent(MenuScreen.this, RecommendedPlaces.class);
         intent.putExtra(LATITUDE, mLatitude);
         intent.putExtra(LONGITUDE, mLongitude);
-        intent.putExtra(CITY,city);
+        intent.putExtra(CITY, mCity);
         startActivity(intent);
 
     }
 
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
 
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
-    }
 }
