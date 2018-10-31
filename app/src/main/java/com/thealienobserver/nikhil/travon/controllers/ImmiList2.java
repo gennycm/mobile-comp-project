@@ -1,8 +1,10 @@
-package com.thealienobserver.nikhil.travon;
+package com.thealienobserver.nikhil.travon.controllers;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.thealienobserver.nikhil.travon.R;
 
 public class ImmiList2 extends ImmNav1Screen  {
     // Array of strings...
