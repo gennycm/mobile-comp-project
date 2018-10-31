@@ -62,12 +62,15 @@
                 android:text="@string/weatherStr"/>
 
             <Button
+                android:id="@+id/eventsButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="navigate"
                 android:text="@string/eventsStr"/>
 
             <Button
+                android:id="@+id/newsButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

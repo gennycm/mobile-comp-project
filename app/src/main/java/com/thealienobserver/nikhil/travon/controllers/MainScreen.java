@@ -150,7 +150,7 @@ public class MainScreen extends AppCompatActivity {
         TextView placeName = findViewById(R.id.placeName);
 
 
-        if (clickedButton.getText().toString().toUpperCase().equals("NEWS")) {
+        if (clickedButton.getId() == R.id.newsButton) {
             LatLng currentLocation = this.locationMarker.getPosition();
             Geocoder geocoder = new Geocoder(MainScreen.this, Locale.getDefault());
             String country = null;
@@ -167,6 +167,14 @@ public class MainScreen extends AppCompatActivity {
             newsIntent.putExtra(NewsScreen.COUNTRY_CODE_PARAM, country);
             newsIntent.putExtra(NewsScreen.LAT_LON_PARAM, currentLocation);
             startActivity(newsIntent);
+        }
+
+        if (clickedButton.getId() == R.id.eventsButton) {
+            LatLng currentLocation = this.locationMarker.getPosition();
+
+            Intent eventIntent = new Intent(this, EventsScreen.class);
+            eventIntent.putExtra(EventsScreen.LAT_LON_PARAM, currentLocation);
+            startActivity(eventIntent);
         }
     }
 

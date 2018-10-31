@@ -35,7 +35,7 @@
         <activity android:name=".ImmNav1Screen"
             android:label="Menu"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".MainScreen">
+            android:parentActivityName="controllers.MainScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -92,6 +92,7 @@
             android:name=".controllers.MenuScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
+        <activity android:name=".controllers.EventsScreen" />
     </application>
 
 </manifest>
