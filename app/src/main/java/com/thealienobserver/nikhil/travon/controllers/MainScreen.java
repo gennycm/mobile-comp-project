@@ -168,6 +168,24 @@ public class MainScreen extends AppCompatActivity {
             newsIntent.putExtra(NewsScreen.LAT_LON_PARAM, currentLocation);
             startActivity(newsIntent);
         }
+        else if(clickedButton.getText().toString().toUpperCase().equals("WEATHER")){
+            LatLng currentLocation = this.locationMarker.getPosition();
+            Geocoder geocoder = new Geocoder(MainScreen.this, Locale.getDefault());
+            String country = null;
+            try {
+                List<Address> adresses = geocoder.getFromLocation(currentLocation.latitude, currentLocation.longitude, 1);
+                country = adresses.get(0).getCountryCode();
+                Log.d("Country Code", country);
+            } catch (IOException e) {
+
+            }
+            Intent weatherIntent = new Intent(this, WeatherScreen.class);
+            weatherIntent.putExtra(WeatherScreen.COUNTRY_CODE_PARAM, country);
+            weatherIntent.putExtra(WeatherScreen.LAT_LON_PARAM, currentLocation);
+            weatherIntent.putExtra(WeatherScreen.LATITUDE, currentLocation.latitude);
+            weatherIntent.putExtra(WeatherScreen.LONGITUDE, currentLocation.longitude);
+            startActivity(weatherIntent);
+        }
     }
 
     public void openMainMenu(View view) {
