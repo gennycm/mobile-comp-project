@@ -103,6 +103,12 @@ public class MenuScreen extends AppCompatActivity implements GoogleApiClient.Con
         startActivity(intent);
 
     }
+    public void openImmigration(View view)
+    {
+        Intent immigrationInfoIntent = new Intent(MenuScreen.this, ImmNav1Screen.class);
+        startActivity(immigrationInfoIntent);
+
+    }
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {

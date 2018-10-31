@@ -32,10 +32,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ImmNav1Screen"
-            android:label="Menu"
+        <activity android:name=".controllers.ImmNav1Screen"
+            android:label="Go Back"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".MainScreen">
+            android:parentActivityName=".controllers.MenuScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,10 +43,10 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".ImmiList1"
+        <activity android:name=".controllers.ImmiList1"
             android:label="Go Back"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".ImmNav1Screen">
+            android:parentActivityName=".controllers.ImmNav1Screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,10 +54,10 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".ImmiList2"
+        <activity android:name=".controllers.ImmiList2"
             android:label="Go Back"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".ImmNav1Screen">
+            android:parentActivityName=".controllers.ImmNav1Screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,10 +65,10 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".ImmiList3"
+        <activity android:name=".controllers.ImmiList3"
             android:label="Go Back"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".ImmNav1Screen">
+            android:parentActivityName=".controllers.ImmNav1Screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -76,10 +76,10 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".ImmiList4"
+        <activity android:name=".controllers.ImmiList4"
             android:label="Go Back"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".ImmNav1Screen">
+            android:parentActivityName=".controllers.ImmNav1Screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
