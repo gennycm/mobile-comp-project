@@ -35,7 +35,7 @@
         <activity
             android:name=".controllers.WeatherScreen"/>
 
-        <activity android:name=".ImmNav1Screen"
+        <activity android:name=".controllers.ImmNav1Screen"
             android:label="Menu"
             android:theme="@style/AppTheme"
             android:parentActivityName=".controllers.MenuScreen">
