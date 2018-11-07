@@ -191,7 +191,7 @@ public class MainScreen extends AppCompatActivity {
             startActivity(weatherIntent);
         }
 
-        if (clickedButton.getId() == R.id.eventsButton) {
+        else if (clickedButton.getId() == R.id.eventsButton) {
             LatLng currentLocation = this.locationMarker.getPosition();
 
             Intent eventIntent = new Intent(this, EventsScreen.class);

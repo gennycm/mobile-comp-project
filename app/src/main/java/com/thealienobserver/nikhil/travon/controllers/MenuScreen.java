@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -50,7 +51,7 @@ public class MenuScreen extends AppCompatActivity {
 
         cityTextView = findViewById(R.id.cityTextView);
         cityImageview = findViewById(R.id.cityImageView);
-
+        
         mLatitude = String.valueOf(getIntent().getDoubleExtra(LATITUDE, 0.0));
         mLongitude = String.valueOf(getIntent().getDoubleExtra(LONGITUDE, 0.0));
         mCity = getIntent().getStringExtra(CITY);
@@ -72,6 +73,21 @@ public class MenuScreen extends AppCompatActivity {
         intent.putExtra(CITY, mCity);
         startActivity(intent);
 
+    }
+
+    public void navigate(View view) {
+        Button clickedButton = (Button) view;
+        TextView placeName = findViewById(R.id.placeName);
+
+        // TODO: Add other button nativations
+
+        if (clickedButton.getId() == R.id.eventsButton) {
+            LatLng currentLocation = new LatLng(Double.valueOf(mLatitude), Double.valueOf(mLongitude));
+
+            Intent eventIntent = new Intent(this, EventsScreen.class);
+            eventIntent.putExtra(EventsScreen.LAT_LON_PARAM, currentLocation);
+            startActivity(eventIntent);
+        }
     }
 
 
