@@ -74,6 +74,12 @@ public class MenuScreen extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void openImmigration(View view)
+    {
+        Intent immigrationInfoIntent = new Intent(MenuScreen.this, ImmNav1Screen.class);
+        startActivity(immigrationInfoIntent);
+
+    }
 
     public void navigate(View view) {
         Button clickedButton = (Button) view;
