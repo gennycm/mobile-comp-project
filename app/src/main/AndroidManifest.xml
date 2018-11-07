@@ -34,67 +34,36 @@
         </activity>
         <activity
             android:name=".controllers.WeatherScreen"/>
-
         <activity android:name=".controllers.ImmNav1Screen"
             android:label="Menu"
             android:theme="@style/AppTheme"
             android:parentActivityName=".controllers.MenuScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity android:name=".controllers.ImmiList1"
             android:label="Go Back"
             android:theme="@style/AppTheme"
             android:parentActivityName=".controllers.ImmNav1Screen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity android:name=".controllers.ImmiList2"
             android:label="Go Back"
             android:theme="@style/AppTheme"
             android:parentActivityName=".controllers.ImmNav1Screen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity android:name=".controllers.ImmiList3"
             android:label="Go Back"
             android:theme="@style/AppTheme"
             android:parentActivityName=".controllers.ImmNav1Screen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity android:name=".controllers.ImmiList4"
             android:label="Go Back"
             android:theme="@style/AppTheme"
             android:parentActivityName=".controllers.ImmNav1Screen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity android:name=".controllers.NewsScreen" />
         <activity
             android:name=".controllers.MenuScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         </activity>
         <activity android:name=".controllers.RecommendedPlaces" />
         <activity android:name=".controllers.DetailActivity" />
