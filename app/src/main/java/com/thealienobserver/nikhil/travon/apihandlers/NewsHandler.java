@@ -30,23 +30,18 @@ public abstract class NewsHandler {
 //    private static NewsHandler newsHandlerInstance;
     private Context applicationContext;
 
-    private static final String NEWS_URL = "https://newsapi.org/v2/top-headlines?country=gb&apiKey=52a70f17e25a4aadb0e73d77d75667ea";
+    private static final String TOP_NEWS_URL = "https://newsapi.org/v2/top-headlines?apiKey=52a70f17e25a4aadb0e73d77d75667ea";
+    private static final String EVERY_NEWS_URL = "https://newsapi.org/v2/everything?apiKey=52a70f17e25a4aadb0e73d77d75667ea&pageSize=10";
+
 
     public NewsHandler(Context context) {
         this.applicationContext = context;
     }
 
-//
-//    public static NewsHandler getInstance(Context context) {
-//        if(newsHandlerInstance == null) {
-//            newsHandlerInstance = new NewsHandler(context);
-//        }
-//        return newsHandlerInstance;
-//    }
-
-    public void getTopNewsHeadlines(String countryCode) {
+    public void getNewsArticles(String city, String country) {
         RequestQueue requestQueue = Volley.newRequestQueue(applicationContext);
-        String url = NEWS_URL + "&country=" + countryCode;
+//        String url = TOP_NEWS_URL + "&country=" + countryCode;
+        String url = EVERY_NEWS_URL + "&q=" + city + " " + country;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
