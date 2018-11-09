@@ -1,19 +1,26 @@
 package com.thealienobserver.nikhil.travon.controllers;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
+import android.os.SystemClock;
+import android.preference.PreferenceManager;
+import android.speech.RecognizerIntent;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +28,11 @@ import android.widget.Toast;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.places.AutocompletePrediction;
+import com.google.android.gms.location.places.AutocompletePredictionBufferResponse;
+import com.google.android.gms.location.places.GeoDataClient;
 import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.location.places.ui.SupportPlaceAutocompleteFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -32,10 +43,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.thealienobserver.nikhil.travon.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,6 +57,8 @@ public class MainScreen extends AppCompatActivity {
     private Marker locationMarker;
     private GoogleMap mapInstance;
     private List<Address> adresses;
+
+    private static final int VOICE_ACTIVITY_CODE = 102;
 
 
     @Override
@@ -79,6 +94,7 @@ public class MainScreen extends AppCompatActivity {
 
     private void setupPlacesSearch() {
         SupportPlaceAutocompleteFragment autocompleteFragment = (SupportPlaceAutocompleteFragment) getSupportFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+        autocompleteFragment.setHint(getString(R.string.search_hint));
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
@@ -92,8 +108,43 @@ public class MainScreen extends AppCompatActivity {
                 Toast.makeText(getApplication().getApplicationContext(), "Unable to find place.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    public void voiceToSearch(View view) {
+        Intent speechIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        speechIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        speechIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.voice_command_text));
+        startActivityForResult(speechIntent, VOICE_ACTIVITY_CODE);
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case VOICE_ACTIVITY_CODE:
+                if(resultCode == RESULT_OK && data != null) {
+                    ArrayList<String> speechResults = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    SupportPlaceAutocompleteFragment placeAutocompleteFragment = (SupportPlaceAutocompleteFragment) getSupportFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+                    String searchPlace = speechResults.get(0);
+                    placeAutocompleteFragment.setText(searchPlace);
+                    Geocoder geocoder = new Geocoder(this);
+                    try {
+                        List<Address> addresses = geocoder.getFromLocationName(searchPlace, 1);
+                        if(addresses.size() > 0){
+                            LatLng userLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
+                            updateUserSelectedLocation(userLocation);
+                            moveMapToPlace(userLocation);
+                        } else {
+                            Toast.makeText(this, "Unable to find place "+ searchPlace, Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (IOException e) {
+                        Toast.makeText(this, "Unable to find place "+ searchPlace, Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
+
+                }
+                break;
+        }
     }
 
     private void updateUserSelectedLocation(LatLng location) {
@@ -154,8 +205,6 @@ public class MainScreen extends AppCompatActivity {
 
     public void navigate(View view) {
         Button clickedButton = (Button) view;
-        TextView placeName = findViewById(R.id.placeName);
-
 
         if (clickedButton.getText().toString().toUpperCase().equals("NEWS")) {
             String city = adresses.get(0).getLocality();
