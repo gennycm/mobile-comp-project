@@ -35,7 +35,6 @@ public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Log.d(TAG, "bind view called");
         WeatherModel weatherElement = this.weatherModel.get(i);
         viewHolder.CityName.setText(weatherElement.getCity());
         viewHolder.Temprature.setText(String.valueOf(weatherElement.getTemprature()));
@@ -45,7 +44,6 @@ public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardAdapter.
         viewHolder.Main.setText(weatherElement.getMain());
         viewHolder.Description.setText(weatherElement.getDescription());
         viewHolder.ForecastDate.setText(String.valueOf(weatherElement.getWeather_Date()));
-        Log.d("ImageeeeeeeeUrl",weatherElement.getImage_Url());
         Glide.with(callerContext).load(weatherElement.getImage_Url()).into(viewHolder.weatherImage);
     }
 
