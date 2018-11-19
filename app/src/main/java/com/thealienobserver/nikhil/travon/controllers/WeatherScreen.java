@@ -55,7 +55,7 @@ public class WeatherScreen extends AppCompatActivity {
                 WeatherScreen.this.setupWeatherCards(weatherModel);
             }
         };
-        weatherHandler.getFiveDaysWeather(Latitude,Longitude);
+        weatherHandler.getFiveDaysWeather(Latitude, Longitude);
     }
 
     private void setupWeatherCards(ArrayList<WeatherModel> weatherModel) {
