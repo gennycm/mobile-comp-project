@@ -1,21 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-    <RelativeLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/container" xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
 
-    -<android.support.v7.widget.CardView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/card_view" card_view:cardCornerRadius="4dp" android:layout_margin="8dp" android:layout_gravity="center" xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    -
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        card_view:cardCornerRadius="4dp">
 
 
-    -<LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:orientation="vertical">
+        -
 
-    <ImageView android:layout_height="200dp" android:layout_width="match_parent" android:id="@+id/iv_recommended_place" android:scaleType="fitXY" android:padding="8dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/tv_title" android:padding="8dp" android:text="Recommended Place Title" android:textStyle="bold"/>
+            <ImageView
+                android:id="@+id/iv_recommended_place"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:padding="8dp"
+                android:scaleType="fitXY" />
 
-    <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/tv_description" android:padding="8dp" android:text="Recommended Place Description" android:ellipsize="end" android:lines="5"/>
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Recommended Place Title"
+                android:textStyle="bold" />
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="5"
+                android:padding="8dp"
+                android:text="Recommended Place Description" />
 
-</android.support.v7.widget.CardView>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>

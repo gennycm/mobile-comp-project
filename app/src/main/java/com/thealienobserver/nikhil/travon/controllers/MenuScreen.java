@@ -5,11 +5,13 @@ import android.location.Address;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.apihandlers.MainMenuHandler;
+import com.thealienobserver.nikhil.travon.controllers.RecommendedPlaces.RecommendedPlacesActivity;
 
 import java.util.ArrayList;
 
@@ -50,7 +52,7 @@ public class MenuScreen extends AppCompatActivity {
         String city = addresses.get(0).getLocality();
         city = (city == null)? addresses.get(0).getAdminArea(): city;
 
-        Intent intent = new Intent(MenuScreen.this, RecommendedPlaces.class);
+        Intent intent = new Intent(MenuScreen.this, RecommendedPlacesActivity.class);
         intent.putExtra(LATITUDE, latitude);
         intent.putExtra(LONGITUDE, longitude);
         intent.putExtra(CITY, city);

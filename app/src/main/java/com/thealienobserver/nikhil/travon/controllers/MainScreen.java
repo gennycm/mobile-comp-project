@@ -226,6 +226,14 @@ public class MainScreen extends AppCompatActivity {
             weatherIntent.putExtra(WeatherScreen.LONGITUDE, currentLocation.longitude);
             startActivity(weatherIntent);
         }
+
+        else if (clickedButton.getId() == R.id.eventsButton) {
+            LatLng currentLocation = this.locationMarker.getPosition();
+
+            Intent eventIntent = new Intent(this, EventsScreen.class);
+            eventIntent.putExtra(EventsScreen.LAT_LON_PARAM, currentLocation);
+            startActivity(eventIntent);
+        }
     }
 
     public void openMainMenu(View view) {
