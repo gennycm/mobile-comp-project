@@ -23,37 +23,38 @@ public class ImmNav1Screen extends AppCompatActivity {
         imm1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myintent = new Intent(ImmNav1Screen.this, ImmiList1.class);
+                Intent myintent = new Intent(ImmNav1Screen .this, ImmiList1.class);
                 startActivity(myintent);
             }
         });
         imm2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myintent = new Intent(ImmNav1Screen.this, ImmiList2.class);
+                Intent myintent = new Intent(ImmNav1Screen .this, ImmiList2.class);
                 startActivity(myintent);
 
             }
             });
         imm3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent myintent = new Intent(ImmNav1Screen.this, ImmiList3.class);
+            public void onClick(View v)
+            {
+                Intent myintent = new Intent(ImmNav1Screen .this, ImmiList3.class);
                 startActivity(myintent);
 
             }
         });
         imm4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent myintent = new Intent(ImmNav1Screen.this, ImmiList4.class);
+            public void onClick(View v)
+            {
+                Intent myintent = new Intent(ImmNav1Screen .this, ImmiList4.class);
                 startActivity(myintent);
 
             }
         });
 
     }
-
 
 }
 
