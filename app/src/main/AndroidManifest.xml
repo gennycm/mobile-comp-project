@@ -66,6 +66,8 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
         <activity android:name=".controllers.RecommendedPlaces.RecommendedPlacesActivity" />
+        <activity android:name=".controllers.EventsScreen" />
+        <activity android:name=".controllers.RecommendedPlaces" />
         <activity android:name=".controllers.DetailActivity" />
     </application>
 
