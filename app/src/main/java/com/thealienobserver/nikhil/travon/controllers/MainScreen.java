@@ -60,7 +60,6 @@ public class MainScreen extends AppCompatActivity {
 
     private static final int VOICE_ACTIVITY_CODE = 102;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -225,9 +224,7 @@ public class MainScreen extends AppCompatActivity {
             weatherIntent.putExtra(WeatherScreen.LATITUDE, currentLocation.latitude);
             weatherIntent.putExtra(WeatherScreen.LONGITUDE, currentLocation.longitude);
             startActivity(weatherIntent);
-        }
-
-        else if (clickedButton.getId() == R.id.eventsButton) {
+        } else if (clickedButton.getId() == R.id.eventsButton) {
             LatLng currentLocation = this.locationMarker.getPosition();
 
             Intent eventIntent = new Intent(this, EventsScreen.class);

@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.apihandlers.MainMenuHandler;
 import com.thealienobserver.nikhil.travon.controllers.RecommendedPlaces.RecommendedPlacesActivity;
@@ -64,6 +66,18 @@ public class MenuScreen extends AppCompatActivity {
         startActivity(immigrationInfoIntent);
     }
 
+    public void openEvents(View view) {
+        LatLng currentLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
+
+        Intent eventIntent = new Intent(this, EventsScreen.class);
+        eventIntent.putExtra(EventsScreen.LAT_LON_PARAM, currentLocation);
+        startActivity(eventIntent);
+    }
+
+    public void comingSoon(View view) {
+        Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
+    }
+
     public void openNews(View view) {
         String city = addresses.get(0).getLocality();
         city = (city == null)? addresses.get(0).getAdminArea(): city;
@@ -71,5 +85,16 @@ public class MenuScreen extends AppCompatActivity {
         newsIntent.putExtra(NewsScreen.COUNTRY_PARAM, addresses.get(0).getCountryName());
         newsIntent.putExtra(NewsScreen.CITY_PARAM, city);
         startActivity(newsIntent);
+    }
+
+    public void openWeather(View view) {
+        LatLng currentLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
+        String country = addresses.get(0).getCountryCode();
+        Intent weatherIntent = new Intent(this, WeatherScreen.class);
+        weatherIntent.putExtra(WeatherScreen.COUNTRY_CODE_PARAM, country);
+        weatherIntent.putExtra(WeatherScreen.LAT_LON_PARAM, currentLocation);
+        weatherIntent.putExtra(WeatherScreen.LATITUDE, currentLocation.latitude);
+        weatherIntent.putExtra(WeatherScreen.LONGITUDE, currentLocation.longitude);
+        startActivity(weatherIntent);
     }
 }

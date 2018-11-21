@@ -61,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/colorPrimary"
+                    android:onClick="openWeather"
                     android:text="@string/weatherStr"
                     android:textColor="@android:color/white" />
                 <!--   android:drawableLeft="@android:drawable/"-->
@@ -71,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/colorPrimary"
-                    android:onClick="navigate"
+                    android:onClick="openEvents"
                     android:text="@string/eventsStr"
                     android:textColor="@android:color/white" />
 
@@ -130,6 +131,7 @@
                         android:fontFamily="@font/montserrat"
                         android:gravity="center_vertical"
                         android:text="@string/welcoming"
+                        android:onClick="comingSoon"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>
@@ -231,6 +233,7 @@
                         android:fontFamily="@font/montserrat"
                         android:gravity="center_vertical"
                         android:text="@string/costOfLiving"
+                        android:onClick="comingSoon"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>
@@ -276,6 +279,7 @@
                         android:fontFamily="@font/montserrat"
                         android:gravity="center_vertical"
                         android:text="@string/findingRooms"
+                        android:onClick="comingSoon"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>
@@ -321,6 +325,7 @@
                         android:fontFamily="@font/montserrat"
                         android:gravity="center_vertical"
                         android:text="@string/services"
+                        android:onClick="comingSoon"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>
