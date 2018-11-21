@@ -5,27 +5,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.android.gms.maps.model.LatLng;
+import com.bumptech.glide.Glide;
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.adapters.WeatherCardAdapter;
+import com.thealienobserver.nikhil.travon.apihandlers.CityWeatherHandler;
 import com.thealienobserver.nikhil.travon.apihandlers.WeatherHandler;
 import com.thealienobserver.nikhil.travon.models.WeatherModel;
+import com.thealienobserver.nikhil.travon.models.CityWeatherModel;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -35,8 +27,7 @@ public class WeatherScreen extends AppCompatActivity {
     public static final String LAT_LON_PARAM = "LAT_LON_PARAM";
     public static final String LATITUDE = "LATITUDE";
     public static final String LONGITUDE = "LONGITUDE";
-    private String mLatitude;
-    private String mLongitude;
+    private CityWeatherHandler cityWeatherHandler;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +37,13 @@ public class WeatherScreen extends AppCompatActivity {
         String Latitude = String.valueOf(b.get("LATITUDE"));
         String Longitude = String.valueOf(b.get("LONGITUDE"));
 
+        this.cityWeatherHandler = new CityWeatherHandler() {
+            @Override
+            public void postWeatherApiCall(CityWeatherModel cityWeather) {
+                WeatherScreen.this.updateWeatherOnScreen(cityWeather);
+            }
+        };
+
         WeatherHandler weatherHandler = new WeatherHandler(this) {
             @Override
             public void postFetchingWeather(ArrayList<WeatherModel> weatherModel) {
@@ -53,6 +51,7 @@ public class WeatherScreen extends AppCompatActivity {
             }
         };
         weatherHandler.getFiveDaysWeather(Latitude, Longitude);
+        cityWeatherHandler.getWeatherByCity(this, Latitude, Longitude);
     }
 
     private void setupWeatherCards(ArrayList<WeatherModel> weatherModel) {
@@ -62,5 +61,26 @@ public class WeatherScreen extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         weatherRecyclerView.setLayoutManager(linearLayoutManager);
+    }
+
+    public void updateWeatherOnScreen(CityWeatherModel cityWeather) {
+        // Method to update current weather.
+        TextView city = findViewById(R.id.city);
+        TextView temp = findViewById(R.id.temperature);
+        TextView minMax = findViewById(R.id.minMax);
+        TextView humidity = findViewById(R.id.humidity);
+        TextView clouds = findViewById(R.id.clouds);
+        TextView description = findViewById(R.id.description);
+        ImageView weatherIcon = findViewById(R.id.weatherIcon);
+
+        city.setText(city.getText().toString().toUpperCase());
+        temp.setText(String.valueOf(Math.round(cityWeather.getTemperature())) + "\u2103");
+        minMax.setText("Min. " + Math.round(cityWeather.getTempMin()) + "\u2103" + "   Max. " + Math.round(cityWeather.getTempMax()) + "\u2103");
+        humidity.setText(Math.round(cityWeather.getHumidity()) + "%\nHumidity");
+        clouds.setText(Math.round(cityWeather.getClouds()) + "%\nClouds");
+        description.setText(cityWeather.getDescription().toUpperCase());
+
+        // Glide library to download image and set to ImageView
+        Glide.with(this).load(cityWeather.getIconUrl()).into(weatherIcon);
     }
 }
