@@ -24,6 +24,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_recommended_places">RecommendedPlacesActivity</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="no_resulsts">No Resulsts</string>
 
 
 </resources>

@@ -5,11 +5,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.CircularProgressDrawable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.adapters.RecommendedPlacesAdapter;
@@ -17,7 +20,7 @@ import com.thealienobserver.nikhil.travon.apihandlers.RecommendedPlacesHandler;
 import com.thealienobserver.nikhil.travon.models.RecommendedPlace;
 
 import java.util.ArrayList;
-
+import java.util.Objects;
 
 
 public class RecommendedPlacesFragment extends Fragment implements
@@ -26,7 +29,7 @@ public class RecommendedPlacesFragment extends Fragment implements
 
     public static final String ARG_PAGE = "ARG_PAGE";
     public static final String CITY = "City";
-    private String places[] = new String[]{"Attractions", "Hospitals", "Universities"};
+    private String places[] = new String[]{"Attractions", "Hospitals", "Universities", "Restaurants"};
 
     private int mPage;
     private String mCity;
@@ -58,6 +61,7 @@ public class RecommendedPlacesFragment extends Fragment implements
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_recommended_places, container, false);
 
+
         //fetching places
         RecommendedPlacesHandler recommendedPlacesHandler = new RecommendedPlacesHandler(getActivity()) {
             @Override
@@ -68,7 +72,7 @@ public class RecommendedPlacesFragment extends Fragment implements
 
 
         };
-        recommendedPlacesHandler.getTopRecomendedPlaces(mCity, places[mPage-1]);
+        recommendedPlacesHandler.getTopRecomendedPlaces(mCity, places[mPage - 1]);
 
         return view;
     }
@@ -76,8 +80,16 @@ public class RecommendedPlacesFragment extends Fragment implements
     private void setupRecomendedPlaces(ArrayList<RecommendedPlace> recomendedPlacesArrayList, View view) {
 
         RecyclerView newsRecyclerView = view.findViewById(R.id.rv_recommended_places);
+        TextView tv_no_results = view.findViewById(R.id.tv_no_results);
+        ProgressBar pb_loading = view.findViewById(R.id.pb_loading);
+        pb_loading.setVisibility(View.GONE);
+        if (recomendedPlacesArrayList.size() == 0) {
+            tv_no_results.setVisibility(View.VISIBLE);
+            return;
+        }
         newsRecyclerView.setAdapter(new RecommendedPlacesAdapter(getActivity(), recomendedPlacesArrayList));
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
     }
 
 }

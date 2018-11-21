@@ -14,4 +14,9 @@
         <item name="titleTextColor">@color/colorWhite</item>
     </style>
 
+    <style name="MyTabTextAppearance" parent="TextAppearance.AppCompat.Button">
+        <!--<item name="android:textSize">18sp</item>-->
+        <item name="textAllCaps">false</item>
+    </style>
+
 </resources>

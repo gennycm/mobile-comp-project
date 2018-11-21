@@ -44,10 +44,11 @@ public abstract class RecommendedPlacesHandler {
     }
 
 
-    public void getTopRecomendedPlaces(final String location, String placeType) {
+    public void getTopRecomendedPlaces(final String location, final String placeType) {
         requestQueue = Volley.newRequestQueue(applicationContext);
         String url = RecomendedPlaces_URL + placeType.toLowerCase() + "%20in%20" + location +
                 "&sensor=false" + api_key;
+        url = url.replaceAll(" ", "%20");
 
         recomendedPlaces = new ArrayList<>();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -71,7 +72,7 @@ public abstract class RecommendedPlacesHandler {
 
                             }
                         }
-                        getTopRecomendedDescription(name, reference, location);
+                        getTopRecomendedDescription(name, reference,location, placeType);
 
                     }
                 } catch (Exception e) {
@@ -88,7 +89,7 @@ public abstract class RecommendedPlacesHandler {
         requestQueue.add(jsonObjectRequest);
     }
 
-    public void getTopRecomendedDescription(final String place, final String reference, final String city) {
+    public void getTopRecomendedDescription(final String place, final String reference,final String city, final String placeType) {
 
         String url = Recommended_place_desc_url + place;
 
@@ -103,19 +104,37 @@ public abstract class RecommendedPlacesHandler {
                     JSONObject pages = query.getJSONObject("pages");
                     Iterator page = pages.keys();
                     JSONObject jsonObject_Page = pages.getJSONObject(page.next().toString());
-                    String description;
+                    String description = "";
 
+                    RecommendedPlace recommededPlace = new RecommendedPlace();
+                    recommededPlace.setName(place);
+                    recommededPlace.setImage_ref(reference);
                     if (jsonObject_Page.has("extract")) {
                         description = jsonObject_Page.getString("extract") != null ? jsonObject_Page.getString("extract") : "";
-                        RecommendedPlace recommededPlace = new RecommendedPlace();
-                        recommededPlace.setName(place);
-                        recommededPlace.setImage_ref(reference);
+
                         recommededPlace.setDescription(description);
-                        recomendedPlaces.add(recommededPlace);
 
+                    } else {
+                        switch (placeType) {
+                            case "Attractions":
+                                description =place+" is a Tourist Attraction in "+city;
+                                break;
+                            case "Hospitals":
+                                description =place+" is a Hospital in "+ city;
+                                break;
+                            case "Universities":
+                                description =place+" is a University in "+ city;
+                                break;
+                            case "Restaurants":
+                                description =place+" is a  Restaurant in "+ city;
+                                break;
+                        }
 
-                        RecommendedPlacesHandler.this.postFetchingRecomendedPlaces(recomendedPlaces);
+                        recommededPlace.setDescription(description);
+
                     }
+                    recomendedPlaces.add(recommededPlace);
+
 
 
                 } catch (Exception e) {
