@@ -20,6 +20,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,7 +34,7 @@ public abstract class WeatherHandler {
     private static final String TAG = "WeatherHandler";
     private Context applicationContext;
 
-    private static final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/find?APPID=eb866e903a87bc24b5178943f993718e&lat=";
+    private static final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/forecast?APPID=eb866e903a87bc24b5178943f993718e&lat=";
 
     public WeatherHandler(Context context) {
         this.applicationContext = context;
@@ -45,69 +46,30 @@ public abstract class WeatherHandler {
         Float lon=Float.parseFloat(longitude);
         latitude=String.format("%.2f", lat);
         longitude=String.format("%.2f", lon);
-        String url = WEATHER_URL.concat(TextUtils.isEmpty(latitude) ? "44.649963&lon=-63.5802565" : (latitude + "&lon=" + longitude+"&cnt=5"));
+        String url = WEATHER_URL.concat(TextUtils.isEmpty(latitude) ? "44.649963&lon=-63.5802565" : (latitude + "&lon=" + longitude));//+"&cnt=5"
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Log.d("Weather Handler", response.toString());
                 try {
                     // Generate news article list from the api response
-                    JSONArray weatherlistItem = response.getJSONArray("list");
-                    ArrayList<WeatherModel> nextFiveDays = new ArrayList<>();
-                    JSONObject weatherfirstjsonobj=new JSONObject();// To get elements of weatherlistItem
-                    for(int weatherItr=0; weatherItr < weatherlistItem.length(); weatherItr++) {
-                        JSONObject weatherItemLoop = weatherlistItem.getJSONObject(weatherItr);
-                        String cityname = weatherItemLoop.getString("name");
+                    JSONArray forecasts = response.getJSONArray("list");
+                    ArrayList<WeatherModel> forcastList = new ArrayList<>();
+                    for(int forecastIdx = 0; forecastIdx < forecasts.length(); forecastIdx++) {
+                        JSONObject forecast = forecasts.getJSONObject(forecastIdx);
 
+                        String date = forecast.getString("dt_txt");
+                        Double temprature = forecast.getJSONObject("main").getDouble("temp");
+                        JSONObject weather = forecast.getJSONArray("weather").getJSONObject(0);
+                        String description = weather.getString("description");
+                        String imageUrl ="http://openweathermap.org/img/w/"+ weather.getString("icon")+".png";
 
-                        JSONObject weathermainjsonobj=new JSONObject();
-                        weathermainjsonobj=weatherItemLoop.getJSONObject("main");
-                        double humidity=Double.parseDouble(String.valueOf(weathermainjsonobj.get("humidity")));
-
-                        //Clouds
-                        JSONObject cloudsJSON=new JSONObject();
-                        cloudsJSON=weatherItemLoop.getJSONObject("clouds");
-                        double clouds=Double.parseDouble(String.valueOf(cloudsJSON.get("all")));
-
-                        Double temprature=Double.parseDouble(String.valueOf(weathermainjsonobj.get("temp")));
-                        Double minimum_temprature=Double.parseDouble(String.valueOf(weathermainjsonobj.get("temp_min")));
-                        Double maximum_temprature=Double.parseDouble(String.valueOf(weathermainjsonobj.get("temp_max")));
-
-                        JSONArray weatherlistArray=new JSONArray();
-                        weatherlistArray=weatherItemLoop.getJSONArray("weather");
-
-                        JSONObject weatherlistFirstElement=new JSONObject();
-                        weatherlistFirstElement=(JSONObject)weatherlistArray.get(0);
-
-                        String main=String.valueOf(weatherlistFirstElement.get("main"));
-                        String description=String.valueOf(weatherlistFirstElement.get("description"));
-
-
-                        String imageUrl ="http://openweathermap.org/img/w/"+ weatherlistFirstElement.getString("icon")+".png";
-                        Log.d("ImageUrl",imageUrl);
-
-                        //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-                        //sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-                     //   Date newdate=new Date(weatherItemLoop.getString("dt"));
-                      //  SimpleDateFormat sdf = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
-                        //        Locale.ENGLISH);
-                       // SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                       // Date weatherdate =  sdf.parse(weatherItemLoop.getString("dt"));
-                       /* Calendar calendar = Calendar.getInstance();
-                        SimpleDateFormat mdformat = new SimpleDateFormat("yyyy / MM / dd ");
-                        String strDate = "Current Date : " + mdformat.format(calendar.getTime());
-                        //Date weatherdate=new Date(strDate);
-                        Date weatherdate=new SimpleDateFormat("dd/MM/yyyy").parse(strDate);*/
-
-                        Date weatherdate = new Date(Long.parseLong(weatherItemLoop.getString("dt")) * 1000);
-
-                       //Date weatherdate=null;
-                        WeatherModel article = new WeatherModel(cityname, temprature, humidity, minimum_temprature, maximum_temprature, main,description,imageUrl,weatherdate);
-                        Log.d(TAG, "onResponse: city "+ cityname +"humidity"+humidity+"clouds"+clouds+"temprature"+temprature+"minimum_temprature"+minimum_temprature+"maximum_temprature"+maximum_temprature+"main"+main+"description"+description+"weatherdate"+weatherdate);
-                        nextFiveDays.add(article);
-                        Log.d("Reached here",""+article);
+                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        WeatherModel forecastModel = new WeatherModel(temprature, description, imageUrl, df.parse(date));
+                        forcastList.add(forecastModel);
+                        Log.d("Reached here",""+forecastModel);
                         // Call the user's callback for post fetching news articles
-                        WeatherHandler.this.postFetchingWeather(nextFiveDays);
+                        WeatherHandler.this.postFetchingWeather(forcastList);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

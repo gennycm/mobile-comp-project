@@ -20,7 +20,10 @@
     <string name="voice_command_text">Say a place name</string>
 
     <string name="search_hint">Enter a place</string>
-    
+
+    <!--Weather-->
+    <string name="weather_image">Weather Image</string>
+
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_recommended_places">RecommendedPlacesActivity</string>
     <string name="title_activity_main">MainActivity</string>
