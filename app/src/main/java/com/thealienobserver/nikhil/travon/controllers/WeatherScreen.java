@@ -46,9 +46,6 @@ public class WeatherScreen extends AppCompatActivity {
         String Latitude = String.valueOf(b.get("LATITUDE"));
         String Longitude = String.valueOf(b.get("LONGITUDE"));
 
-        //Log.d("Latitude",String.valueOf(b.get("LATITUDE")));
-        //String countryCodeParam = getIntent().getStringExtra(COUNTRY_CODE_PARAM);
-
         WeatherHandler weatherHandler = new WeatherHandler(this) {
             @Override
             public void postFetchingWeather(ArrayList<WeatherModel> weatherModel) {
@@ -61,25 +58,9 @@ public class WeatherScreen extends AppCompatActivity {
     private void setupWeatherCards(ArrayList<WeatherModel> weatherModel) {
         RecyclerView weatherRecyclerView = findViewById(R.id.weatherRecyclerView);
         weatherRecyclerView.setAdapter(new WeatherCardAdapter(this, weatherModel));
-        weatherRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //weatherRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        weatherRecyclerView.setLayoutManager(linearLayoutManager);
     }
 }
-
-/*        final String url = "http://api.openweathermap.org/data/2.5/find?APPID=eb866e903a87bc24b5178943f993718e&units=metric&lat=";
-        String urlWithBase = url.concat(TextUtils.isEmpty(Latitude) ? "44.649963&lon=-63.5802565" : (Latitude + "&lon=" + Longitude));
-        RequestQueue requestQueue = Volley.newRequestQueue(this.getApplicationContext());
-        JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.GET, urlWithBase, null, new Response.Listener<JSONObject>() {
-            @Override
-
-            public void onResponse(JSONObject response) {
-                Toast.makeText(WeatherScreen.this, "" + response, Toast.LENGTH_LONG).show();
-                Log.d("running", ""+response);
-            }
-        }, new ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-        requestQueue.add(request);*/
