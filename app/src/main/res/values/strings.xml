@@ -22,5 +22,12 @@
     <string name="title_activity_recommended_places">RecommendedPlacesActivity</string>
     <string name="title_activity_main">MainActivity</string>
 
+    <!-- Events -->
+    <string name="free">FREE</string>
+    <string name="back_to_map">Back to map</string>
+    <string name="advanced_search">Advanced Search</string>
+    <string name="prev_page">Prev page</string>
+    <string name="next_page">Next page</string>
+
 
 </resources>

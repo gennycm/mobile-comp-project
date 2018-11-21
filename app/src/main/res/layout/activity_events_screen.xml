@@ -8,6 +8,35 @@
     android:layout_height="match_parent"
     tools:context=".controllers.EventsScreen">
 
+    <LinearLayout
+        android:id="@+id/navigateButtons"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/prevPage"
+            android:layout_weight="0.2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/prev_page" />
+
+        <Button
+            android:id="@+id/advanced"
+            android:layout_weight="0.6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/advanced_search"/>
+
+        <Button
+            android:id="@+id/nextPage"
+            android:layout_weight="0.2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/next_page"/>
+
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/eventsRecyclerView"
         android:layout_width="match_parent"
@@ -15,5 +44,14 @@
         >
 
     </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/pageButtons"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </LinearLayout>
 
 </LinearLayout>

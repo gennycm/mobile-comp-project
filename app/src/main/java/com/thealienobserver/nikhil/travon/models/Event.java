@@ -13,9 +13,10 @@ public class Event {
     Date endTime;
     boolean isFree;
     LatLng location;
+    String address;
 
     public Event(String name, String description, String url, String imageUrl,
-                 Date startTime, Date endTime, boolean isFree, LatLng location) {
+                 Date startTime, Date endTime, boolean isFree, LatLng location, String address) {
         this.name = name;
         this.description = description;
         this.url = url;
@@ -24,6 +25,7 @@ public class Event {
         this.endTime = endTime;
         this.isFree = isFree;
         this.location = location;
+        this.address = address;
     }
 
     public String getName() {
@@ -54,7 +56,8 @@ public class Event {
         return isFree;
     }
 
-    public LatLng getLocation() {
-        return location;
-    }
+    public LatLng getLocation() { return location; }
+
+    public String getAddress() { return address; }
+
 }
