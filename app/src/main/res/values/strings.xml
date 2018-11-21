@@ -27,7 +27,15 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_recommended_places">RecommendedPlacesActivity</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="no_resulsts">No Resulsts</string>
+    <string name="no_results">No Results</string>
 
+
+    <!-- Cost of living -->
+    <string name="transport">Transport</string>
+    <string name="room">Room</string>
+    <string name="food">Food</string>
+    <string name="clothing">Clothing</string>
+    <string name="childcare">Childcare</string>
+    <string name="utilities">Utilities</string>
 
 </resources>
