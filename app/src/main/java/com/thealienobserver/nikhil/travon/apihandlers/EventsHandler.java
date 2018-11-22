@@ -13,6 +13,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.thealienobserver.nikhil.travon.models.Event;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
@@ -47,7 +48,12 @@ public abstract class EventsHandler {
                         String name = jsonEvent.getJSONObject("name").getString("text");
                         String description = jsonEvent.getJSONObject("description").getString("text");
                         String url = jsonEvent.getString("url");
-                        String imageUrl = jsonEvent.getJSONObject("logo").getJSONObject("original").getString("url");
+                        String imageUrl;
+                        try {
+                            imageUrl = jsonEvent.getJSONObject("logo").getJSONObject("original").getString("url");
+                        } catch (JSONException e) {
+                            imageUrl = "";
+                        }
                         String start = jsonEvent.getJSONObject("start").getString("local");
                         String end = jsonEvent.getJSONObject("end").getString("local");
                         boolean isFree = jsonEvent.getBoolean("is_free");

@@ -8,47 +8,71 @@
     android:layout_height="match_parent"
     tools:context=".controllers.EventsScreen">
 
-    <!-- FrameLayout to overlap advanced search -->
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/advancedSearchWindow"
+        android:orientation="vertical"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <EditText
+            android:id="@+id/searchQuery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_query"/>
+
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/searchQuery"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/search_query"/>
-
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="0.8"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="@string/distance_advanced_search"/>
 
                 <SeekBar
                     android:id="@+id/distanceBar"
-                    android:layout_weight="0.8"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:max="1000"
                     android:progress="100" />
 
-                <EditText
-                    android:id="@+id/distanceText"
-                    android:layout_weight="0.2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/distanceText"
+                android:inputType="number"
+                android:layout_weight="0.2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="100"/>
 
         </LinearLayout>
 
-    </FrameLayout>
+        <CheckBox
+            android:id="@+id/searchFreeCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/free_checkbox_text"/>
+
+        <Button
+            android:id="@+id/searchConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/searchEventText"/>
+
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/navigateButtons"
         android:orientation="horizontal"
