@@ -24,7 +24,6 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:scaleType="centerCrop"
-                android:src="@android:drawable/ic_menu_gallery"
                 android:tint="#6F000000" />
 
             <TextView
@@ -59,32 +58,41 @@
                 android:weightSum="3">
 
                 <Button
+                    android:background="@drawable/rounded_btn_shape"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/colorPrimary"
+                    android:drawableLeft="@drawable/cloud_white"
                     android:fontFamily="@font/raleway_semibold"
                     android:onClick="openWeather"
+                    style="@style/BlueButton"
                     android:text="@string/weatherStr"
                     android:textColor="@android:color/white" />
                 <!--   android:drawableLeft="@android:drawable/"-->
 
                 <Button
+                    android:background="@drawable/rounded_btn_shape"
                     android:id="@+id/eventsButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/colorPrimary"
+                    android:drawableLeft="@drawable/events_white"
                     android:fontFamily="@font/raleway_semibold"
                     android:onClick="openEvents"
+                    style="@style/BlueButton"
                     android:text="@string/eventsStr"
                     android:textColor="@android:color/white" />
 
                 <Button
+                    android:background="@drawable/rounded_btn_shape"
                     android:id="@+id/newsButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/BlueButton"
+                    android:drawableLeft="@drawable/news_white"
                     android:backgroundTint="@color/colorPrimary"
                     android:fontFamily="@font/raleway_semibold"
                     android:onClick="openNews"
@@ -112,15 +120,15 @@
 
                     <ImageView
                         android:id="@+id/imageView1"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
                         android:cropToPadding="false"
                         android:gravity="center"
+                        android:padding="8dp"
                         android:textColor="#FFFFFF"
-                        android:src="@android:drawable/ic_menu_gallery"
-                        android:textSize="10sp" />
+                        android:src="@drawable/welcoming_white" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -166,12 +174,13 @@
 
                     <ImageView
                         android:id="@+id/imageView2"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
-                        android:src="@android:drawable/ic_menu_gallery"
+                        android:src="@drawable/places_white"
                         android:clickable="false"
+                        android:padding="8dp"
                         android:cropToPadding="false"
                         android:gravity="center"
                         android:textColor="#FFFFFF"
@@ -217,12 +226,13 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
                         android:cropToPadding="false"
-                        android:src="@android:drawable/ic_menu_gallery"
+                        android:padding="8dp"
+                        android:src="@drawable/money_white"
                         android:gravity="center"
                         android:textColor="#FFFFFF"
                         android:textSize="10sp" />
@@ -264,13 +274,15 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
-                        android:src="@android:drawable/ic_menu_gallery"
+                        android:src="@drawable/rooms"
+                        android:tint="@color/colorWhite"
                         android:cropToPadding="false"
                         android:gravity="center"
+                        android:padding="8dp"
                         android:textColor="#FFFFFF"
                         android:textSize="10sp" />
                 </LinearLayout>
@@ -311,13 +323,14 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
-                        android:src="@android:drawable/ic_menu_gallery"
+                        android:src="@drawable/services_white"
                         android:cropToPadding="false"
                         android:gravity="center"
+                        android:padding="8dp"
                         android:textColor="#FFFFFF"
                         android:textSize="10sp" />
                 </LinearLayout>
@@ -360,12 +373,14 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
                         android:cropToPadding="false"
-                        android:src="@android:drawable/ic_menu_gallery"
+                        android:padding="8dp"
+                        android:src="@drawable/immigration"
+                        android:tint="@color/colorWhite"
                         android:gravity="center"
                         android:textColor="#FFFFFF"
                         android:textSize="10sp" />

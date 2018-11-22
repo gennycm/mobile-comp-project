@@ -24,7 +24,7 @@ public class NewsArticle {
     }
 
     public String getDescription() {
-        return description;
+        return description == null? "": description;
     }
 
     public String getImageUrl() {
