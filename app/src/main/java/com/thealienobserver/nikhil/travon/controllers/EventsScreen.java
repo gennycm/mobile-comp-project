@@ -58,6 +58,7 @@ public class EventsScreen extends AppCompatActivity {
 
         prev.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                //TODO: Clicking the button multiple times goes multiple pages, potentially past limit!
                 page--;
                 eventsHandler.getEventList(currentlocation, distance, freeOnly, searchQuery, page);
             }

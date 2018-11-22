@@ -8,6 +8,47 @@
     android:layout_height="match_parent"
     tools:context=".controllers.EventsScreen">
 
+    <!-- FrameLayout to overlap advanced search -->
+    <FrameLayout
+        android:id="@+id/advancedSearchWindow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/searchQuery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_query"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <SeekBar
+                    android:id="@+id/distanceBar"
+                    android:layout_weight="0.8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:max="1000"
+                    android:progress="100" />
+
+                <EditText
+                    android:id="@+id/distanceText"
+                    android:layout_weight="0.2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
     <LinearLayout
         android:id="@+id/navigateButtons"
         android:orientation="horizontal"
