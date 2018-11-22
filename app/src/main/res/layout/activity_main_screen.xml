@@ -49,6 +49,7 @@
             android:layout_marginLeft="32dp"
             android:id="@+id/placeName"
             android:textSize="42sp"
+            android:fontFamily="@font/raleway_semibold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
@@ -79,6 +80,7 @@
                 style="@style/BlueButton"
                 android:onClick="navigate"
                 android:drawableLeft="@drawable/cloud_white"
+                android:fontFamily="@font/raleway"
                 android:text="@string/weatherStr"/>
 
             <Button
@@ -90,6 +92,7 @@
                 android:layout_weight="1"
                 android:onClick="navigate"
                 android:drawableLeft="@drawable/events_white"
+                android:fontFamily="@font/raleway"
                 android:text="@string/eventsStr"/>
 
             <Button
@@ -101,6 +104,7 @@
                 android:layout_weight="1"
                 android:onClick="navigate"
                 android:drawableLeft="@drawable/news_white"
+                android:fontFamily="@font/raleway"
                 android:text="@string/newsStr"/>
 
         </LinearLayout>

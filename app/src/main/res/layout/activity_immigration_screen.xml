@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Cost of Living layout -->
+<?xml version="1.0" encoding="utf-8"?><!-- Cost of Living layout -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -22,20 +21,17 @@
         <!-- First row -->
         <!-- First column -->
         <android.support.v7.widget.CardView
-            android:id="@+id/transportCv"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
             app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
             app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="false"
-            android:onClick="openTransportDetails">
+            app:cardUseCompatPadding="false">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -48,14 +44,13 @@
                     android:layout_width="37dp"
                     android:layout_height="51dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_front_of_bus" />
+                    android:src="@drawable/ic_shopping_list" />
 
                 <TextView
-                    android:id="@+id/transportTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_thin"
-                    android:text="@string/transport"
+                    android:text="@string/things_to_do"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
                     android:textSize="24sp"
@@ -88,13 +83,13 @@
                     android:layout_width="37dp"
                     android:layout_height="51dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_home" />
+                    android:src="@drawable/ic_document" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_thin"
-                    android:text="@string/room"
+                    android:text="@string/forms"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
                     android:textSize="24sp"
@@ -103,20 +98,17 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/foodCv"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
             app:cardBackgroundColor="@color/colorPrimaryDark"
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
             app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="false"
-            android:onClick="openFoodDetails">
+            app:cardUseCompatPadding="false">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -129,14 +121,13 @@
                     android:layout_width="37dp"
                     android:layout_height="51dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_restaurant" />
+                    android:src="@drawable/ic_three_buildings" />
 
                 <TextView
-                    android:id="@+id/foodTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_thin"
-                    android:text="@string/food"
+                    android:text="@string/offices"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
                     android:textSize="24sp"
@@ -169,13 +160,13 @@
                     android:layout_width="37dp"
                     android:layout_height="51dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_t_shirt_black_silhouette" />
+                    android:src="@drawable/ic_question_mark" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_thin"
-                    android:text="@string/clothing"
+                    android:text="@string/faq"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
                     android:textSize="24sp"
@@ -183,82 +174,5 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="8dp"
-            app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="false">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_margin="15dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="37dp"
-                    android:layout_height="51dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_baby_stroller" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway_thin"
-                    android:text="@string/childcare"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            app:cardBackgroundColor="@color/colorPrimaryDark"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="8dp"
-            app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="false">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_margin="15dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="37dp"
-                    android:layout_height="51dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_house" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway_thin"
-                    android:text="@string/utilities"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
     </GridLayout>
 </LinearLayout>

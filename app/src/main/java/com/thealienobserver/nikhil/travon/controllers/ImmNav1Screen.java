@@ -15,7 +15,8 @@ public class ImmNav1Screen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_immi_screen);
+        setContentView(R.layout.activity_immigration_screen);
+        /**
         imm1 = (Button) findViewById(R.id.imm1);
         imm2 = (Button) findViewById(R.id.imm2);
         imm3 = (Button) findViewById(R.id.imm3);
@@ -53,7 +54,7 @@ public class ImmNav1Screen extends AppCompatActivity {
 
             }
         });
-
+**/
     }
 
 }

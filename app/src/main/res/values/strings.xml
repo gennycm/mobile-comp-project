@@ -37,5 +37,14 @@
     <string name="clothing">Clothing</string>
     <string name="childcare">Childcare</string>
     <string name="utilities">Utilities</string>
+    <string name="name">Name</string>
+    <string name="avgCost">Avg.</string>
+    <string name="range">Range</string>
+
+    <!-- Immigration -->
+    <string name="things_to_do">5 important things</string>
+    <string name="forms">Forms</string>
+    <string name="offices">Offices</string>
+    <string name="faq">FAQ</string>
 
 </resources>
