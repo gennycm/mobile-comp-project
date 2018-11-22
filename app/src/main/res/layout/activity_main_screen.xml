@@ -18,7 +18,7 @@
 
     <RelativeLayout
         android:layout_margin="8dp"
-        android:background="@color/colorWhite"
+        android:background="@drawable/rounded_rectangle_outline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -78,7 +78,7 @@
                 android:layout_weight="1"
                 style="@style/BlueButton"
                 android:onClick="navigate"
-                android:drawableLeft="@android:drawable/ic_menu_gallery"
+                android:drawableLeft="@drawable/cloud_white"
                 android:text="@string/weatherStr"/>
 
             <Button
@@ -89,7 +89,7 @@
                 style="@style/BlueButton"
                 android:layout_weight="1"
                 android:onClick="navigate"
-                android:drawableLeft="@android:drawable/ic_menu_my_calendar"
+                android:drawableLeft="@drawable/events_white"
                 android:text="@string/eventsStr"/>
 
             <Button
@@ -100,7 +100,7 @@
                 style="@style/BlueButton"
                 android:layout_weight="1"
                 android:onClick="navigate"
-                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:drawableLeft="@drawable/news_white"
                 android:text="@string/newsStr"/>
 
         </LinearLayout>
