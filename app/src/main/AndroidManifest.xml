@@ -32,42 +32,43 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".controllers.WeatherScreen" />
         <activity
-            android:name=".controllers.WeatherScreen"/>
-        <activity android:name=".controllers.ImmNav1Screen"
+            android:name=".controllers.ImmNav1Screen"
             android:label="Menu"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".controllers.MenuScreen">
-        </activity>
-        <activity android:name=".controllers.ImmiList1"
+            android:parentActivityName=".controllers.MenuScreen"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".controllers.ImmiList1"
             android:label="Go Back"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".controllers.ImmNav1Screen">
-        </activity>
-        <activity android:name=".controllers.ImmiList2"
+            android:parentActivityName=".controllers.ImmNav1Screen"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".controllers.ImmiList2"
             android:label="Go Back"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".controllers.ImmNav1Screen">
+            android:parentActivityName=".controllers.ImmNav1Screen"
+            android:theme="@style/AppTheme">
 
         </activity>
-        <activity android:name=".controllers.ImmiList3"
+        <activity
+            android:name=".controllers.ImmiList3"
             android:label="Go Back"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".controllers.ImmNav1Screen">
-        </activity>
-        <activity android:name=".controllers.ImmiList4"
+            android:parentActivityName=".controllers.ImmNav1Screen"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".controllers.ImmiList4"
             android:label="Go Back"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".controllers.ImmNav1Screen">
-        </activity>
+            android:parentActivityName=".controllers.ImmNav1Screen"
+            android:theme="@style/AppTheme"></activity>
         <activity android:name=".controllers.NewsScreen" />
         <activity
             android:name=".controllers.MenuScreen"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity android:name=".controllers.RecommendedPlaces.RecommendedPlacesActivity" />
         <activity android:name=".controllers.EventsScreen" />
         <activity android:name=".controllers.DetailActivity" />
+
     </application>
 
 </manifest>
