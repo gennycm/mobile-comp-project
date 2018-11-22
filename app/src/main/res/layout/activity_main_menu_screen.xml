@@ -233,7 +233,7 @@
                         android:fontFamily="@font/montserrat"
                         android:gravity="center_vertical"
                         android:text="@string/costOfLiving"
-                        android:onClick="comingSoon"
+                        android:onClick="openCostOfLiving"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>

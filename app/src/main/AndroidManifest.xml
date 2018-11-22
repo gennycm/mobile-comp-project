@@ -68,7 +68,10 @@
         <activity android:name=".controllers.RecommendedPlaces.RecommendedPlacesActivity" />
         <activity android:name=".controllers.EventsScreen" />
         <activity android:name=".controllers.DetailActivity" />
-
+        <activity
+            android:name=".controllers.CostOfLivingScreen"
+            android:label="Menu"
+            android:parentActivityName=".controllers.MenuScreen" />
     </application>
 
 </manifest>

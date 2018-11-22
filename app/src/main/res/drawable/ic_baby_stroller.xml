@@ -1,0 +1,6 @@
+<!--  Icon made by https://www.freepik.com/ licensed by http://creativecommons.org/licenses/by/3.0/ -->
+<vector android:height="24dp" android:viewportHeight="426.667"
+    android:viewportWidth="426.667" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#FFFFFF" android:pathData="M245.333,0v170.667H416C416,76.373 339.627,0 245.333,0z"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M105.387,192L85.12,149.333H10.667V192h47.467c0,0 40.32,86.827 45.227,94.187C79.893,298.88 64,323.52 64,352c0,41.28 33.387,74.667 74.667,74.667c37.653,0 68.587,-27.84 73.813,-64h44.373c5.227,36.16 36.16,64 73.813,64c41.28,0 74.667,-33.387 74.667,-74.667c0,-22.187 -9.707,-42.027 -25.067,-55.68C402.56,267.413 416,231.36 416,192H105.387zM138.667,384c-17.707,0 -32,-14.293 -32,-32s14.293,-32 32,-32s32,14.293 32,32S156.373,384 138.667,384zM330.667,384c-17.707,0 -32,-14.293 -32,-32s14.293,-32 32,-32s32,14.293 32,32S348.373,384 330.667,384z"/>
+</vector>
