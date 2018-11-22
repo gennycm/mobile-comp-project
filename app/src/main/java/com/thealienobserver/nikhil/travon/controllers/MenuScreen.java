@@ -5,7 +5,6 @@ import android.location.Address;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +12,7 @@ import android.widget.Toast;
 import com.google.android.gms.maps.model.LatLng;
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.apihandlers.MainMenuHandler;
+import com.thealienobserver.nikhil.travon.controllers.CostOfLiving.CostOfLivingScreen;
 import com.thealienobserver.nikhil.travon.controllers.RecommendedPlaces.RecommendedPlacesActivity;
 
 import java.util.ArrayList;
@@ -100,7 +100,13 @@ public class MenuScreen extends AppCompatActivity {
     }
 
     public void openCostOfLiving(View view) {
+        String city = addresses.get(0).getLocality();
+        String country = addresses.get(0).getCountryName();
+
         Intent costOfLivingIntent = new Intent(this, CostOfLivingScreen.class);
+        costOfLivingIntent.putExtra(CostOfLivingScreen.CITY, city);
+        costOfLivingIntent.putExtra(CostOfLivingScreen.COUNTRY, country);
+
         startActivity(costOfLivingIntent);
 
     }

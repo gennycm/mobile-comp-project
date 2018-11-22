@@ -69,9 +69,14 @@
         <activity android:name=".controllers.EventsScreen" />
         <activity android:name=".controllers.DetailActivity" />
         <activity
-            android:name=".controllers.CostOfLivingScreen"
+            android:name=".controllers.CostOfLiving.CostOfLivingScreen"
             android:label="Menu"
+            android:launchMode="singleTop"
             android:parentActivityName=".controllers.MenuScreen" />
+        <activity
+            android:name=".controllers.CostOfLiving.CostOfLivingDetailsScreen"
+            android:label="Categories"
+            android:parentActivityName=".controllers.CostOfLiving.CostOfLivingScreen" />
     </application>
 
 </manifest>
