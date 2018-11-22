@@ -26,6 +26,10 @@ public class CostOfLivingHandler {
 
     private ArrayList<CostOfLivingItem> food = new ArrayList();
     private ArrayList<CostOfLivingItem> transportation = new ArrayList();
+    private ArrayList<CostOfLivingItem> utilities = new ArrayList();
+    private ArrayList<CostOfLivingItem> room = new ArrayList();
+    private ArrayList<CostOfLivingItem> clothing = new ArrayList();
+    private ArrayList<CostOfLivingItem> childcare = new ArrayList();
 
     //https://www.numbeo.com/api/city_prices?api_key=rkouvmmc5fm0zj&query=Halifax%20Canada
 
@@ -50,8 +54,6 @@ public class CostOfLivingHandler {
                 try {
                     JSONArray prices = response.getJSONArray("prices");
                     classifyResults(prices);
-                    Log.d("prices", prices.toString());
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -73,15 +75,30 @@ public class CostOfLivingHandler {
             JSONObject itemJSON = prices.getJSONObject(i);
 
             String item_name = itemJSON.getString("item_name");
-            String lowest_price = itemJSON.getString("lowest_price");
-            String average_price = itemJSON.getString("average_price");
-            String highest_price = itemJSON.getString("highest_price");
+            double lowest_price = itemJSON.getDouble("lowest_price");
+            double average_price = itemJSON.getDouble("average_price");
+            double highest_price = itemJSON.getDouble("highest_price");
             if (item_name.contains("Restaurants") || item_name.contains("Market")) {
                 food.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
             } else {
                 if (item_name.contains("Transportation")) {
-
                     transportation.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                } else {
+                    if (item_name.contains("Utilities")) {
+                        utilities.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                    } else {
+                        if (item_name.contains("Rent Per Month") || item_name.contains("Buy Apartment Price")) {
+                            room.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                        } else {
+                            if (item_name.contains("Utilities")) {
+                                utilities.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                            } else {
+                                if (item_name.contains("Utilities")) {
+                                    utilities.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -96,6 +113,13 @@ public class CostOfLivingHandler {
         return transportation;
     }
 
+    public ArrayList<CostOfLivingItem> getUtilities() {
+        return utilities;
+    }
+
+    public ArrayList<CostOfLivingItem> getRoom() {
+        return room;
+    }
 
 
 }

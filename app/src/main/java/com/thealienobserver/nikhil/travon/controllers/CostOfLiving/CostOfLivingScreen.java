@@ -58,6 +58,34 @@ public class CostOfLivingScreen extends AppCompatActivity {
         startActivity(transportIntent);
     }
 
+    public void openUtilitiesDetails(View view) {
+        Intent utilitiesTransport = new Intent(CostOfLivingScreen.this, CostOfLivingDetailsScreen.class);
+        cardView = findViewById(R.id.utilitiesCv);
+        categoryTitle = findViewById(R.id.utilitiesTv);
+        int bgColor = cardView.getCardBackgroundColor().getDefaultColor();
+        String categoryTitleStr = (String) categoryTitle.getText();
+
+        utilitiesTransport.putExtra(CostOfLivingDetailsScreen.CITY, city);
+        utilitiesTransport.putExtra(CostOfLivingDetailsScreen.BG_COLOR, bgColor);
+        utilitiesTransport.putExtra(CostOfLivingDetailsScreen.CATEGORY_TITLE, categoryTitleStr);
+
+        startActivity(utilitiesTransport);
+    }
+
+    public void openRoomsDetails(View view) {
+        Intent roomsIntent = new Intent(CostOfLivingScreen.this, CostOfLivingDetailsScreen.class);
+        cardView = findViewById(R.id.roomCv);
+        categoryTitle = findViewById(R.id.roomTv);
+        int bgColor = cardView.getCardBackgroundColor().getDefaultColor();
+        String categoryTitleStr = (String) categoryTitle.getText();
+
+        roomsIntent.putExtra(CostOfLivingDetailsScreen.CITY, city);
+        roomsIntent.putExtra(CostOfLivingDetailsScreen.BG_COLOR, bgColor);
+        roomsIntent.putExtra(CostOfLivingDetailsScreen.CATEGORY_TITLE, categoryTitleStr);
+
+        startActivity(roomsIntent);
+    }
+
     @Override
     protected void onStart() {
         super.onStart();

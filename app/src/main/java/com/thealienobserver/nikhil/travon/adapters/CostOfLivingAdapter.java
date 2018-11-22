@@ -11,18 +11,19 @@ import android.widget.TextView;
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.models.CostOfLivingItem;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class CostOfLivingAdapter extends ArrayAdapter<CostOfLivingItem> {
 
     private ArrayList<CostOfLivingItem> costItemsList;
+    private NumberFormat numberFormat = new DecimalFormat("##.###");
+
 
     public CostOfLivingAdapter(Context context, int textViewResourceId, ArrayList<CostOfLivingItem> costItemsList) {
         super(context, textViewResourceId, costItemsList);
         this.costItemsList = costItemsList;
-        Log.d("SHEEEEEEEEEEELLLO", "" );
-
-        costItemsList = new ArrayList<>();
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -41,8 +42,9 @@ public class CostOfLivingAdapter extends ArrayAdapter<CostOfLivingItem> {
             TextView rangeTv = v.findViewById(R.id.tvRange);
 
             nameTv.setText(i.getItemName());
-            avgCostTv.setText("$" + String.valueOf(i.getAveragePrice()));
-            String pricesRange = String.valueOf(i.getLowestPrice()) + " - " + String.valueOf(i.getHighestPrice());
+            //String.format("$ %.2f", i.getAveragePrice());
+            avgCostTv.setText("$ " + numberFormat.format(i.getAveragePrice()));
+            String pricesRange = numberFormat.format(i.getLowestPrice()) + " - " + numberFormat.format(i.getHighestPrice());
             rangeTv.setText(pricesRange);
         }
 

@@ -2,12 +2,12 @@ package com.thealienobserver.nikhil.travon.models;
 
 public class CostOfLivingItem {
     private String item_name;
-    private String lowest_price;
-    private String average_price;
-    private String highest_price;
+    private double lowest_price;
+    private double average_price;
+    private double highest_price;
 
 
-    public CostOfLivingItem(String item_name, String lowest_price, String average_price, String highest_price) {
+    public CostOfLivingItem(String item_name, double lowest_price, double average_price, double highest_price) {
         this.item_name = item_name;
         this.lowest_price = lowest_price;
         this.average_price = average_price;
@@ -18,15 +18,15 @@ public class CostOfLivingItem {
         return item_name;
     }
 
-    public String getLowestPrice() {
+    public double getLowestPrice() {
         return lowest_price;
     }
 
-    public String getAveragePrice() {
+    public double getAveragePrice() {
         return average_price;
     }
 
-    public String getHighestPrice() {
+    public double getHighestPrice() {
         return highest_price;
     }
 

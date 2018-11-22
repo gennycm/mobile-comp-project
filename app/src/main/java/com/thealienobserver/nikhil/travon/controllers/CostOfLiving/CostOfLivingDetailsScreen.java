@@ -68,7 +68,15 @@ public class CostOfLivingDetailsScreen extends AppCompatActivity {
             case "Food":
                 ArrayList food = CostOfLivingHandler.getInstance(getApplicationContext()).getFood();
                 setCostsListOnView(food);
+                break;
+            case "Utilities":
+                ArrayList utilities = CostOfLivingHandler.getInstance(getApplicationContext()).getUtilities();
+                setCostsListOnView(utilities);
+                break;
 
+            case "Room":
+                ArrayList room = CostOfLivingHandler.getInstance(getApplicationContext()).getRoom();
+                setCostsListOnView(room);
                 break;
         }
 
