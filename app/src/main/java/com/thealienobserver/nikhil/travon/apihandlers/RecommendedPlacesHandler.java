@@ -66,14 +66,11 @@ public abstract class RecommendedPlacesHandler {
                         if (recommendedPlacesJSONObject.has("photos")) {
                             JSONArray Photos = recommendedPlacesJSONObject.getJSONArray("photos");
                             for (int j = 0; j < Photos.length(); j++) {
-
                                 reference = RecommendedPLaces_Photo_Url + Photos.getJSONObject(j).getString("photo_reference") + "&sensor=false" + api_key;
                                 Log.d("Places photo", reference);
-
                             }
                         }
                         getTopRecomendedDescription(name, reference,location, placeType);
-
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -134,9 +131,7 @@ public abstract class RecommendedPlacesHandler {
 
                     }
                     recomendedPlaces.add(recommededPlace);
-
-
-
+                    postFetchingRecomendedPlaces(recomendedPlaces);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

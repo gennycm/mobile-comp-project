@@ -43,7 +43,6 @@ public class RecommendedPlacesFragment extends Fragment implements
         return fragment;
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +51,6 @@ public class RecommendedPlacesFragment extends Fragment implements
             mPage = getArguments().getInt(ARG_PAGE);
             mCity = getArguments().getString(CITY);
         }
-
-
     }
 
     @Nullable
@@ -67,10 +64,7 @@ public class RecommendedPlacesFragment extends Fragment implements
             @Override
             public void postFetchingRecomendedPlaces(ArrayList<RecommendedPlace> recomendedPlaces) {
                 RecommendedPlacesFragment.this.setupRecomendedPlaces(recomendedPlaces, view);
-
             }
-
-
         };
         recommendedPlacesHandler.getTopRecomendedPlaces(mCity, places[mPage - 1]);
 
@@ -89,7 +83,6 @@ public class RecommendedPlacesFragment extends Fragment implements
         }
         newsRecyclerView.setAdapter(new RecommendedPlacesAdapter(getActivity(), recomendedPlacesArrayList));
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
     }
 
 }
