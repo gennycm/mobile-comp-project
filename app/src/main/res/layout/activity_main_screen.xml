@@ -49,6 +49,7 @@
             android:layout_marginLeft="32dp"
             android:id="@+id/placeName"
             android:textSize="42sp"
+            android:fontFamily="@font/raleway_semibold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
@@ -78,6 +79,7 @@
                 android:layout_weight="1"
                 style="@style/BlueButton"
                 android:onClick="navigate"
+                android:fontFamily="@font/raleway"
                 android:drawableLeft="@android:drawable/ic_menu_gallery"
                 android:text="@string/weatherStr"/>
 
@@ -89,6 +91,7 @@
                 style="@style/BlueButton"
                 android:layout_weight="1"
                 android:onClick="navigate"
+                android:fontFamily="@font/raleway"
                 android:drawableLeft="@android:drawable/ic_menu_my_calendar"
                 android:text="@string/eventsStr"/>
 
@@ -100,6 +103,8 @@
                 style="@style/BlueButton"
                 android:layout_weight="1"
                 android:onClick="navigate"
+                android:fontFamily="@font/raleway"
+
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:text="@string/newsStr"/>
 

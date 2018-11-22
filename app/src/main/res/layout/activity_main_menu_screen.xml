@@ -31,8 +31,9 @@
                 android:id="@+id/cityTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/raleway_semibold"
                 android:padding="22dip"
                 android:text="City name"
                 android:textColor="@color/colorWhite"
@@ -62,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/raleway_semibold"
                     android:onClick="openWeather"
                     android:text="@string/weatherStr"
                     android:textColor="@android:color/white" />
@@ -73,6 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/raleway_semibold"
                     android:onClick="openEvents"
                     android:text="@string/eventsStr"
                     android:textColor="@android:color/white" />
@@ -83,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/raleway_semibold"
                     android:onClick="openNews"
                     android:text="@string/newsStr"
                     android:textColor="@android:color/white" />
@@ -130,10 +134,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/raleway"
                         android:gravity="center_vertical"
-                        android:text="@string/welcoming"
                         android:onClick="comingSoon"
+                        android:text="@string/welcoming"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>
@@ -189,7 +193,7 @@
                         android:layout_weight="1"
                         android:clickable="false"
 
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/raleway"
                         android:gravity="center_vertical"
                         android:text="@string/recommendedPlaces"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
@@ -234,10 +238,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/raleway"
                         android:gravity="center_vertical"
-                        android:text="@string/costOfLiving"
                         android:onClick="openCostOfLiving"
+                        android:text="@string/costOfLiving"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>
@@ -281,10 +285,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/raleway"
                         android:gravity="center_vertical"
+                        android:onClick="comingSoon"
                         android:text="@string/findingRooms"
-                        android:onClick="comingSoon"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>
@@ -328,10 +332,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/raleway"
                         android:gravity="center_vertical"
-                        android:text="@string/services"
                         android:onClick="comingSoon"
+                        android:text="@string/services"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>
@@ -377,7 +381,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/raleway"
                         android:gravity="center_vertical"
                         android:text="@string/immigration"
                         android:textAlignment="textStart"
