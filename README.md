@@ -18,6 +18,6 @@ git clone https://git.cs.dal.ca/metri/mobile-comp-project.git
 - Commit Changes
 - Push changes and create a merge request.
 
-## Refrences
+## References
 - Google Maps API
 - [Bumptech Glide](https://github.com/bumptech/glide)
