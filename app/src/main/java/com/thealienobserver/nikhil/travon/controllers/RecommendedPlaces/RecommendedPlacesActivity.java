@@ -26,6 +26,8 @@ public class RecommendedPlacesActivity extends AppCompatActivity  {
         mLatLong = getIntent().getStringExtra(LATITUDE) + "," + getIntent().getStringExtra(LONGITUDE);
         city = getIntent().getStringExtra(MenuScreen.CITY);
 
+        setTitle("Places in " + city);
+
         ViewPager viewPager= findViewById(R.id.viewpager);
         viewPager.setAdapter(new RecommendedFragmentPagerAdapter(getSupportFragmentManager(), city));
 

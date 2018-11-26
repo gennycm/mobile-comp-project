@@ -12,10 +12,15 @@ import com.thealienobserver.nikhil.travon.R;
 public class ImmNav1Screen extends AppCompatActivity {
     private Button imm1, imm2,imm3,imm4;
 
+    public static String CITY = "city";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_immigration_screen);
+
+        String cityName = getIntent().getStringExtra(CITY);
+        setTitle(cityName + " Immigration");
         /**
         imm1 = (Button) findViewById(R.id.imm1);
         imm2 = (Button) findViewById(R.id.imm2);

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class EventsScreen extends AppCompatActivity {
 
     public static final String LAT_LON_PARAM = "LAT_LON_PARAM";
+    public static final String CITY_PARAM = "CITY_PARAM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,9 @@ public class EventsScreen extends AppCompatActivity {
 
         // Gather event details
         LatLng currentlocation = (LatLng) getIntent().getExtras().get(LAT_LON_PARAM);
+        String cityName = getIntent().getExtras().getString(CITY_PARAM);
+
+        setTitle(cityName + " Events");
 
         EventsHandler eventsHandler = new EventsHandler(this) {
             @Override

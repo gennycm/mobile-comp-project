@@ -63,15 +63,22 @@ public class MenuScreen extends AppCompatActivity {
     }
 
     public void openImmigration(View view) {
+        String city = addresses.get(0).getLocality();
+        city = (city == null) ? addresses.get(0).getAdminArea() : city;
+
         Intent immigrationInfoIntent = new Intent(MenuScreen.this, ImmNav1Screen.class);
+        immigrationInfoIntent.putExtra(ImmNav1Screen.CITY, city);
         startActivity(immigrationInfoIntent);
     }
 
     public void openEvents(View view) {
         LatLng currentLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
+        String city = addresses.get(0).getLocality();
+        city = (city == null) ? addresses.get(0).getAdminArea() : city;
 
         Intent eventIntent = new Intent(this, EventsScreen.class);
         eventIntent.putExtra(EventsScreen.LAT_LON_PARAM, currentLocation);
+        eventIntent.putExtra(EventsScreen.CITY_PARAM, city);
         startActivity(eventIntent);
     }
 
