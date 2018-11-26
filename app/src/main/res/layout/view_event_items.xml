@@ -16,12 +16,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:padding="8dp"
-                android:id="@+id/eventImage"
+            <!-- Framelayout so that the "FREE" text will overlap the image -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@mipmap/ic_launcher" />
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/eventImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="false"
+                    android:padding="8dp"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:padding="8dp"
+                    android:id="@+id/freeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="@string/free"
+                    android:textSize="16sp"
+                    android:background="@color/colorAccent" />
+            </FrameLayout>
 
             <TextView
                 android:padding="8dp"
@@ -29,14 +46,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Event Name" />
+                android:text="PLACEHOLDER Event Name" />
+
+            <TextView
+                android:padding="8dp"
+                android:id="@+id/eventTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PLACEHOLDER From [Start] to [End]" />
+
+            <TextView
+                android:padding="8dp"
+                android:id="@+id/eventLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PLACEHOLDER At [Location]"/>
 
             <TextView
                 android:padding="8dp"
                 android:id="@+id/eventDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Event Description"/>
+                android:text="PLACEHOLDER Event Description"/>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

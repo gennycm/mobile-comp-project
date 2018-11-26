@@ -36,9 +36,22 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Event currentEvent = this.eventList.get(i);
-        viewHolder.eventDescription.setText(currentEvent.getDescription());
+        // Only set first 200 characters of the description
+        String description = currentEvent.getDescription();
+        if (description.length() <= 200) {
+            viewHolder.eventDescription.setText(description);
+        }
+        else {
+            viewHolder.eventDescription.setText(description.substring(0, 200) + "...");
+        }
         viewHolder.eventName.setText(currentEvent.getName());
         Glide.with(callerContext).load(currentEvent.getImageUrl()).into(viewHolder.eventImage);
+        if (!currentEvent.isFree()) {
+            viewHolder.freeText.setVisibility(View.INVISIBLE);
+        }
+        viewHolder.eventTime.setText("From " + currentEvent.getStartTime().toString()
+                + " to " + currentEvent.getEndTime().toString());
+        viewHolder.eventLocation.setText("At " + currentEvent.getAddress());
 
     }
 
@@ -47,7 +60,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
 
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView eventImage;
-        TextView eventName, eventDescription;
+        TextView eventName, eventDescription, eventTime, eventLocation, freeText;
 
         public ViewHolder(@NonNull View itemView) {
             // TODO: Add new items
@@ -55,6 +68,9 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
             eventImage = itemView.findViewById(R.id.eventImage);
             eventName = itemView.findViewById(R.id.eventName);
             eventDescription = itemView.findViewById(R.id.eventDescription);
+            eventTime = itemView.findViewById(R.id.eventTime);
+            eventLocation = itemView.findViewById(R.id.eventLocation);
+            freeText = itemView.findViewById(R.id.freeText);
         }
     }
 }
