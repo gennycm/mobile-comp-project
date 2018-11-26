@@ -35,6 +35,8 @@ public class WeatherScreen extends AppCompatActivity {
         String Latitude = String.valueOf(b.get("LATITUDE"));
         String Longitude = String.valueOf(b.get("LONGITUDE"));
 
+        setTitle("Weather");
+
         this.cityWeatherHandler = new CityWeatherHandler() {
             @Override
             public void postWeatherApiCall(CityWeatherModel cityWeather) {
