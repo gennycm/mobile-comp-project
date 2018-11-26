@@ -35,8 +35,10 @@
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_semibold"
                 android:padding="8dp"
                 android:text="Recommended Place Title"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -45,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:lines="5"
+                android:fontFamily="@font/raleway"
                 android:padding="8dp"
                 android:text="Recommended Place Description" />
 

@@ -56,8 +56,8 @@
     <string name="free">FREE</string>
     <string name="back_to_map">Back to map</string>
     <string name="advanced_search">Advanced Search</string>
-    <string name="prev_page">Prev page</string>
-    <string name="next_page">Next page</string>
+    <string name="prev_page">Prev</string>
+    <string name="next_page">Next</string>
     <string name="search_query">Search Query</string>
     <string name="distance_advanced_search">Distance from location (km)</string>
     <string name="free_checkbox_text">Show free events only?</string>

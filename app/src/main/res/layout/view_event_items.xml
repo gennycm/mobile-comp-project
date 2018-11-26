@@ -37,22 +37,26 @@
                     android:layout_gravity="bottom"
                     android:text="@string/free"
                     android:textSize="16sp"
+                    android:fontFamily="@font/raleway_semibold"
                     android:background="@color/colorAccent" />
             </FrameLayout>
 
             <TextView
-                android:padding="8dp"
                 android:id="@+id/eventName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="PLACEHOLDER Event Name" />
+                android:fontFamily="@font/raleway_semibold"
+                android:padding="8dp"
+                android:text="PLACEHOLDER Event Name"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:padding="8dp"
                 android:id="@+id/eventTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
                 android:text="PLACEHOLDER From [Start] to [End]" />
 
             <TextView
@@ -60,6 +64,7 @@
                 android:id="@+id/eventLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
                 android:text="PLACEHOLDER At [Location]"/>
 
             <TextView
@@ -67,6 +72,7 @@
                 android:id="@+id/eventDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
                 android:text="PLACEHOLDER Event Description"/>
 
         </LinearLayout>

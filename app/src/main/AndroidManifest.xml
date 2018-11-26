@@ -82,7 +82,9 @@
 
         <activity android:name=".controllers.AvailableRoomsScreen" />
 
-        <activity android:name=".controllers.EventsScreen" />
+        <activity
+            android:name=".controllers.EventsScreen"
+            android:parentActivityName=".controllers.MenuScreen" />
 
         <activity android:name=".controllers.DetailActivity" />
 

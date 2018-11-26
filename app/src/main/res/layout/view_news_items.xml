@@ -24,18 +24,21 @@
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
-                android:padding="8dp"
                 android:id="@+id/newsHeadline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="News Headlines" />
+                android:fontFamily="@font/raleway_semibold"
+                android:padding="8dp"
+                android:text="News Headlines"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:padding="8dp"
                 android:id="@+id/newsDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
                 android:text="News Description"/>
 
         </LinearLayout>
