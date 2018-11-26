@@ -205,10 +205,10 @@ public class MainScreen extends AppCompatActivity {
     public void navigate(View view) {
         Button clickedButton = (Button) view;
 
+        String city = adresses.get(0).getLocality();
+        city = city == null ? adresses.get(0).getAdminArea(): city;
+        String country = adresses.get(0).getCountryName();
         if (clickedButton.getText().toString().toUpperCase().equals("NEWS")) {
-            String city = adresses.get(0).getLocality();
-            city = city == null ? adresses.get(0).getAdminArea(): city;
-            String country = adresses.get(0).getCountryName();
 
             Intent newsIntent = new Intent(this, NewsScreen.class);
             newsIntent.putExtra(NewsScreen.COUNTRY_PARAM, country);
@@ -217,7 +217,7 @@ public class MainScreen extends AppCompatActivity {
         }
         else if(clickedButton.getText().toString().toUpperCase().equals("WEATHER")){
             LatLng currentLocation = this.locationMarker.getPosition();
-            String country = adresses.get(0).getCountryCode();
+            country = adresses.get(0).getCountryCode();
             Intent weatherIntent = new Intent(this, WeatherScreen.class);
             weatherIntent.putExtra(WeatherScreen.COUNTRY_CODE_PARAM, country);
             weatherIntent.putExtra(WeatherScreen.LAT_LON_PARAM, currentLocation);
@@ -226,9 +226,9 @@ public class MainScreen extends AppCompatActivity {
             startActivity(weatherIntent);
         } else if (clickedButton.getId() == R.id.eventsButton) {
             LatLng currentLocation = this.locationMarker.getPosition();
-
             Intent eventIntent = new Intent(this, EventsScreen.class);
             eventIntent.putExtra(EventsScreen.LAT_LON_PARAM, currentLocation);
+            eventIntent.putExtra(EventsScreen.CITY_PARAM, city);
             startActivity(eventIntent);
         }
     }

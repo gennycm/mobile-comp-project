@@ -27,6 +27,7 @@ public class CostOfLivingScreen extends AppCompatActivity {
         city = getIntent().getStringExtra(CITY);
         country = getIntent().getStringExtra(COUNTRY);
 
+        setTitle("Living cost in " + city);
         CostOfLivingHandler.getInstance(getApplicationContext()).getCostOfLivingFromCity(city, country);
     }
 

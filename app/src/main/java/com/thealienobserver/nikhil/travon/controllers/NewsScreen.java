@@ -25,9 +25,13 @@ public class NewsScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_screen);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //fetching News
         String countryParam = getIntent().getStringExtra(NewsScreen.COUNTRY_PARAM);
         String cityParam = getIntent().getStringExtra(NewsScreen.CITY_PARAM);
+
+        setTitle(cityParam + " News");
         NewsHandler newsHandler = new NewsHandler(this) {
             @Override
             public void postFetchingNewsArticles(ArrayList<NewsArticle> newsArticles) {
@@ -41,5 +45,11 @@ public class NewsScreen extends AppCompatActivity {
         RecyclerView newsRecyclerView = findViewById(R.id.newsRecyclerView);
         newsRecyclerView.setAdapter(new NewsCardsAdapter(this, newsArticles));
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }
