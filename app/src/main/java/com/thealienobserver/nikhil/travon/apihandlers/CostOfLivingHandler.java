@@ -90,11 +90,11 @@ public class CostOfLivingHandler {
                         if (item_name.contains("Rent Per Month") || item_name.contains("Buy Apartment Price")) {
                             room.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
                         } else {
-                            if (item_name.contains("Utilities")) {
-                                utilities.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                            if (item_name.contains("Clothing And Shoes")) {
+                                clothing.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
                             } else {
-                                if (item_name.contains("Utilities")) {
-                                    utilities.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                                if (item_name.contains("Childcare")) {
+                                    childcare.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
                                 }
                             }
                         }
@@ -121,5 +121,11 @@ public class CostOfLivingHandler {
         return room;
     }
 
+    public ArrayList<CostOfLivingItem> getClothing() {
+        return clothing;
+    }
 
+    public ArrayList<CostOfLivingItem> getChildcare() {
+        return childcare;
+    }
 }

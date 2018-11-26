@@ -87,6 +87,34 @@ public class CostOfLivingScreen extends AppCompatActivity {
         startActivity(roomsIntent);
     }
 
+    public void openChildcareDetails(View view) {
+        Intent childcareIntent = new Intent(CostOfLivingScreen.this, CostOfLivingDetailsScreen.class);
+        cardView = findViewById(R.id.childcareCv);
+        categoryTitle = findViewById(R.id.childcareTv);
+        int bgColor = cardView.getCardBackgroundColor().getDefaultColor();
+        String categoryTitleStr = (String) categoryTitle.getText();
+
+        childcareIntent.putExtra(CostOfLivingDetailsScreen.CITY, city);
+        childcareIntent.putExtra(CostOfLivingDetailsScreen.BG_COLOR, bgColor);
+        childcareIntent.putExtra(CostOfLivingDetailsScreen.CATEGORY_TITLE, categoryTitleStr);
+
+        startActivity(childcareIntent);
+    }
+
+    public void openClothingDetails(View view) {
+        Intent clothingIntent = new Intent(CostOfLivingScreen.this, CostOfLivingDetailsScreen.class);
+        cardView = findViewById(R.id.clothingCv);
+        categoryTitle = findViewById(R.id.clothingTv);
+        int bgColor = cardView.getCardBackgroundColor().getDefaultColor();
+        String categoryTitleStr = (String) categoryTitle.getText();
+
+        clothingIntent.putExtra(CostOfLivingDetailsScreen.CITY, city);
+        clothingIntent.putExtra(CostOfLivingDetailsScreen.BG_COLOR, bgColor);
+        clothingIntent.putExtra(CostOfLivingDetailsScreen.CATEGORY_TITLE, categoryTitleStr);
+
+        startActivity(clothingIntent);
+    }
+
     @Override
     protected void onStart() {
         super.onStart();

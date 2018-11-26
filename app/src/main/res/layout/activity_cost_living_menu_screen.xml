@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Cost of Living layout -->
+<?xml version="1.0" encoding="utf-8"?><!-- Cost of Living layout -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -30,12 +29,12 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
+            android:onClick="openTransportDetails"
             app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
             app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="false"
-            android:onClick="openTransportDetails">
+            app:cardUseCompatPadding="false">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -72,6 +71,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
+            android:onClick="openRoomsDetails"
             app:cardBackgroundColor="@color/colorPrimaryDark"
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
@@ -113,12 +113,12 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
+            android:onClick="openFoodDetails"
             app:cardBackgroundColor="@color/colorPrimaryDark"
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
             app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="false"
-            android:onClick="openFoodDetails">
+            app:cardUseCompatPadding="false">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -147,6 +147,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
+            android:id="@+id/clothingCv"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -158,7 +159,8 @@
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
             app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="false">
+            app:cardUseCompatPadding="false"
+            android:onClick="openClothingDetails">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -174,6 +176,7 @@
                     android:src="@drawable/ic_t_shirt_black_silhouette" />
 
                 <TextView
+                    android:id="@+id/clothingTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_thin"
@@ -186,6 +189,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
+            android:id="@+id/childcareCv"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -193,6 +197,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
+            android:onClick="openChildcareDetails"
             app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
@@ -213,6 +218,7 @@
                     android:src="@drawable/ic_baby_stroller" />
 
                 <TextView
+                    android:id="@+id/childcareTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_thin"
@@ -233,6 +239,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
+            android:onClick="openUtilitiesDetails"
             app:cardBackgroundColor="@color/colorPrimaryDark"
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
@@ -244,8 +251,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="15dp"
-                android:orientation="vertical"
-                android:onClick="openUtilitiesDetails">
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="37dp"

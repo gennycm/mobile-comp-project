@@ -62,9 +62,7 @@ public class CostOfLivingDetailsScreen extends AppCompatActivity {
             case "Transport":
                 ArrayList transport = CostOfLivingHandler.getInstance(getApplicationContext()).getTransportation();
                 setCostsListOnView(transport);
-
                 break;
-
             case "Food":
                 ArrayList food = CostOfLivingHandler.getInstance(getApplicationContext()).getFood();
                 setCostsListOnView(food);
@@ -73,10 +71,17 @@ public class CostOfLivingDetailsScreen extends AppCompatActivity {
                 ArrayList utilities = CostOfLivingHandler.getInstance(getApplicationContext()).getUtilities();
                 setCostsListOnView(utilities);
                 break;
-
             case "Room":
                 ArrayList room = CostOfLivingHandler.getInstance(getApplicationContext()).getRoom();
                 setCostsListOnView(room);
+                break;
+            case "Childcare":
+                ArrayList childcare = CostOfLivingHandler.getInstance(getApplicationContext()).getChildcare();
+                setCostsListOnView(childcare);
+                break;
+            case "Clothing":
+                ArrayList clothing = CostOfLivingHandler.getInstance(getApplicationContext()).getClothing();
+                setCostsListOnView(clothing);
                 break;
         }
 
