@@ -43,7 +43,7 @@ public class CostOfLivingAdapter extends ArrayAdapter<CostOfLivingItem> {
 
             nameTv.setText(i.getItemName());
             //String.format("$ %.2f", i.getAveragePrice());
-            avgCostTv.setText("$ " + numberFormat.format(i.getAveragePrice()));
+            avgCostTv.setText(numberFormat.format(i.getAveragePrice()));
             String pricesRange = numberFormat.format(i.getLowestPrice()) + " - " + numberFormat.format(i.getHighestPrice());
             rangeTv.setText(pricesRange);
         }

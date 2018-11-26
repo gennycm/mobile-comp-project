@@ -24,6 +24,8 @@ public class CostOfLivingHandler {
     private RequestQueue requestQueue;
 
 
+    private String currency = "";
+    private String lastUpdated = "";
     private ArrayList<CostOfLivingItem> food = new ArrayList();
     private ArrayList<CostOfLivingItem> transportation = new ArrayList();
     private ArrayList<CostOfLivingItem> utilities = new ArrayList();
@@ -53,6 +55,8 @@ public class CostOfLivingHandler {
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray prices = response.getJSONArray("prices");
+                    currency = response.getString("currency");
+                    lastUpdated = "Last updated: " + response.getString("monthLastUpdate") + "/" + response.getString("yearLastUpdate");
                     classifyResults(prices);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -127,5 +131,13 @@ public class CostOfLivingHandler {
 
     public ArrayList<CostOfLivingItem> getChildcare() {
         return childcare;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public String getLastUpdated() {
+        return lastUpdated;
     }
 }
