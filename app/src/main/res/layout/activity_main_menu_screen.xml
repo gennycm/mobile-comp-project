@@ -299,8 +299,8 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway"
                         android:gravity="center_vertical"
-                        android:onClick="comingSoon"
                         android:text="@string/findingRooms"
+                        android:onClick="openAvailableRooms"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>

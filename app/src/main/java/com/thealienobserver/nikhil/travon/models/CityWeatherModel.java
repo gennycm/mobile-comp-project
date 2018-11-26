@@ -2,11 +2,12 @@ package com.thealienobserver.nikhil.travon.models;
 
 public class CityWeatherModel {
     double temperature;
-    String description, iconUrl;
+    String description, iconUrl, city;
     double humidity, tempMin, tempMax;
     int clouds;
 
-    public CityWeatherModel(double temperature, String description, double humidity, double tempMin, double tempMax, int clouds, String iconUrl) {
+    public CityWeatherModel(String city,double temperature, String description, double humidity, double tempMin, double tempMax, int clouds, String iconUrl) {
+        this.city=city;
         this.temperature = temperature;
         this.description = description;
         this.humidity = humidity;
@@ -20,6 +21,7 @@ public class CityWeatherModel {
         return temperature;
     }
 
+    public String getCity() { return city; }
     public String getDescription() {
         return description;
     }

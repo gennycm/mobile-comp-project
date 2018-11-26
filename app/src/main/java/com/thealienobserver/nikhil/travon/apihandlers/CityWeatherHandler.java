@@ -73,16 +73,16 @@ public abstract class CityWeatherHandler {
         // Using only first object of weather
         JSONObject weather = response.getJSONArray("weather").getJSONObject(0);
         JSONObject main = response.getJSONObject("main");
-
         double temperature = main.getDouble("temp");
         String description = weather.getString("description");
         double humidity = main.getDouble("humidity");
         double tempMin = main.getDouble("temp_min");
         double tempMax = main.getDouble("temp_max");
+        String city=response.getString("name");
         String iconUrl = ICON_URL + weather.getString("icon") + ".png";
 
         int clouds = response.getJSONObject("clouds").getInt("all");
-        CityWeatherModel cityWeather = new CityWeatherModel(temperature, description, humidity, tempMin, tempMax, clouds, iconUrl);
+        CityWeatherModel cityWeather = new CityWeatherModel(city, temperature, description, humidity, tempMin, tempMax, clouds, iconUrl);
         return cityWeather;
     }
 

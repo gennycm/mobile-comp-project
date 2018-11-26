@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,7 +55,6 @@ public class WeatherScreen extends AppCompatActivity {
     private void setupWeatherCards(ArrayList<WeatherModel> weatherModel) {
         RecyclerView weatherRecyclerView = findViewById(R.id.weatherRecyclerView);
         weatherRecyclerView.setAdapter(new WeatherCardAdapter(this, weatherModel));
-        //weatherRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         weatherRecyclerView.setLayoutManager(linearLayoutManager);
@@ -73,7 +70,7 @@ public class WeatherScreen extends AppCompatActivity {
         TextView description = findViewById(R.id.description);
         ImageView weatherIcon = findViewById(R.id.weatherIcon);
 
-        city.setText(city.getText().toString().toUpperCase());
+        city.setText(cityWeather.getCity().toUpperCase());
         temp.setText(String.valueOf(Math.round(cityWeather.getTemperature())) + "\u2103");
         minMax.setText("Min. " + Math.round(cityWeather.getTempMin()) + "\u2103" + "   Max. " + Math.round(cityWeather.getTempMax()) + "\u2103");
         humidity.setText(Math.round(cityWeather.getHumidity()) + "%\nHumidity");
