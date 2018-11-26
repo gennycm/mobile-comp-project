@@ -82,6 +82,13 @@ public class MenuScreen extends AppCompatActivity {
         startActivity(eventIntent);
     }
 
+    public void openAvailableRooms(View view) {
+        LatLng currentLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
+        Intent availableRoomIntent = new Intent(this, AvailableRoomsScreen.class);
+        //eventIntent.putExtra(AvailableRoomsScreen.LAT_LON_PARAM, currentLocation);
+        startActivity(availableRoomIntent);
+    }
+
     public void comingSoon(View view) {
         Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
     }
