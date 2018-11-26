@@ -41,7 +41,9 @@
             android:launchMode="singleTop"
             android:parentActivityName=".controllers.MainScreen"></activity>
 
-        <activity android:name=".controllers.WeatherScreen" />
+        <activity
+            android:name=".controllers.WeatherScreen"
+            android:parentActivityName=".controllers.MenuScreen" />
 
         <activity
             android:name=".controllers.ImmNav1Screen"
@@ -74,7 +76,9 @@
             android:theme="@style/AppTheme"></activity>
         <activity android:name=".controllers.NewsScreen" />
 
-        <activity android:name=".controllers.RecommendedPlaces.RecommendedPlacesActivity" />
+        <activity
+            android:name=".controllers.RecommendedPlaces.RecommendedPlacesActivity"
+            android:parentActivityName=".controllers.MenuScreen" />
 
         <activity android:name=".controllers.AvailableRoomsScreen" />
 
