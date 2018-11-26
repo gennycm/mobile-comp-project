@@ -134,7 +134,8 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight=".80">
+                    android:layout_weight=".80"
+                    android:onClick="openWelcoming">
 
                     <TextView
                         android:id="@+id/welcomeTxtView"
@@ -144,7 +145,6 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway"
                         android:gravity="center_vertical"
-                        android:onClick="comingSoon"
                         android:text="@string/welcoming"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
@@ -193,7 +193,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight=".80"
                     android:clickable="false"
-                    android:onClick="openRecommendedplace">
+                    android:onClick="openRecommendedPlaces">
 
                     <TextView
                         android:layout_width="wrap_content"

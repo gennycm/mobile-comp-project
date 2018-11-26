@@ -47,4 +47,10 @@
     <string name="offices">Offices</string>
     <string name="faq">FAQ</string>
 
+
+    <!-- Welcoming -->
+    <string name="welcoming_title">Welcome to %1$s! </string>
+    <string name="lorem_ipsum">Lorem ipsum  </string>
+
+
 </resources>

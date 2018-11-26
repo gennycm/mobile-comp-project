@@ -39,8 +39,8 @@ public class MenuScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu_screen);
 
-         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         cityTextView = findViewById(R.id.cityTextView);
         cityImageview = findViewById(R.id.cityImageView);
@@ -54,8 +54,17 @@ public class MenuScreen extends AppCompatActivity {
         mainMenuHandler.getPlaceID(longitude, latitude);
     }
 
+    public void openWelcoming(View view) {
+        String city = addresses.get(0).getLocality();
+        city = (city == null) ? addresses.get(0).getAdminArea() : city;
 
-    public void openRecommendedplace(View view) {
+        Intent intent = new Intent(MenuScreen.this, WelcomingScreen.class);
+        intent.putExtra(CITY, city);
+        startActivity(intent);
+    }
+
+
+    public void openRecommendedPlaces(View view) {
         String latitude = String.valueOf(addresses.get(0).getLatitude());
         String longitude = String.valueOf(addresses.get(0).getLongitude());
         String city = addresses.get(0).getLocality();

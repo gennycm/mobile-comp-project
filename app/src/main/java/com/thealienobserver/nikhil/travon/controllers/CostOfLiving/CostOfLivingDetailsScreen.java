@@ -38,11 +38,6 @@ public class CostOfLivingDetailsScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cost_of_living_details);
 
-
-       // getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-
-       // getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
         costOfLivingHandlerInstance = CostOfLivingHandler.getInstance(getApplicationContext());
 
         city = getIntent().getStringExtra(CITY);
@@ -64,8 +59,6 @@ public class CostOfLivingDetailsScreen extends AppCompatActivity {
         lastUpdated = findViewById(R.id.lastUpdatedTv);
 
         categoryTitleTv.setText(categoryTitle);
-        //setTitle(categoryTitle + " costs in " + city);
-
         lastUpdated.setText(costOfLivingHandlerInstance.getLastUpdated());
 
         categoryLayout.setBackgroundColor(bgcolor);
