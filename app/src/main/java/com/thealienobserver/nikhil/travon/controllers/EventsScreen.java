@@ -29,6 +29,8 @@ import java.util.ArrayList;
 public class EventsScreen extends AppCompatActivity {
 
     public static final String LAT_LON_PARAM = "LAT_LON_PARAM";
+    public static final String CITY_PARAM = "CITY_PARAM";
+
     private int page = 1;
     private int distance = 100;
     private EventsHandler eventsHandler;
@@ -46,6 +48,9 @@ public class EventsScreen extends AppCompatActivity {
 
         // Gather event details
         currentlocation = (LatLng) getIntent().getExtras().get(LAT_LON_PARAM);
+        String cityName = getIntent().getExtras().getString(CITY_PARAM);
+
+        setTitle(cityName + " Events");
 
         advanced = findViewById(R.id.advanced);
         prev = findViewById(R.id.prevPage);

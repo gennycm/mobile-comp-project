@@ -1,202 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+<android.support.v7.widget.CardView
+xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/card_view"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_margin="8dp">
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        card_view:cardCornerRadius="4dp">
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="100dp">
-            <TextView
-                android:padding="8dp"
-                android:id="@+id/lblDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:textStyle="bold"
-                android:text="10/30/2018" />
-        </LinearLayout>
 <LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="wrap_content"
-    android:layout_height="100dp">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="8dp"
+    android:minWidth="150dp"
+    android:layout_height="match_parent">
 
     <ImageView
-        android:contentDescription="TODO"
-        android:padding="8dp"
         android:id="@+id/weatherImage"
-        android:layout_width="100dp"
-        android:scaleType="fitXY"
-        android:layout_height="100dp"
-        android:src="@mipmap/ic_launcher" />
-    <TextView
-        android:padding="8dp"
-        android:id="@+id/lblCityName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold"
-        android:text="Halifax" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_launcher"/>
 
     <TextView
-        android:padding="8dp"
         android:id="@+id/lblTempeature"
-        android:layout_width="match_parent"
+        android:textSize="18dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="-4\u00b0C"/>
+        android:layout_gravity="center"
+        android:text="temp"/>
+
+    <TextView
+        android:id="@+id/lblDescription"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="desc"/>
+
+    <TextView
+        android:id="@+id/lblDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="date"/>
+
+    <TextView
+        android:id="@+id/lblTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="time"/>
 
 </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="100dp"
-            >
-            <TextView
-                android:id="@+id/lblMinimum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:text="Min."
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"/>
-
-            <TextView
-                android:id="@+id/lblMinimumValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:text="-5\u00b0C"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_gravity="center_horizontal"/>
-
-            <TextView
-                android:id="@+id/lblMaximum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:text="Max."
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_gravity="center_horizontal"/>
-            <TextView
-                android:id="@+id/lblMaximumValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:text="0\u00b0C"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_gravity="center_horizontal"/>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="100dp"
-            >
-       <TextView
-           android:id="@+id/lblMain"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignParentStart="true"
-           android:text="Cloudy"
-           android:textSize="30dp"
-           android:layout_gravity="center_horizontal"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="100dp"
-            >
-       <TextView
-           android:id="@+id/lblDescription"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignParentStart="true"
-           android:text="Overcast clouds"
-           android:textSize="25dp"
-           android:layout_gravity="center_horizontal"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="100dp"
-            >
-       <LinearLayout
-           android:layout_width="0dp"
-           android:layout_height="fill_parent"
-           android:orientation="vertical"
-           android:gravity="center"
-           android:layout_weight="1" >
-
-           <TextView
-               android:id="@+id/lblHumidityValue"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="86%"
-               android:textSize="15dp"
-               />
-           <TextView
-               android:id="@+id/lblHumidity"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Humidity"
-               android:textSize="15dp"
-               />
-       </LinearLayout>
-       <LinearLayout
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:orientation="vertical"
-           android:layout_gravity="right"
-           android:gravity="center"
-           android:layout_weight="1">
-
-           <TextView
-               android:id="@+id/lblCloudsValue"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="90%"
-               android:textSize="15dp"
-               />
-           <TextView
-               android:id="@+id/lblClouds"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Clouds"
-               android:textSize="15dp"
-               />
+</android.support.v7.widget.CardView>
 
 
-       </LinearLayout>
 
-   </LinearLayout>
-   </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-</LinearLayout>

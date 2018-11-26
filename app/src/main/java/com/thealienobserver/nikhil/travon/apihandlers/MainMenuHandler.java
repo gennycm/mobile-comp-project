@@ -31,7 +31,6 @@ public class MainMenuHandler {
     private Context applicationContext;
     private ImageView cityImageview;
     private static String api_key = "&key=AIzaSyDCywJBYgafoLew81-vpeGTN03_2vBB7jk";
-    private static final String RecommendedPLaces_Photo_Url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";
     private RequestQueue requestQueue;
 
     public MainMenuHandler(Context context, ImageView cityImageview) {

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight=".08"
+    android:weightSum="3"
+    android:padding="1sp">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.20"
+        android:background="@color/colorWhite"
+        android:fontFamily="@font/raleway"
+        android:padding="5sp"
+        android:text="@string/name"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvAvgCost"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/colorWhite"
+        android:fontFamily="@font/raleway"
+        android:padding="5sp"
+        android:text="@string/avgCost"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvRange"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:background="@color/colorWhite"
+        android:fontFamily="@font/raleway"
+        android:padding="5sp"
+        android:text="@string/range"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+</LinearLayout>

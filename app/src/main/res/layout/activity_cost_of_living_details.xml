@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context=".controllers.EventsScreen">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/categoryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".20">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="bottom">
+
+            <TextView
+                android:id="@+id/categoryTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/raleway_semibold"
+                android:padding="10dip"
+                android:text="category"
+                android:textColor="@color/colorWhite"
+                android:textSize="45sp" />
+
+            <TextView
+                android:id="@+id/lastUpdatedTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/raleway"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                android:paddingBottom="5dip"
+                android:text="Last updated"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="15sp"
+        android:layout_weight=".08"
+        android:padding="1sp"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/nameTV"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.20"
+            android:background="@color/colorWhite"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="5sp"
+            android:text="@string/name"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/avgCost"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="5sp"
+            android:text="@string/avgCost"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/range"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:background="@color/colorWhite"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="5sp"
+            android:text="@string/range"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/costItems"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/categoryTitleTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="2sp"
+        android:layout_marginEnd="2sp"
+        android:layout_marginBottom="5sp"
+        android:layout_weight=".72"
+        android:divider="@null"
+        android:dividerHeight="0dp"></ListView>
+
+
+</LinearLayout>

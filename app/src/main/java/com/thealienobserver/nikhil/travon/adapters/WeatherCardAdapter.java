@@ -12,6 +12,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.models.WeatherModel;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardAdapter.ViewHolder> {
@@ -35,18 +38,17 @@ public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Log.d(TAG, "bind view called");
         WeatherModel weatherElement = this.weatherModel.get(i);
-        viewHolder.CityName.setText(weatherElement.getCity());
         viewHolder.Temprature.setText(String.valueOf(weatherElement.getTemprature()));
-        viewHolder.Humidity.setText(String.valueOf(weatherElement.getHumidity()));
-        viewHolder.Minimum_Temprature.setText(String.valueOf(weatherElement.getMinimum_Temprature()));
-        viewHolder.Maximum_Temprature.setText(String.valueOf(weatherElement.getMaximum_Temprature()));
-        viewHolder.Main.setText(weatherElement.getMain());
         viewHolder.Description.setText(weatherElement.getDescription());
         viewHolder.ForecastDate.setText(String.valueOf(weatherElement.getWeather_Date()));
-        Log.d("ImageeeeeeeeUrl",weatherElement.getImage_Url());
         Glide.with(callerContext).load(weatherElement.getImage_Url()).into(viewHolder.weatherImage);
+        DateFormat outTimeDf = new SimpleDateFormat("h:mm a"); //"HH:mm:ss");
+        DateFormat outDateDf = new SimpleDateFormat("EEE, MMM d, ''yy"); //"dd-MM-yyyy");
+
+        viewHolder.ForecastDate.setText(outDateDf.format(weatherElement.getWeather_Date()));
+        viewHolder.ForecastTime.setText(outTimeDf.format(weatherElement.getWeather_Date()));
+
     }
 
     @Override
@@ -56,19 +58,20 @@ public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardAdapter.
 
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView weatherImage;
-        TextView Temprature, Humidity,Minimum_Temprature,Maximum_Temprature,Main,Description,CityName,ForecastDate;
+        TextView Temprature,Description,ForecastDate,ForecastTime;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             weatherImage = itemView.findViewById(R.id.weatherImage);
-            CityName = itemView.findViewById(R.id.lblCityName);
+            //CityName = itemView.findViewById(R.id.lblCityName);
             Temprature = itemView.findViewById(R.id.lblTempeature);
-            Maximum_Temprature = itemView.findViewById(R.id.lblMaximumValue);
-            Minimum_Temprature = itemView.findViewById(R.id.lblMinimumValue);
-            Main = itemView.findViewById(R.id.lblMain);
+            //Maximum_Temprature = itemView.findViewById(R.id.lblMaximumValue);
+            //Minimum_Temprature = itemView.findViewById(R.id.lblMinimumValue);
+            //Main = itemView.findViewById(R.id.lblMain);
             Description = itemView.findViewById(R.id.lblDescription);
             ForecastDate=itemView.findViewById(R.id.lblDate);
-            Humidity=itemView.findViewById(R.id.lblHumidityValue);
+            ForecastTime=itemView.findViewById(R.id.lblTime);
+            //Humidity=itemView.findViewById(R.id.lblHumidityValue);
         }
     }
 

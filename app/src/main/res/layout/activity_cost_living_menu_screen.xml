@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Cost of Living layout -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".controllers.CostOfLiving.CostOfLivingScreen">
+
+
+    <!-- Options Grid Layout -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20sp"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:rowCount="3">
+
+        <!-- First row -->
+        <!-- First column -->
+        <android.support.v7.widget.CardView
+            android:id="@+id/transportCv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="openTransportDetails"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_front_of_bus" />
+
+                <TextView
+                    android:id="@+id/transportTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_thin"
+                    android:text="@string/transport"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <!-- Two column -->
+        <android.support.v7.widget.CardView
+            android:id="@+id/roomCv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="openRoomsDetails"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_home" />
+
+                <TextView
+                    android:id="@+id/roomTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_thin"
+                    android:text="@string/room"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/foodCv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="openFoodDetails"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_restaurant" />
+
+                <TextView
+                    android:id="@+id/foodTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_thin"
+                    android:text="@string/food"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/clothingCv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false"
+            android:onClick="openClothingDetails">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_t_shirt_black_silhouette" />
+
+                <TextView
+                    android:id="@+id/clothingTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_thin"
+                    android:text="@string/clothing"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/childcareCv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="openChildcareDetails"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_baby_stroller" />
+
+                <TextView
+                    android:id="@+id/childcareTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_thin"
+                    android:text="@string/childcare"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/utilitiesCv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="openUtilitiesDetails"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_house" />
+
+                <TextView
+                    android:id="@+id/utilitiesTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_thin"
+                    android:text="@string/utilities"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </GridLayout>
+</LinearLayout>
