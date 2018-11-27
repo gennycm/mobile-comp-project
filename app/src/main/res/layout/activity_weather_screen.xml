@@ -4,13 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp"
     tools:context=".controllers.WeatherScreen">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/weatherRecyclerView"
+        android:layout_marginTop="45dp"
         android:orientation="vertical">
 
         <TextView
@@ -89,8 +88,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"></android.support.v7.widget.RecyclerView>
-
-
 </RelativeLayout>
 
 
