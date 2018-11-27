@@ -41,25 +41,21 @@ import com.thealienobserver.nikhil.travon.adapters.RecommendedPlacesAdapter;
 public class DetailActivity extends AppCompatActivity {
 
 
-  private ImageView imageView;
-  private TextView tv_title;
-  private TextView tv_description;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        imageView=(ImageView)findViewById(R.id.iv_recommended_place);
-        tv_description=(TextView)findViewById(R.id.tv_description);
-        tv_title=(TextView)findViewById(R.id.tv_title);
+        ImageView imageView =  findViewById(R.id.iv_recommended_place);
+        TextView tv_description =  findViewById(R.id.tv_description);
+        TextView tv_title =  findViewById(R.id.tv_title);
+        TextView tv_address = findViewById(R.id.tv_location);
+        TextView tv_phone = findViewById(R.id.tv_phone_number);
 
         Glide.with(this).load(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_IMAGE)).into(imageView);
         tv_title.setText(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_TITLE));
-        tv_description.setText(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_DESCRIPTION)!=null?getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_DESCRIPTION):"");
-
-
-
+        tv_description.setText(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_DESCRIPTION) != null ? getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_DESCRIPTION) : "");
+        tv_address.setText(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_ADDRESS) != null ? getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_ADDRESS) : "");
+        tv_phone.setText(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_PHONE) != null ? getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_PHONE) : "");
 
 
     }
