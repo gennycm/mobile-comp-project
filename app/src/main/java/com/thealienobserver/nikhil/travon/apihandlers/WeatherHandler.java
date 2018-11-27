@@ -46,7 +46,7 @@ public abstract class WeatherHandler {
         Float lon=Float.parseFloat(longitude);
         latitude=String.format("%.2f", lat);
         longitude=String.format("%.2f", lon);
-        String url = WEATHER_URL.concat(TextUtils.isEmpty(latitude) ? "44.649963&lon=-63.5802565" : (latitude + "&lon=" + longitude));//+"&cnt=5"
+        String url = WEATHER_URL.concat(TextUtils.isEmpty(latitude) ? "44.649963&lon=-63.5802565&units=metric" : (latitude + "&lon=" + longitude+"&units=metric"));//+"&cnt=5"
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
