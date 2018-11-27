@@ -51,11 +51,15 @@ public class DetailActivity extends AppCompatActivity {
         TextView tv_address = findViewById(R.id.tv_location);
         TextView tv_phone = findViewById(R.id.tv_phone_number);
 
+        setTitle(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_TITLE));
+
+
         Glide.with(this).load(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_IMAGE)).into(imageView);
         tv_title.setText(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_TITLE));
         tv_description.setText(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_DESCRIPTION) != null ? getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_DESCRIPTION) : "");
         tv_address.setText(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_ADDRESS) != null ? getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_ADDRESS) : "");
         tv_phone.setText(getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_PHONE) != null ? getIntent().getStringExtra(RecommendedPlacesAdapter.PLACE_PHONE) : "");
+
 
 
     }

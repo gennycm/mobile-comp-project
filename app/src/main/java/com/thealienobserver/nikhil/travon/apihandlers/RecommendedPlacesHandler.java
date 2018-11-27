@@ -198,12 +198,7 @@ public abstract class RecommendedPlacesHandler {
 
                     }
                     recomendedPlaces.add(recommededPlace);
-
                     RecommendedPlacesHandler.this.postFetchingRecomendedPlaces(recomendedPlaces);
-                    recommededPlace.setDescription(description);
-
-                    recomendedPlaces.add(recommededPlace);
-                    postFetchingRecomendedPlaces(recomendedPlaces);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -78,6 +78,7 @@
 
         <activity
             android:name=".controllers.RecommendedPlaces.RecommendedPlacesActivity"
+            android:launchMode="singleTop"
             android:parentActivityName=".controllers.MenuScreen" />
 
         <activity android:name=".controllers.AvailableRoomsScreen" />
@@ -87,7 +88,8 @@
             android:parentActivityName=".controllers.MenuScreen" />
 
 
-        <activity android:name=".controllers.DetailActivity" />
+        <activity android:name=".controllers.DetailActivity"
+            android:parentActivityName=".controllers.RecommendedPlaces.RecommendedPlacesActivity"/>
 
         <activity
             android:name=".controllers.CostOfLiving.CostOfLivingScreen"
