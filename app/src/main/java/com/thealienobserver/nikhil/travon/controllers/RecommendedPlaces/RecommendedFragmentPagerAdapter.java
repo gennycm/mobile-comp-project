@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class RecommendedFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    private String tabTitles[] = new String[]{"Attractions", "Hospitals", "Universities"};
+    private String tabTitles[] = new String[]{"Attractions", "Hospitals", "Universities","Restaurants"};
     private String city;
 
     RecommendedFragmentPagerAdapter(FragmentManager fm, String city) {
@@ -22,7 +22,7 @@ public class RecommendedFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return tabTitles.length;
     }
 
     @Override

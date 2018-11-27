@@ -14,12 +14,14 @@ import com.android.volley.toolbox.Volley;
 import com.thealienobserver.nikhil.travon.models.RecommendedPlace;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 
 public abstract class RecommendedPlacesHandler {
 
@@ -34,20 +36,26 @@ public abstract class RecommendedPlacesHandler {
 
     private String api_key = "&key=AIzaSyDCywJBYgafoLew81-vpeGTN03_2vBB7jk";
 
+    private static final String Recommended_Place_Details_Url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=";
+
     private static final String Recommended_place_desc_url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=";
 
     private RequestQueue requestQueue;
     private String reference;
+
+    private final HashMap<String, JSONObject> recommendedPlacesJsonObjectList = new HashMap<>();
 
     public RecommendedPlacesHandler(Context context) {
         this.applicationContext = context;
     }
 
 
-    public void getTopRecomendedPlaces(final String location, String placeType) {
+    public void getTopRecomendedPlaces(final String location, final String placeType) {
         requestQueue = Volley.newRequestQueue(applicationContext);
         String url = RecomendedPlaces_URL + placeType.toLowerCase() + "%20in%20" + location +
                 "&sensor=false" + api_key;
+        url = url.replaceAll(" ", "%20");
+
 
         recomendedPlaces = new ArrayList<>();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -59,21 +67,74 @@ public abstract class RecommendedPlacesHandler {
                     JSONArray recommendedPlaces = response.getJSONArray("results");
 
                     for (int i = 0; i < recommendedPlaces.length(); i++) {
-                        JSONObject recommendedPlacesJSONObject = recommendedPlaces.getJSONObject(i);
-                        String name = recommendedPlacesJSONObject.getString("name");
+                        final JSONObject recommendedPlacesJSONObject = recommendedPlaces.getJSONObject(i);
 
-                        if (recommendedPlacesJSONObject.has("photos")) {
-                            JSONArray Photos = recommendedPlacesJSONObject.getJSONArray("photos");
-                            for (int j = 0; j < Photos.length(); j++) {
+                        String url2 = Recommended_Place_Details_Url + recommendedPlacesJSONObject.getString("place_id") + "&fields=name,reference,international_phone_number,formatted_address" + api_key;
+                        url2 = url2.replaceAll(" ", "%20");
+                        recommendedPlacesJsonObjectList.put(recommendedPlacesJSONObject.getString("place_id"), recommendedPlacesJSONObject);
 
-                                reference = RecommendedPLaces_Photo_Url + Photos.getJSONObject(j).getString("photo_reference") + "&sensor=false" + api_key;
-                                Log.d("Places photo", reference);
+                        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url2, null, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                Log.d("Places Handler", response.toString());
+                                try {
 
+                                    String formatted_address = "";
+                                    String formatted_phone_number = "";
+                                    String name = "";
+
+                                    if (response.has("result")) {
+                                        if (response.getString("status").equalsIgnoreCase("ok")) {
+
+
+                                            JSONObject result = response.getJSONObject("result");
+
+                                            if (result.has("formatted_address")) {
+                                                formatted_address = result.getString("formatted_address");
+
+                                            }
+                                            if (result.has("international_phone_number")) {
+                                                formatted_phone_number = result.getString("international_phone_number");
+                                            } else {
+                                                formatted_phone_number = "Not Available";
+                                            }
+                                            if (result.has("name")) {
+                                                name = result.getString("name");
+                                            }
+                                            if (result.has("reference")) {
+                                                reference = result.getString("reference");
+                                            }
+
+                                            JSONArray Photos = recommendedPlacesJsonObjectList.get(reference).getJSONArray("photos");
+
+                                            for (int j = 0; j < Photos.length(); j++) {
+                                                reference = RecommendedPLaces_Photo_Url + Photos.getJSONObject(j).getString("photo_reference") + "&sensor=false" + api_key;
+                                                Log.d("Places photo", reference);
+
+                                            }
+
+
+                                            getTopRecomendedDescription(name, reference, location, placeType, formatted_address, formatted_phone_number);
+                                        }
+
+                                    }
+
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
-                        }
-                        getTopRecomendedDescription(name, reference, location);
-
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                // TODO: Handle error
+                                Log.d("Place Handler", error.toString());
+                            }
+                        });
+                        requestQueue.add(jsonObjectRequest);
                     }
+
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -88,7 +149,7 @@ public abstract class RecommendedPlacesHandler {
         requestQueue.add(jsonObjectRequest);
     }
 
-    public void getTopRecomendedDescription(final String place, final String reference, final String city) {
+    public void getTopRecomendedDescription(final String place, final String reference, final String city, final String placeType, final String formatted_address, final String formatted_phone_number) {
 
         String url = Recommended_place_desc_url + place;
 
@@ -103,19 +164,40 @@ public abstract class RecommendedPlacesHandler {
                     JSONObject pages = query.getJSONObject("pages");
                     Iterator page = pages.keys();
                     JSONObject jsonObject_Page = pages.getJSONObject(page.next().toString());
-                    String description;
+                    String description = "";
 
+                    RecommendedPlace recommededPlace = new RecommendedPlace();
+                    recommededPlace.setName(place);
+                    recommededPlace.setImage_ref(reference);
+                    recommededPlace.setFormattedAddress(formatted_address);
+                    recommededPlace.setFormattedPhoneNumber(formatted_phone_number);
                     if (jsonObject_Page.has("extract")) {
                         description = jsonObject_Page.getString("extract") != null ? jsonObject_Page.getString("extract") : "";
-                        RecommendedPlace recommededPlace = new RecommendedPlace();
-                        recommededPlace.setName(place);
-                        recommededPlace.setImage_ref(reference);
+
                         recommededPlace.setDescription(description);
-                        recomendedPlaces.add(recommededPlace);
 
+                    } else {
+                        switch (placeType) {
+                            case "Attractions":
+                                description = place + " is a Tourist Attraction in " + city;
+                                break;
+                            case "Hospitals":
+                                description = place + " is a Hospital in " + city;
+                                break;
+                            case "Universities":
+                                description = place + " is a University in " + city;
+                                break;
+                            case "Restaurants":
+                                description = place + " is a  Restaurant in " + city;
+                                break;
+                        }
 
-                        RecommendedPlacesHandler.this.postFetchingRecomendedPlaces(recomendedPlaces);
+                        recommededPlace.setDescription(description);
+
                     }
+                    recomendedPlaces.add(recommededPlace);
+
+                    RecommendedPlacesHandler.this.postFetchingRecomendedPlaces(recomendedPlaces);
 
 
                 } catch (Exception e) {
