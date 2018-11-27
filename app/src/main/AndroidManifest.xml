@@ -86,6 +86,7 @@
             android:name=".controllers.EventsScreen"
             android:parentActivityName=".controllers.MenuScreen" />
 
+
         <activity android:name=".controllers.DetailActivity" />
 
         <activity

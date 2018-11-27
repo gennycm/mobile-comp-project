@@ -81,8 +81,10 @@ public class RecommendedPlacesFragment extends Fragment implements
             tv_no_results.setVisibility(View.VISIBLE);
             return;
         }
+
         newsRecyclerView.setAdapter(new RecommendedPlacesAdapter(getActivity(), recomendedPlacesArrayList));
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
     }
 
 }

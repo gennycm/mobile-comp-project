@@ -27,13 +27,13 @@ import java.util.Date;
 public class RecommendedPlace {
     public String name;
     public String description;
-    public String longDescription;
-    public String imageUrl;
+    public String formatted_address;
+    public String formatted_phone_number;
     public String secondaryImageUrl;
     public String city;
 
+
     public Bitmap image;
-    public Bitmap secondaryImage;
     public String distance;
     public String image_ref;
 
@@ -54,29 +54,22 @@ public class RecommendedPlace {
         this.image = image;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setFormattedPhoneNumber(String formatted_phone_number) {
+        this.formatted_phone_number = formatted_phone_number;
     }
 
     public void setImage_ref(String image_ref) {
         this.image_ref = image_ref;
     }
 
-    public void setLongDescription(String longDescription) {
-        this.longDescription = longDescription;
+    public void setFormattedAddress(String formatted_address) {
+        this.formatted_address = formatted_address;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setSecondaryImage(Bitmap secondaryImage) {
-        this.secondaryImage = secondaryImage;
-    }
-
-    public void setSecondaryImageUrl(String secondaryImageUrl) {
-        this.secondaryImageUrl = secondaryImageUrl;
-    }
 
     public String getName() {
         return name;
@@ -86,16 +79,16 @@ public class RecommendedPlace {
         return description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getFormattedPhoneNumber() {
+        return formatted_phone_number;
     }
 
     public String getImage_ref() {
         return image_ref;
     }
 
-    public String getLongDescription() {
-        return longDescription;
+    public String getFormattedAddress() {
+        return formatted_address;
     }
 
     public String getSecondaryImageUrl() {

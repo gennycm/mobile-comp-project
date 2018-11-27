@@ -24,6 +24,8 @@ import java.util.ArrayList;
 
 public class RecommendedPlacesAdapter extends RecyclerView.Adapter<RecommendedPlacesAdapter.ViewHolder> {
     private static final String TAG = "PlaceCardsAdapter";
+    public static final String PLACE_ADDRESS = "address";
+    public static final String PLACE_PHONE = "phone";
 
     private Context callerContext;
     ArrayList<RecommendedPlace> recommendedPlaces;
@@ -51,6 +53,8 @@ public class RecommendedPlacesAdapter extends RecyclerView.Adapter<RecommendedPl
         final RecommendedPlace currentArticle = this.recommendedPlaces.get(i);
         viewHolder.tv_description.setText(currentArticle.getDescription());
         viewHolder.tv_title.setText(currentArticle.getName());
+        viewHolder.tv_address.setText(currentArticle.getFormattedAddress());
+        viewHolder.tv_phone.setText(currentArticle.getFormattedPhoneNumber());
 
         CircularProgressDrawable loading = new CircularProgressDrawable(callerContext);
         loading.setStrokeWidth(5f);
@@ -68,6 +72,8 @@ public class RecommendedPlacesAdapter extends RecyclerView.Adapter<RecommendedPl
                 intent.putExtra(PLACE_DESCRIPTION, currentArticle.getDescription());
                 intent.putExtra(PLACE_IMAGE, currentArticle.getImage_ref());
                 intent.putExtra(PLACE_TITLE, currentArticle.getName());
+                intent.putExtra(PLACE_ADDRESS, currentArticle.getFormattedAddress());
+                intent.putExtra(PLACE_PHONE, currentArticle.getFormattedPhoneNumber());
                 callerContext.startActivity(intent);
             }
         });
@@ -80,8 +86,8 @@ public class RecommendedPlacesAdapter extends RecyclerView.Adapter<RecommendedPl
 
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView iv_recommended_place;
-        TextView tv_description, tv_title;
-        RelativeLayout container;
+        TextView tv_description, tv_title, tv_phone, tv_address;
+        CardView container;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,6 +95,8 @@ public class RecommendedPlacesAdapter extends RecyclerView.Adapter<RecommendedPl
             tv_description = itemView.findViewById(R.id.tv_description);
             tv_title = itemView.findViewById(R.id.tv_title);
             container = itemView.findViewById(R.id.container);
+            tv_phone = itemView.findViewById(R.id.tv_phone_number);
+            tv_address = itemView.findViewById(R.id.tv_location);
 
 
         }
