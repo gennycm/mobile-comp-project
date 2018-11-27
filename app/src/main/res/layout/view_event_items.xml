@@ -30,15 +30,16 @@
                     android:src="@mipmap/ic_launcher" />
 
                 <TextView
-                    android:padding="8dp"
                     android:id="@+id/freeText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:text="@string/free"
-                    android:textSize="16sp"
+                    android:background="@color/colorAccent"
                     android:fontFamily="@font/raleway_semibold"
-                    android:background="@color/colorAccent" />
+                    android:padding="8dp"
+                    android:text="@string/free"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
             </FrameLayout>
 
             <TextView
