@@ -33,7 +33,6 @@ public class ImmiList1 extends ImmNav1Screen  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_immig1_screen);
 
-
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         String url = "https://mc-project.herokuapp.com/immigration?country=canada";
 
@@ -46,6 +45,11 @@ public class ImmiList1 extends ImmNav1Screen  {
                         String name = important.getString(item);
                         fivething.add(name);
                     }
+                    ArrayAdapter adapter = new ArrayAdapter<String>(getApplicationContext(),
+                            R.layout.activity_listview, fivething);
+
+                    ListView listView = (ListView) findViewById(R.id.fiveimportantthings);
+                    listView.setAdapter(adapter);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -60,11 +64,5 @@ public class ImmiList1 extends ImmNav1Screen  {
             }
         });
         requestQueue.add(jsonObjectRequest);
-
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                R.layout.activity_listview, fivething);
-
-        ListView listView = (ListView) findViewById(R.id.fiveimportantthings);
-        listView.setAdapter(adapter);
     }
 }
