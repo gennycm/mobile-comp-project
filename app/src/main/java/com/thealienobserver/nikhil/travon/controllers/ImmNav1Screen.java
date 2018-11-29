@@ -10,7 +10,6 @@ import android.widget.Button;
 import com.thealienobserver.nikhil.travon.R;
 
 public class ImmNav1Screen extends AppCompatActivity {
-    private Button imm1, imm2,imm3,imm4;
 
     public static String CITY = "city";
 
@@ -21,52 +20,26 @@ public class ImmNav1Screen extends AppCompatActivity {
 
         String cityName = getIntent().getStringExtra(CITY);
         setTitle(cityName + " Immigration");
-        /**
-        imm1 = (Button) findViewById(R.id.imm1);
-        imm2 = (Button) findViewById(R.id.imm2);
-        imm3 = (Button) findViewById(R.id.imm3);
-        imm4 = (Button) findViewById(R.id.imm4);
-        imm1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myintent = new Intent(ImmNav1Screen .this, ImmiList1.class);
-                startActivity(myintent);
-            }
-        });
-        imm2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myintent = new Intent(ImmNav1Screen .this, ImmiList2.class);
-                startActivity(myintent);
+    }
 
-            }
-            });
-        imm3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent myintent = new Intent(ImmNav1Screen .this, ImmiList3.class);
-                startActivity(myintent);
+    public void onClickImm1(View v) {
+        Intent myintent = new Intent(ImmNav1Screen.this, ImmiList1.class);
+        startActivity(myintent);
+    }
 
-            }
-        });
-        imm4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent myintent = new Intent(ImmNav1Screen .this, ImmiList4.class);
-                startActivity(myintent);
+    public void onClickImm2(View v) {
+        Intent myintent = new Intent(ImmNav1Screen.this, ImmiList2.class);
+        startActivity(myintent);
+    }
 
-            }
-        });
-**/
+    public void onClickImm3(View v) {
+        Intent myintent = new Intent(ImmNav1Screen.this, ImmiList3.class);
+        startActivity(myintent);
+    }
+
+    public void onClickImm4(View v) {
+        Intent myintent = new Intent(ImmNav1Screen.this, ImmiList4.class);
+        startActivity(myintent);
     }
 
 }
-
-//
-
-
-
-
-
