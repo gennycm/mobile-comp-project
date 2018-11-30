@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class Impthingstodo extends Immigrationmainscreen  {
 
-    public static String CITY = "city";
+    //public static String CITY = "city";
 
 
     ArrayList<String> fivething = new ArrayList<>();
@@ -30,17 +30,18 @@ public class Impthingstodo extends Immigrationmainscreen  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_importantthings_screen);
 
-        String cityName = getIntent().getStringExtra(CITY);
-        setTitle(cityName + " Immigration");
+        //String cityName = getIntent().getExtras().getString(CITY);
+        //setTitle(cityName + " Immigration");
 
 
+        //Getting immigration important things to do data from API
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         String url = "https://mc-project.herokuapp.com/immigration?country=canada";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             public void onResponse(JSONObject response) {
                 try {
-
+                     //Parsing JSON data
                     JSONArray important = response.getJSONArray("important_things");
                     for(int item = 0; item < important.length(); item++) {
                         String name = important.getString(item);

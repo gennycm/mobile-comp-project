@@ -19,7 +19,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Immigrationforms extends Immigrationmainscreen {
-    public static String CITY = "city";
+    //public static String CITY = "city";
 
 
     ArrayList<String> forms = new ArrayList<>();
@@ -29,17 +29,17 @@ public class Immigrationforms extends Immigrationmainscreen {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_immigrationforms_screen);
 
-        String cityName = getIntent().getStringExtra(CITY);
-        setTitle(cityName + " Forms");
+        //String cityName = getIntent().getStringExtra(CITY);
+        //setTitle(cityName + " Immigration");
 
-
+        //Getting immigration forms data from API
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         String url = "https://mc-project.herokuapp.com/immigration?country=canada";
 
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             public void onResponse(JSONObject response) {
                 try {
-
+                    //Parsing JSON data
                     JSONArray form = response.getJSONArray("forms");
                     for (int item = 0; item < form.length(); item++) {
                         JSONObject val = form.getJSONObject(item);
