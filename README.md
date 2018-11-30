@@ -4,6 +4,17 @@
 - [How to access to the repository](#how-access-to-the-repository)
 - [Installation Notes](#installation-notes)
   * [Requirements](#requirements)
+- [Summary](#summary)
+- [Scope](#scope)
+- [Purpose and Benefits](#purpose-and-benefits)
+- [Technical matters](#technical-matters)
+  * [Libraries](#libraries)
+  * [API](#api)
+  * [Code Examples](#code-examples)
+- [Features](#features)
+- [Summary](#summary)
+- [Summary](#summary)
+
 
 
 ## Group members
@@ -47,15 +58,25 @@ Travon will help users to ease their difficulties, problems or issues they may f
 ## Scope
 Users will be able to use most of the functionalities in anywhere of the world, except for Finding Rooms which will be available in Halifax, Toronto and Vancouver; and Immigration which will be available in Canada. Immigration Information is something which varies for different countries. Further in the future, the API will be extended so it covers other cities and countries apart from the initial ones.
 
+## Users
+The proposed application will attract people who are planning to move or travel for a long time to a city different to where they reside. Most importantly, our app will assist the inhabitants of any city including landed immigrants, temporary residents, work permit holders, students, and tourist visa holders to know more about the city in their daily lives.
+
+## Purpose and Benefits
+The purpose of our proposed application is to provide users with all the essential information that one should know before and after they arrive at the new city for them, all within the same application.  
+
+Relocation and travelling are always challenging. Usually, when people plan to come to a new city, they will have various questions/doubts concerning their preparations, weather, things to know, things to do, finding accommodations, understanding culture & geography of the city, attractions, entertainment, bus connectivity, as well as immigration rules, regulations, and guidelines.
+
+To find out the answers for these, they will have to visit various websites and collect information from all those sites separately. Working on various sites could be overwhelming and baffling for users. All information in one application indorses simplicity and could possibly save a lot of time.  
+As our app will have all information for a visitor/traveler, by using our app people can plan every activity such as finding a place to stay, selecting a place according to preferred neighborhood & bus connectivity, relish their favorite cuisine at the nearest restaurant, getting involved with their community events, plan for their favorite sports games, etc.
 
 
-
-## Libraries
+## Technical matters
+### Libraries
 **Volley**: Volley is an HTTP library that makes networking for Android apps easier and most importantly, faster. Volley is available on [GitHub](https://developer.android.com/training/volley/).
 
 **Bumptech Glide**: Glide is a fast and efficient open source media management and image loading framework for Android that wraps media decoding, memory and disk caching, and resource pooling into a simple and easy to use interface. Bumptech Glide is available on [Github](https://github.com/bumptech/glide).
 
-## API
+### API
 
  **Google Maps API**: this library allows you to access to the functionalities provided by Google Maps to mark places and get the users' location.  [Go to site](https://cloud.google.com/maps-platform/?hl=en)
   - Places: Help users discover the world with rich details for over 150 million points of interest.
@@ -71,7 +92,7 @@ Users will be able to use most of the functionalities in anywhere of the world, 
 
 
 
-## Code Examples
+### Code Examples
 You will encounter roadblocks and problems while developing your project. Share 2-3 'problems' that your team solved while developing your project. Write a few sentences that describe your solution and provide a code snippet/block that shows your solution. Example:
 
 **Problem 1: We needed a method to calculate a Fibonacci sequence**
@@ -92,7 +113,7 @@ public static int fibonacci(int fibIndex) {
 // Source: Wikipedia Java [1]
 ```
 
-## Feature Section
+## Features
 List all the main features of your application with a brief description of each feature.
 
 ## Final Project Status
