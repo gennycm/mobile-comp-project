@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".controllers.ImmNav1Screen" >
+    tools:context=".controllers.Immigrationmainscreen" >
 
     <ListView
-        android:id="@+id/Offices"
+        android:id="@+id/offices"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
     </ListView>
 
 

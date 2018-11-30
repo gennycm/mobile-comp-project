@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".controllers.Immigrationmainscreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".20">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/raleway_semibold"
+                android:padding="10dip"
+                android:text="Important Things To Do"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/colorWhite"
+                android:textSize="35sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/fiveimportantthings"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/categoryTitleTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="2sp"
+        android:layout_marginEnd="2sp"
+        android:layout_marginBottom="5sp"
+        android:layout_weight=".72"
+        android:divider="@null"
+        android:dividerHeight="0dp">
+    </ListView>
+
+
+</LinearLayout>

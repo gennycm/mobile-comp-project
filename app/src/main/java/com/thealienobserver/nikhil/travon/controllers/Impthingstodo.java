@@ -18,20 +18,20 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ImmiList1 extends ImmNav1Screen  {
-    // Array of strings...
-    String[] fivethings = {"Get your Nova Scotia ID",
-            "Keep Your Study Permit always with you ",
-            "You can work offcampus maximum 20 hrs. a week ",
-            "Get your SIN no. as soon as possible",
-            "Get your phone no. as soon as possible"};
+public class Impthingstodo extends Immigrationmainscreen  {
+
+    public static String CITY = "city";
+
 
     ArrayList<String> fivething = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_immig1_screen);
+        setContentView(R.layout.activity_importantthings_screen);
+
+        String cityName = getIntent().getStringExtra(CITY);
+        setTitle(cityName + " Immigration");
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -46,6 +46,10 @@ public class ImmiList1 extends ImmNav1Screen  {
                         String name = important.getString(item);
                         fivething.add(name);
                     }
+                    ArrayAdapter adapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.activity_listview, fivething);
+
+                    ListView listView = (ListView) findViewById(R.id.fiveimportantthings);
+                    listView.setAdapter(adapter);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -61,10 +65,5 @@ public class ImmiList1 extends ImmNav1Screen  {
         });
         requestQueue.add(jsonObjectRequest);
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                R.layout.activity_listview, fivething);
-
-        ListView listView = (ListView) findViewById(R.id.fiveimportantthings);
-        listView.setAdapter(adapter);
     }
 }

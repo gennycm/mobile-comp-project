@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.thealienobserver.nikhil.travon.R;
 
-public class ImmNav1Screen extends AppCompatActivity {
+public class Immigrationmainscreen extends AppCompatActivity {
 
     public static String CITY = "city";
 
@@ -23,22 +23,22 @@ public class ImmNav1Screen extends AppCompatActivity {
     }
 
     public void onClickImm1(View v) {
-        Intent myintent = new Intent(ImmNav1Screen.this, ImmiList1.class);
+        Intent myintent = new Intent(Immigrationmainscreen.this, Impthingstodo.class);
         startActivity(myintent);
     }
 
     public void onClickImm2(View v) {
-        Intent myintent = new Intent(ImmNav1Screen.this, ImmiList2.class);
+        Intent myintent = new Intent(Immigrationmainscreen.this, Immigrationforms.class);
         startActivity(myintent);
     }
 
     public void onClickImm3(View v) {
-        Intent myintent = new Intent(ImmNav1Screen.this, ImmiList3.class);
+        Intent myintent = new Intent(Immigrationmainscreen.this, Immigrationoffices.class);
         startActivity(myintent);
     }
 
     public void onClickImm4(View v) {
-        Intent myintent = new Intent(ImmNav1Screen.this, ImmiList4.class);
+        Intent myintent = new Intent(Immigrationmainscreen.this, Immigrationfaqs.class);
         startActivity(myintent);
     }
 

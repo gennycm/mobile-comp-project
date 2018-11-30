@@ -82,8 +82,8 @@ public class MenuScreen extends AppCompatActivity {
         String city = addresses.get(0).getLocality();
         city = (city == null) ? addresses.get(0).getAdminArea() : city;
 
-        Intent immigrationInfoIntent = new Intent(MenuScreen.this, ImmNav1Screen.class);
-        immigrationInfoIntent.putExtra(ImmNav1Screen.CITY, city);
+        Intent immigrationInfoIntent = new Intent(MenuScreen.this, Immigrationmainscreen.class);
+        immigrationInfoIntent.putExtra(Immigrationmainscreen.CITY, city);
         startActivity(immigrationInfoIntent);
     }
 
