@@ -120,7 +120,6 @@
         android:layout_weight=".72"
         android:divider="@null"
         android:dividerHeight="0dp"></ListView>
-    <!-- Items list view end -->
 
 
 </LinearLayout>
