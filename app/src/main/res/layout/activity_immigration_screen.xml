@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".controllers.CostOfLiving.CostOfLivingScreen">
+    tools:context=".controllers.Immigrationmainscreen">
 
 
     <!-- Options Grid Layout -->
@@ -27,6 +27,7 @@
             android:layout_columnWeight="1"
             android:layout_marginLeft="15dp"
             android:layout_marginBottom="15dp"
+            android:onClick="onClickImm1"
             app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
@@ -66,6 +67,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
+            android:onClick="onClickImm2"
             app:cardBackgroundColor="@color/colorPrimaryDark"
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
@@ -104,6 +106,7 @@
             android:layout_columnWeight="1"
             android:layout_marginLeft="15dp"
             android:layout_marginBottom="15dp"
+            android:onClick="onClickImm3"
             app:cardBackgroundColor="@color/colorPrimaryDark"
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
@@ -143,6 +146,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
+            android:onClick="onClickImm4"
             app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="5dp"
             app:cardElevation="8dp"
