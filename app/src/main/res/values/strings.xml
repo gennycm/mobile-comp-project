@@ -2,6 +2,11 @@
     <string name="app_name">Travon</string>
     <integer name="google_play_services_version">12211000</integer>
 
+    <!--Error messages -->
+    <string name="try_again_later">There was an error. Please try again later</string>
+    <string name="null_item">Item content is null</string>
+
+    <!-- Shortcuts -->
     <string name="weatherStr">Weather</string>
     <string name="eventsStr">Events</string>
     <string name="newsStr">News</string>
@@ -31,6 +36,8 @@
 
 
     <!-- Cost of living -->
+    <string name="cost_of_living_title">Cost of living in </string>
+    <string name="last_updated_value">Last updated: %1$s/%2$s </string>
     <string name="transport">Transport</string>
     <string name="room">Room</string>
     <string name="food">Food</string>
@@ -66,7 +73,6 @@
 
     <!-- Placeholder -->
     <string name="placeholder">placeholder</string>
-
 
 
 </resources>

@@ -20,7 +20,7 @@ public class CostOfLivingDetailActivity extends AppCompatActivity {
     public static final String BG_COLOR = "BG_COLOR";
     public static final String CATEGORY_TITLE = "CATEGORY_TITLE";
 
-    // Intent extras parameters
+    // Private parameters
     private int mBgColor;
     private String mCity;
     private String mCategoryTitle;

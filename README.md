@@ -147,3 +147,5 @@ What to include in your project sources:
 
 //To do: Format references with IEEE
 [2] https://help.github.com/articles/organizing-information-with-tables/
+
+[3] Strings documentation https://developer.android.com/guide/topics/resources/string-resource?hl=es-419

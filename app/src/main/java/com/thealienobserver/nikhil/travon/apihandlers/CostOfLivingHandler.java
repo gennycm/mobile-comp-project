@@ -1,6 +1,7 @@
 package com.thealienobserver.nikhil.travon.apihandlers;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -10,6 +11,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.models.CostOfLivingItem;
 
 import org.json.JSONArray;
@@ -19,25 +21,51 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class CostOfLivingHandler {
+    //Tag for logging messages
     private static final String TAG = "CostOfLivingHandler";
-    private static CostOfLivingHandler mInstance;
-    private Context applicationContext;
-    private static String api_key = "api_key=rkouvmmc5fm0zj";
-    private RequestQueue requestQueue;
 
-    private String currency = "";
-    private String lastUpdated = "";
-    private ArrayList<CostOfLivingItem> food = new ArrayList();
-    private ArrayList<CostOfLivingItem> transportation = new ArrayList();
-    private ArrayList<CostOfLivingItem> utilities = new ArrayList();
-    private ArrayList<CostOfLivingItem> room = new ArrayList();
-    private ArrayList<CostOfLivingItem> clothing = new ArrayList();
-    private ArrayList<CostOfLivingItem> childcare = new ArrayList();
+    // Instance for singleton
+    private static CostOfLivingHandler mInstance;
+
+    private Context mApplicationContext;
+    private RequestQueue mRequestQueue;
+    // Access to app resources
+    private Resources res;
+
+
+    //API key to access to Numbeo information
+    private static String mApiKey = "api_key=rkouvmmc5fm0zj";
+
+    //Currency from the selected city
+    private String mCurrency;
+    // Date of last update by day/month
+    private String mLastUpdated;
+
+    //Cost of living items results
+    private ArrayList<CostOfLivingItem> mFood = new ArrayList();
+    private ArrayList<CostOfLivingItem> mTransportation = new ArrayList();
+    private ArrayList<CostOfLivingItem> mUtilities = new ArrayList();
+    private ArrayList<CostOfLivingItem> mRoom = new ArrayList();
+    private ArrayList<CostOfLivingItem> mClothing = new ArrayList();
+    private ArrayList<CostOfLivingItem> mChildcare = new ArrayList();
+
+    /**
+     * Constructor
+     *
+     * @param context
+     */
 
     public CostOfLivingHandler(Context context) {
-        this.applicationContext = context;
+        this.mApplicationContext = context;
+        this.res = mApplicationContext.getResources();
     }
 
+    /**
+     * Singleton method
+     *
+     * @param context
+     * @return
+     */
     public static synchronized CostOfLivingHandler getInstance(Context context) {
         if (mInstance == null) {
             mInstance = new CostOfLivingHandler(context.getApplicationContext());
@@ -45,18 +73,28 @@ public class CostOfLivingHandler {
         return mInstance;
     }
 
-    public void getCostOfLivingFromCity(String city, String country) {
-        requestQueue = Volley.newRequestQueue(applicationContext);
-        String getCostOfLivingURL = "https://www.numbeo.com/api/city_prices?" + api_key + "&query=" + city + "%20" + country;
+    /**
+     * Sends the request to numbeo to get the results for the selected city
+     *
+     * @param city
+     * @param country
+     */
 
+    public void getCostOfLivingFromCity(String city, String country) {
+        mRequestQueue = Volley.newRequestQueue(mApplicationContext);
+        String getCostOfLivingURL = "https://www.numbeo.com/api/city_prices?" + mApiKey + "&query=" + city + "%20" + country;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, getCostOfLivingURL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONArray prices = response.getJSONArray("prices");
-                    currency = response.getString("currency");
-                    lastUpdated = "Last updated: " + response.getString("monthLastUpdate") + "/" + response.getString("yearLastUpdate");
-                    classifyResults(prices);
+                    // Get prices json array from response
+                    JSONArray pricesJSONArray = response.getJSONArray("prices");
+                    // Get currency from json response
+                    mCurrency = response.getString("currency");
+                    // Get last update date from json response
+                    mLastUpdated = String.format(res.getString(R.string.last_updated_value), response.getString("monthLastUpdate"), response.getString("yearLastUpdate"));
+                    // Classify results according to designated categories
+                    classifyResults(pricesJSONArray);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -65,37 +103,46 @@ public class CostOfLivingHandler {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, error.toString());
-                Toast.makeText(applicationContext, "There was an error. Please try again later", Toast.LENGTH_LONG).show();
+                Toast.makeText(mApplicationContext, res.getString(R.string.try_again_later), Toast.LENGTH_LONG).show();
             }
         });
-        requestQueue.add(jsonObjectRequest);
+        mRequestQueue.add(jsonObjectRequest);
     }
 
+    /**
+     * Classifies the results to be able to show them in the designated categories
+     *
+     * @param pricesJSONArray
+     * @throws JSONException
+     */
+    public void classifyResults(JSONArray pricesJSONArray) throws JSONException {
+        for (int i = 0; i < pricesJSONArray.length(); i++) {
+            //Actual cost item
+            JSONObject itemJSON = pricesJSONArray.getJSONObject(i);
 
-    public void classifyResults(JSONArray prices) throws JSONException {
-        for (int i = 0; i < prices.length(); i++) {
-            JSONObject itemJSON = prices.getJSONObject(i);
+            //Item related attributes
             String item_name = itemJSON.getString("item_name");
             double lowest_price = itemJSON.getDouble("lowest_price");
             double average_price = itemJSON.getDouble("average_price");
             double highest_price = itemJSON.getDouble("highest_price");
+
             if (item_name.contains("Restaurants") || item_name.contains("Market")) {
-                food.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                mFood.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
             } else {
                 if (item_name.contains("Transportation")) {
-                    transportation.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                    mTransportation.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
                 } else {
                     if (item_name.contains("Utilities")) {
-                        utilities.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                        mUtilities.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
                     } else {
                         if (item_name.contains("Rent Per Month") || item_name.contains("Buy Apartment Price")) {
-                            room.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                            mRoom.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
                         } else {
                             if (item_name.contains("Clothing And Shoes")) {
-                                clothing.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                                mClothing.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
                             } else {
                                 if (item_name.contains("Childcare")) {
-                                    childcare.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
+                                    mChildcare.add(new CostOfLivingItem(item_name, lowest_price, average_price, highest_price));
                                 }
                             }
                         }
@@ -105,36 +152,48 @@ public class CostOfLivingHandler {
         }
     }
 
-
+    /**
+     * Getters for the categories results array
+     */
     public ArrayList getFood() {
-        return food;
+        return mFood;
     }
 
     public ArrayList getTransportation() {
-        return transportation;
+        return mTransportation;
     }
 
     public ArrayList<CostOfLivingItem> getUtilities() {
-        return utilities;
+        return mUtilities;
     }
 
     public ArrayList<CostOfLivingItem> getRoom() {
-        return room;
+        return mRoom;
     }
 
     public ArrayList<CostOfLivingItem> getClothing() {
-        return clothing;
+        return mClothing;
     }
 
     public ArrayList<CostOfLivingItem> getChildcare() {
-        return childcare;
+        return mChildcare;
     }
 
+    /**
+     * Currency getter
+     *
+     * @return mCurrency
+     */
     public String getCurrency() {
-        return currency;
+        return mCurrency;
     }
 
+    /**
+     * Last update date
+     *
+     * @return mLastUpdated
+     */
     public String getLastUpdated() {
-        return lastUpdated;
+        return mLastUpdated;
     }
 }
