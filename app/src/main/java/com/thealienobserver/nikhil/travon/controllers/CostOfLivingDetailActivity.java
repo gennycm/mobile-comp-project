@@ -1,11 +1,8 @@
-package com.thealienobserver.nikhil.travon.controllers.CostOfLiving;
+package com.thealienobserver.nikhil.travon.controllers;
 
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,98 +14,112 @@ import com.thealienobserver.nikhil.travon.models.CostOfLivingItem;
 
 import java.util.ArrayList;
 
-public class CostOfLivingDetailsScreen extends AppCompatActivity {
+public class CostOfLivingDetailActivity extends AppCompatActivity {
+    // Intent extras parameters
     public static final String CITY = "CITY";
     public static final String BG_COLOR = "BG_COLOR";
     public static final String CATEGORY_TITLE = "CATEGORY_TITLE";
 
-    private String city;
-    private int bgcolor;
-    private String categoryTitle;
+    // Intent extras parameters
+    private int mBgColor;
+    private String mCity;
+    private String mCategoryTitle;
 
-    private TextView categoryTitleTv, nameTV, avgCost, range, lastUpdated;
-    private RelativeLayout categoryLayout;
-    private CostOfLivingAdapter adapter;
-    private ArrayList<CostOfLivingItem> costList;
-    CostOfLivingHandler costOfLivingHandlerInstance;
+    // Class parameters
+    private ArrayList<CostOfLivingItem> mCostList;
+    private CostOfLivingAdapter mAdapter;
+    private CostOfLivingHandler mCostOfLivingHandlerInstance;
+
+    // Layout components
+    private TextView mCategoryTitleTv, mNameTV, mAvgCost, mRange, mLastUpdated;
+    private RelativeLayout mCategoryLayout;
+    private ListView mLvCostItems;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cost_of_living_details);
+        setContentView(R.layout.activity_cost_of_living_detail);
 
-        costOfLivingHandlerInstance = CostOfLivingHandler.getInstance(getApplicationContext());
+        //App context
+        mCostOfLivingHandlerInstance = CostOfLivingHandler.getInstance(getApplicationContext());
 
-        city = getIntent().getStringExtra(CITY);
+        // Intent extras parameters
+        mCity = getIntent().getStringExtra(CITY);
+        mBgColor = getIntent().getIntExtra(BG_COLOR, 0);
+        mCategoryTitle = getIntent().getStringExtra(CATEGORY_TITLE);
+        mCostList = new ArrayList<>();
 
-        bgcolor = getIntent().getIntExtra(BG_COLOR, 0);
-        categoryTitle = getIntent().getStringExtra(CATEGORY_TITLE);
-        costList = new ArrayList<>();
-
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(bgcolor));
+        // Support Action config.
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(mBgColor));
         getSupportActionBar().setElevation(0);
 
-        ListView lvCostItems = findViewById(R.id.costItems);
 
-        categoryTitleTv = findViewById(R.id.categoryTitleTextView);
-        nameTV = findViewById(R.id.nameTV);
-        avgCost = findViewById(R.id.avgCost);
-        range = findViewById(R.id.range);
-        categoryLayout = findViewById(R.id.categoryLayout);
-        lastUpdated = findViewById(R.id.lastUpdatedTv);
+        // Getting view components
+        mLvCostItems = findViewById(R.id.costItems);
+        mCategoryTitleTv = findViewById(R.id.categoryTitleTextView);
+        mNameTV = findViewById(R.id.nameTV);
+        mAvgCost = findViewById(R.id.avgCost);
+        mRange = findViewById(R.id.range);
+        mCategoryLayout = findViewById(R.id.categoryLayout);
+        mLastUpdated = findViewById(R.id.lastUpdatedTv);
 
-        categoryTitleTv.setText(categoryTitle);
-        lastUpdated.setText(costOfLivingHandlerInstance.getLastUpdated());
+        // Setting view components
+        mCategoryTitleTv.setText(mCategoryTitle);
+        mLastUpdated.setText(mCostOfLivingHandlerInstance.getLastUpdated());
 
-        categoryLayout.setBackgroundColor(bgcolor);
-        nameTV.setTextColor(bgcolor);
-        avgCost.setTextColor(bgcolor);
-        avgCost.setText(avgCost.getText() + "(" + costOfLivingHandlerInstance.getCurrency() + ")");
-        range.setTextColor(bgcolor);
+        mCategoryLayout.setBackgroundColor(mBgColor);
+        mNameTV.setTextColor(mBgColor);
+        mAvgCost.setTextColor(mBgColor);
+        mAvgCost.setText(mAvgCost.getText() + "(" + mCostOfLivingHandlerInstance.getCurrency() + ")");
+        mRange.setTextColor(mBgColor);
 
+        //Configuring adapter
+        mAdapter = new CostOfLivingAdapter(this, R.layout.view_cost_items, mCostList);
+        mLvCostItems.setAdapter(mAdapter);
 
-        adapter = new CostOfLivingAdapter(this, R.layout.view_cost_items, costList);
-        lvCostItems.setAdapter(adapter);
-
-
-        switch (categoryTitle) {
+        //Setting items content
+        switch (mCategoryTitle) {
             case "Transport":
-                ArrayList transport = costOfLivingHandlerInstance.getTransportation();
+                ArrayList transport = mCostOfLivingHandlerInstance.getTransportation();
                 setCostsListOnView(transport);
                 break;
             case "Food":
-                ArrayList food = costOfLivingHandlerInstance.getFood();
+                ArrayList food = mCostOfLivingHandlerInstance.getFood();
                 setCostsListOnView(food);
                 break;
             case "Utilities":
-                ArrayList utilities = costOfLivingHandlerInstance.getUtilities();
+                ArrayList utilities = mCostOfLivingHandlerInstance.getUtilities();
                 setCostsListOnView(utilities);
                 break;
             case "Room":
-                ArrayList room = costOfLivingHandlerInstance.getRoom();
+                ArrayList room = mCostOfLivingHandlerInstance.getRoom();
                 setCostsListOnView(room);
                 break;
             case "Childcare":
-                ArrayList childcare = costOfLivingHandlerInstance.getChildcare();
+                ArrayList childcare = mCostOfLivingHandlerInstance.getChildcare();
                 setCostsListOnView(childcare);
                 break;
             case "Clothing":
-                ArrayList clothing = costOfLivingHandlerInstance.getClothing();
+                ArrayList clothing = mCostOfLivingHandlerInstance.getClothing();
                 setCostsListOnView(clothing);
                 break;
         }
 
     }
 
-    public void setCostsListOnView(ArrayList results) {
-        costList.clear();
-
+    /**
+     * Adds results to the costs and notifies the adapter.
+     *
+     * @param items
+     */
+    public void setCostsListOnView(ArrayList items) {
+        mCostList.clear();
         // get and set items data ArrayList
-        for (int i = 0; i < results.size(); i++) {
-            CostOfLivingItem item = (CostOfLivingItem) results.get(i);
-            costList.add(item);
+        for (int i = 0; i < items.size(); i++) {
+            CostOfLivingItem item = (CostOfLivingItem) items.get(i);
+            mCostList.add(item);
         }
-        adapter.notifyDataSetChanged();
+        mAdapter.notifyDataSetChanged();
     }
 }

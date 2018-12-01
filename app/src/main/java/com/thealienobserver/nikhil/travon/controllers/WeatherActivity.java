@@ -19,7 +19,7 @@ import com.thealienobserver.nikhil.travon.models.CityWeatherModel;
 
 import java.util.ArrayList;
 
-public class WeatherScreen extends AppCompatActivity {
+public class WeatherActivity extends AppCompatActivity {
 
     public static final String COUNTRY_CODE_PARAM = "COUNTRY_CODE_PARAM";
     public static final String LAT_LON_PARAM = "LAT_LON_PARAM";
@@ -40,14 +40,14 @@ public class WeatherScreen extends AppCompatActivity {
         this.cityWeatherHandler = new CityWeatherHandler() {
             @Override
             public void postWeatherApiCall(CityWeatherModel cityWeather) {
-                WeatherScreen.this.updateWeatherOnScreen(cityWeather);
+                WeatherActivity.this.updateWeatherOnScreen(cityWeather);
             }
         };
 
         WeatherHandler weatherHandler = new WeatherHandler(this) {
             @Override
             public void postFetchingWeather(ArrayList<WeatherModel> weatherModel) {
-                WeatherScreen.this.setupWeatherCards(weatherModel);
+                WeatherActivity.this.setupWeatherCards(weatherModel);
             }
         };
         weatherHandler.getFiveDaysWeather(Latitude, Longitude);

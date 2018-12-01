@@ -16,16 +16,8 @@
 
 package com.thealienobserver.nikhil.travon.controllers;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,13 +30,13 @@ import com.thealienobserver.nikhil.travon.adapters.RecommendedPlacesAdapter;
  * The tourist attraction detail activity screen which contains the details of
  * a single attraction.
  */
-public class DetailActivity extends AppCompatActivity {
+public class RecommendedPlacesDetailActivity extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_recommended_places_detail);
         ImageView imageView =  findViewById(R.id.iv_recommended_place);
         TextView tv_description =  findViewById(R.id.tv_description);
         TextView tv_title =  findViewById(R.id.tv_title);

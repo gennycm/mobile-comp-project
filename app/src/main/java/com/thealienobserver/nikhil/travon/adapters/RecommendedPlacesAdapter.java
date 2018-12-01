@@ -11,13 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.thealienobserver.nikhil.travon.R;
-import com.thealienobserver.nikhil.travon.controllers.DetailActivity;
+import com.thealienobserver.nikhil.travon.controllers.RecommendedPlacesDetailActivity;
 import com.thealienobserver.nikhil.travon.models.RecommendedPlace;
 
 import java.util.ArrayList;
@@ -68,7 +67,7 @@ public class RecommendedPlacesAdapter extends RecyclerView.Adapter<RecommendedPl
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(callerContext, DetailActivity.class);
+                Intent intent = new Intent(callerContext, RecommendedPlacesDetailActivity.class);
                 intent.putExtra(PLACE_DESCRIPTION, currentArticle.getDescription());
                 intent.putExtra(PLACE_IMAGE, currentArticle.getImage_ref());
                 intent.putExtra(PLACE_TITLE, currentArticle.getName());

@@ -16,7 +16,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class CostOfLivingAdapter extends ArrayAdapter<CostOfLivingItem> {
-
+    private static final String TAG = "CostOfLivingAdapter";
     private ArrayList<CostOfLivingItem> costItemsList;
     private NumberFormat numberFormat = new DecimalFormat("##.###");
 
@@ -42,7 +42,6 @@ public class CostOfLivingAdapter extends ArrayAdapter<CostOfLivingItem> {
             TextView rangeTv = v.findViewById(R.id.tvRange);
 
             nameTv.setText(i.getItemName());
-            //String.format("$ %.2f", i.getAveragePrice());
             avgCostTv.setText(numberFormat.format(i.getAveragePrice()));
             String pricesRange = numberFormat.format(i.getLowestPrice()) + " - " + numberFormat.format(i.getHighestPrice());
             rangeTv.setText(pricesRange);

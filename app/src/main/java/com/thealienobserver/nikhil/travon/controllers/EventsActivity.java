@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
@@ -26,7 +25,7 @@ import java.util.ArrayList;
  * Created by Charley LeBlanc
  */
 
-public class EventsScreen extends AppCompatActivity {
+public class EventsActivity extends AppCompatActivity {
 
     public static final String LAT_LON_PARAM = "LAT_LON_PARAM";
     public static final String CITY_PARAM = "CITY_PARAM";
@@ -67,7 +66,7 @@ public class EventsScreen extends AppCompatActivity {
         eventsHandler = new EventsHandler(this) {
             @Override
             public void eventGatherFinish(ArrayList<Event> eventList, boolean newPage) {
-                EventsScreen.this.setupEvents(eventList);
+                EventsActivity.this.setupEvents(eventList);
                 next.setEnabled(newPage);
                 if (page > 1)
                     prev.setEnabled(true);

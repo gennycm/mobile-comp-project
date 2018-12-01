@@ -1,15 +1,17 @@
-package com.thealienobserver.nikhil.travon.controllers.RecommendedPlaces;
+package com.thealienobserver.nikhil.travon.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.thealienobserver.nikhil.travon.fragments.RecommendedPlacesFragment;
 
 public class RecommendedFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private String tabTitles[] = new String[]{"Attractions", "Hospitals", "Universities","Restaurants"};
     private String city;
 
-    RecommendedFragmentPagerAdapter(FragmentManager fm, String city) {
+    public RecommendedFragmentPagerAdapter(FragmentManager fm, String city) {
         super(fm);
         this.city = city;
     }

@@ -1,5 +1,5 @@
 
-package com.thealienobserver.nikhil.travon.controllers.RecommendedPlaces;
+package com.thealienobserver.nikhil.travon.controllers;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -7,10 +7,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.thealienobserver.nikhil.travon.R;
-import com.thealienobserver.nikhil.travon.controllers.MenuScreen;
+import com.thealienobserver.nikhil.travon.adapters.RecommendedFragmentPagerAdapter;
 
-import static com.thealienobserver.nikhil.travon.controllers.MenuScreen.LATITUDE;
-import static com.thealienobserver.nikhil.travon.controllers.MenuScreen.LONGITUDE;
+import static com.thealienobserver.nikhil.travon.controllers.MenuActivity.LATITUDE;
+import static com.thealienobserver.nikhil.travon.controllers.MenuActivity.LONGITUDE;
 
 
 public class RecommendedPlacesActivity extends AppCompatActivity  {
@@ -24,7 +24,7 @@ public class RecommendedPlacesActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_recomended_places_screen);
 
         mLatLong = getIntent().getStringExtra(LATITUDE) + "," + getIntent().getStringExtra(LONGITUDE);
-        city = getIntent().getStringExtra(MenuScreen.CITY);
+        city = getIntent().getStringExtra(MenuActivity.CITY);
 
         setTitle("Places in " + city);
 
@@ -66,14 +66,6 @@ public class RecommendedPlacesActivity extends AppCompatActivity  {
             }
         });
     }
-
-//    private void setupRecomendedPlaces(ArrayList<RecommendedPlace> recomendedPlacesArrayList) {
-//
-//        RecyclerView newsRecyclerView = findViewById(R.id.newsRecyclerView);
-//        newsRecyclerView.setAdapter(new RecommendedPlacesAdapter(this, recomendedPlacesArrayList));
-//        newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//    }
-//
 
     @Override
     protected void onResume() {

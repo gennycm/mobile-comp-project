@@ -1,4 +1,4 @@
-package com.thealienobserver.nikhil.travon.controllers.CostOfLiving;
+package com.thealienobserver.nikhil.travon.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.apihandlers.CostOfLivingHandler;
 
-public class CostOfLivingScreen extends AppCompatActivity {
+public class CostOfLivingActivity extends AppCompatActivity {
     public static final String CITY = "CITY";
     public static final String COUNTRY = "COUNTRY";
 
@@ -68,13 +68,13 @@ public class CostOfLivingScreen extends AppCompatActivity {
     }
 
     public void costOfLivingMenuItemOnClick(View view, CardView cardView, TextView categoryTitle) {
-        Intent intent = new Intent(CostOfLivingScreen.this, CostOfLivingDetailsScreen.class);
+        Intent intent = new Intent(CostOfLivingActivity.this, CostOfLivingDetailActivity.class);
         int bgColor = cardView.getCardBackgroundColor().getDefaultColor();
         String categoryTitleStr = (String) categoryTitle.getText();
 
-        intent.putExtra(CostOfLivingDetailsScreen.CITY, city);
-        intent.putExtra(CostOfLivingDetailsScreen.BG_COLOR, bgColor);
-        intent.putExtra(CostOfLivingDetailsScreen.CATEGORY_TITLE, categoryTitleStr);
+        intent.putExtra(CostOfLivingDetailActivity.CITY, city);
+        intent.putExtra(CostOfLivingDetailActivity.BG_COLOR, bgColor);
+        intent.putExtra(CostOfLivingDetailActivity.CATEGORY_TITLE, categoryTitleStr);
 
         startActivity(intent);
     }

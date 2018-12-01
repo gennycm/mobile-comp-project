@@ -1,14 +1,11 @@
 package com.thealienobserver.nikhil.travon.controllers;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
-import android.os.SystemClock;
-import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -16,11 +13,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,11 +22,7 @@ import android.widget.Toast;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.places.AutocompletePrediction;
-import com.google.android.gms.location.places.AutocompletePredictionBufferResponse;
-import com.google.android.gms.location.places.GeoDataClient;
 import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.location.places.ui.SupportPlaceAutocompleteFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -43,16 +33,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.thealienobserver.nikhil.travon.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
-public class MainScreen extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private Marker locationMarker;
     private GoogleMap mapInstance;
@@ -86,7 +74,7 @@ public class MainScreen extends AppCompatActivity {
                 });
 
                 // Ready map with the marker on user's initial location
-                MainScreen.this.setMapToUserLocation();
+                MainActivity.this.setMapToUserLocation();
             }
         });
     }
@@ -152,7 +140,7 @@ public class MainScreen extends AppCompatActivity {
         } else {
             locationMarker.setPosition(location);
         }
-        Geocoder geocoder = new Geocoder(MainScreen.this, Locale.getDefault());
+        Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
         try {
             TextView placeName = findViewById(R.id.placeName);
             adresses = geocoder.getFromLocation(location.latitude, location.longitude, 1);
@@ -210,32 +198,32 @@ public class MainScreen extends AppCompatActivity {
         String country = adresses.get(0).getCountryName();
         if (clickedButton.getText().toString().toUpperCase().equals("NEWS")) {
 
-            Intent newsIntent = new Intent(this, NewsScreen.class);
-            newsIntent.putExtra(NewsScreen.COUNTRY_PARAM, country);
-            newsIntent.putExtra(NewsScreen.CITY_PARAM, city);
+            Intent newsIntent = new Intent(this, NewsActivity.class);
+            newsIntent.putExtra(NewsActivity.COUNTRY_PARAM, country);
+            newsIntent.putExtra(NewsActivity.CITY_PARAM, city);
             startActivity(newsIntent);
         }
         else if(clickedButton.getText().toString().toUpperCase().equals("WEATHER")){
             LatLng currentLocation = this.locationMarker.getPosition();
             country = adresses.get(0).getCountryCode();
-            Intent weatherIntent = new Intent(this, WeatherScreen.class);
-            weatherIntent.putExtra(WeatherScreen.COUNTRY_CODE_PARAM, country);
-            weatherIntent.putExtra(WeatherScreen.LAT_LON_PARAM, currentLocation);
-            weatherIntent.putExtra(WeatherScreen.LATITUDE, currentLocation.latitude);
-            weatherIntent.putExtra(WeatherScreen.LONGITUDE, currentLocation.longitude);
+            Intent weatherIntent = new Intent(this, WeatherActivity.class);
+            weatherIntent.putExtra(WeatherActivity.COUNTRY_CODE_PARAM, country);
+            weatherIntent.putExtra(WeatherActivity.LAT_LON_PARAM, currentLocation);
+            weatherIntent.putExtra(WeatherActivity.LATITUDE, currentLocation.latitude);
+            weatherIntent.putExtra(WeatherActivity.LONGITUDE, currentLocation.longitude);
             startActivity(weatherIntent);
         } else if (clickedButton.getId() == R.id.eventsButton) {
             LatLng currentLocation = this.locationMarker.getPosition();
-            Intent eventIntent = new Intent(this, EventsScreen.class);
-            eventIntent.putExtra(EventsScreen.LAT_LON_PARAM, currentLocation);
-            eventIntent.putExtra(EventsScreen.CITY_PARAM, city);
+            Intent eventIntent = new Intent(this, EventsActivity.class);
+            eventIntent.putExtra(EventsActivity.LAT_LON_PARAM, currentLocation);
+            eventIntent.putExtra(EventsActivity.CITY_PARAM, city);
             startActivity(eventIntent);
         }
     }
 
     public void openMainMenu(View view) {
-        Intent menuIntent = new Intent(this, MenuScreen.class);
-        menuIntent.putExtra(MenuScreen.ADDRESSES, new ArrayList<>(adresses));
+        Intent menuIntent = new Intent(this, MenuActivity.class);
+        menuIntent.putExtra(MenuActivity.ADDRESSES, new ArrayList<>(adresses));
         startActivity(menuIntent);
     }
 }

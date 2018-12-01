@@ -17,7 +17,7 @@ public class ImmiList1 extends ImmNav1Screen  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_immig1_screen);
+        setContentView(R.layout.activity_five_important_things);
 
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 R.layout.activity_listview, fivethings);

@@ -16,12 +16,10 @@ import android.graphics.Color;
 import com.google.android.gms.maps.model.LatLng;
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.apihandlers.MainMenuHandler;
-import com.thealienobserver.nikhil.travon.controllers.CostOfLiving.CostOfLivingScreen;
-import com.thealienobserver.nikhil.travon.controllers.RecommendedPlaces.RecommendedPlacesActivity;
 
 import java.util.ArrayList;
 
-public class MenuScreen extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
     //    public static final String PlaceID = "PLACE_ID";
     public static final String LATITUDE = "LATITUDE";
     public static final String LONGITUDE = "LONGITUDE";
@@ -58,7 +56,7 @@ public class MenuScreen extends AppCompatActivity {
         String city = addresses.get(0).getLocality();
         city = (city == null) ? addresses.get(0).getAdminArea() : city;
 
-        Intent intent = new Intent(MenuScreen.this, WelcomingScreen.class);
+        Intent intent = new Intent(MenuActivity.this, WelcomingActivity.class);
         intent.putExtra(CITY, city);
         startActivity(intent);
     }
@@ -70,7 +68,7 @@ public class MenuScreen extends AppCompatActivity {
         String city = addresses.get(0).getLocality();
         city = (city == null) ? addresses.get(0).getAdminArea() : city;
 
-        Intent intent = new Intent(MenuScreen.this, RecommendedPlacesActivity.class);
+        Intent intent = new Intent(MenuActivity.this, RecommendedPlacesActivity.class);
         intent.putExtra(LATITUDE, latitude);
         intent.putExtra(LONGITUDE, longitude);
         intent.putExtra(CITY, city);
@@ -82,7 +80,7 @@ public class MenuScreen extends AppCompatActivity {
         String city = addresses.get(0).getLocality();
         city = (city == null) ? addresses.get(0).getAdminArea() : city;
 
-        Intent immigrationInfoIntent = new Intent(MenuScreen.this, ImmNav1Screen.class);
+        Intent immigrationInfoIntent = new Intent(MenuActivity.this, ImmNav1Screen.class);
         immigrationInfoIntent.putExtra(ImmNav1Screen.CITY, city);
         startActivity(immigrationInfoIntent);
     }
@@ -92,16 +90,16 @@ public class MenuScreen extends AppCompatActivity {
         String city = addresses.get(0).getLocality();
         city = (city == null) ? addresses.get(0).getAdminArea() : city;
 
-        Intent eventIntent = new Intent(this, EventsScreen.class);
-        eventIntent.putExtra(EventsScreen.LAT_LON_PARAM, currentLocation);
-        eventIntent.putExtra(EventsScreen.CITY_PARAM, city);
+        Intent eventIntent = new Intent(this, EventsActivity.class);
+        eventIntent.putExtra(EventsActivity.LAT_LON_PARAM, currentLocation);
+        eventIntent.putExtra(EventsActivity.CITY_PARAM, city);
         startActivity(eventIntent);
     }
 
     public void openAvailableRooms(View view) {
         LatLng currentLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
-        Intent availableRoomIntent = new Intent(this, AvailableRoomsScreen.class);
-        //eventIntent.putExtra(AvailableRoomsScreen.LAT_LON_PARAM, currentLocation);
+        Intent availableRoomIntent = new Intent(this, AvailableRoomsActivity.class);
+        //eventIntent.putExtra(AvailableRoomsActivity.LAT_LON_PARAM, currentLocation);
         startActivity(availableRoomIntent);
     }
 
@@ -112,20 +110,20 @@ public class MenuScreen extends AppCompatActivity {
     public void openNews(View view) {
         String city = addresses.get(0).getLocality();
         city = (city == null) ? addresses.get(0).getAdminArea() : city;
-        Intent newsIntent = new Intent(MenuScreen.this, NewsScreen.class);
-        newsIntent.putExtra(NewsScreen.COUNTRY_PARAM, addresses.get(0).getCountryName());
-        newsIntent.putExtra(NewsScreen.CITY_PARAM, city);
+        Intent newsIntent = new Intent(MenuActivity.this, NewsActivity.class);
+        newsIntent.putExtra(NewsActivity.COUNTRY_PARAM, addresses.get(0).getCountryName());
+        newsIntent.putExtra(NewsActivity.CITY_PARAM, city);
         startActivity(newsIntent);
     }
 
     public void openWeather(View view) {
         LatLng currentLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
         String country = addresses.get(0).getCountryCode();
-        Intent weatherIntent = new Intent(this, WeatherScreen.class);
-        weatherIntent.putExtra(WeatherScreen.COUNTRY_CODE_PARAM, country);
-        weatherIntent.putExtra(WeatherScreen.LAT_LON_PARAM, currentLocation);
-        weatherIntent.putExtra(WeatherScreen.LATITUDE, currentLocation.latitude);
-        weatherIntent.putExtra(WeatherScreen.LONGITUDE, currentLocation.longitude);
+        Intent weatherIntent = new Intent(this, WeatherActivity.class);
+        weatherIntent.putExtra(WeatherActivity.COUNTRY_CODE_PARAM, country);
+        weatherIntent.putExtra(WeatherActivity.LAT_LON_PARAM, currentLocation);
+        weatherIntent.putExtra(WeatherActivity.LATITUDE, currentLocation.latitude);
+        weatherIntent.putExtra(WeatherActivity.LONGITUDE, currentLocation.longitude);
         startActivity(weatherIntent);
     }
 
@@ -133,9 +131,9 @@ public class MenuScreen extends AppCompatActivity {
         String city = addresses.get(0).getLocality();
         String country = addresses.get(0).getCountryName();
 
-        Intent costOfLivingIntent = new Intent(this, CostOfLivingScreen.class);
-        costOfLivingIntent.putExtra(CostOfLivingScreen.CITY, city);
-        costOfLivingIntent.putExtra(CostOfLivingScreen.COUNTRY, country);
+        Intent costOfLivingIntent = new Intent(this, CostOfLivingActivity.class);
+        costOfLivingIntent.putExtra(CostOfLivingActivity.CITY, city);
+        costOfLivingIntent.putExtra(CostOfLivingActivity.COUNTRY, country);
 
         startActivity(costOfLivingIntent);
 

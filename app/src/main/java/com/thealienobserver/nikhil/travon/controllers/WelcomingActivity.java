@@ -16,7 +16,7 @@ import com.thealienobserver.nikhil.travon.models.CategoryScores;
 import java.util.ArrayList;
 
 
-public class WelcomingScreen extends AppCompatActivity {
+public class WelcomingActivity extends AppCompatActivity {
 
     public static final String CITY = "CITY";
 
@@ -42,7 +42,7 @@ public class WelcomingScreen extends AppCompatActivity {
         WelcomingHandler welcomingHandler = new WelcomingHandler(this, descriptionTv) {
             @Override
             public void postFetchingCategoriesScores(ArrayList<CategoryScores> categoryScores) {
-                WelcomingScreen.this.setupCategoryScores(categoryScores);
+                WelcomingActivity.this.setupCategoryScores(categoryScores);
             }
         };
         welcomingHandler.getCityScores(cityName);

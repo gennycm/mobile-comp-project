@@ -7,8 +7,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
-    tools:context=".controllers.EventsScreen">
+    tools:context=".controllers.CostOfLivingDetailActivity">
 
+    <!-- Category header start -->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/categoryLayout"
         android:layout_width="match_parent"
@@ -18,9 +19,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom">
+            android:gravity="bottom"
+            android:orientation="vertical">
 
+            <!-- Category Title start -->
             <TextView
                 android:id="@+id/categoryTitleTextView"
                 android:layout_width="wrap_content"
@@ -29,10 +31,12 @@
                 android:layout_alignParentBottom="true"
                 android:fontFamily="@font/raleway_semibold"
                 android:padding="10dip"
-                android:text="category"
+                android:text="@string/placeholder"
                 android:textColor="@color/colorWhite"
                 android:textSize="45sp" />
+            <!-- Category Title end -->
 
+            <!-- Last updated start -->
             <TextView
                 android:id="@+id/lastUpdatedTv"
                 android:layout_width="wrap_content"
@@ -43,13 +47,16 @@
                 android:paddingLeft="10dip"
                 android:paddingRight="10dip"
                 android:paddingBottom="5dip"
-                android:text="Last updated"
+                android:text="@string/last_updated"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp" />
+            <!-- Last updated end -->
+
         </LinearLayout>
-
     </RelativeLayout>
+    <!-- Category header end -->
 
+    <!-- Items header start -->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -58,6 +65,7 @@
         android:padding="1sp"
         android:weightSum="3">
 
+        <!-- Name header -->
         <TextView
             android:id="@+id/nameTV"
             android:layout_width="0dp"
@@ -70,6 +78,7 @@
             android:textAlignment="center"
             android:textSize="18sp" />
 
+        <!-- Average header -->
         <TextView
             android:id="@+id/avgCost"
             android:layout_width="0dp"
@@ -82,6 +91,7 @@
             android:textAlignment="center"
             android:textSize="18sp" />
 
+        <!-- Range header -->
         <TextView
             android:id="@+id/range"
             android:layout_width="0dp"
@@ -95,7 +105,9 @@
             android:textSize="18sp" />
 
     </LinearLayout>
+    <!-- Items header end -->
 
+    <!-- Items list view start -->
     <ListView
         android:id="@+id/costItems"
         android:layout_width="match_parent"
@@ -108,6 +120,7 @@
         android:layout_weight=".72"
         android:divider="@null"
         android:dividerHeight="0dp"></ListView>
+    <!-- Items list view end -->
 
 
 </LinearLayout>

@@ -58,42 +58,41 @@
                 android:weightSum="3">
 
                 <Button
-                    android:background="@drawable/rounded_btn_shape"
+                    style="@style/BlueButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/rounded_btn_shape"
                     android:backgroundTint="@color/colorPrimary"
                     android:drawableLeft="@drawable/cloud_white"
                     android:fontFamily="@font/raleway_semibold"
                     android:onClick="openWeather"
-                    style="@style/BlueButton"
                     android:text="@string/weatherStr"
                     android:textColor="@android:color/white" />
-                <!--   android:drawableLeft="@android:drawable/"-->
 
                 <Button
-                    android:background="@drawable/rounded_btn_shape"
                     android:id="@+id/eventsButton"
+                    style="@style/BlueButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/rounded_btn_shape"
                     android:backgroundTint="@color/colorPrimary"
                     android:drawableLeft="@drawable/events_white"
                     android:fontFamily="@font/raleway_semibold"
                     android:onClick="openEvents"
-                    style="@style/BlueButton"
                     android:text="@string/eventsStr"
                     android:textColor="@android:color/white" />
 
                 <Button
-                    android:background="@drawable/rounded_btn_shape"
                     android:id="@+id/newsButton"
+                    style="@style/BlueButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    style="@style/BlueButton"
-                    android:drawableLeft="@drawable/news_white"
+                    android:background="@drawable/rounded_btn_shape"
                     android:backgroundTint="@color/colorPrimary"
+                    android:drawableLeft="@drawable/news_white"
                     android:fontFamily="@font/raleway_semibold"
                     android:onClick="openNews"
                     android:text="@string/newsStr"
@@ -109,7 +108,8 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
-                android:weightSum="1">
+                android:weightSum="1"
+                android:onClick="openWelcoming">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -127,15 +127,14 @@
                         android:cropToPadding="false"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:textColor="#FFFFFF"
-                        android:src="@drawable/welcoming_white" />
+                        android:src="@drawable/welcoming_white"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight=".80"
-                    android:onClick="openWelcoming">
+                    android:layout_weight=".80">
 
                     <TextView
                         android:id="@+id/welcomeTxtView"
@@ -178,11 +177,11 @@
                         android:layout_height="50dp"
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
-                        android:src="@drawable/places_white"
                         android:clickable="false"
-                        android:padding="8dp"
                         android:cropToPadding="false"
                         android:gravity="center"
+                        android:padding="8dp"
+                        android:src="@drawable/places_white"
                         android:textColor="#FFFFFF"
                         android:textSize="10sp" />
                 </LinearLayout>
@@ -231,9 +230,9 @@
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
                         android:cropToPadding="false"
+                        android:gravity="center"
                         android:padding="8dp"
                         android:src="@drawable/money_white"
-                        android:gravity="center"
                         android:textColor="#FFFFFF"
                         android:textSize="10sp" />
                 </LinearLayout>
@@ -278,13 +277,13 @@
                         android:layout_height="50dp"
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
-                        android:src="@drawable/rooms"
-                        android:tint="@color/colorWhite"
                         android:cropToPadding="false"
                         android:gravity="center"
                         android:padding="8dp"
+                        android:src="@drawable/rooms"
                         android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
+                        android:textSize="10sp"
+                        android:tint="@color/colorWhite" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -299,8 +298,8 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway"
                         android:gravity="center_vertical"
-                        android:text="@string/findingRooms"
                         android:onClick="openAvailableRooms"
+                        android:text="@string/findingRooms"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />
                 </LinearLayout>
@@ -327,10 +326,10 @@
                         android:layout_height="50dp"
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
-                        android:src="@drawable/services_white"
                         android:cropToPadding="false"
                         android:gravity="center"
                         android:padding="8dp"
+                        android:src="@drawable/services_white"
                         android:textColor="#FFFFFF"
                         android:textSize="10sp" />
                 </LinearLayout>
@@ -360,10 +359,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:weightSum="1"
                 android:onClick="openImmigration"
-                >
+                android:orientation="horizontal"
+                android:weightSum="1">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -378,12 +376,12 @@
                         android:adjustViewBounds="false"
                         android:background="@drawable/circle_shape"
                         android:cropToPadding="false"
+                        android:gravity="center"
                         android:padding="8dp"
                         android:src="@drawable/immigration"
-                        android:tint="@color/colorWhite"
-                        android:gravity="center"
                         android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
+                        android:textSize="10sp"
+                        android:tint="@color/colorWhite" />
                 </LinearLayout>
 
                 <LinearLayout

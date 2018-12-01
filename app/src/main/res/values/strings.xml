@@ -40,6 +40,7 @@
     <string name="name">Name</string>
     <string name="avgCost">Avg. </string>
     <string name="range">Range</string>
+    <string name="last_updated">Last updated</string>
 
     <!-- Immigration -->
     <string name="things_to_do">5 important things</string>
@@ -62,6 +63,10 @@
     <string name="distance_advanced_search">Distance from location (km)</string>
     <string name="free_checkbox_text">Show free events only?</string>
     <string name="searchEventText">SEARCH</string>
+
+    <!-- Placeholder -->
+    <string name="placeholder">placeholder</string>
+
 
 
 </resources>

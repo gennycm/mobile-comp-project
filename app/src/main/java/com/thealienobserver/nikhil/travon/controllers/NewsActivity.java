@@ -12,7 +12,7 @@ import com.thealienobserver.nikhil.travon.models.NewsArticle;
 
 import java.util.ArrayList;
 
-public class NewsScreen extends AppCompatActivity {
+public class NewsActivity extends AppCompatActivity {
     private static final String TAG = "NewsScreen";
 
     public static final String COUNTRY_PARAM = "COUNTRY_CODE_PARAM";
@@ -28,14 +28,14 @@ public class NewsScreen extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //fetching News
-        String countryParam = getIntent().getStringExtra(NewsScreen.COUNTRY_PARAM);
-        String cityParam = getIntent().getStringExtra(NewsScreen.CITY_PARAM);
+        String countryParam = getIntent().getStringExtra(NewsActivity.COUNTRY_PARAM);
+        String cityParam = getIntent().getStringExtra(NewsActivity.CITY_PARAM);
 
         setTitle(cityParam + " News");
         NewsHandler newsHandler = new NewsHandler(this) {
             @Override
             public void postFetchingNewsArticles(ArrayList<NewsArticle> newsArticles) {
-                NewsScreen.this.setupNewsCards(newsArticles);
+                NewsActivity.this.setupNewsCards(newsArticles);
             }
         };
         newsHandler.getNewsArticles(cityParam, countryParam);

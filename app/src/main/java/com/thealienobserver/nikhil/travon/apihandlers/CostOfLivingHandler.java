@@ -2,6 +2,7 @@ package com.thealienobserver.nikhil.travon.apihandlers;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,11 +19,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class CostOfLivingHandler {
+    private static final String TAG = "CostOfLivingHandler";
     private static CostOfLivingHandler mInstance;
     private Context applicationContext;
     private static String api_key = "api_key=rkouvmmc5fm0zj";
     private RequestQueue requestQueue;
-
 
     private String currency = "";
     private String lastUpdated = "";
@@ -32,8 +33,6 @@ public class CostOfLivingHandler {
     private ArrayList<CostOfLivingItem> room = new ArrayList();
     private ArrayList<CostOfLivingItem> clothing = new ArrayList();
     private ArrayList<CostOfLivingItem> childcare = new ArrayList();
-
-    //https://www.numbeo.com/api/city_prices?api_key=rkouvmmc5fm0zj&query=Halifax%20Canada
 
     public CostOfLivingHandler(Context context) {
         this.applicationContext = context;
@@ -65,19 +64,17 @@ public class CostOfLivingHandler {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // TODO: Handle error
-                Log.d("Results", error.toString());
+                Log.e(TAG, error.toString());
+                Toast.makeText(applicationContext, "There was an error. Please try again later", Toast.LENGTH_LONG).show();
             }
         });
         requestQueue.add(jsonObjectRequest);
-
     }
 
 
     public void classifyResults(JSONArray prices) throws JSONException {
         for (int i = 0; i < prices.length(); i++) {
             JSONObject itemJSON = prices.getJSONObject(i);
-
             String item_name = itemJSON.getString("item_name");
             double lowest_price = itemJSON.getDouble("lowest_price");
             double average_price = itemJSON.getDouble("average_price");
