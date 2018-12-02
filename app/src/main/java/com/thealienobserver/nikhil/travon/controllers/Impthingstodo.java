@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Impthingstodo extends Immigrationmainscreen  {
+public class Impthingstodo extends ImmigrationMainScreenActivity  {
 
     //public static String CITY = "city";
 

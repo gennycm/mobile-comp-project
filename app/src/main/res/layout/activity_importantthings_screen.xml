@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".controllers.Immigrationmainscreen"
+    tools:context=".controllers.ImmigrationMainScreenActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -25,7 +25,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
                 android:fontFamily="@font/raleway_semibold"
-                android:padding="20dip"
+                android:padding="10dip"
                 android:text="Important Things To Do"
                 android:background="@color/colorPrimary"
                 android:textColor="@color/colorWhite"
@@ -46,33 +46,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-
-
-        <!--<android.support.v7.widget.RecyclerView
-            android:id="@+id/fiveimportantthings"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".70">
-
-
-        </android.support.v7.widget.RecyclerView>-->
-
-    <!--<ListView
-        android:id="@+id/fiveimportantthings"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_below="@+id/categoryTitleTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="2sp"
-        android:layout_marginEnd="2sp"
-        android:layout_marginBottom="5sp"
-        android:layout_weight=".90"
-        android:fontFamily="@font/raleway_semibold"
-        android:dividerHeight="0dp">
-
-    </ListView>-->
-
-
-</LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

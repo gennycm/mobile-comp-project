@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Immigrationoffices extends Immigrationmainscreen {
+public class Immigrationoffices extends ImmigrationMainScreenActivity {
     //public static final String CITY = "city";
     //private String city;
 

@@ -6,7 +6,7 @@ import android.widget.ListView;
 
 import com.thealienobserver.nikhil.travon.R;
 
-public class Immigrationfaqs extends Immigrationmainscreen  {
+public class Immigrationfaqs extends ImmigrationMainScreenActivity  {
     //public static String CITY = "city";
 
     // Array of strings...
