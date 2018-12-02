@@ -52,7 +52,7 @@ public class MainMenuActivity extends AppCompatActivity {
         mainMenuHandler.getPlaceID(longitude, latitude);
     }
 
-    public void openWelcoming(View view) {
+    public void welcomingOnClick(View view) {
         String city = addresses.get(0).getLocality();
         city = (city == null) ? addresses.get(0).getAdminArea() : city;
 
@@ -62,7 +62,7 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
 
-    public void openRecommendedPlaces(View view) {
+    public void recommendedPlacesOnClick(View view) {
         String latitude = String.valueOf(addresses.get(0).getLatitude());
         String longitude = String.valueOf(addresses.get(0).getLongitude());
         String city = addresses.get(0).getLocality();
@@ -76,7 +76,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
     }
 
-    public void openImmigration(View view) {
+    public void immigrationOnClick(View view) {
         String city = addresses.get(0).getLocality();
         city = (city == null) ? addresses.get(0).getAdminArea() : city;
         Intent immigrationInfoIntent = new Intent(MainMenuActivity.this, Immigrationmainscreen.class);
@@ -84,7 +84,7 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(immigrationInfoIntent);
     }
 
-    public void openEvents(View view) {
+    public void eventsOnClick(View view) {
         LatLng currentLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
         String city = addresses.get(0).getLocality();
         city = (city == null) ? addresses.get(0).getAdminArea() : city;
@@ -95,18 +95,18 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(eventIntent);
     }
 
-    public void openAvailableRooms(View view) {
+    public void findingRoomsOnClick(View view) {
         LatLng currentLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
         Intent availableRoomIntent = new Intent(this, FindingRoomsActivity.class);
         //eventIntent.putExtra(AvailableRoomsActivity.LAT_LON_PARAM, currentLocation);
         startActivity(availableRoomIntent);
     }
 
-    public void comingSoon(View view) {
+    public void comingSoonOnClick(View view) {
         Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
     }
 
-    public void openNews(View view) {
+    public void newsOnClick(View view) {
         String city = addresses.get(0).getLocality();
         city = (city == null) ? addresses.get(0).getAdminArea() : city;
         Intent newsIntent = new Intent(MainMenuActivity.this, NewsActivity.class);
@@ -115,7 +115,7 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(newsIntent);
     }
 
-    public void openWeather(View view) {
+    public void weatherOnClick(View view) {
         LatLng currentLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
         String country = addresses.get(0).getCountryCode();
         Intent weatherIntent = new Intent(this, WeatherActivity.class);
@@ -126,7 +126,7 @@ public class MainMenuActivity extends AppCompatActivity {
         startActivity(weatherIntent);
     }
 
-    public void openCostOfLiving(View view) {
+    public void costOfLivingOnClick(View view) {
         String city = addresses.get(0).getLocality();
         String country = addresses.get(0).getCountryName();
 

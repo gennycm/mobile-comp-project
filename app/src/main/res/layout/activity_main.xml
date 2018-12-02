@@ -37,7 +37,7 @@
         android:layout_marginRight="8dp"
         android:padding="8dp"
         android:id="@+id/optionsDialog"
-        android:onClick="openMainMenu"
+        android:onClick="mainMenuOnClick"
         android:background="@drawable/bottom_callout"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 style="@style/BlueButton"
-                android:onClick="navigate"
+                android:onClick="shortcutsOnClick"
                 android:drawableLeft="@drawable/cloud_white"
                 android:fontFamily="@font/raleway"
                 android:text="@string/weatherStr"/>
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 style="@style/BlueButton"
                 android:layout_weight="1"
-                android:onClick="navigate"
+                android:onClick="shortcutsOnClick"
                 android:drawableLeft="@drawable/events_white"
                 android:fontFamily="@font/raleway"
                 android:text="@string/eventsStr"/>
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 style="@style/BlueButton"
                 android:layout_weight="1"
-                android:onClick="navigate"
+                android:onClick="shortcutsOnClick"
                 android:drawableLeft="@drawable/news_white"
                 android:fontFamily="@font/raleway"
                 android:text="@string/newsStr"/>

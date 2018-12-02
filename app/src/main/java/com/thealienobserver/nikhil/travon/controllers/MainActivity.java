@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void navigate(View view) {
+    public void shortcutsOnClick(View view) {
         Button clickedButton = (Button) view;
 
         String city = adresses.get(0).getLocality();
@@ -221,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void openMainMenu(View view) {
+    public void mainMenuOnClick(View view) {
         Intent menuIntent = new Intent(this, MainMenuActivity.class);
         menuIntent.putExtra(MainMenuActivity.ADDRESSES, new ArrayList<>(adresses));
         startActivity(menuIntent);
