@@ -9,25 +9,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
-import com.thealienobserver.nikhil.travon.models.WeatherModel;
+import com.thealienobserver.nikhil.travon.models.Weather;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
 
 
 public abstract class WeatherHandler {
@@ -54,7 +43,7 @@ public abstract class WeatherHandler {
                 try {
                     // Generate news article list from the api response
                     JSONArray forecasts = response.getJSONArray("list");
-                    ArrayList<WeatherModel> forcastList = new ArrayList<>();
+                    ArrayList<Weather> forcastList = new ArrayList<>();
                     for(int forecastIdx = 0; forecastIdx < forecasts.length(); forecastIdx++) {
                         JSONObject forecast = forecasts.getJSONObject(forecastIdx);
 
@@ -65,7 +54,7 @@ public abstract class WeatherHandler {
                         String imageUrl ="http://openweathermap.org/img/w/"+ weather.getString("icon")+".png";
 
                         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                        WeatherModel forecastModel = new WeatherModel(temprature, description, imageUrl, df.parse(date));
+                        Weather forecastModel = new Weather(temprature, description, imageUrl, df.parse(date));
                         forcastList.add(forecastModel);
                         Log.d("Reached here",""+forecastModel);
                         // Call the user's callback for post fetching news articles
@@ -85,6 +74,6 @@ public abstract class WeatherHandler {
         requestQueue.add(jsonObjectRequest);
     }
 
-    public abstract void  postFetchingWeather(ArrayList<WeatherModel> weatherModel);
+    public abstract void  postFetchingWeather(ArrayList<Weather> weather);
 
 }

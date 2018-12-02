@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_screen);
+        setContentView(R.layout.activity_main);
 
         this.setupMap();
         this.setupPlacesSearch();
@@ -222,8 +222,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openMainMenu(View view) {
-        Intent menuIntent = new Intent(this, MenuActivity.class);
-        menuIntent.putExtra(MenuActivity.ADDRESSES, new ArrayList<>(adresses));
+        Intent menuIntent = new Intent(this, MainMenuActivity.class);
+        menuIntent.putExtra(MainMenuActivity.ADDRESSES, new ArrayList<>(adresses));
         startActivity(menuIntent);
     }
 }

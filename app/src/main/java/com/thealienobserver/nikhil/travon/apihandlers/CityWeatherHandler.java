@@ -12,7 +12,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.thealienobserver.nikhil.travon.models.CityWeatherModel;
+import com.thealienobserver.nikhil.travon.models.CityWeather;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +38,7 @@ public abstract class CityWeatherHandler {
                 try {
                     Log.d(TAG, response.toString());
                     // Parse response and get current weather.
-                    CityWeatherModel cityWeather = CityWeatherHandler.this.parseWeatherResponse(response);
+                    CityWeather cityWeather = CityWeatherHandler.this.parseWeatherResponse(response);
                     CityWeatherHandler.this.postWeatherApiCall(cityWeather);
                 } catch (JSONException e) {
                     // Data response in incorrect format.
@@ -69,7 +69,7 @@ public abstract class CityWeatherHandler {
         queue.add(openWeatherRequest);
     }
 
-    private CityWeatherModel parseWeatherResponse(JSONObject response) throws JSONException {
+    private CityWeather parseWeatherResponse(JSONObject response) throws JSONException {
         // Using only first object of weather
         JSONObject weather = response.getJSONArray("weather").getJSONObject(0);
         JSONObject main = response.getJSONObject("main");
@@ -82,9 +82,9 @@ public abstract class CityWeatherHandler {
         String iconUrl = ICON_URL + weather.getString("icon") + ".png";
 
         int clouds = response.getJSONObject("clouds").getInt("all");
-        CityWeatherModel cityWeather = new CityWeatherModel(city, temperature, description, humidity, tempMin, tempMax, clouds, iconUrl);
+        CityWeather cityWeather = new CityWeather(city, temperature, description, humidity, tempMin, tempMax, clouds, iconUrl);
         return cityWeather;
     }
 
-    public abstract void postWeatherApiCall(CityWeatherModel cityWeather);
+    public abstract void postWeatherApiCall(CityWeather cityWeather);
 }

@@ -1,13 +1,13 @@
 package com.thealienobserver.nikhil.travon.models;
 import java.util.Date;
 
-public class WeatherModel {
+public class Weather {
     Double Temprature;
     String Description;
     String Image_Url;
     Date Weather_Date;
 
-    public WeatherModel(Double Temprature,String Description,String Image_Url, Date Weather_Date) {
+    public Weather(Double Temprature, String Description, String Image_Url, Date Weather_Date) {
         this.Temprature = Temprature;
         this.Description = Description;
         this.Image_Url=Image_Url;

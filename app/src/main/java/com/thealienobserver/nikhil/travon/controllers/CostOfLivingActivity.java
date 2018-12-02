@@ -26,7 +26,7 @@ public class CostOfLivingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cost_living_menu_screen);
+        setContentView(R.layout.activity_cost_living_menu);
 
         // Intent extras parameters
         mCity = getIntent().getStringExtra(CITY);

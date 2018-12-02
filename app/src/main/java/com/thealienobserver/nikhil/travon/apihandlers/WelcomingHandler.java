@@ -4,8 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.text.Html;
 import android.util.Log;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -14,7 +12,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.thealienobserver.nikhil.travon.models.CategoryScores;
+import com.thealienobserver.nikhil.travon.models.CategoryScore;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -44,7 +42,7 @@ public abstract class WelcomingHandler {
                     String description = response.getString("summary");
                     setDescription(description);
 
-                    ArrayList<CategoryScores> categoryScores = new ArrayList<>();
+                    ArrayList<CategoryScore> categoryScores = new ArrayList<>();
                     for (int i = 0; i < categories.length(); i++) {
                         JSONObject category = categories.getJSONObject(i);
                         Log.d("---category", category.toString());
@@ -52,7 +50,7 @@ public abstract class WelcomingHandler {
                         String color = category.getString("color");
                         Double score_out_of_10 = category.getDouble("score_out_of_10");
 
-                        CategoryScores categoryScore = new CategoryScores(color, categoryName, score_out_of_10);
+                        CategoryScore categoryScore = new CategoryScore(color, categoryName, score_out_of_10);
                         categoryScores.add(categoryScore);
                         Log.d("---category", categoryScores.size()+"");
 
@@ -81,7 +79,7 @@ public abstract class WelcomingHandler {
         }
     }
 
-    public abstract void postFetchingCategoriesScores(ArrayList<CategoryScores> categoryScores);
+    public abstract void postFetchingCategoriesScores(ArrayList<CategoryScore> categoryScores);
 
 
 }

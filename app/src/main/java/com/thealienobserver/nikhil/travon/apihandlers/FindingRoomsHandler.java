@@ -8,16 +8,15 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.thealienobserver.nikhil.travon.models.AvailableRoomsModel;
+import com.thealienobserver.nikhil.travon.models.Room;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public abstract class AvailableRoomHandler {
+public abstract class FindingRoomsHandler {
     //    private static NewsHandler newsHandlerInstance;
     private Context applicationContext;
 
@@ -25,7 +24,7 @@ public abstract class AvailableRoomHandler {
     private static final String Room_Rent = "https://mc-project.herokuapp.com/rooms?city=toronto";
 
 
-    public AvailableRoomHandler(Context context) {
+    public FindingRoomsHandler(Context context) {
         this.applicationContext = context;
     }
 
@@ -39,7 +38,7 @@ public abstract class AvailableRoomHandler {
                 try {
                     // Generate news article list from the api response
                     JSONArray newsArticles = response;
-                    ArrayList<AvailableRoomsModel> toprooms = new ArrayList<>();
+                    ArrayList<Room> toprooms = new ArrayList<>();
                     for(int roomsItr=0; roomsItr < newsArticles.length(); roomsItr++) {
                         JSONObject roomsArticle = newsArticles.getJSONObject(roomsItr);
                         String title = roomsArticle.getString("shortdescription");
@@ -60,11 +59,11 @@ public abstract class AvailableRoomHandler {
                         String sellermailId=roomsArticle.getString("sellermailId");
                         String sellerphone=roomsArticle.getString("sellerphone");
                         Log.d("Rooms............",""+title+","+rent+","+currency+""+img1);
-                        AvailableRoomsModel rooms = new AvailableRoomsModel(title,rent,location,currency,description,bathroom,bedroom,furnished,petfriendly,postingdate,img1,img2,img3,sellername,sellerlocation,sellermailId,sellerphone);
+                        Room rooms = new Room(title,rent,location,currency,description,bathroom,bedroom,furnished,petfriendly,postingdate,img1,img2,img3,sellername,sellerlocation,sellermailId,sellerphone);
                         toprooms.add(rooms);
 
                         // Call the user's callback for post fetching news articles
-                        AvailableRoomHandler.this.postFetchingAvailableRooms(toprooms);
+                        FindingRoomsHandler.this.postFetchingAvailableRooms(toprooms);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -80,6 +79,6 @@ public abstract class AvailableRoomHandler {
         requestQueue.add(jsonObjectRequest);
     }
 
-    public abstract void  postFetchingAvailableRooms(ArrayList<AvailableRoomsModel> availablerooms);
+    public abstract void  postFetchingAvailableRooms(ArrayList<Room> availablerooms);
 }
 

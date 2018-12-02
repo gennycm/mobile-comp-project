@@ -13,8 +13,8 @@ import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.adapters.WeatherCardAdapter;
 import com.thealienobserver.nikhil.travon.apihandlers.CityWeatherHandler;
 import com.thealienobserver.nikhil.travon.apihandlers.WeatherHandler;
-import com.thealienobserver.nikhil.travon.models.WeatherModel;
-import com.thealienobserver.nikhil.travon.models.CityWeatherModel;
+import com.thealienobserver.nikhil.travon.models.Weather;
+import com.thealienobserver.nikhil.travon.models.CityWeather;
 
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weather_screen);
+        setContentView(R.layout.activity_weather);
         Intent i = getIntent();
         Bundle b = i.getExtras();
         String Latitude = String.valueOf(b.get("LATITUDE"));
@@ -39,14 +39,14 @@ public class WeatherActivity extends AppCompatActivity {
 
         this.cityWeatherHandler = new CityWeatherHandler() {
             @Override
-            public void postWeatherApiCall(CityWeatherModel cityWeather) {
+            public void postWeatherApiCall(CityWeather cityWeather) {
                 WeatherActivity.this.updateWeatherOnScreen(cityWeather);
             }
         };
 
         WeatherHandler weatherHandler = new WeatherHandler(this) {
             @Override
-            public void postFetchingWeather(ArrayList<WeatherModel> weatherModel) {
+            public void postFetchingWeather(ArrayList<Weather> weatherModel) {
                 WeatherActivity.this.setupWeatherCards(weatherModel);
             }
         };
@@ -54,15 +54,15 @@ public class WeatherActivity extends AppCompatActivity {
         cityWeatherHandler.getWeatherByCity(this, Latitude, Longitude);
     }
 
-    private void setupWeatherCards(ArrayList<WeatherModel> weatherModel) {
+    private void setupWeatherCards(ArrayList<Weather> weather) {
         RecyclerView weatherRecyclerView = findViewById(R.id.weatherRecyclerView);
-        weatherRecyclerView.setAdapter(new WeatherCardAdapter(this, weatherModel));
+        weatherRecyclerView.setAdapter(new WeatherCardAdapter(this, weather));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         weatherRecyclerView.setLayoutManager(linearLayoutManager);
     }
 
-    public void updateWeatherOnScreen(CityWeatherModel cityWeather) {
+    public void updateWeatherOnScreen(CityWeather cityWeather) {
         // Method to update current weather.
         TextView city = findViewById(R.id.city);
         TextView temp = findViewById(R.id.temperature);

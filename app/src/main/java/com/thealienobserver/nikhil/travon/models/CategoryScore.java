@@ -1,11 +1,11 @@
 package com.thealienobserver.nikhil.travon.models;
 
-public class CategoryScores {
+public class CategoryScore {
     private String color;
     private String name;
     private double score_out_of_10;
 
-    public CategoryScores(String color, String name, double score_out_of_10) {
+    public CategoryScore(String color, String name, double score_out_of_10) {
         this.color = color;
         this.name = name;
         this.score_out_of_10 = score_out_of_10;

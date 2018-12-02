@@ -11,31 +11,31 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.thealienobserver.nikhil.travon.R;
-import com.thealienobserver.nikhil.travon.models.AvailableRoomsModel;
+import com.thealienobserver.nikhil.travon.models.Room;
 import java.util.ArrayList;
 
-public class AvailableRoomsAdapter extends RecyclerView.Adapter<AvailableRoomsAdapter.ViewHolder>{
+public class FindingRoomsAdapter extends RecyclerView.Adapter<FindingRoomsAdapter.ViewHolder>{
     private static final String TAG = "AvailableRoomsAdapter";
 
     private Context callerContext;
-    ArrayList<AvailableRoomsModel> availableRoomsModel;
+    ArrayList<Room> rooms;
 
-    public AvailableRoomsAdapter(Context context, ArrayList<AvailableRoomsModel> availableRoomsModel) {
+    public FindingRoomsAdapter(Context context, ArrayList<Room> rooms) {
         this.callerContext = context;
-        this.availableRoomsModel = availableRoomsModel;
+        this.rooms = rooms;
     }
 
     @NonNull
     @Override
-    public AvailableRoomsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_availablerooms_items, parent, false);
-        AvailableRoomsAdapter.ViewHolder holder = new AvailableRoomsAdapter.ViewHolder(view);
+    public FindingRoomsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_finding_rooms_item, parent, false);
+        FindingRoomsAdapter.ViewHolder holder = new FindingRoomsAdapter.ViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AvailableRoomsAdapter.ViewHolder viewHolder, int i) {
-        AvailableRoomsModel availableroomsElement = this.availableRoomsModel.get(i);
+    public void onBindViewHolder(@NonNull FindingRoomsAdapter.ViewHolder viewHolder, int i) {
+        Room availableroomsElement = this.rooms.get(i);
         Glide.with(callerContext).load(availableroomsElement.getImg1()).into(viewHolder.roomsImage);
         viewHolder.rent.setText(String.valueOf(availableroomsElement.getRent()));
         //viewHolder.city.setText(availableroomsElement.getLocation());
@@ -43,7 +43,7 @@ public class AvailableRoomsAdapter extends RecyclerView.Adapter<AvailableRoomsAd
 
     @Override
     public int getItemCount() {
-        return this.availableRoomsModel.size();
+        return this.rooms.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

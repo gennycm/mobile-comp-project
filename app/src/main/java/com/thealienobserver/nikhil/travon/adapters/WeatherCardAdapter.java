@@ -3,7 +3,6 @@ package com.thealienobserver.nikhil.travon.adapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.thealienobserver.nikhil.travon.R;
-import com.thealienobserver.nikhil.travon.models.WeatherModel;
+import com.thealienobserver.nikhil.travon.models.Weather;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -21,11 +20,11 @@ public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardAdapter.
     private static final String TAG = "WeatherCardAdapter";
 
     private Context callerContext;
-    ArrayList<WeatherModel> weatherModel;
+    ArrayList<Weather> weather;
 
-    public WeatherCardAdapter(Context context, ArrayList<WeatherModel> weatherModel) {
+    public WeatherCardAdapter(Context context, ArrayList<Weather> weather) {
         this.callerContext = context;
-        this.weatherModel = weatherModel;
+        this.weather = weather;
     }
 
     @NonNull
@@ -38,7 +37,7 @@ public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        WeatherModel weatherElement = this.weatherModel.get(i);
+        Weather weatherElement = this.weather.get(i);
         viewHolder.Temprature.setText(String.valueOf(Math.round(weatherElement.getTemprature())).concat("\u2103"));
         viewHolder.Description.setText(weatherElement.getDescription());
         viewHolder.ForecastDate.setText(String.valueOf(weatherElement.getWeather_Date()));
@@ -53,7 +52,7 @@ public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardAdapter.
 
     @Override
     public int getItemCount() {
-        return this.weatherModel.size();
+        return this.weather.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

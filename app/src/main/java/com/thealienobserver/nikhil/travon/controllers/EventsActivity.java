@@ -43,7 +43,7 @@ public class EventsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_events_screen);
+        setContentView(R.layout.activity_events);
 
         // Gather event details
         currentlocation = (LatLng) getIntent().getExtras().get(LAT_LON_PARAM);

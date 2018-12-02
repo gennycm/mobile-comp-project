@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.thealienobserver.nikhil.travon.R;
-import com.thealienobserver.nikhil.travon.models.CategoryScores;
+import com.thealienobserver.nikhil.travon.models.CategoryScore;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -22,9 +22,9 @@ public class CategoryScoresAdapter extends RecyclerView.Adapter<CategoryScoresAd
     private NumberFormat numberFormat = new DecimalFormat("##.###");
 
     private Context callerContext;
-    ArrayList<CategoryScores> categoryScores;
+    ArrayList<CategoryScore> categoryScores;
 
-    public CategoryScoresAdapter(Context context, ArrayList<CategoryScores> categoryScores) {
+    public CategoryScoresAdapter(Context context, ArrayList<CategoryScore> categoryScores) {
         this.callerContext = context;
         this.categoryScores = categoryScores;
     }
@@ -40,7 +40,7 @@ public class CategoryScoresAdapter extends RecyclerView.Adapter<CategoryScoresAd
     @Override
     public void onBindViewHolder(@NonNull CategoryScoresAdapter.ViewHolder viewHolder, int i) {
         Log.d(TAG, "bind view called");
-        final CategoryScores currentScore = this.categoryScores.get(i);
+        final CategoryScore currentScore = this.categoryScores.get(i);
         viewHolder.categoryNameTv.setText(currentScore.getName());
         double score = Math.round(currentScore.getScoreOutOf10());
         viewHolder.scoreTv.setText(numberFormat.format(score) + "/10");

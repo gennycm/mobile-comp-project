@@ -9,8 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.adapters.RecommendedFragmentPagerAdapter;
 
-import static com.thealienobserver.nikhil.travon.controllers.MenuActivity.LATITUDE;
-import static com.thealienobserver.nikhil.travon.controllers.MenuActivity.LONGITUDE;
+import static com.thealienobserver.nikhil.travon.controllers.MainMenuActivity.LATITUDE;
+import static com.thealienobserver.nikhil.travon.controllers.MainMenuActivity.LONGITUDE;
 
 
 public class RecommendedPlacesActivity extends AppCompatActivity  {
@@ -21,10 +21,10 @@ public class RecommendedPlacesActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recomended_places_screen);
+        setContentView(R.layout.activity_recomended_places);
 
         mLatLong = getIntent().getStringExtra(LATITUDE) + "," + getIntent().getStringExtra(LONGITUDE);
-        city = getIntent().getStringExtra(MenuActivity.CITY);
+        city = getIntent().getStringExtra(MainMenuActivity.CITY);
 
         setTitle("Places in " + city);
 

@@ -36,19 +36,19 @@
         </activity>
 
         <activity
-            android:name=".controllers.MenuActivity"
+            android:name=".controllers.MainMenuActivity"
             android:label=" "
             android:launchMode="singleTop"
             android:parentActivityName=".controllers.MainActivity"></activity>
 
         <activity
             android:name=".controllers.WeatherActivity"
-            android:parentActivityName=".controllers.MenuActivity" />
+            android:parentActivityName=".controllers.MainMenuActivity" />
 
         <activity
             android:name=".controllers.Immigrationmainscreen"
             android:label="Menu"
-            android:parentActivityName=".controllers.MenuActivity"
+            android:parentActivityName=".controllers.MainMenuActivity"
             android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".controllers.Impthingstodo"
@@ -75,13 +75,13 @@
         <activity
             android:name=".controllers.RecommendedPlacesActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".controllers.MenuActivity" />
+            android:parentActivityName=".controllers.MainMenuActivity" />
 
-        <activity android:name=".controllers.AvailableRoomsActivity" />
+        <activity android:name=".controllers.FindingRoomsActivity" />
 
         <activity
             android:name=".controllers.EventsActivity"
-            android:parentActivityName=".controllers.MenuActivity" />
+            android:parentActivityName=".controllers.MainMenuActivity" />
 
 
         <activity android:name=".controllers.RecommendedPlacesDetailActivity"
@@ -91,7 +91,7 @@
             android:name=".controllers.CostOfLivingActivity"
             android:label="Menu"
             android:launchMode="singleTop"
-            android:parentActivityName=".controllers.MenuActivity" />
+            android:parentActivityName=".controllers.MainMenuActivity" />
 
         <activity
             android:name=".controllers.CostOfLivingDetailActivity"
@@ -101,7 +101,7 @@
         <activity
             android:name=".controllers.WelcomingActivity"
             android:label=" "
-            android:parentActivityName=".controllers.MenuActivity" />
+            android:parentActivityName=".controllers.MainMenuActivity" />
     </application>
 
 </manifest>
