@@ -27,10 +27,10 @@ public abstract class RecommendedPlacesHandler {
 
     private Context applicationContext;
 
-    private ArrayList<RecommendedPlace> recomendedPlaces;
+    private ArrayList<RecommendedPlace> recommendedPlaces;
 
 
-    private static final String RecomendedPlaces_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
+    private static final String RecommendedPlaces_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
 
     private static final String RecommendedPLaces_Photo_Url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";
 
@@ -45,19 +45,33 @@ public abstract class RecommendedPlacesHandler {
 
     private final HashMap<String, JSONObject> recommendedPlacesJsonObjectList = new HashMap<>();
 
-    public RecommendedPlacesHandler(Context context) {
+    protected RecommendedPlacesHandler(Context context) {
         this.applicationContext = context;
     }
 
 
+    /*
+    * Getting the recommended places with help of places api
+    */
     public void getTopRecomendedPlaces(final String location, final String placeType) {
+
         requestQueue = Volley.newRequestQueue(applicationContext);
-        String url = RecomendedPlaces_URL + placeType.toLowerCase() + "%20in%20" + location +
-                "&sensor=false" + api_key;
+
+        //Creating the url for Google place api with place type,city, api key
+
+        String url = RecommendedPlaces_URL + placeType.toLowerCase() + "%20in%20" + location + "&sensor=false" + api_key;
+
+       // Replacing spaces with ASCII value %20
+
         url = url.replaceAll(" ", "%20");
 
-        recomendedPlaces = new ArrayList<>();
+        recommendedPlaces = new ArrayList<>();
+
+        // Creating volley json request to get the api response as json format
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+
             @Override
             public void onResponse(JSONObject response) {
                 Log.d("Places Handler", response.toString());
@@ -66,11 +80,13 @@ public abstract class RecommendedPlacesHandler {
                     JSONArray recommendedPlaces = response.getJSONArray("results");
 
                     for (int i = 0; i < recommendedPlaces.length(); i++) {
+
                         final JSONObject recommendedPlacesJSONObject = recommendedPlaces.getJSONObject(i);
 
-
                         String url2 = Recommended_Place_Details_Url + recommendedPlacesJSONObject.getString("place_id") + "&fields=name,reference,international_phone_number,formatted_address" + api_key;
+
                         url2 = url2.replaceAll(" ", "%20");
+
                         recommendedPlacesJsonObjectList.put(recommendedPlacesJSONObject.getString("place_id"), recommendedPlacesJSONObject);
 
                         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url2, null, new Response.Listener<JSONObject>() {
@@ -149,12 +165,20 @@ public abstract class RecommendedPlacesHandler {
         requestQueue.add(jsonObjectRequest);
     }
 
+    /*
+     * Getting recommended places description with Wikipedia Api
+     */
+    private void getTopRecomendedDescription(final String place, final String reference, final String city, final String placeType, final String formatted_address, final String formatted_phone_number) {
 
-    public void getTopRecomendedDescription(final String place, final String reference, final String city, final String placeType, final String formatted_address, final String formatted_phone_number) {
+        //Creating the url for Wikipedia  api with place name
 
         String url = Recommended_place_desc_url + place;
 
+        // Replacing spaces with ASCII value %20
+
         url = url.replaceAll(" ", "%20");
+
+        // Creating volley json request to get the api response as json format
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -197,8 +221,8 @@ public abstract class RecommendedPlacesHandler {
                         recommededPlace.setDescription(description);
 
                     }
-                    recomendedPlaces.add(recommededPlace);
-                    RecommendedPlacesHandler.this.postFetchingRecomendedPlaces(recomendedPlaces);
+                    recommendedPlaces.add(recommededPlace);
+                    RecommendedPlacesHandler.this.postFetchingRecomendedPlaces(recommendedPlaces);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -220,5 +244,8 @@ public abstract class RecommendedPlacesHandler {
     }
 
 
+  /*
+   * Abstract method for posting recommed places details
+   */
     public abstract void postFetchingRecomendedPlaces(ArrayList<RecommendedPlace> recommendedPlaceArrayList);
 }

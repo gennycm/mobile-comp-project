@@ -19,6 +19,8 @@ public class RecommendedFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
+        //Creating fragment instance based on position
+
         return RecommendedPlacesFragment.newInstance(position + 1, city);
     }
 
@@ -29,7 +31,9 @@ public class RecommendedFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        // Generate title based on item position
+
+        //Set the title base on item position
+
         return tabTitles[position];
     }
 }
