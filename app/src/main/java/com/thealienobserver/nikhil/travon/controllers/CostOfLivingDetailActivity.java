@@ -68,6 +68,7 @@ public class CostOfLivingDetailActivity extends AppCompatActivity {
         mCategoryTitleTv.setText(mCategoryTitle);
         mLastUpdated.setText(mCostOfLivingHandlerInstance.getLastUpdated());
 
+        //Setting color for some view components according to the selected option
         mCategoryLayout.setBackgroundColor(mBgColor);
         mNameTV.setTextColor(mBgColor);
         mAvgCost.setTextColor(mBgColor);
@@ -105,7 +106,6 @@ public class CostOfLivingDetailActivity extends AppCompatActivity {
                 setCostsListOnView(clothing);
                 break;
         }
-
     }
 
     /**
