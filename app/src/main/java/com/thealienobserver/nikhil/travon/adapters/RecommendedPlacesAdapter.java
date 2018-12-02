@@ -28,7 +28,7 @@ public class RecommendedPlacesAdapter extends RecyclerView.Adapter<RecommendedPl
     public static final String PLACE_PHONE = "phone";
 
     private Context callerContext;
-    ArrayList<RecommendedPlace> recommendedPlaces;
+    private ArrayList<RecommendedPlace> recommendedPlaces;
 
     public static final String PLACE_IMAGE = "placeImage";
     public static final String PLACE_TITLE = "placeTitle";
@@ -50,30 +50,41 @@ public class RecommendedPlacesAdapter extends RecyclerView.Adapter<RecommendedPl
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "bind view called");
-        final RecommendedPlace currentArticle = this.recommendedPlaces.get(i);
-        viewHolder.tv_description.setText(currentArticle.getDescription());
-        viewHolder.tv_title.setText(currentArticle.getName());
-        viewHolder.tv_address.setText(currentArticle.getFormattedAddress());
-        viewHolder.tv_phone.setText(currentArticle.getFormattedPhoneNumber());
+        final RecommendedPlace currentPlace = this.recommendedPlaces.get(i);
+
+       //Setting  the data to the views
+
+        viewHolder.tv_description.setText(currentPlace.getDescription());
+        viewHolder.tv_title.setText(currentPlace.getName());
+        viewHolder.tv_address.setText(currentPlace.getFormattedAddress());
+        viewHolder.tv_phone.setText(currentPlace.getFormattedPhoneNumber());
+
+
+        //Creating Circular loading for place holder
 
         CircularProgressDrawable loading = new CircularProgressDrawable(callerContext);
         loading.setStrokeWidth(5f);
         loading.setCenterRadius(30f);
         loading.start();
 
-        Glide.with(callerContext).load(currentArticle.getImage_ref()).
+        //Showing Place Image using glide with loading place holder
+
+
+        Glide.with(callerContext).load(currentPlace.getImage_ref()).
                 apply(new RequestOptions().placeholder(loading).error(loading)).into(viewHolder.iv_recommended_place);
+
+        //Creating the Intent for Deatil activity with place details
 
         viewHolder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(callerContext, DetailActivity.class);
-                intent.putExtra(PLACE_DESCRIPTION, currentArticle.getDescription());
-                intent.putExtra(PLACE_IMAGE, currentArticle.getImage_ref());
-                intent.putExtra(PLACE_TITLE, currentArticle.getName());
-                intent.putExtra(PLACE_ADDRESS, currentArticle.getFormattedAddress());
-                intent.putExtra(PLACE_PHONE, currentArticle.getFormattedPhoneNumber());
+                intent.putExtra(PLACE_DESCRIPTION, currentPlace.getDescription());
+                intent.putExtra(PLACE_IMAGE, currentPlace.getImage_ref());
+                intent.putExtra(PLACE_TITLE, currentPlace.getName());
+                intent.putExtra(PLACE_ADDRESS, currentPlace.getFormattedAddress());
+                intent.putExtra(PLACE_PHONE, currentPlace.getFormattedPhoneNumber());
                 callerContext.startActivity(intent);
             }
         });
@@ -81,15 +92,22 @@ public class RecommendedPlacesAdapter extends RecyclerView.Adapter<RecommendedPl
 
     @Override
     public int getItemCount() {
+
+        // Showing no of places base recommended places size
+
         return this.recommendedPlaces.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
+
+
+        //Creating references for views
+
         ImageView iv_recommended_place;
         TextView tv_description, tv_title, tv_phone, tv_address;
         CardView container;
 
-        public ViewHolder(@NonNull View itemView) {
+        private ViewHolder(@NonNull View itemView) {
             super(itemView);
             iv_recommended_place = itemView.findViewById(R.id.iv_recommended_place);
             tv_description = itemView.findViewById(R.id.tv_description);

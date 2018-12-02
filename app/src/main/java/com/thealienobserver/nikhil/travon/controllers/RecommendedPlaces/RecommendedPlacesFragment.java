@@ -34,7 +34,12 @@ public class RecommendedPlacesFragment extends Fragment implements
     private int mPage;
     private String mCity;
 
+   /**
+   * Creating the instance of the fragment with bundle data as arguments
+   */
     public static RecommendedPlacesFragment newInstance(int page, String city) {
+
+
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
         args.putString(CITY, city);
@@ -46,6 +51,8 @@ public class RecommendedPlacesFragment extends Fragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Getting the page number and city name
 
         if (getArguments() != null) {
             mPage = getArguments().getInt(ARG_PAGE);
@@ -59,7 +66,7 @@ public class RecommendedPlacesFragment extends Fragment implements
         final View view = inflater.inflate(R.layout.fragment_recommended_places, container, false);
 
 
-        //fetching places
+        //fetching places through handler
         RecommendedPlacesHandler recommendedPlacesHandler = new RecommendedPlacesHandler(getActivity()) {
             @Override
             public void postFetchingRecomendedPlaces(ArrayList<RecommendedPlace> recomendedPlaces) {
@@ -71,18 +78,21 @@ public class RecommendedPlacesFragment extends Fragment implements
         return view;
     }
 
-    private void setupRecomendedPlaces(ArrayList<RecommendedPlace> recomendedPlacesArrayList, View view) {
+   /*
+   * Assigning List of places to recycler view and stopping the loading when data comes
+   */
+    private void setupRecomendedPlaces(ArrayList<RecommendedPlace> recommendedPlaceArrayList, View view) {
 
         RecyclerView newsRecyclerView = view.findViewById(R.id.rv_recommended_places);
         TextView tv_no_results = view.findViewById(R.id.tv_no_results);
         ProgressBar pb_loading = view.findViewById(R.id.pb_loading);
         pb_loading.setVisibility(View.GONE);
-        if (recomendedPlacesArrayList.size() == 0) {
+        if (recommendedPlaceArrayList.size() == 0) {
             tv_no_results.setVisibility(View.VISIBLE);
             return;
         }
 
-        newsRecyclerView.setAdapter(new RecommendedPlacesAdapter(getActivity(), recomendedPlacesArrayList));
+        newsRecyclerView.setAdapter(new RecommendedPlacesAdapter(getActivity(), recommendedPlaceArrayList));
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
     }

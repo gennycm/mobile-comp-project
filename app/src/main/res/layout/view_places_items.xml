@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!--Showing the  place image-->
 
         <ImageView
             android:id="@+id/iv_recommended_place"
@@ -31,6 +32,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <!--Showing the  place title-->
 
         <TextView
             android:id="@+id/tv_title"
@@ -64,6 +67,8 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.60" />
 
+        <!--Showing the  place description-->
+
         <TextView
             android:id="@+id/tv_description"
             android:layout_width="match_parent"
@@ -80,6 +85,8 @@
             app:layout_constraintTop_toTopOf="@+id/guideline2"
             app:layout_constraintVertical_bias="1.0" />
 
+        <!--Showing the  call icon-->
+
         <ImageView
             android:id="@+id/iv_call"
             android:layout_width="wrap_content"
@@ -92,6 +99,8 @@
             app:layout_constraintStart_toStartOf="@+id/tv_title"
             app:layout_constraintTop_toTopOf="@+id/tv_phone_number"
             app:srcCompat="@drawable/ic_baseline_call_24px" />
+
+        <!--Showing the place phone number-->
 
         <TextView
             android:id="@+id/tv_phone_number"
@@ -107,6 +116,8 @@
             app:layout_constraintTop_toTopOf="@+id/guideline3"
             app:layout_constraintVertical_bias="0.0" />
 
+        <!--Showing the loaction icon-->
+
         <ImageView
             android:id="@+id/iv_location"
             android:layout_width="wrap_content"
@@ -120,6 +131,8 @@
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/tv_location"
             app:srcCompat="@drawable/ic_location_24px" />
+
+        <!--Showing the  place  address-->
 
         <TextView
             android:id="@+id/tv_location"

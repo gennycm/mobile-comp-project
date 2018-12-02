@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +9,7 @@
     android:orientation="vertical"
     tools:context=".controllers.NewsScreen">
 
+    <!--showing the mutliple fagments for attractions, hospitals, universities and restaturants with the help of viewpager -->
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -14,6 +17,8 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@android:color/white" />
+
+    <!--showing the mutliple tabs with the help of tablayout-->
 
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"
