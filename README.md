@@ -115,7 +115,7 @@ public static int fibonacci(int fibIndex) {
 ##Sitemap
 At the moment of planning a mobile application, creating a sitemap will help ensure the team has included all the screens needed to cover the proposed functionalities. The following sitemap shows the navigation the user can go through within the application. It shows the hierarchy of screens and functionalities available for each feature.
 
-![wireframe](pictures1/sitemap.jpg)
+![wireframe](pictures/sitemap.jpg)
 
 ##Travon Test Cases
 ### Home page Test Cases
@@ -154,7 +154,7 @@ For Travon, we have used different activities like MainScreen, MenuScreen, NewsS
 ### API Handlers and Adapters
 For now we have used News Handler and Recommended Places Handler.Adapters used are News Card Adapter and Recommended Places Adapter.
 
-![wireframe](pictures1/handlers.jpg)
+![wireframe](pictures/handlers.jpg)
 
 ##Prototyping
 ### Low fidelity prototype
