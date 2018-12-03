@@ -160,8 +160,8 @@ For now we have used News Handler and Recommended Places Handler.Adapters used a
 ### Low fidelity prototype
 Low fidelity prototype was helpful to get a better idea of how the application would look once implemented and how the information and functionalities could be organized and displayed throughout the application.
 
-![wireframe](pictures1/low fidelity.jpg)
-![wireframe](pictures1/low fidelity2.jpg)
+![wireframe](pictures/low fidelity.jpg)
+![wireframe](pictures/low fidelity2.jpg)
 
 ### High fidelity prototype
 As part of the design project, the high fidelity prototype was created from the low fidelity prototype.
@@ -174,7 +174,7 @@ As part of the design project, the high fidelity prototype was created from the 
 ![wireframe](pictures/col.jpg)
 ![wireframe](pictures/event_details.jpg)
 ![wireframe](pictures/event_details2.jpg)
-![wireframe](pictures1/hospital.jpg)![wireframe](pictures1/hospitalname.jpg)
+![wireframe](pictures/hospital.jpg)![wireframe](pictures1/hospitalname.jpg)
 ![wireframe](pictures/services.jpg)
 
 ## Clickstreams
@@ -182,31 +182,31 @@ Click stream can be seen as a roadmap of a user’s activity. The following clic
 ### Weather
 There are two possible ways to access to the weather screen. You can directly access from main screen or from the main menu screen.
 
-![wireframe](pictures1/weatherclick.jpg)
-![wireframe](pictures1/weatherclick1.jpg)
+![wireframe](pictures/weatherclick.jpg)
+![wireframe](pictures/weatherclick1.jpg)
 
 ### Events
 There are two possible ways to access to the events screen. You can directly access from main screen or from the main menu screen.
-![wireframe](pictures1/eventclick.jpg)
+![wireframe](pictures/eventclick.jpg)
 ### News
 There are two possible ways to access to the news screen. You can directly access from main screen or from the main menu screen
-![wireframe](pictures1/newsclick.jpg)
+![wireframe](pictures/newsclick.jpg)
 
 ### Immigration
-![wireframe](pictures1/immiclick.jpg)
+![wireframe](pictures/immiclick.jpg)
 ### Services
-![wireframe](pictures1/serviceclick.jpg)
+![wireframe](pictures/serviceclick.jpg)
 ### Finding rooms
-![wireframe](pictures1/roomclick.jpg)
+![wireframe](pictures/roomclick.jpg)
 ### Recommended places
-![wireframe](pictures1/recclick.jpg)
+![wireframe](pictures/recclick.jpg)
 ### Services
-![wireframe](pictures1/service1click.jpg)
+![wireframe](pictures/service1click.jpg)
 ## Project management
 ## Task Assignment
 In order to be able to carry the project progress more accurately, Trello was chosen as a tool for distributing tasks and responsibilities,. Trello is a project management software with web interface, client for iOS and android to organize projects [1].
 Trello’s UI makes it easy to create and assign tasks; and keep track of its status. Cards are added at the beginning of each update section. In case there was a previous section, the pending tasks are evaluated in order to be able to include them in the next section planning. See Figure n for an example of the team’s trello board.
-![wireframe](pictures1/trello.jpg)
+![wireframe](pictures/trello.jpg)
 ## Version control
 Code is being submitted to a repository on Git Lab. There are 6 members, where the team leader is a Maintainer and the rest of team are as developers.  The url of the repository is: https://git.cs.dal.ca/metri/mobile-comp-project .
 In order to push new changes to the repository, a merge request has to be created. After, 3 members have to check the request and if the three approve, then the code can be pushed.
@@ -245,9 +245,6 @@ What to include in your project sources:
 - Research material
 - Android libraries
 - Everything listed on the Dalhousie Plagiarism and Cheating pages(https://www.dal.ca/dept/university_secretariat/academic-integrity/plagiarism-cheating.html)
-
-![wireframe](pictures/col.jpg)
-
 
 [1] "Java (programming language)", En.wikipedia.org, 2018. [Online]. Available: https://en.wikipedia.org/wiki/Java_(programming_language).
 
