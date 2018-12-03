@@ -28,11 +28,13 @@
 
     <!--Weather-->
     <string name="weather_image">Weather Image</string>
-
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_recommended_places">RecommendedPlacesActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="no_results">No Results</string>
+    <string name="weather_city_name">City</string>
+    <string name="weather_temprature">Temprature</string>
+<string name="weather_minmax_temprature">Min/Max temprature</string>
 
 
     <!-- Cost of living -->

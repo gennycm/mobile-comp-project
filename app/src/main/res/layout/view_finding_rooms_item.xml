@@ -10,25 +10,26 @@
     android:layout_margin="8dp"
     card_view:cardCornerRadius="4dp">
 
+    <!--Linear Layout to show multiple rooms. -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <LinearLayout
-        android:padding="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:textSize="15sp"
-            android:id="@+id/shortdescription"
+        <LinearLayout
+            android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:padding="8dp"
-            android:text="short description"
-            />
-    </LinearLayout>
+            android:orientation="horizontal">
+            <TextView
+                android:textSize="15sp"
+                android:id="@+id/shortdescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:text="short description"
+                />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/roomsImage"

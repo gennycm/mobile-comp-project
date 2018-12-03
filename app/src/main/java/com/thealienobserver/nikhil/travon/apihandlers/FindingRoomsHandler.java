@@ -24,6 +24,10 @@ public abstract class FindingRoomsHandler {
         this.applicationContext = context;
     }
 
+    /**
+     * Method to get the list of rooms and set it on appropriate properties.
+     * @param url(Heroku url for the city selected).
+     */
     public void getAvailableRooms(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(applicationContext);
         JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -73,6 +77,10 @@ public abstract class FindingRoomsHandler {
         requestQueue.add(jsonObjectRequest);
     }
 
+    /**
+     * Abstract method implemented in the FindingRoomsActivity Controller.
+     * @param availablerooms
+     */
     public abstract void  postFetchingAvailableRooms(ArrayList<Room> availablerooms);
 }
 
