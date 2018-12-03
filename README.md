@@ -143,6 +143,9 @@ What to include in your project sources:
 - Android libraries
 - Everything listed on the Dalhousie Plagiarism and Cheating pages(https://www.dal.ca/dept/university_secretariat/academic-integrity/plagiarism-cheating.html)
 
+![wireframe](pictures/col.jpg)
+
+
 [1] "Java (programming language)", En.wikipedia.org, 2018. [Online]. Available: https://en.wikipedia.org/wiki/Java_(programming_language).
 
 //To do: Format references with IEEE
