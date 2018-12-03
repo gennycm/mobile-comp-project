@@ -112,6 +112,109 @@ public static int fibonacci(int fibIndex) {
 
 // Source: Wikipedia Java [1]
 ```
+##Sitemap
+At the moment of planning a mobile application, creating a sitemap will help ensure the team has included all the screens needed to cover the proposed functionalities. The following sitemap shows the navigation the user can go through within the application. It shows the hierarchy of screens and functionalities available for each feature.
+
+![wireframe](pictures1/sitemap.jpg)
+
+##Travon Test Cases
+### Home page Test Cases
+
+### Project architecture
+
+**Model-View-Controller (MVC)**
+
+The Model-View-Controller (MVC) is an architectural pattern that separates an application into three main logical components: the model, the view, and the controller. Each of these components are built to handle specific development aspects of an application. MVC is one of the most frequently used industry-standard web development framework to create scalable and extensible projects.[2]
+
+**MVC Components**
+
+Following are the components of MVC −
+
+![wireframe](pictures/mvc.jpg)
+
+
+**Model**
+
+The Model component corresponds to all the data-related logic that the user works with. This can represent either the data that is being transferred between the View and Controller components or any other business logic-related data.  
+
+In this project, our model is basically related to location and all the data depends on the location.
+
+**View**
+
+The View component is used for all the UI logic of the application. For example, the Customer view will include all the UI components such as text boxes, dropdowns, etc. that the final user interacts with.
+
+For our Project we have different screens for e.g. We have Main menu screen where user will be presented with the options like News.5 Things to Do, Cost Of Living. Services and Immigration Info. so as to navigate to that particular section. Similarly, we have designed screen for other sections as well like if user navigates to Immigration Info section, he will be able to view other options pertaining to that.  
+
+**Controller**
+
+Controllers act as an interface between Model and View components to process all the business logic and incoming requests, manipulate data using the Model component and interact with the Views to render the final output.  
+
+For Travon, we have used different activities like MainScreen, MenuScreen, NewsScreen, Recommended Places Screen, Recommended Places Activity
+
+### API Handlers and Adapters
+For now we have used News Handler and Recommended Places Handler.Adapters used are News Card Adapter and Recommended Places Adapter.
+
+![wireframe](pictures1/handlers.jpg)
+
+##Prototyping
+### Low fidelity prototype
+Low fidelity prototype was helpful to get a better idea of how the application would look once implemented and how the information and functionalities could be organized and displayed throughout the application.
+
+![wireframe](pictures1/low fidelity.jpg)
+![wireframe](pictures1/low fidelity2.jpg)
+
+### High fidelity prototype
+As part of the design project, the high fidelity prototype was created from the low fidelity prototype.
+
+![wireframe](pictures/screen_pro.jpg)![wireframe](pictures/main_menu_pro.jpg)![wireframe](pictures/weather_pro.jpg)
+
+![wireframe](pictures/event_details.jpg)![wireframe](pictures/event.jpg)
+![wireframe](pictures/immi_pro.jpg)
+![wireframe](pictures/news.jpg)
+![wireframe](pictures/col.jpg)
+![wireframe](pictures/event_details.jpg)
+![wireframe](pictures/event_details2.jpg)
+![wireframe](pictures1/hospital.jpg)![wireframe](pictures1/hospitalname.jpg)
+![wireframe](pictures/services.jpg)
+
+## Clickstreams
+Click stream can be seen as a roadmap of a user’s activity. The following click streams show the screens sequences the user might follow while using the mobile application.
+### Weather
+There are two possible ways to access to the weather screen. You can directly access from main screen or from the main menu screen.
+
+![wireframe](pictures1/weatherclick.jpg)
+![wireframe](pictures1/weatherclick1.jpg)
+
+### Events
+There are two possible ways to access to the events screen. You can directly access from main screen or from the main menu screen.
+![wireframe](pictures1/eventclick.jpg)
+### News
+There are two possible ways to access to the news screen. You can directly access from main screen or from the main menu screen
+![wireframe](pictures1/newsclick.jpg)
+
+### Immigration
+![wireframe](pictures1/immiclick.jpg)
+### Services
+![wireframe](pictures1/serviceclick.jpg)
+### Finding rooms
+![wireframe](pictures1/roomclick.jpg)
+### Recommended places
+![wireframe](pictures1/recclick.jpg)
+### Services
+![wireframe](pictures1/service1click.jpg)
+## Project management
+## Task Assignment
+In order to be able to carry the project progress more accurately, Trello was chosen as a tool for distributing tasks and responsibilities,. Trello is a project management software with web interface, client for iOS and android to organize projects [1].
+Trello’s UI makes it easy to create and assign tasks; and keep track of its status. Cards are added at the beginning of each update section. In case there was a previous section, the pending tasks are evaluated in order to be able to include them in the next section planning. See Figure n for an example of the team’s trello board.
+![wireframe](pictures1/trello.jpg)
+## Version control
+Code is being submitted to a repository on Git Lab. There are 6 members, where the team leader is a Maintainer and the rest of team are as developers.  The url of the repository is: https://git.cs.dal.ca/metri/mobile-comp-project .
+In order to push new changes to the repository, a merge request has to be created. After, 3 members have to check the request and if the three approve, then the code can be pushed.
+
+
+
+
+
 
 ## Features
 List all the main features of your application with a brief description of each feature.
