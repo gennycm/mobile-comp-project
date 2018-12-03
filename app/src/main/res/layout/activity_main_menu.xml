@@ -346,7 +346,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/raleway"
                         android:gravity="center_vertical"
-                        android:onClick="comingSoonOnClick"
+                        android:onClick="ServicesOnClick"
                         android:text="@string/services"
                         android:textAlignment="textStart"
                         android:textAppearance="@android:style/TextAppearance.Material.Large" />

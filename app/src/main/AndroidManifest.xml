@@ -102,6 +102,7 @@
             android:name=".controllers.WelcomingActivity"
             android:label=" "
             android:parentActivityName=".controllers.MainMenuActivity" />
+        <activity android:name=".controllers.ServicesActivity" />
     </application>
 
 </manifest>
