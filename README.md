@@ -174,7 +174,7 @@ As part of the design project, the high fidelity prototype was created from the 
 ![wireframe](pictures/col.jpg)
 ![wireframe](pictures/event_details.jpg)
 ![wireframe](pictures/event_details2.jpg)
-![wireframe](pictures/hospital.jpg)![wireframe](pictures1/hospitalname.jpg)
+![wireframe](pictures/hospital.jpg)![wireframe](pictures/hospitalname.jpg)
 ![wireframe](pictures/services.jpg)
 
 ## Clickstreams
