@@ -25,6 +25,7 @@ public class WeatherActivity extends AppCompatActivity {
     public static final String LAT_LON_PARAM = "LAT_LON_PARAM";
     public static final String LATITUDE = "LATITUDE";
     public static final String LONGITUDE = "LONGITUDE";
+    public static final String TITLE_WEATHER = "Current Weather & Forecast";
     private CityWeatherHandler cityWeatherHandler;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class WeatherActivity extends AppCompatActivity {
         String Latitude = String.valueOf(b.get("LATITUDE"));
         String Longitude = String.valueOf(b.get("LONGITUDE"));
 
-        setTitle("Weather");
+        setTitle(TITLE_WEATHER);
 
         this.cityWeatherHandler = new CityWeatherHandler() {
             @Override
@@ -54,6 +55,10 @@ public class WeatherActivity extends AppCompatActivity {
         cityWeatherHandler.getWeatherByCity(this, Latitude, Longitude);
     }
 
+    /**
+     *Method to set elements in Card View
+     * @param weather
+     */
     private void setupWeatherCards(ArrayList<Weather> weather) {
         RecyclerView weatherRecyclerView = findViewById(R.id.weatherRecyclerView);
         weatherRecyclerView.setAdapter(new WeatherCardAdapter(this, weather));
@@ -62,6 +67,10 @@ public class WeatherActivity extends AppCompatActivity {
         weatherRecyclerView.setLayoutManager(linearLayoutManager);
     }
 
+    /**
+     *Method to set the value on each element on the layout
+     * @param cityWeather
+     */
     public void updateWeatherOnScreen(CityWeather cityWeather) {
         // Method to update current weather.
         TextView city = findViewById(R.id.city);
@@ -71,7 +80,6 @@ public class WeatherActivity extends AppCompatActivity {
         TextView clouds = findViewById(R.id.clouds);
         TextView description = findViewById(R.id.description);
         ImageView weatherIcon = findViewById(R.id.weatherIcon);
-
         city.setText(cityWeather.getCity().toUpperCase());
         temp.setText(String.valueOf(Math.round(cityWeather.getTemperature())) + "\u2103");
         minMax.setText("Min. " + Math.round(cityWeather.getTempMin()) + "\u2103" + "   Max. " + Math.round(cityWeather.getTempMax()) + "\u2103");

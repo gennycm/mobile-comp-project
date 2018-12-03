@@ -12,11 +12,27 @@ import com.thealienobserver.nikhil.travon.models.Room;
 import java.util.ArrayList;
 
 public class FindingRoomsActivity extends AppCompatActivity {
+    public static final String CITY_PARAM = "CITY_PARAM";
+    public static final String FINDINGROOMS = "Available Rooms";
+    private static final String ROOMS_URL ="https://mc-project.herokuapp.com/rooms?city=";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle(FINDINGROOMS);
         setContentView(R.layout.activity_finding_rooms);
-        final String urlWithBase = "https://mc-project.herokuapp.com/rooms?city=halifax";
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        String cityParam = getIntent().getStringExtra(FindingRoomsActivity.CITY_PARAM);
+        final String urlWithBase;
+        if(cityParam.equals("Halifax")) {
+            urlWithBase=ROOMS_URL.concat("Halifax");
+        }
+        else if(cityParam.equals("Toronto")) {
+            urlWithBase=ROOMS_URL.concat("Toronto");
+        }
+        else{
+            urlWithBase=ROOMS_URL.concat("Vancouver");
+        }
+
 
         FindingRoomsHandler newsHandler = new FindingRoomsHandler(this) {
             @Override
@@ -24,7 +40,7 @@ public class FindingRoomsActivity extends AppCompatActivity {
                 FindingRoomsActivity.this.setupRoomsCards(availableRooms);
             }
         };
-        newsHandler.getAvailableRooms("");
+        newsHandler.getAvailableRooms(urlWithBase);
     }
 
     private void setupRoomsCards(ArrayList<Room> newsArticles) {
@@ -32,6 +48,11 @@ public class FindingRoomsActivity extends AppCompatActivity {
         roomsRecyclerView.setAdapter(new FindingRoomsAdapter(this, newsArticles));
         roomsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
-
-
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
+
+
+}
