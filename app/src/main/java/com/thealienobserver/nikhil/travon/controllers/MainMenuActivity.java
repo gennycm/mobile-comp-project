@@ -138,6 +138,20 @@ public class MainMenuActivity extends AppCompatActivity {
 
     }
 
+    public void ServicesOnClick(View view) {
+        String latitude = String.valueOf(addresses.get(0).getLatitude());
+        String longitude = String.valueOf(addresses.get(0).getLongitude());
+        String city = addresses.get(0).getLocality();
+        city = (city == null) ? addresses.get(0).getAdminArea() : city;
+
+        Intent intent = new Intent(MainMenuActivity.this, ServicesActivity.class);
+        intent.putExtra(LATITUDE, latitude);
+        intent.putExtra(LONGITUDE, longitude);
+        intent.putExtra(CITY, city);
+        startActivity(intent);
+
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
