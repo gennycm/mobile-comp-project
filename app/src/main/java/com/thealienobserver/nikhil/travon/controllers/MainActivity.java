@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Marker locationMarker;
     private GoogleMap mapInstance;
-    private List<Address> adresses;
+    private List<Address> addresses;
 
     private static final int VOICE_ACTIVITY_CODE = 102;
 
@@ -143,12 +143,12 @@ public class MainActivity extends AppCompatActivity {
         Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
         try {
             TextView placeName = findViewById(R.id.placeName);
-            adresses = geocoder.getFromLocation(location.latitude, location.longitude, 1);
+            addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1);
 
-            String locality = adresses.get(0).getLocality();
-            String adminArea = adresses.get(0).getAdminArea();
+            String locality = addresses.get(0).getLocality();
+            String adminArea = addresses.get(0).getAdminArea();
 
-            Log.d("location", adresses.toString());
+            Log.d("location", addresses.toString());
             RelativeLayout optionsDialog = findViewById(R.id.optionsDialog);
             if (locality != null || adminArea != null) {
                 String area = (locality == null)? adminArea : locality;
@@ -182,9 +182,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Location location) {
                 if (location != null) {
+                    // Set user location if found
                     LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
                     updateUserSelectedLocation(userLocation);
                     moveMapToPlace(userLocation);
+                } else {
+                    // Set halifax location as default if user location not found
+                    LatLng halifaxLocation = new LatLng(44.65054250000001, -63.606195099999994);
+                    updateUserSelectedLocation(halifaxLocation);
+                    moveMapToPlace(halifaxLocation);
                 }
             }
         });
@@ -193,9 +199,9 @@ public class MainActivity extends AppCompatActivity {
     public void shortcutsOnClick(View view) {
         Button clickedButton = (Button) view;
 
-        String city = adresses.get(0).getLocality();
-        city = city == null ? adresses.get(0).getAdminArea(): city;
-        String country = adresses.get(0).getCountryName();
+        String city = addresses.get(0).getLocality();
+        city = city == null ? addresses.get(0).getAdminArea(): city;
+        String country = addresses.get(0).getCountryName();
         if (clickedButton.getText().toString().toUpperCase().equals("NEWS")) {
 
             Intent newsIntent = new Intent(this, NewsActivity.class);
@@ -205,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(clickedButton.getText().toString().toUpperCase().equals("WEATHER")){
             LatLng currentLocation = this.locationMarker.getPosition();
-            country = adresses.get(0).getCountryCode();
+            country = addresses.get(0).getCountryCode();
             Intent weatherIntent = new Intent(this, WeatherActivity.class);
             weatherIntent.putExtra(WeatherActivity.COUNTRY_CODE_PARAM, country);
             weatherIntent.putExtra(WeatherActivity.LAT_LON_PARAM, currentLocation);
@@ -223,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void mainMenuOnClick(View view) {
         Intent menuIntent = new Intent(this, MainMenuActivity.class);
-        menuIntent.putExtra(MainMenuActivity.ADDRESSES, new ArrayList<>(adresses));
+        menuIntent.putExtra(MainMenuActivity.ADDRESSES, new ArrayList<>(addresses));
         startActivity(menuIntent);
     }
 }
