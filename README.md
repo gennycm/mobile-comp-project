@@ -160,8 +160,8 @@ For now we have used News Handler and Recommended Places Handler.Adapters used a
 ### Low fidelity prototype
 Low fidelity prototype was helpful to get a better idea of how the application would look once implemented and how the information and functionalities could be organized and displayed throughout the application.
 
-![wireframe](pictures/low fidelity.jpg)
-![wireframe](pictures/low fidelity2.jpg)
+![wireframe](pictures/low_fidelity.jpg)
+![wireframe](pictures/low_fidelity2.jpg)
 
 ### High fidelity prototype
 As part of the design project, the high fidelity prototype was created from the low fidelity prototype.
