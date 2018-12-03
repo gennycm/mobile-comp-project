@@ -29,6 +29,11 @@ public abstract class WeatherHandler {
         this.applicationContext = context;
     }
 
+    /**
+     * Method to get 5 days weather/3 hourly each day based on the location(latitude and longitude)
+     * @param latitude
+     * @param longitude
+     */
     public void getFiveDaysWeather(String latitude,String longitude) {
         RequestQueue requestQueue = Volley.newRequestQueue(applicationContext);
         Float lat=Float.parseFloat(latitude);
@@ -74,6 +79,10 @@ public abstract class WeatherHandler {
         requestQueue.add(jsonObjectRequest);
     }
 
+    /**
+     *
+     * @param weather
+     */
     public abstract void  postFetchingWeather(ArrayList<Weather> weather);
 
 }

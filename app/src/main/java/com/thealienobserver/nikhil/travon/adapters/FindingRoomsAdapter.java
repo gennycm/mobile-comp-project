@@ -2,6 +2,8 @@ package com.thealienobserver.nikhil.travon.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +40,15 @@ public class FindingRoomsAdapter extends RecyclerView.Adapter<FindingRoomsAdapte
         Room availableroomsElement = this.rooms.get(i);
         Glide.with(callerContext).load(availableroomsElement.getImg1()).into(viewHolder.roomsImage);
         viewHolder.rent.setText(String.valueOf(availableroomsElement.getRent()));
-        //viewHolder.city.setText(availableroomsElement.getLocation());
+        viewHolder.sellernumber.setText(String.valueOf(availableroomsElement.getSellerphone()));
+        viewHolder.sellerlocation.setText(String.valueOf(availableroomsElement.getSellerlocation()));
+        viewHolder.rent.setText(String.valueOf(availableroomsElement.getRent()));
+        viewHolder.shortdescription.setText(String.valueOf(availableroomsElement.getShortdescription()));
+
+        String[] images = {availableroomsElement.getImg1(), availableroomsElement.getImg2(), availableroomsElement.getImg3()};
+        ImageViewPagerAdapter imageViewPagerAdapter = new ImageViewPagerAdapter(callerContext, images);
+        viewHolder.roomImages.setAdapter(imageViewPagerAdapter);
+        viewHolder.imageDots.setupWithViewPager(viewHolder.roomImages);
     }
 
     @Override
@@ -48,14 +58,20 @@ public class FindingRoomsAdapter extends RecyclerView.Adapter<FindingRoomsAdapte
 
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView roomsImage;
-        TextView rent,city;
+        TextView rent,city,sellernumber,sellerlocation,shortdescription;
+        ViewPager roomImages;
+        TabLayout imageDots;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             roomsImage = itemView.findViewById(R.id.roomsImage);
             rent = itemView.findViewById(R.id.rent);
             city=itemView.findViewById(R.id.city);
+            sellernumber=itemView.findViewById(R.id.sellernumber);
+            sellerlocation=itemView.findViewById(R.id.sellerlocation);
+            shortdescription=itemView.findViewById(R.id.shortdescription);
+            roomImages = itemView.findViewById(R.id.roomImages);
+            imageDots = itemView.findViewById(R.id.image_dots);
         }
     }
-
 }

@@ -96,9 +96,11 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void findingRoomsOnClick(View view) {
+        String city = addresses.get(0).getLocality();
+        city = (city == null) ? addresses.get(0).getAdminArea() : city;
         LatLng currentLocation = new LatLng(addresses.get(0).getLatitude(), addresses.get(0).getLongitude());
         Intent availableRoomIntent = new Intent(this, FindingRoomsActivity.class);
-        //eventIntent.putExtra(AvailableRoomsActivity.LAT_LON_PARAM, currentLocation);
+        availableRoomIntent.putExtra(NewsActivity.CITY_PARAM, city);
         startActivity(availableRoomIntent);
     }
 

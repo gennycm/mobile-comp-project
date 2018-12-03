@@ -17,20 +17,15 @@ import java.util.ArrayList;
 
 
 public abstract class FindingRoomsHandler {
-    //    private static NewsHandler newsHandlerInstance;
     private Context applicationContext;
-
-    //private static final String Room_Rent = "https://mc-project.herokuapp.com/services?country=canada";
-    private static final String Room_Rent = "https://mc-project.herokuapp.com/rooms?city=toronto";
 
 
     public FindingRoomsHandler(Context context) {
         this.applicationContext = context;
     }
 
-    public void getAvailableRooms(String city) {
+    public void getAvailableRooms(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(applicationContext);
-        String url = Room_Rent ;//+ "&q=" + city ;
         JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -58,7 +53,6 @@ public abstract class FindingRoomsHandler {
                         String sellerlocation=roomsArticle.getString("sellerlocation");
                         String sellermailId=roomsArticle.getString("sellermailId");
                         String sellerphone=roomsArticle.getString("sellerphone");
-                        Log.d("Rooms............",""+title+","+rent+","+currency+""+img1);
                         Room rooms = new Room(title,rent,location,currency,description,bathroom,bedroom,furnished,petfriendly,postingdate,img1,img2,img3,sellername,sellerlocation,sellermailId,sellerphone);
                         toprooms.add(rooms);
 

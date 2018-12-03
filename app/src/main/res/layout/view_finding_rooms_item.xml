@@ -1,45 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="wrap_content">
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/rooms_card_view"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rooms_card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="8dp"
+    card_view:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:textSize="15sp"
+            android:id="@+id/shortdescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            card_view:cardCornerRadius="4dp">
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:text="short description"
+            />
+    </LinearLayout>
 
-            <LinearLayout
-                android:orientation="vertical"
+        <ImageView
+            android:id="@+id/roomsImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            android:padding="8dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/roomImages"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+        </android.support.v4.view.ViewPager>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/image_dots"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
+
+        <LinearLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_call"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:tint="@color/colorPrimary"
+                android:src="@drawable/ic_baseline_call_24px"
+                />
+
+            <TextView
+                android:id="@+id/sellernumber"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:padding="8dp"
+                android:text="phone number"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                <ImageView
-                    android:padding="8dp"
-                    android:id="@+id/roomsImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:src="@mipmap/ic_launcher" />
+            <ImageView
+                android:id="@+id/iv_location"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:tint="@color/colorPrimary"
+                android:src="@drawable/ic_location_24px" />
 
-                <TextView
-                    android:padding="8dp"
-                    android:id="@+id/rent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="rent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/sellerlocation"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                android:text="Location"
+                />
+        </LinearLayout>
 
-                <TextView
-                    android:padding="8dp"
-                    android:id="@+id/rentalcity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="city"/>
 
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
+        <LinearLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    </RelativeLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="@color/colorPrimary"
+                android:src="@drawable/money"/>
+
+            <TextView
+                android:id="@+id/rent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
 
