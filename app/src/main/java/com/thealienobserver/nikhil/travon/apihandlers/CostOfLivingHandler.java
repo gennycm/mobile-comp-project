@@ -116,9 +116,9 @@ public class CostOfLivingHandler {
      * @throws JSONException
      */
     public void classifyResults(JSONArray pricesJSONArray) throws JSONException {
-        for (int i = 0; i < pricesJSONArray.length(); i++) {
+        for (int pos = 0; pos < pricesJSONArray.length(); pos++) {
             //Actual cost item
-            JSONObject itemJSON = pricesJSONArray.getJSONObject(i);
+            JSONObject itemJSON = pricesJSONArray.getJSONObject(pos);
 
             //Item related attributes
             String item_name = itemJSON.getString("item_name");
