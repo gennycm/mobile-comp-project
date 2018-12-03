@@ -1,12 +1,13 @@
 package com.thealienobserver.nikhil.travon.controllers;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.thealienobserver.nikhil.travon.R;
 
-public class Immigrationfaqs extends ImmigrationMainScreenActivity  {
+public class Immigrationfaqs extends AppCompatActivity {
     //public static String CITY = "city";
 
     // Array of strings...

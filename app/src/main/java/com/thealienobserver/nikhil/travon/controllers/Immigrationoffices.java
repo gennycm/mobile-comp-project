@@ -1,6 +1,7 @@
 package com.thealienobserver.nikhil.travon.controllers;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -18,7 +19,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Immigrationoffices extends ImmigrationMainScreenActivity {
+public class Immigrationoffices extends AppCompatActivity {
     //public static final String CITY = "city";
     //private String city;
 
