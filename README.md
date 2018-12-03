@@ -31,7 +31,7 @@
 
 ## How to access to the repository
 
-- Click [here](https://git.cs.dal.ca/metri/mobile-comp-project) or download the code from repository and pull the latest changes.
+- Click [here](https://git.cs.dal.ca/metri/mobile-comp-project) or clone the code from repository and pull the latest changes.
 ```sh
 git clone https://git.cs.dal.ca/metri/mobile-comp-project.git
 ```
