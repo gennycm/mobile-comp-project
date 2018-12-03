@@ -118,7 +118,7 @@ These are services that help you get things done around your residence. It will 
 
 At the moment of planning a mobile application, creating a sitemap will help ensure the team has included all the screens needed to cover the proposed functionalities. The following sitemap shows the navigation the user can go through within the application. It shows the hierarchy of screens and functionalities available for each feature.
 
-![wireframe](pictures/sitemap.png)
+![wireframe](pictures/sitemap.PNG)
 
 
 ## Architecture
