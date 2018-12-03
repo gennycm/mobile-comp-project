@@ -112,12 +112,12 @@ public static int fibonacci(int fibIndex) {
 
 // Source: Wikipedia Java [1]
 ```
-##Sitemap
+## Sitemap
 At the moment of planning a mobile application, creating a sitemap will help ensure the team has included all the screens needed to cover the proposed functionalities. The following sitemap shows the navigation the user can go through within the application. It shows the hierarchy of screens and functionalities available for each feature.
 
 ![wireframe](pictures/sitemap.jpg)
 
-##Travon Test Cases
+## Travon Test Cases
 ### Home page Test Cases
 
 ### Project architecture
@@ -156,7 +156,7 @@ For now we have used News Handler and Recommended Places Handler.Adapters used a
 
 ![wireframe](pictures/handlers.jpg)
 
-##Prototyping
+## Prototyping
 ### Low fidelity prototype
 Low fidelity prototype was helpful to get a better idea of how the application would look once implemented and how the information and functionalities could be organized and displayed throughout the application.
 
