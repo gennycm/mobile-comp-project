@@ -46,30 +46,15 @@
             android:parentActivityName=".controllers.MenuActivity" />
 
         <activity
-            android:name=".controllers.Immigrationmainscreen"
-            android:label="Menu"
-            android:parentActivityName=".controllers.MenuActivity"
-            android:theme="@style/AppTheme"></activity>
-        <activity
-            android:name=".controllers.Impthingstodo"
-            android:parentActivityName=".controllers.Immigrationmainscreen"
-            android:theme="@style/AppTheme"></activity>
+            android:name=".controllers.ImmigrationActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".controllers.MenuActivity" />
 
         <activity
-            android:name=".controllers.Immigrationforms"
-            android:parentActivityName=".controllers.Immigrationmainscreen"
-            android:theme="@style/AppTheme">
+            android:name=".controllers.ImmigrationDetailActivity"
+            android:label=" "
+            android:parentActivityName=".controllers.ImmigrationActivity" />
 
-        </activity>
-
-        <activity
-            android:name=".controllers.Immigrationoffices"
-            android:parentActivityName=".controllers.Immigrationmainscreen"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".controllers.Immigrationfaqs"
-            android:parentActivityName=".controllers.Immigrationmainscreen"
-            android:theme="@style/AppTheme"></activity>
         <activity android:name=".controllers.NewsActivity" />
 
         <activity
