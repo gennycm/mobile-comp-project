@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         card_view:cardCornerRadius="4dp">
 
+        <!--Linear Layout to show multiple WNews Item-->
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"

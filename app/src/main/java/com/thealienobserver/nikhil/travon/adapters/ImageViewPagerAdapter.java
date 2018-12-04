@@ -10,6 +10,9 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+/**
+ * To create a Image ViewPage Adapter for sliding images for Finding Rooms.
+ */
 public class ImageViewPagerAdapter extends PagerAdapter {
     private String[] imageUrls;
     private Context context;
@@ -48,25 +51,4 @@ public class ImageViewPagerAdapter extends PagerAdapter {
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View)object);
     }
-
-    //    @Override
-//    public Object getItem(int position) {
-//        return imageUrls[position];
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return position;
-//    }
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//        ImageView image = new ImageView(context);
-//        ViewGroup.LayoutParams imageLayout = new ViewGroup.LayoutParams(
-//                ViewGroup.LayoutParams.WRAP_CONTENT,
-//                ViewGroup.LayoutParams.WRAP_CONTENT
-//        );
-//        image.setLayoutParams(imageLayout);
-//        Glide.with(context).load(getItemId(position)).into(image);
-//        return image;
-//    }
 }

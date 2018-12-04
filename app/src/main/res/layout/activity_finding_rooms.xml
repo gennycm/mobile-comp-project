@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".controllers.FindingRoomsActivity">
-
+    <!-- Iterative recycler view to display multiple rooms. -->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/availableRoomsRecyclerView"
         android:layout_width="match_parent"

@@ -14,15 +14,22 @@ import java.util.ArrayList;
 public class FindingRoomsActivity extends AppCompatActivity {
     public static final String CITY_PARAM = "CITY_PARAM";
     public static final String FINDINGROOMS = "Available Rooms";
+
+    //String to call herokue service
     private static final String ROOMS_URL ="https://mc-project.herokuapp.com/rooms?city=";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Set the title of the finding room page
         setTitle(FINDINGROOMS);
+
         setContentView(R.layout.activity_finding_rooms);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         String cityParam = getIntent().getStringExtra(FindingRoomsActivity.CITY_PARAM);
         final String urlWithBase;
+
+        //Conditional statements display the rooms available for three cities Halifax, Toronto or Vancouver for which json data is available on herokue service.
         if(cityParam.equals("Halifax")) {
             urlWithBase=ROOMS_URL.concat("Halifax");
         }
@@ -43,9 +50,13 @@ public class FindingRoomsActivity extends AppCompatActivity {
         newsHandler.getAvailableRooms(urlWithBase);
     }
 
-    private void setupRoomsCards(ArrayList<Room> newsArticles) {
+    /**
+     * Generic method to set the Room Cards for Recycler.
+     * @param availableRoomsItem
+     */
+    private void setupRoomsCards(ArrayList<Room> availableRoomsItem) {
         RecyclerView roomsRecyclerView = findViewById(R.id.availableRoomsRecyclerView);
-        roomsRecyclerView.setAdapter(new FindingRoomsAdapter(this, newsArticles));
+        roomsRecyclerView.setAdapter(new FindingRoomsAdapter(this, availableRoomsItem));
         roomsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
     @Override

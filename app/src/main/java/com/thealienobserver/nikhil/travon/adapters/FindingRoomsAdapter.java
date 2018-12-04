@@ -16,6 +16,9 @@ import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.models.Room;
 import java.util.ArrayList;
 
+/**
+ * Class to set the values of each item in Finding Rooms Card.
+ */
 public class FindingRoomsAdapter extends RecyclerView.Adapter<FindingRoomsAdapter.ViewHolder>{
     private static final String TAG = "AvailableRoomsAdapter";
 

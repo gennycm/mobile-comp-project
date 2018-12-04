@@ -31,11 +31,14 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
+
+        //Get the values of set on the main activity through intent's bundle
         Intent i = getIntent();
         Bundle b = i.getExtras();
         String Latitude = String.valueOf(b.get("LATITUDE"));
         String Longitude = String.valueOf(b.get("LONGITUDE"));
 
+        //Set the title of the weather page
         setTitle(TITLE_WEATHER);
 
         this.cityWeatherHandler = new CityWeatherHandler() {

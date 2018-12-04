@@ -40,6 +40,8 @@ public abstract class WeatherHandler {
         Float lon=Float.parseFloat(longitude);
         latitude=String.format("%.2f", lat);
         longitude=String.format("%.2f", lon);
+
+        //Url to get the forecast. Halifax's latitude and longitude are set default.
         String url = WEATHER_URL.concat(TextUtils.isEmpty(latitude) ? "44.649963&lon=-63.5802565&units=metric" : (latitude + "&lon=" + longitude+"&units=metric"));//+"&cnt=5"
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -58,7 +60,7 @@ public abstract class WeatherHandler {
                         String description = weather.getString("description");
                         String imageUrl ="http://openweathermap.org/img/w/"+ weather.getString("icon")+".png";
 
-                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// Convert Json date to readable date format.
                         Weather forecastModel = new Weather(temprature, description, imageUrl, df.parse(date));
                         forcastList.add(forecastModel);
                         Log.d("Reached here",""+forecastModel);
@@ -80,7 +82,7 @@ public abstract class WeatherHandler {
     }
 
     /**
-     *
+     *Abstract method implemented in the WeatherActivity Controller.
      * @param weather
      */
     public abstract void  postFetchingWeather(ArrayList<Weather> weather);

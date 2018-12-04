@@ -17,7 +17,6 @@ public class NewsActivity extends AppCompatActivity {
 
     public static final String COUNTRY_PARAM = "COUNTRY_CODE_PARAM";
     public static final String CITY_PARAM = "CITY_PARAM";
-//    public static final String LAT_LON_PARAM = "LAT_LON_PARAM";
 
 
     @Override
