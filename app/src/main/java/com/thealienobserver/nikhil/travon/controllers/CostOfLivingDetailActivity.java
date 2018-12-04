@@ -1,5 +1,6 @@
 package com.thealienobserver.nikhil.travon.controllers;
 
+import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,14 @@ public class CostOfLivingDetailActivity extends AppCompatActivity {
     private int mBgColor;
     private String mCity;
     private String mCategoryTitle;
+
+    // Category names
+    public static final String transport = "Transport";
+    public static final String food = "Food";
+    public static final String utilities = "Utilities";
+    public static final String childcare = "Childcare";
+    public static final String room = "Room";
+    public static final String clothing = "Clothing";
 
     // Class parameters
     private ArrayList<CostOfLivingItem> mCostList;
@@ -79,29 +88,30 @@ public class CostOfLivingDetailActivity extends AppCompatActivity {
         mAdapter = new CostOfLivingAdapter(this, R.layout.view_cost_items, mCostList);
         mLvCostItems.setAdapter(mAdapter);
 
+
         //Setting items content
         switch (mCategoryTitle) {
-            case "Transport":
+            case transport:
                 ArrayList transport = mCostOfLivingHandlerInstance.getTransportation();
                 setCostsListOnView(transport);
                 break;
-            case "Food":
+            case food:
                 ArrayList food = mCostOfLivingHandlerInstance.getFood();
                 setCostsListOnView(food);
                 break;
-            case "Utilities":
+            case utilities:
                 ArrayList utilities = mCostOfLivingHandlerInstance.getUtilities();
                 setCostsListOnView(utilities);
                 break;
-            case "Room":
+            case room:
                 ArrayList room = mCostOfLivingHandlerInstance.getRoom();
                 setCostsListOnView(room);
                 break;
-            case "Childcare":
+            case childcare:
                 ArrayList childcare = mCostOfLivingHandlerInstance.getChildcare();
                 setCostsListOnView(childcare);
                 break;
-            case "Clothing":
+            case clothing:
                 ArrayList clothing = mCostOfLivingHandlerInstance.getClothing();
                 setCostsListOnView(clothing);
                 break;
