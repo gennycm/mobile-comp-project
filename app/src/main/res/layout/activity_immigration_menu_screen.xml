@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
-tools:context=".controllers.Immigrationmainscreen">
+tools:context=".controllers.ImmigrationActivity">
 
 
 <!-- Options Grid Layout -->
@@ -21,13 +21,14 @@ tools:context=".controllers.Immigrationmainscreen">
     <!-- First row -->
     <!-- First column -->
     <android.support.v7.widget.CardView
+        android:id="@+id/impThingsCv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="15dp"
-        android:onClick="onClickImm1"
+        android:onClick="impThingstodoOnClick"
         app:cardBackgroundColor="@color/colorPrimary"
         app:cardCornerRadius="5dp"
         app:cardElevation="8dp"
@@ -48,6 +49,7 @@ tools:context=".controllers.Immigrationmainscreen">
                 android:src="@drawable/ic_shopping_list" />
 
             <TextView
+                android:id="@+id/impThingsTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_thin"
@@ -60,6 +62,7 @@ tools:context=".controllers.Immigrationmainscreen">
     </android.support.v7.widget.CardView>
     <!-- Two column -->
     <android.support.v7.widget.CardView
+        android:id="@+id/formsCv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_rowWeight="1"
@@ -67,7 +70,7 @@ tools:context=".controllers.Immigrationmainscreen">
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
-        android:onClick="onClickImm2"
+        android:onClick="formsOnClick"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="5dp"
         app:cardElevation="8dp"
@@ -88,6 +91,7 @@ tools:context=".controllers.Immigrationmainscreen">
                 android:src="@drawable/ic_document" />
 
             <TextView
+                android:id="@+id/formsTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_thin"
@@ -100,13 +104,14 @@ tools:context=".controllers.Immigrationmainscreen">
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
+        android:id="@+id/officesCv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="15dp"
-        android:onClick="onClickImm3"
+        android:onClick="officesOnClick"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="5dp"
         app:cardElevation="8dp"
@@ -127,6 +132,7 @@ tools:context=".controllers.Immigrationmainscreen">
                 android:src="@drawable/ic_three_buildings" />
 
             <TextView
+                android:id="@+id/officesTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_thin"
@@ -139,6 +145,7 @@ tools:context=".controllers.Immigrationmainscreen">
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
+        android:id="@+id/faqCv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_rowWeight="1"
@@ -146,7 +153,7 @@ tools:context=".controllers.Immigrationmainscreen">
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
-        android:onClick="onClickImm4"
+        android:onClick="faqsOnClick"
         app:cardBackgroundColor="@color/colorPrimary"
         app:cardCornerRadius="5dp"
         app:cardElevation="8dp"
@@ -167,6 +174,7 @@ tools:context=".controllers.Immigrationmainscreen">
                 android:src="@drawable/ic_question_mark" />
 
             <TextView
+                android:id="@+id/faqTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_thin"

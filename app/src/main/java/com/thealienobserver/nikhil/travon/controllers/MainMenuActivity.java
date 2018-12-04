@@ -79,7 +79,7 @@ public class MainMenuActivity extends AppCompatActivity {
     public void immigrationOnClick(View view) {
         String city = addresses.get(0).getLocality();
         city = (city == null) ? addresses.get(0).getAdminArea() : city;
-        Intent immigrationInfoIntent = new Intent(MainMenuActivity.this, Immigrationmainscreen.class);
+        Intent immigrationInfoIntent = new Intent(MainMenuActivity.this, ImmigrationActivity.class);
         immigrationInfoIntent.putExtra(CITY, city);
         startActivity(immigrationInfoIntent);
     }
