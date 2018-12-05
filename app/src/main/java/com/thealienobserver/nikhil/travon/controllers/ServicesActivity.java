@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.thealienobserver.nikhil.travon.R;
-import com.thealienobserver.nikhil.travon.adapters.RecommendedFragmentPagerAdapter;
 import com.thealienobserver.nikhil.travon.adapters.ServicesFragmentPagerAdapter;
 
 

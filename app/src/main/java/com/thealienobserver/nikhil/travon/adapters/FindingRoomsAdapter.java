@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.models.Room;
+
 import java.util.ArrayList;
 
 /**

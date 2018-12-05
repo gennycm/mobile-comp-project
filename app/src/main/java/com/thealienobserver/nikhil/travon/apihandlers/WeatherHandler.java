@@ -11,6 +11,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.thealienobserver.nikhil.travon.models.Weather;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -64,9 +65,10 @@ public abstract class WeatherHandler {
                         Weather forecastModel = new Weather(temprature, description, imageUrl, df.parse(date));
                         forcastList.add(forecastModel);
                         Log.d("Reached here",""+forecastModel);
-                        // Call the user's callback for post fetching news articles
-                        WeatherHandler.this.postFetchingWeather(forcastList);
                     }
+
+                    // Call the user's callback for post fetching news articles
+                    WeatherHandler.this.postFetchingWeather(forcastList);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

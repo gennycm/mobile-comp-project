@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.thealienobserver.nikhil.travon.fragments.RecommendedPlacesFragment;
 import com.thealienobserver.nikhil.travon.fragments.ServicesFragment;
 
 public class ServicesFragmentPagerAdapter extends FragmentPagerAdapter {

@@ -1,6 +1,7 @@
 package com.thealienobserver.nikhil.travon.apihandlers;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 
 import com.android.volley.Request;
@@ -8,22 +9,15 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import com.thealienobserver.nikhil.travon.models.NewsArticle;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.TimeZone;
 
 public abstract class NewsHandler {
@@ -41,7 +35,7 @@ public abstract class NewsHandler {
     public void getNewsArticles(String city, String country) {
         RequestQueue requestQueue = Volley.newRequestQueue(applicationContext);
 //        String url = TOP_NEWS_URL + "&country=" + countryCode;
-        String url = EVERY_NEWS_URL + "&q=" + city + " " + country;
+        String url = EVERY_NEWS_URL + "&q=" + city + "%20" + country;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -71,14 +65,13 @@ public abstract class NewsHandler {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                // TODO: Handle error
-                Log.d("News Handler", error.toString());
-            }
-        });
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    // TODO: Handle error
+                    Log.d("News Handler", new String(error.networkResponse.data));
+                }
+            });
         requestQueue.add(jsonObjectRequest);
     }
 

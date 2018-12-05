@@ -1,4 +1,59 @@
 # Travon
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Travon](#travon)
+	- [Group members](#group-members)
+	- [How to access to the repository](#how-to-access-to-the-repository)
+	- [Installation Notes](#installation-notes)
+		- [Requirements](#requirements)
+	- [Summary](#summary)
+	- [Scope](#scope)
+	- [Users](#users)
+	- [Purpose and Benefits](#purpose-and-benefits)
+	- [Technical matters](#technical-matters)
+		- [Libraries](#libraries)
+		- [API](#api)
+	- [Features](#features)
+		- [Welcoming](#welcoming)
+		- [Immigration Information](#immigration-information)
+		- [News](#news)
+		- [Weather](#weather)
+		- [Events](#events)
+		- [Cost of Living](#cost-of-living)
+		- [Recommended Places](#recommended-places)
+		- [Finding rooms](#finding-rooms)
+		- [Search Functionality](#search-functionality)
+		- [Services](#services)
+	- [Sitemap](#sitemap)
+	- [Architecture](#architecture)
+		- [API Handlers, Adapters and Fragments](#api-handlers-adapters-and-fragments)
+	- [Prototyping](#prototyping)
+		- [Low fidelity prototype](#low-fidelity-prototype)
+		- [High fidelity prototype](#high-fidelity-prototype)
+	- [Clickstreams](#clickstreams)
+		- [Weather](#weather)
+		- [Events](#events)
+		- [News](#news)
+		- [Immigration](#immigration)
+		- [Services](#services)
+		- [Finding rooms](#finding-rooms)
+		- [Recommended places](#recommended-places)
+		- [Services](#services)
+	- [Design](#design)
+	- [Project management](#project-management)
+	- [Task Assignment](#task-assignment)
+	- [Version control](#version-control)
+	- [Travon Test Cases](#travon-test-cases)
+		- [Manual](#manual)
+		- [Automated Unit test cases](#automated-unit-test-cases)
+	- [Final Project Status](#final-project-status)
+		- [Minimum Functionality](#minimum-functionality)
+		- [Expected Functionality](#expected-functionality)
+		- [Bonus Functionality](#bonus-functionality)
+	- [Code Examples](#code-examples)
+	- [Sources](#sources)
+
+<!-- /TOC -->
 
 ## Group members
 
@@ -66,6 +121,9 @@ As our app will have all information for a visitor/traveler, by using our app pe
 
 **Bumptech Glide**: Glide is a fast and efficient open source media management and image loading framework for Android that wraps media decoding, memory and disk caching, and resource pooling into a simple and easy to use interface. Bumptech Glide is available on [Github](https://github.com/bumptech/glide).
 
+**Espresso**: Espresso helps to write concise, beautiful, and reliable Android UI tests. Espresso is available [here](https://developer.android.com/training/testing/espresso/)
+
+
 ### API
 
  **Google Maps API**: this library allows you to access to the functionalities provided by Google Maps to mark places and get the users' location.  [Go to site](https://cloud.google.com/maps-platform/?hl=en)
@@ -118,7 +176,7 @@ These are services that help you get things done around your residence. It will 
 
 At the moment of planning a mobile application, creating a sitemap will help ensure the team has included all the screens needed to cover the proposed functionalities. The following sitemap shows the navigation the user can go through within the application. It shows the hierarchy of screens and functionalities available for each feature.
 
-![wireframe](pictures/sitemap.PNG)
+![wireframe](read_me_rsc/pictures/sitemap.PNG)
 
 
 ## Architecture
@@ -129,7 +187,7 @@ The Model-View-Controller (MVC) is an architectural pattern that separates an ap
 
 **Components**
 
-![wireframe](pictures/mvc.jpg)
+![wireframe](read_me_rsc/pictures/mvc.jpg)
 
 **Model**
 
@@ -152,7 +210,7 @@ For Travon, we have used different activities like MainActivity, MenuActivity, N
 
 Additionally from the typical MVC components, we have added other resources such as Handlers and Adapters. Handlers are in charge of making the requests to their respective API. Adapters are in charge of showing the retrieved information in their respective view. Fragments are a type of layout that assists when creating tabbed views.
 
-![wireframe](pictures/architecture.jpg)
+![wireframe](read_me_rsc/pictures/architecture.jpg)
 
 ## Prototyping
 
@@ -160,24 +218,24 @@ Additionally from the typical MVC components, we have added other resources such
 
 Low fidelity prototype was helpful to get a better idea of how the application would look once implemented and how the information and functionalities could be organized and displayed throughout the application.
 
-![wireframe](pictures/low_fidelity.jpg)
-![wireframe](pictures/low_fidelity2.jpg)
+![wireframe](read_me_rsc/pictures/low_fidelity.jpg)
+![wireframe](read_me_rsc/pictures/low_fidelity2.jpg)
 
 ### High fidelity prototype
 
 As part of the design project, the high fidelity prototype was created from the low fidelity prototype.
 
-![wireframe](pictures/screen_pro.jpg)![wireframe](pictures/main_menu_pro.jpg)
-![wireframe](pictures/weather_pro.jpg)
+![wireframe](read_me_rsc/pictures/screen_pro.jpg)![wireframe](read_me_rsc/pictures/main_menu_pro.jpg)
+![wireframe](read_me_rsc/pictures/weather_pro.jpg)
 
-![wireframe](pictures/event_details.jpg)![wireframe](pictures/event.jpg)
-![wireframe](pictures/immi_pro.jpg)
-![wireframe](pictures/news.jpg)
-![wireframe](pictures/col.jpg)
-![wireframe](pictures/event_details.jpg)
-![wireframe](pictures/event_details2.jpg)
-![wireframe](pictures/hospital.jpg)![wireframe](pictures/hospital_name.jpg)
-![wireframe](pictures/services.jpg)
+![wireframe](read_me_rsc/pictures/event_details.jpg)![wireframe](read_me_rsc/pictures/event.jpg)
+![wireframe](read_me_rsc/pictures/immi_pro.jpg)
+![wireframe](read_me_rsc/pictures/news.jpg)
+![wireframe](read_me_rsc/pictures/col.jpg)
+![wireframe](read_me_rsc/pictures/event_details.jpg)
+![wireframe](read_me_rsc/pictures/event_details2.jpg)
+![wireframe](read_me_rsc/pictures/hospital.jpg)![wireframe](read_me_rsc/pictures/hospital_name.jpg)
+![wireframe](read_me_rsc/pictures/services.jpg)
 
 ## Clickstreams
 
@@ -187,38 +245,49 @@ Click stream can be seen as a roadmap of a user’s activity. The following clic
 
 There are two possible ways to access to the weather screen. You can directly access from main screen or from the main menu screen.
 
-![wireframe](pictures/weatherclick.jpg)
-![wireframe](pictures/weatherclick1.jpg)
+![wireframe](read_me_rsc/pictures/weatherclick.jpg)
+![wireframe](read_me_rsc/pictures/weatherclick1.jpg)
 
 ### Events
 
 There are two possible ways to access to the events screen. You can directly access from main screen or from the main menu screen.
-![wireframe](pictures/eventclick.jpg)
+![wireframe](read_me_rsc/pictures/eventclick.jpg)
 
 ### News
 
 There are two possible ways to access to the news screen. You can directly access from main screen or from the main menu screen
-![wireframe](pictures/newsclick.jpg)
+![wireframe](read_me_rsc/pictures/newsclick.jpg)
 
 ### Immigration
 
-![wireframe](pictures/immiclick.jpg)
+![wireframe](read_me_rsc/pictures/immiclick.jpg)
 
 ### Services
 
-![wireframe](pictures/serviceclick.jpg)
+![wireframe](read_me_rsc/pictures/serviceclick.jpg)
 
 ### Finding rooms
 
-![wireframe](pictures/roomclick.jpg)
+![wireframe](read_me_rsc/pictures/roomclick.jpg)
 
 ### Recommended places
 
-![wireframe](pictures/recclick.jpg)
+![wireframe](read_me_rsc/pictures/recclick.jpg)
 
 ### Services
 
-![wireframe](pictures/service1click.jpg)
+![wireframe](read_me_rsc/pictures/service1click.jpg)
+
+## Design
+
+For the actual design, we followed Nielsen's heuristics such as:
+ * _Visibility of system status_: we procured to always keep users informed about what is going on.
+ * _Match between system and the real world_: the words, phrases and concepts used matches the common English language used daily.
+ * _Consistency and standards_: followed platform conventions and familiar icons.
+ * _Error prevention_: the suggestion of options on the search bar for the city, reduces the error probabilities.
+ * _Recognition rather than recall_: all available options are visible and easy to find.
+ * _Aesthetic and minimalist design_: the interfaces show only the necessary information. Also, we kept a simple minimalistic-flat-clean design to make it easier to the eye.
+ * _Help users recognize, diagnose, and recover from errors_: the errors are displayed as Toasts. The messages are in plain language.
 
 ## Project management
 
@@ -227,7 +296,7 @@ There are two possible ways to access to the news screen. You can directly acces
 In order to be able to carry the project progress more accurately, Trello was chosen as a tool for distributing tasks and responsibilities,. Trello is a project management software with web interface, client for iOS and android to organize projects [1].
 Trello’s UI makes it easy to create and assign tasks; and keep track of its status. Cards are added at the beginning of each update section. In case there was a previous section, the pending tasks are evaluated in order to be able to include them in the next section planning.
 
-![wireframe](pictures/trello.jpg)
+![wireframe](read_me_rsc/pictures/trello.jpg)
 
 ## Version control
 
@@ -238,13 +307,16 @@ In order to push new changes to the repository, if the user has a _Developer_ pe
 
 ## Travon Test Cases
 
-### Home page Test Cases
+### Manual
+The results from the manual can be found [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/read_me_rsc/documentation/Travon_TestCases.xlsx)
 
+### Automated Unit test cases
+For the automated unit test cases we are using Espresso. These can be found in the actual code.
 
 ## Final Project Status
 
 At the end, we managed to complete all our minimum, expected and one of our proposed bonus functionalities.
-At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver. For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user
+At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver. For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user. The slides presented on class can be found [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/read_me_rsc/documentation/MC_Complete_Presentation.pptx).
 
 
 ### Minimum Functionality
@@ -270,43 +342,99 @@ At the moment, Immigration feature works only for Canada. Also, Finding Rooms on
 
 ## Code Examples
 
-You will encounter roadblocks and problems while developing your project. Share 2-3 'problems' that your team solved while developing your project. Write a few sentences that describe your solution and provide a code snippet/block that shows your solution. Example:
+**Problem 1: Access to filtered results from CostOfLivingDetailActivity Controller**
 
-**Problem 1: We needed a method to calculate a Fibonacci sequence**
+The results from filtering by category the API results for Cost of Living were needed on the controller in order to show them on the view. The solution was turning CostOfLivingHandler into a Singleton class to have access to results without performing the API call more than once. Since all the categories are retrieved with the same API call, it did not make sense to do the request more than once.
 
-A short description.
+```java
+public class CostOfLivingHandler {
+  // more code ...
 
-    // The method we implemented that solved our problem
-    public static int fibonacci(int fibIndex) {
-        if (memoized.containsKey(fibIndex)) {
-            return memoized.get(fibIndex);
-        } else {
-            int answer = fibonacci(fibIndex - 1) + fibonacci(fibIndex - 2);
-            memoized.put(fibIndex, answer);
-            return answer;
-        }
+  /**
+  * Singleton method
+  *
+  * @param context
+  * @return
+  */
+  public static synchronized CostOfLivingHandler getInstance(Context context) {
+    if (mInstance == null) {
+        mInstance = new CostOfLivingHandler(context.getApplicationContext());
+    }
+    return mInstance;
+  }
+
+  // more code ...
+
+  /**
+     * Getters for the categories results array
+     */
+    public ArrayList getFood() {
+        return mFood;
     }
 
-    // Source: Wikipedia Java [1]
+    public ArrayList getTransportation() {
+        return mTransportation;
+    }
+
+    public ArrayList<CostOfLivingItem> getUtilities() {
+        return mUtilities;
+    }
+
+    public ArrayList<CostOfLivingItem> getRoom() {
+        return mRoom;
+    }
+
+    public ArrayList<CostOfLivingItem> getClothing() {
+        return mClothing;
+    }
+
+    public ArrayList<CostOfLivingItem> getChildcare() {
+        return mChildcare;
+    }
+
+}
+
+```
+
+**Problem 2: To create chain of Adapters to implement Image Viewer in Card View of FindingRoom**
+
+The task of displaying multiple image on a Card view was challenging. It required us to create An Adapter inside a Card Adapter for FindingRooms. We were able to implement View Pager with Tab Layout for the slider dots using following line of code :  
+
+```java
+ public void onBindViewHolder(@NonNull FindingRoomsAdapter.ViewHolder viewHolder, int i) {
+String[] images = {availableroomsElement.getImg1(), availableroomsElement.getImg2(), availableroomsElement.getImg3()};
+
+//Code to create image view adapter inside card adapter
+ImageViewPagerAdapter imageViewPagerAdapter = new ImageViewPagerAdapter(callerContext, images);
+}
+```
 
 ## Sources
 
-What to include in your project sources:
-
--   Stock images
--   Design guides
--   Programming tutorials
--   Research material
--   Android libraries
--   Everything listed on the Dalhousie Plagiarism and Cheating pages(<https://www.dal.ca/dept/university_secretariat/academic-integrity/plagiarism-cheating.html>)
-
 [1]"Trello", Es.wikipedia.org, 2018. [Online]. Available: https://es.wikipedia.org/wiki/Trello. [Accessed: 31- Oct- 2018]
+
 [2]"MVC Framework Introduction", www.tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/mvc_framework/mvc_framework_introduction.htm. [Accessed: 28- Oct- 2018]
 
+[3]"Organizing information with tables - User Documentation", Help.github.com, 2018. [Online]. Available: https://help.github.com/articles/organizing-information-with-tables/. [Accessed: 2018].
 
-//To do: Format references with IEEE
-[2] <https://help.github.com/articles/organizing-information-with-tables/>
+[4]"Recursos de strings  |  Android Developers", Android Developers, 2018. [Online]. Available: https://developer.android.com/guide/topics/resources/string-resource?hl=es-419. [Accessed: 2018].
 
-[3] Strings documentation <https://developer.android.com/guide/topics/resources/string-resource?hl=es-419>
+[5]Doc.lagout.org, 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Android%20Recipes_%20A%20Problem-Solution%20Approach%20%283rd%20ed.%29%20%5BSmith%20%26%20Friesen%202014-02-05%5D.pdf. [Accessed: 2018].
 
-<https://www.tutorialspoint.com/Java-Ternary-Operator-Examples>
+[6]Maps.unomaha.edu, 2018. [Online]. Available: http://maps.unomaha.edu/Peterson/GEOG8670_Spring17/Google_Maps_v3.pdf. [Accessed: 2018].
+
+[7]Tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/android/android_tutorial.pdf. [Accessed: 2018].
+
+[8]"Creating fragments", 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Creating%20Dynamic%20UI%20with%20Android%20Fragments%20%5BWilson%202013-09-25%5D.pdf. [Accessed: 2018].
+
+[9]"Java Ternary Operator Examples", Tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/Java-Ternary-Operator-Examples. [Accessed: 2018].
+
+[10]"Creating and highlighting code blocks - User Documentation", Help.github.com, 2018. [Online]. Available: https://help.github.com/articles/creating-and-highlighting-code-blocks/. [Accessed: 2018].
+
+[11]"Freepik - Free Graphic resources for everyone", Freepik, 2018. [Online]. Available: https://www.freepik.com/. [Accessed: 2018].
+
+[12]"Icons - Material Design", Material Design, 2018. [Online]. Available: https://material.io/tools/icons/?style=baseline. [Accessed: 2018].
+
+[13]A. Recipes, D. Smith and J. Friesen, "Android Recipes - A Problem-Solution Approach | Dave Smith | Apress", Apress.com, 2018. [Online]. Available: https://www.apress.com/gp/book/9781430246145. [Accessed: 2018].
+
+[14]"10 Heuristics for User Interface Design: Article by Jakob Nielsen", Nielsen Norman Group, 2018. [Online]. Available: https://www.nngroup.com/articles/ten-usability-heuristics/. [Accessed: 2018].

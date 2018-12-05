@@ -9,9 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.adapters.RecommendedFragmentPagerAdapter;
 
-import static com.thealienobserver.nikhil.travon.controllers.MainMenuActivity.LATITUDE;
-import static com.thealienobserver.nikhil.travon.controllers.MainMenuActivity.LONGITUDE;
-
 
 public class RecommendedPlacesActivity extends AppCompatActivity {
 
