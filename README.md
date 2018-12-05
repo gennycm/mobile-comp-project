@@ -39,6 +39,7 @@
 		- [Finding rooms](#finding-rooms)
 		- [Recommended places](#recommended-places)
 		- [Services](#services)
+	- [Design](#design)
 	- [Project management](#project-management)
 	- [Task Assignment](#task-assignment)
 	- [Version control](#version-control)
@@ -277,6 +278,41 @@ There are two possible ways to access to the news screen. You can directly acces
 
 ![wireframe](read_me_rsc/pictures/service1click.jpg)
 
+## Design
+
+For the actual design, we followed Nielsen's heuristics such as:
+ * Visibility of system status: we procured to always keep users informed about what is going on.
+ * Match between system and the real world: the words, phrases and concepts used matches the common English language used daily.
+
+(Read full article on the match between the system and the real world.)
+
+User control and freedom
+Users often choose system functions by mistake and will need a clearly marked "emergency exit" to leave the unwanted state without having to go through an extended dialogue. Support undo and redo.
+
+Consistency and standards
+Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform conventions.
+
+Error prevention
+Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action.
+
+(Read full article on preventing user errors.)
+
+Recognition rather than recall
+Minimize the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part of the dialogue to another. Instructions for use of the system should be visible or easily retrievable whenever appropriate.
+
+(Read full article on recognition vs. recall in UX.)
+
+Flexibility and efficiency of use
+Accelerators — unseen by the novice user — may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users. Allow users to tailor frequent actions.
+
+Aesthetic and minimalist design
+Dialogues should not contain information which is irrelevant or rarely needed. Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility.
+
+Help users recognize, diagnose, and recover from errors
+Error messages should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.
+
+Help and documentation
+
 ## Project management
 
 ## Task Assignment
@@ -304,7 +340,7 @@ For the automated unit test cases we are using Espresso. These can be found in t
 ## Final Project Status
 
 At the end, we managed to complete all our minimum, expected and one of our proposed bonus functionalities.
-At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver. For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user
+At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver. For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user. The slides presented on class can be found [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/read_me_rsc/documentation/MC_Complete_Presentation.pptx).
 
 
 ### Minimum Functionality
@@ -386,39 +422,30 @@ public class CostOfLivingHandler {
 
 ## Sources
 
-What to include in your project sources:
-
--   Stock images
--   Design guides
--   Programming tutorials
--   Research material
--   Android libraries
--   Everything listed on the Dalhousie Plagiarism and Cheating pages(<https://www.dal.ca/dept/university_secretariat/academic-integrity/plagiarism-cheating.html>)
-
 [1]"Trello", Es.wikipedia.org, 2018. [Online]. Available: https://es.wikipedia.org/wiki/Trello. [Accessed: 31- Oct- 2018]
+
 [2]"MVC Framework Introduction", www.tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/mvc_framework/mvc_framework_introduction.htm. [Accessed: 28- Oct- 2018]
 
+[3]"Recursos de strings  |  Android Developers", Android Developers, 2018. [Online]. Available: https://developer.android.com/guide/topics/resources/string-resource?hl=es-419. [Accessed: 2018].
 
-//To do: Format references with IEEE
-[2] <https://help.github.com/articles/organizing-information-with-tables/>
+[4]"Recursos de strings  |  Android Developers", Android Developers, 2018. [Online]. Available: https://developer.android.com/guide/topics/resources/string-resource?hl=es-419. [Accessed: 2018].
 
-[3] Strings documentation <https://developer.android.com/guide/topics/resources/string-resource?hl=es-419>
+[5]Doc.lagout.org, 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Android%20Recipes_%20A%20Problem-Solution%20Approach%20%283rd%20ed.%29%20%5BSmith%20%26%20Friesen%202014-02-05%5D.pdf. [Accessed: 2018].
 
-<https://www.tutorialspoint.com/Java-Ternary-Operator-Examples>
+[6]Maps.unomaha.edu, 2018. [Online]. Available: http://maps.unomaha.edu/Peterson/GEOG8670_Spring17/Google_Maps_v3.pdf. [Accessed: 2018].
 
-https://help.github.com/articles/creating-and-highlighting-code-blocks/
+[7]Tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/android/android_tutorial.pdf. [Accessed: 2018].
 
-icons from https://www.freepik.com/
+[8]"Creating fragments", 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Creating%20Dynamic%20UI%20with%20Android%20Fragments%20%5BWilson%202013-09-25%5D.pdf. [Accessed: 2018].
 
-https://material.io/tools/icons/?style=baseline
+[9]"Java Ternary Operator Examples", Tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/Java-Ternary-Operator-Examples. [Accessed: 2018].
 
-https://www.apress.com/gp/book/9781430246145
+[10]"Creating and highlighting code blocks - User Documentation", Help.github.com, 2018. [Online]. Available: https://help.github.com/articles/creating-and-highlighting-code-blocks/. [Accessed: 2018].
 
+[11]"Freepik - Free Graphic resources for everyone", Freepik, 2018. [Online]. Available: https://www.freepik.com/. [Accessed: 2018].
 
-[11]Doc.lagout.org, 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Android%20Recipes_%20A%20Problem-Solution%20Approach%20%283rd%20ed.%29%20%5BSmith%20%26%20Friesen%202014-02-05%5D.pdf. [Accessed: 05- Dec- 2018].
+[12]"Icons - Material Design", Material Design, 2018. [Online]. Available: https://material.io/tools/icons/?style=baseline. [Accessed: 2018].
 
-[12]Maps.unomaha.edu, 2018. [Online]. Available: http://maps.unomaha.edu/Peterson/GEOG8670_Spring17/Google_Maps_v3.pdf. [Accessed: 05- Dec- 2018].
+[13]A. Recipes, D. Smith and J. Friesen, "Android Recipes - A Problem-Solution Approach | Dave Smith | Apress", Apress.com, 2018. [Online]. Available: https://www.apress.com/gp/book/9781430246145. [Accessed: 2018].
 
-[13]Tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/android/android_tutorial.pdf. [Accessed: 05- Dec- 2018]
-
-[13]Doc.lagout.org, 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Creating%20Dynamic%20UI%20with%20Android%20Fragments%20%5BWilson%202013-09-25%5D.pdf. [Accessed: 05- Dec- 2018].
+[14]"10 Heuristics for User Interface Design: Article by Jakob Nielsen", Nielsen Norman Group, 2018. [Online]. Available: https://www.nngroup.com/articles/ten-usability-heuristics/. [Accessed: 2018].
