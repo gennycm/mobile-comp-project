@@ -89,7 +89,12 @@
             android:name=".controllers.WelcomingActivity"
             android:label=" "
             android:parentActivityName=".controllers.MainMenuActivity" />
-        <activity android:name=".controllers.ServicesActivity" />
+
+        <activity
+            android:name=".controllers.ServicesActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".controllers.MainMenuActivity" />
+
     </application>
 
 </manifest>

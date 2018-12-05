@@ -20,6 +20,7 @@ tools:context=".controllers.ImmigrationActivity">
 
     <!-- First row -->
     <!-- First column -->
+    <!-- Important Things Card view start -->
     <android.support.v7.widget.CardView
         android:id="@+id/impThingsCv"
         android:layout_width="0dp"
@@ -60,7 +61,10 @@ tools:context=".controllers.ImmigrationActivity">
                 android:textStyle="bold" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
-    <!-- Two column -->
+    <!--Important Things Card view end -->
+
+    <!-- second column -->
+    <!-- Forms Card view start -->
     <android.support.v7.widget.CardView
         android:id="@+id/formsCv"
         android:layout_width="0dp"
@@ -102,7 +106,10 @@ tools:context=".controllers.ImmigrationActivity">
                 android:textStyle="bold" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
+    <!-- Forms Card view end-->
 
+    <!-- Second row start -->
+    <!-- Offices Card view start -->
     <android.support.v7.widget.CardView
         android:id="@+id/officesCv"
         android:layout_width="0dp"
@@ -143,7 +150,11 @@ tools:context=".controllers.ImmigrationActivity">
                 android:textStyle="bold" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
+    <!-- Offices Card View End-->
 
+    <!-- Second Row -->
+    <!-- Second column -->
+    <!-- FAQs card view start -->
     <android.support.v7.widget.CardView
         android:id="@+id/faqCv"
         android:layout_width="0dp"
@@ -185,6 +196,9 @@ tools:context=".controllers.ImmigrationActivity">
                 android:textStyle="bold" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
+    <!-- FAQs card view end -->
+    <!-- Row End -->
+    <!-- Column End -->
 
 </GridLayout>
 </LinearLayout>
