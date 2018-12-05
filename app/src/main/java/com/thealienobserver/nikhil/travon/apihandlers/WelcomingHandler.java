@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.Html;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -66,6 +67,7 @@ public abstract class WelcomingHandler {
 
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -73,6 +75,7 @@ public abstract class WelcomingHandler {
             public void onErrorResponse(VolleyError error) {
                 // TODO: Handle error
                 Log.e("Error:", error.toString());
+                Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
             }
         });
         requestQueue.add(jsonObjectRequest);

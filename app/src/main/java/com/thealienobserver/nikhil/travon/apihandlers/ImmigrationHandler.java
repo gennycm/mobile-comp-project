@@ -77,6 +77,7 @@ public class ImmigrationHandler {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {

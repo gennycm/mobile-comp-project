@@ -2,6 +2,7 @@ package com.thealienobserver.nikhil.travon.apihandlers;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -53,6 +54,7 @@ public abstract class EventsHandler {
                             imageUrl = jsonEvent.getJSONObject("logo").getJSONObject("original").getString("url");
                         } catch (JSONException e) {
                             imageUrl = "";
+                            Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                         }
                         String start = jsonEvent.getJSONObject("start").getString("local");
                         String end = jsonEvent.getJSONObject("end").getString("local");
@@ -80,6 +82,7 @@ public abstract class EventsHandler {
 
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -87,6 +90,7 @@ public abstract class EventsHandler {
             public void onErrorResponse(VolleyError error) {
                 // Handle error
                 Log.d("Event Handler", error.toString());
+                Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
             }
         });
         requestQueue.add(jsonObjectRequest);

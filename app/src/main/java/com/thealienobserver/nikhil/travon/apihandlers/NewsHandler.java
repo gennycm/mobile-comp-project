@@ -3,6 +3,7 @@ package com.thealienobserver.nikhil.travon.apihandlers;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -59,8 +60,12 @@ public abstract class NewsHandler {
                         NewsArticle article = new NewsArticle(title, description, imageUrl, articleUrl, content, publishedAt);
                         topArticles.add(article);
 
-                        // Call the user's callback for post fetching news articles
-                        NewsHandler.this.postFetchingNewsArticles(topArticles);
+                            // Call the user's callback for post fetching news articles
+                            NewsHandler.this.postFetchingNewsArticles(topArticles);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -70,6 +75,7 @@ public abstract class NewsHandler {
                 public void onErrorResponse(VolleyError error) {
                     // TODO: Handle error
                     Log.d("News Handler", new String(error.networkResponse.data));
+                    Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                 }
             });
         requestQueue.add(jsonObjectRequest);
