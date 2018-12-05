@@ -43,6 +43,8 @@
 	- [Task Assignment](#task-assignment)
 	- [Version control](#version-control)
 	- [Travon Test Cases](#travon-test-cases)
+		- [Manual](#manual)
+		- [Automated Unit test cases](#automated-unit-test-cases)
 	- [Final Project Status](#final-project-status)
 		- [Minimum Functionality](#minimum-functionality)
 		- [Expected Functionality](#expected-functionality)
@@ -118,6 +120,9 @@ As our app will have all information for a visitor/traveler, by using our app pe
 
 **Bumptech Glide**: Glide is a fast and efficient open source media management and image loading framework for Android that wraps media decoding, memory and disk caching, and resource pooling into a simple and easy to use interface. Bumptech Glide is available on [Github](https://github.com/bumptech/glide).
 
+**Espresso**: Espresso helps to write concise, beautiful, and reliable Android UI tests. Espresso is available [here](https://developer.android.com/training/testing/espresso/)
+
+
 ### API
 
  **Google Maps API**: this library allows you to access to the functionalities provided by Google Maps to mark places and get the users' location.  [Go to site](https://cloud.google.com/maps-platform/?hl=en)
@@ -170,7 +175,7 @@ These are services that help you get things done around your residence. It will 
 
 At the moment of planning a mobile application, creating a sitemap will help ensure the team has included all the screens needed to cover the proposed functionalities. The following sitemap shows the navigation the user can go through within the application. It shows the hierarchy of screens and functionalities available for each feature.
 
-![wireframe](pictures/sitemap.PNG)
+![wireframe](read_me_rsc/pictures/sitemap.PNG)
 
 
 ## Architecture
@@ -181,7 +186,7 @@ The Model-View-Controller (MVC) is an architectural pattern that separates an ap
 
 **Components**
 
-![wireframe](pictures/mvc.jpg)
+![wireframe](read_me_rsc/pictures/mvc.jpg)
 
 **Model**
 
@@ -204,7 +209,7 @@ For Travon, we have used different activities like MainActivity, MenuActivity, N
 
 Additionally from the typical MVC components, we have added other resources such as Handlers and Adapters. Handlers are in charge of making the requests to their respective API. Adapters are in charge of showing the retrieved information in their respective view. Fragments are a type of layout that assists when creating tabbed views.
 
-![wireframe](pictures/architecture.jpg)
+![wireframe](read_me_rsc/pictures/architecture.jpg)
 
 ## Prototyping
 
@@ -212,24 +217,24 @@ Additionally from the typical MVC components, we have added other resources such
 
 Low fidelity prototype was helpful to get a better idea of how the application would look once implemented and how the information and functionalities could be organized and displayed throughout the application.
 
-![wireframe](pictures/low_fidelity.jpg)
-![wireframe](pictures/low_fidelity2.jpg)
+![wireframe](read_me_rsc/pictures/low_fidelity.jpg)
+![wireframe](read_me_rsc/pictures/low_fidelity2.jpg)
 
 ### High fidelity prototype
 
 As part of the design project, the high fidelity prototype was created from the low fidelity prototype.
 
-![wireframe](pictures/screen_pro.jpg)![wireframe](pictures/main_menu_pro.jpg)
-![wireframe](pictures/weather_pro.jpg)
+![wireframe](read_me_rsc/pictures/screen_pro.jpg)![wireframe](read_me_rsc/pictures/main_menu_pro.jpg)
+![wireframe](read_me_rsc/pictures/weather_pro.jpg)
 
-![wireframe](pictures/event_details.jpg)![wireframe](pictures/event.jpg)
-![wireframe](pictures/immi_pro.jpg)
-![wireframe](pictures/news.jpg)
-![wireframe](pictures/col.jpg)
-![wireframe](pictures/event_details.jpg)
-![wireframe](pictures/event_details2.jpg)
-![wireframe](pictures/hospital.jpg)![wireframe](pictures/hospital_name.jpg)
-![wireframe](pictures/services.jpg)
+![wireframe](read_me_rsc/pictures/event_details.jpg)![wireframe](read_me_rsc/pictures/event.jpg)
+![wireframe](read_me_rsc/pictures/immi_pro.jpg)
+![wireframe](read_me_rsc/pictures/news.jpg)
+![wireframe](read_me_rsc/pictures/col.jpg)
+![wireframe](read_me_rsc/pictures/event_details.jpg)
+![wireframe](read_me_rsc/pictures/event_details2.jpg)
+![wireframe](read_me_rsc/pictures/hospital.jpg)![wireframe](read_me_rsc/pictures/hospital_name.jpg)
+![wireframe](read_me_rsc/pictures/services.jpg)
 
 ## Clickstreams
 
@@ -239,38 +244,38 @@ Click stream can be seen as a roadmap of a user’s activity. The following clic
 
 There are two possible ways to access to the weather screen. You can directly access from main screen or from the main menu screen.
 
-![wireframe](pictures/weatherclick.jpg)
-![wireframe](pictures/weatherclick1.jpg)
+![wireframe](read_me_rsc/pictures/weatherclick.jpg)
+![wireframe](read_me_rsc/pictures/weatherclick1.jpg)
 
 ### Events
 
 There are two possible ways to access to the events screen. You can directly access from main screen or from the main menu screen.
-![wireframe](pictures/eventclick.jpg)
+![wireframe](read_me_rsc/pictures/eventclick.jpg)
 
 ### News
 
 There are two possible ways to access to the news screen. You can directly access from main screen or from the main menu screen
-![wireframe](pictures/newsclick.jpg)
+![wireframe](read_me_rsc/pictures/newsclick.jpg)
 
 ### Immigration
 
-![wireframe](pictures/immiclick.jpg)
+![wireframe](read_me_rsc/pictures/immiclick.jpg)
 
 ### Services
 
-![wireframe](pictures/serviceclick.jpg)
+![wireframe](read_me_rsc/pictures/serviceclick.jpg)
 
 ### Finding rooms
 
-![wireframe](pictures/roomclick.jpg)
+![wireframe](read_me_rsc/pictures/roomclick.jpg)
 
 ### Recommended places
 
-![wireframe](pictures/recclick.jpg)
+![wireframe](read_me_rsc/pictures/recclick.jpg)
 
 ### Services
 
-![wireframe](pictures/service1click.jpg)
+![wireframe](read_me_rsc/pictures/service1click.jpg)
 
 ## Project management
 
@@ -279,7 +284,7 @@ There are two possible ways to access to the news screen. You can directly acces
 In order to be able to carry the project progress more accurately, Trello was chosen as a tool for distributing tasks and responsibilities,. Trello is a project management software with web interface, client for iOS and android to organize projects [1].
 Trello’s UI makes it easy to create and assign tasks; and keep track of its status. Cards are added at the beginning of each update section. In case there was a previous section, the pending tasks are evaluated in order to be able to include them in the next section planning.
 
-![wireframe](pictures/trello.jpg)
+![wireframe](read_me_rsc/pictures/trello.jpg)
 
 ## Version control
 
@@ -290,12 +295,11 @@ In order to push new changes to the repository, if the user has a _Developer_ pe
 
 ## Travon Test Cases
 
-<<<<<<< HEAD
-The test cases can be seen []()<https://git.cs.dal.ca/metri/mobile-comp-project/Travon_TestCases.xlsx>
-=======
-The test cases can be seen [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/Travon_TestCases.xlsx)
->>>>>>> d8b63d0b818723e83aee347c8a939c0242da51f2
+### Manual
+The results from the manual can be found [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/read_me_rsc/documentation/Travon_TestCases.xlsx)
 
+### Automated Unit test cases
+For the automated unit test cases we are using Espresso. These can be found in the actual code.
 
 ## Final Project Status
 
@@ -410,4 +414,11 @@ https://material.io/tools/icons/?style=baseline
 
 https://www.apress.com/gp/book/9781430246145
 
+
 [11]Doc.lagout.org, 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Android%20Recipes_%20A%20Problem-Solution%20Approach%20%283rd%20ed.%29%20%5BSmith%20%26%20Friesen%202014-02-05%5D.pdf. [Accessed: 05- Dec- 2018].
+
+[12]Maps.unomaha.edu, 2018. [Online]. Available: http://maps.unomaha.edu/Peterson/GEOG8670_Spring17/Google_Maps_v3.pdf. [Accessed: 05- Dec- 2018].
+
+[13]Tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/android/android_tutorial.pdf. [Accessed: 05- Dec- 2018]
+
+[13]Doc.lagout.org, 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Creating%20Dynamic%20UI%20with%20Android%20Fragments%20%5BWilson%202013-09-25%5D.pdf. [Accessed: 05- Dec- 2018].
