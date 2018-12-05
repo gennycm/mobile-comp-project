@@ -409,3 +409,5 @@ icons from https://www.freepik.com/
 https://material.io/tools/icons/?style=baseline
 
 https://www.apress.com/gp/book/9781430246145
+
+[11]Doc.lagout.org, 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Android%20Recipes_%20A%20Problem-Solution%20Approach%20%283rd%20ed.%29%20%5BSmith%20%26%20Friesen%202014-02-05%5D.pdf. [Accessed: 05- Dec- 2018].
