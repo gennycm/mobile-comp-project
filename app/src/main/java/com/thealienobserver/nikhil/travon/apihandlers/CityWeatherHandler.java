@@ -12,12 +12,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.load.engine.Resource;
+import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.models.CityWeather;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public abstract class CityWeatherHandler {
+    private Resource res;
     private static final String TAG = "WeatherApiHandler";
     public static final String BASE_URL = "http://api.openweathermap.org/data/2.5/weather?appid=eb866e903a87bc24b5178943f993718e&units=metric&lat=";
     public static final String ICON_URL = "http://openweathermap.org/img/w/";
@@ -40,10 +43,12 @@ public abstract class CityWeatherHandler {
                     // Parse response and get current weather.
                     CityWeather cityWeather = CityWeatherHandler.this.parseWeatherResponse(response);
                     CityWeatherHandler.this.postWeatherApiCall(cityWeather);
+                    
                 } catch (JSONException e) {
                     // Data response in incorrect format.
                     Log.d(TAG, "Error while parsing the json.");
                     CityWeatherHandler.this.postWeatherApiCall(null);
+                    Toast.makeText(context, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {

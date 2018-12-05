@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -45,6 +46,7 @@ public class MainMenuHandler {
                     getPlacePhoto(photoReference);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -52,6 +54,7 @@ public class MainMenuHandler {
             public void onErrorResponse(VolleyError error) {
                 // TODO: Handle error
                 Log.d("Results", error.toString());
+                Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
             }
         });
         requestQueue.add(jsonObjectRequest);

@@ -97,6 +97,7 @@ public class CostOfLivingHandler {
                     classifyResults(pricesJSONArray);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Toast.makeText(mApplicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
