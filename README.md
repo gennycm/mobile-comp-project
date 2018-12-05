@@ -289,6 +289,8 @@ For the actual design, we followed Nielsen's heuristics such as:
  * _Aesthetic and minimalist design_: the interfaces show only the necessary information. Also, we kept a simple minimalistic-flat-clean design to make it easier to the eye.
  * _Help users recognize, diagnose, and recover from errors_: the errors are displayed as Toasts. The messages are in plain language.
 
+ ![design](read_me_rsc/pictures/nielsen_img.png)
+
 ## Project management
 
 ## Task Assignment
@@ -306,6 +308,7 @@ The url of the repository is: <https://git.cs.dal.ca/metri/mobile-comp-project> 
 In order to push new changes to the repository, if the user has a _Developer_ permission, a merge request has to be created.
 
 ## Travon Test Cases
+Testing is an important part of Software Development Life Cycle (SDLC). For this project, we followed all the phases starting from Planning till testing and then the final submission of code which is the deployment. We created manual and automated test cases to make sure that application works as expected and does not have any bugs. Any application without proper testing does not last long. We have covered maximum test coverage by creating quality test cases. Testing helped us to find many bugs which were fixed and retested and now the application is working fine and as expected.
 
 ### Manual
 The results from the manual can be found [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/read_me_rsc/documentation/Travon_TestCases.xlsx)
@@ -401,11 +404,11 @@ public class CostOfLivingHandler {
 The task of displaying multiple image on a Card view was challenging. It required us to create An Adapter inside a Card Adapter for FindingRooms. We were able to implement View Pager with Tab Layout for the slider dots using following line of code :  
 
 ```java
- public void onBindViewHolder(@NonNull FindingRoomsAdapter.ViewHolder viewHolder, int i) {
-String[] images = {availableroomsElement.getImg1(), availableroomsElement.getImg2(), availableroomsElement.getImg3()};
+public void onBindViewHolder(@NonNull FindingRoomsAdapter.ViewHolder viewHolder, int i) {
+  String[] images = {availableroomsElement.getImg1(), availableroomsElement.getImg2(), availableroomsElement.getImg3()};
 
-//Code to create image view adapter inside card adapter
-ImageViewPagerAdapter imageViewPagerAdapter = new ImageViewPagerAdapter(callerContext, images);
+  //Code to create image view adapter inside card adapter
+  ImageViewPagerAdapter imageViewPagerAdapter = new ImageViewPagerAdapter(callerContext, images);
 }
 ```
 
