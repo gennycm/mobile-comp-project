@@ -25,6 +25,12 @@ public abstract class CityWeatherHandler {
     public static final String BASE_URL = "http://api.openweathermap.org/data/2.5/weather?appid=eb866e903a87bc24b5178943f993718e&units=metric&lat=";
     public static final String ICON_URL = "http://openweathermap.org/img/w/";
 
+    /**
+     * Get the current weather of the city
+     * @param context
+     * @param latitude
+     * @param longitude
+     */
     public void getWeatherByCity(final Context context, String latitude,String longitude) {
 
         Float lat = Float.parseFloat(latitude);
@@ -74,6 +80,13 @@ public abstract class CityWeatherHandler {
         queue.add(openWeatherRequest);
     }
 
+    /**
+     * Method to parse the response to JSONObject and set values for each element in CityWeather
+     * @param response
+     * @return
+     * @throws JSONException
+     */
+
     private CityWeather parseWeatherResponse(JSONObject response) throws JSONException {
         // Using only first object of weather
         JSONObject weather = response.getJSONArray("weather").getJSONObject(0);
@@ -91,5 +104,9 @@ public abstract class CityWeatherHandler {
         return cityWeather;
     }
 
+    /**
+     *Abstract method implemented in the WeatherActivity Controller.
+     * @param cityWeather
+     */
     public abstract void postWeatherApiCall(CityWeather cityWeather);
 }

@@ -12,6 +12,9 @@ import com.thealienobserver.nikhil.travon.models.ImmigrationItem;
 
 import java.util.ArrayList;
 
+/**
+ * Class to set the values of each item in Immigration items.
+ */
 public class ImmigrationAdapter extends ArrayAdapter<ImmigrationItem> {
 
     //Tag for logging messages

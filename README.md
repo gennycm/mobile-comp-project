@@ -39,6 +39,7 @@
 		- [Finding rooms](#finding-rooms)
 		- [Recommended places](#recommended-places)
 		- [Services](#services)
+	- [Design](#design)
 	- [Project management](#project-management)
 	- [Task Assignment](#task-assignment)
 	- [Version control](#version-control)
@@ -277,6 +278,19 @@ There are two possible ways to access to the news screen. You can directly acces
 
 ![wireframe](read_me_rsc/pictures/service1click.jpg)
 
+## Design
+
+For the actual design, we followed Nielsen's heuristics such as:
+ * _Visibility of system status_: we procured to always keep users informed about what is going on.
+ * _Match between system and the real world_: the words, phrases and concepts used matches the common English language used daily.
+ * _Consistency and standards_: followed platform conventions and familiar icons.
+ * _Error prevention_: the suggestion of options on the search bar for the city, reduces the error probabilities.
+ * _Recognition rather than recall_: all available options are visible and easy to find.
+ * _Aesthetic and minimalist design_: the interfaces show only the necessary information. Also, we kept a simple minimalistic-flat-clean design to make it easier to the eye.
+ * _Help users recognize, diagnose, and recover from errors_: the errors are displayed as Toasts. The messages are in plain language.
+
+ ![design](read_me_rsc/pictures/nielsen_img.png)
+
 ## Project management
 
 ## Task Assignment
@@ -294,6 +308,7 @@ The url of the repository is: <https://git.cs.dal.ca/metri/mobile-comp-project> 
 In order to push new changes to the repository, if the user has a _Developer_ permission, a merge request has to be created.
 
 ## Travon Test Cases
+Testing is an important part of Software Development Life Cycle (SDLC). For this project, we followed all the phases starting from Planning till testing and then the final submission of code which is the deployment. We created manual and automated test cases to make sure that application works as expected and does not have any bugs. Any application without proper testing does not last long. We have covered maximum test coverage by creating quality test cases. Testing helped us to find many bugs which were fixed and retested and now the application is working fine and as expected.
 
 ### Manual
 The results from the manual can be found [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/read_me_rsc/documentation/Travon_TestCases.xlsx)
@@ -304,7 +319,7 @@ For the automated unit test cases we are using Espresso. These can be found in t
 ## Final Project Status
 
 At the end, we managed to complete all our minimum, expected and one of our proposed bonus functionalities.
-At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver. For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user
+At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver. For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user. The slides presented on class can be found [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/read_me_rsc/documentation/MC_Complete_Presentation.pptx).
 
 
 ### Minimum Functionality
@@ -384,41 +399,45 @@ public class CostOfLivingHandler {
 
 ```
 
+**Problem 2: To create chain of Adapters to implement Image Viewer in Card View of FindingRoom**
+
+The task of displaying multiple image on a Card view was challenging. It required us to create An Adapter inside a Card Adapter for FindingRooms. We were able to implement View Pager with Tab Layout for the slider dots using following line of code :  
+
+```java
+public void onBindViewHolder(@NonNull FindingRoomsAdapter.ViewHolder viewHolder, int i) {
+  String[] images = {availableroomsElement.getImg1(), availableroomsElement.getImg2(), availableroomsElement.getImg3()};
+
+  //Code to create image view adapter inside card adapter
+  ImageViewPagerAdapter imageViewPagerAdapter = new ImageViewPagerAdapter(callerContext, images);
+}
+```
+
 ## Sources
 
-What to include in your project sources:
-
--   Stock images
--   Design guides
--   Programming tutorials
--   Research material
--   Android libraries
--   Everything listed on the Dalhousie Plagiarism and Cheating pages(<https://www.dal.ca/dept/university_secretariat/academic-integrity/plagiarism-cheating.html>)
-
 [1]"Trello", Es.wikipedia.org, 2018. [Online]. Available: https://es.wikipedia.org/wiki/Trello. [Accessed: 31- Oct- 2018]
+
 [2]"MVC Framework Introduction", www.tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/mvc_framework/mvc_framework_introduction.htm. [Accessed: 28- Oct- 2018]
 
+[3]"Organizing information with tables - User Documentation", Help.github.com, 2018. [Online]. Available: https://help.github.com/articles/organizing-information-with-tables/. [Accessed: 2018].
 
-//To do: Format references with IEEE
-[2] <https://help.github.com/articles/organizing-information-with-tables/>
+[4]"Recursos de strings  |  Android Developers", Android Developers, 2018. [Online]. Available: https://developer.android.com/guide/topics/resources/string-resource?hl=es-419. [Accessed: 2018].
 
-[3] Strings documentation <https://developer.android.com/guide/topics/resources/string-resource?hl=es-419>
+[5]Doc.lagout.org, 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Android%20Recipes_%20A%20Problem-Solution%20Approach%20%283rd%20ed.%29%20%5BSmith%20%26%20Friesen%202014-02-05%5D.pdf. [Accessed: 2018].
 
-<https://www.tutorialspoint.com/Java-Ternary-Operator-Examples>
+[6]Maps.unomaha.edu, 2018. [Online]. Available: http://maps.unomaha.edu/Peterson/GEOG8670_Spring17/Google_Maps_v3.pdf. [Accessed: 2018].
 
-https://help.github.com/articles/creating-and-highlighting-code-blocks/
+[7]Tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/android/android_tutorial.pdf. [Accessed: 2018].
 
-icons from https://www.freepik.com/
+[8]"Creating fragments", 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Creating%20Dynamic%20UI%20with%20Android%20Fragments%20%5BWilson%202013-09-25%5D.pdf. [Accessed: 2018].
 
-https://material.io/tools/icons/?style=baseline
+[9]"Java Ternary Operator Examples", Tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/Java-Ternary-Operator-Examples. [Accessed: 2018].
 
-https://www.apress.com/gp/book/9781430246145
+[10]"Creating and highlighting code blocks - User Documentation", Help.github.com, 2018. [Online]. Available: https://help.github.com/articles/creating-and-highlighting-code-blocks/. [Accessed: 2018].
 
+[11]"Freepik - Free Graphic resources for everyone", Freepik, 2018. [Online]. Available: https://www.freepik.com/. [Accessed: 2018].
 
-[11]Doc.lagout.org, 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Android%20Recipes_%20A%20Problem-Solution%20Approach%20%283rd%20ed.%29%20%5BSmith%20%26%20Friesen%202014-02-05%5D.pdf. [Accessed: 05- Dec- 2018].
+[12]"Icons - Material Design", Material Design, 2018. [Online]. Available: https://material.io/tools/icons/?style=baseline. [Accessed: 2018].
 
-[12]Maps.unomaha.edu, 2018. [Online]. Available: http://maps.unomaha.edu/Peterson/GEOG8670_Spring17/Google_Maps_v3.pdf. [Accessed: 05- Dec- 2018].
+[13]A. Recipes, D. Smith and J. Friesen, "Android Recipes - A Problem-Solution Approach | Dave Smith | Apress", Apress.com, 2018. [Online]. Available: https://www.apress.com/gp/book/9781430246145. [Accessed: 2018].
 
-[13]Tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/android/android_tutorial.pdf. [Accessed: 05- Dec- 2018]
-
-[13]Doc.lagout.org, 2018. [Online]. Available: https://doc.lagout.org/programmation/Android/Creating%20Dynamic%20UI%20with%20Android%20Fragments%20%5BWilson%202013-09-25%5D.pdf. [Accessed: 05- Dec- 2018].
+[14]"10 Heuristics for User Interface Design: Article by Jakob Nielsen", Nielsen Norman Group, 2018. [Online]. Available: https://www.nngroup.com/articles/ten-usability-heuristics/. [Accessed: 2018].
