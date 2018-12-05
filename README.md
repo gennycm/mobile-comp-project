@@ -319,7 +319,7 @@ For the automated unit test cases we are using Espresso. These can be found in t
 ## Final Project Status
 
 At the end, we managed to complete all our minimum, expected and one of our proposed bonus functionalities.
-At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver. For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user. The slides presented on class can be found [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/read_me_rsc/documentation/MC_Complete_Presentation.pptx).
+At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver. For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user. The slides presented in the class can be found [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/read_me_rsc/documentation/MC_Complete_Presentation.pptx).
 
 
 ### Minimum Functionality
@@ -347,7 +347,7 @@ At the moment, Immigration feature works only for Canada. Also, Finding Rooms on
 
 **Problem 1: Access to filtered results from CostOfLivingDetailActivity Controller**
 
-The results from filtering by category the API results for Cost of Living were needed on the controller in order to show them on the view. The solution was turning CostOfLivingHandler into a Singleton class to have access to results without performing the API call more than once. Since all the categories are retrieved with the same API call, it did not make sense to do the request more than once.
+The results by category from the API request for Cost of Living; were required on the controller in order to show the information on the view. The solution was turning CostOfLivingHandler into a Singleton class to have access to results without performing the API call more than once. Since all the categories are retrieved with the same API call, it did not make sense to do the request more than once.
 
 ```java
 public class CostOfLivingHandler {
@@ -401,7 +401,7 @@ public class CostOfLivingHandler {
 
 **Problem 2: To create chain of Adapters to implement Image Viewer in Card View of FindingRoom**
 
-The task of displaying multiple image on a Card view was challenging. It required us to create An Adapter inside a Card Adapter for FindingRooms. We were able to implement View Pager with Tab Layout for the slider dots using following line of code :  
+The task of displaying multiple image on a Card view was challenging. It required us to create an Adapter inside a Card Adapter for FindingRooms. We were able to implement View Pager with Tab Layout for the slider dots using following line of code :  
 
 ```java
 public void onBindViewHolder(@NonNull FindingRoomsAdapter.ViewHolder viewHolder, int i) {
