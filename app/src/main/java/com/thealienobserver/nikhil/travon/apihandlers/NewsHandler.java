@@ -3,6 +3,7 @@ package com.thealienobserver.nikhil.travon.apihandlers;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -64,14 +65,17 @@ public abstract class NewsHandler {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                 }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    // TODO: Handle error
-                    Log.d("News Handler", new String(error.networkResponse.data));
-                }
-            });
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO: Handle error
+                Log.d("News Handler", new String(error.networkResponse.data));
+                Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
+            }
+        });
         requestQueue.add(jsonObjectRequest);
     }
 
