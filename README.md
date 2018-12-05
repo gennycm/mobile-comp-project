@@ -412,6 +412,13 @@ public void onBindViewHolder(@NonNull FindingRoomsAdapter.ViewHolder viewHolder,
 }
 ```
 
+**Problem 3: Google Maps API Requests per day limit**
+
+This was not a code problem. Although, at first we thought we might have broken something in the code when refactoring. After a while, we figured out that it was related to the request limit for Google Maps API. This problem was fixed by creating another project and API key on Google Console Dashboard.
+
+![quotalimit](read_me_rsc/pictures/quotalimit.png)
+
+
 ## Sources
 
 [1]"Trello", Es.wikipedia.org, 2018. [Online]. Available: https://es.wikipedia.org/wiki/Trello. [Accessed: 31- Oct- 2018]
