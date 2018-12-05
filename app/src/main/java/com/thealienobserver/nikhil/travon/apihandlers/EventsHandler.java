@@ -30,6 +30,15 @@ public abstract class EventsHandler {
 
     public EventsHandler(Context context) { this.applicationContext = context; }
 
+    /**
+     * Sends the request to the API to retrieve the list of events
+     * @param location
+     * @param distance
+     * @param freeonly
+     * @param searchQuery
+     * @param page
+     */
+
     public void getEventList(LatLng location, int distance, boolean freeonly, String searchQuery, int page) {
         RequestQueue requestQueue = Volley.newRequestQueue(applicationContext);
         String url = EVENT_START_URL + "&location.latitude=" + location.latitude + "&location.longitude=" + location.longitude + "&location.within=" + distance + "km&page=" + page + "&q=" + searchQuery;

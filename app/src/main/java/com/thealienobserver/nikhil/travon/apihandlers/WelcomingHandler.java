@@ -36,6 +36,7 @@ public abstract class WelcomingHandler {
 
     /**
      * Method to display the scores for different parameter in particular city
+     *
      * @param cityName
      */
     public void getCityScores(String cityName) {
@@ -60,7 +61,7 @@ public abstract class WelcomingHandler {
 
                         CategoryScore categoryScore = new CategoryScore(color, categoryName, score_out_of_10);
                         categoryScores.add(categoryScore);
-                        Log.d("---category", categoryScores.size()+"");
+                        Log.d("---category", categoryScores.size() + "");
 
                         WelcomingHandler.this.postFetchingCategoriesScores(categoryScores);
                     }
@@ -83,6 +84,7 @@ public abstract class WelcomingHandler {
 
     /**
      * Method to set description for each parameter in scores
+     *
      * @param description
      */
 
@@ -96,6 +98,7 @@ public abstract class WelcomingHandler {
 
     /**
      * Abstract method implemented in the WelcomingActivity Controller.
+     *
      * @param categoryScores
      */
     public abstract void postFetchingCategoriesScores(ArrayList<CategoryScore> categoryScores);

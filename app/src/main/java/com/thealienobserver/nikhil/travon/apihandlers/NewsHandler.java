@@ -33,6 +33,12 @@ public abstract class NewsHandler {
         this.applicationContext = context;
     }
 
+    /**
+     * Sends the API request to retrieve the news list
+     * @param city
+     * @param country
+     */
+
     public void getNewsArticles(String city, String country) {
         RequestQueue requestQueue = Volley.newRequestQueue(applicationContext);
 //        String url = TOP_NEWS_URL + "&country=" + countryCode;

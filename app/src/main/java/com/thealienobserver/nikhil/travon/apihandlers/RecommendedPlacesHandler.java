@@ -27,20 +27,14 @@ public abstract class RecommendedPlacesHandler {
 
     private ArrayList<RecommendedPlace> recommendedPlaces;
 
-    //API URLs to fech values and description of places
+    //API URLs to fetch values and description of places
     private static final String RecommendedPlaces_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
-
     private static final String RecommendedPLaces_Photo_Url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";
-
     private String api_key = "&key=AIzaSyDCywJBYgafoLew81-vpeGTN03_2vBB7jk";
-
     private static final String Recommended_Place_Details_Url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=";
-
     private static final String Recommended_place_desc_url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=";
-
     private RequestQueue requestQueue;
     private String reference;
-
     private final HashMap<String, JSONObject> recommendedPlacesJsonObjectList = new HashMap<>();
 
     protected RecommendedPlacesHandler(Context context) {
@@ -48,9 +42,11 @@ public abstract class RecommendedPlacesHandler {
     }
 
 
-    /*
-    * Getting the recommended places with help of places api
-    */
+    /**
+     * Getting the recommended places with help of places api
+     * @param location
+     * @param placeType
+     */
     public void getTopRecomendedPlaces(final String location, final String placeType) {
 
         requestQueue = Volley.newRequestQueue(applicationContext);
@@ -59,7 +55,7 @@ public abstract class RecommendedPlacesHandler {
 
         String url = RecommendedPlaces_URL + placeType.toLowerCase() + "%20in%20" + location + "&sensor=false" + api_key;
 
-       // Replacing spaces with ASCII value %20
+        // Replacing spaces with ASCII value %20
 
         url = url.replaceAll(" ", "%20");
 
@@ -165,8 +161,14 @@ public abstract class RecommendedPlacesHandler {
         requestQueue.add(jsonObjectRequest);
     }
 
-    /*
+    /**
      * Getting recommended places description with Wikipedia Api
+     * @param place
+     * @param reference
+     * @param city
+     * @param placeType
+     * @param formatted_address
+     * @param formatted_phone_number
      */
     private void getTopRecomendedDescription(final String place, final String reference, final String city, final String placeType, final String formatted_address, final String formatted_phone_number) {
 
@@ -244,8 +246,9 @@ public abstract class RecommendedPlacesHandler {
     }
 
 
-  /*
-   * Abstract method for posting recommed places details
-   */
+    /**
+     * Abstract method for posting recommed places details
+     * @param recommendedPlaceArrayList
+     */
     public abstract void postFetchingRecomendedPlaces(ArrayList<RecommendedPlace> recommendedPlaceArrayList);
 }

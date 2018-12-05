@@ -20,14 +20,20 @@ import org.json.JSONObject;
 public class MainMenuHandler {
 
     private Context applicationContext;
-    private ImageView cityImageview;
+    private ImageView cityImageView;
     private static String api_key = "&key=AIzaSyDCywJBYgafoLew81-vpeGTN03_2vBB7jk";
     private RequestQueue requestQueue;
 
-    public MainMenuHandler(Context context, ImageView cityImageview) {
+    public MainMenuHandler(Context context, ImageView cityImageView) {
         this.applicationContext = context;
-        this.cityImageview = cityImageview;
+        this.cityImageView = cityImageView;
     }
+
+    /**
+     * Gets the id related to the selected city according to its latitude and longitude/
+     * @param longitude
+     * @param latitude
+     */
 
     public void getPlaceID(String longitude, String latitude) {
         requestQueue = Volley.newRequestQueue(applicationContext);
@@ -60,16 +66,20 @@ public class MainMenuHandler {
         requestQueue.add(jsonObjectRequest);
     }
 
+    /**
+     * Get the photo for the selected city
+     * @param photoReference
+     */
+
     public void getPlacePhoto(String photoReference) {
         requestQueue = Volley.newRequestQueue(applicationContext);
-        //https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJdd4hrwug2EcRmSrV3Vo6llI&key=API_KEY
         String getPlacePhotoURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + photoReference + api_key;
 
         ImageRequest imageRequest = new ImageRequest(getPlacePhotoURL, new Response.Listener<Bitmap>() {
 
             @Override
             public void onResponse(Bitmap response) {
-                cityImageview.setImageBitmap(response);
+                cityImageView.setImageBitmap(response);
 
             }
         }, 0, 0, null, null);
