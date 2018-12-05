@@ -24,6 +24,12 @@ public class CategoryScoresAdapter extends RecyclerView.Adapter<CategoryScoresAd
     private Context callerContext;
     ArrayList<CategoryScore> categoryScores;
 
+    /**
+     * Adapter for setting values for Welcoming score item
+     * @param context
+     * @param categoryScores
+     */
+
     public CategoryScoresAdapter(Context context, ArrayList<CategoryScore> categoryScores) {
         this.callerContext = context;
         this.categoryScores = categoryScores;
@@ -37,6 +43,11 @@ public class CategoryScoresAdapter extends RecyclerView.Adapter<CategoryScoresAd
         return holder;
     }
 
+    /**
+     * Sets the values on the layout elements
+     * @param viewHolder
+     * @param i
+     */
     @Override
     public void onBindViewHolder(@NonNull CategoryScoresAdapter.ViewHolder viewHolder, int i) {
         Log.d(TAG, "bind view called");
@@ -47,12 +58,15 @@ public class CategoryScoresAdapter extends RecyclerView.Adapter<CategoryScoresAd
         viewHolder.progressBarScore.setProgress((int) score);
     }
 
+    /**
+     * Gets the elements of the view for further manipulation
+     * @return
+     */
     @Override
     public int getItemCount() {
         return this.categoryScores.size();
     }
 
-    
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView categoryNameTv, scoreTv;
         ProgressBar progressBarScore;
