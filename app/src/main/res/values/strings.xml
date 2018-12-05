@@ -34,7 +34,12 @@
     <string name="no_results">No Results</string>
     <string name="weather_city_name">City</string>
     <string name="weather_temprature">Temprature</string>
-<string name="weather_minmax_temprature">Min/Max temprature</string>
+    <string name="weather_minmax_temprature">Min/Max temprature</string>
+    <string name="weather_item_description">Description</string>
+    <string name="weather_item_date">Date</string>
+    <string name="weather_item_time">Time</string>
+
+
 
 
     <!-- Cost of living -->
@@ -75,6 +80,12 @@
 
     <!-- Placeholder -->
     <string name="placeholder">placeholder</string>
+
+    <!--Finding Rooms-->
+    <string name="Rooms_short_description">Short Description</string>
+    <string name="Rooms_phone_number">Phone Number</string>
+    <string name="Rooms_location">Location</string>
+
 
 
 </resources>

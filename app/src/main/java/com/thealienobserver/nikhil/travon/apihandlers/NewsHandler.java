@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 public abstract class NewsHandler {
-//    private static NewsHandler newsHandlerInstance;
+    //    private static NewsHandler newsHandlerInstance;
     private Context applicationContext;
 
     private static final String TOP_NEWS_URL = "https://newsapi.org/v2/top-headlines?apiKey=52a70f17e25a4aadb0e73d77d75667ea";
@@ -43,42 +43,42 @@ public abstract class NewsHandler {
 //        String url = TOP_NEWS_URL + "&country=" + countryCode;
         String url = EVERY_NEWS_URL + "&q=" + city + " " + country;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    Log.d("News Handler", response.toString());
-                    try {
-                        // Generate news article list from the api response
-                        JSONArray newsArticles = response.getJSONArray("articles");
-                        ArrayList<NewsArticle> topArticles = new ArrayList<>();
-                        for(int newsItr=0; newsItr < newsArticles.length(); newsItr++) {
-                            JSONObject newsArticle = newsArticles.getJSONObject(newsItr);
-                            String title = newsArticle.getString("title");
-                            String description = newsArticle.getString("description");
-                            String articleUrl = newsArticle.getString("url");
-                            String imageUrl = newsArticle.getString("urlToImage");
-                            String content = newsArticle.getString("content");
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.d("News Handler", response.toString());
+                try {
+                    // Generate news article list from the api response
+                    JSONArray newsArticles = response.getJSONArray("articles");
+                    ArrayList<NewsArticle> topArticles = new ArrayList<>();
+                    for(int newsItr=0; newsItr < newsArticles.length(); newsItr++) {
+                        JSONObject newsArticle = newsArticles.getJSONObject(newsItr);
+                        String title = newsArticle.getString("title");
+                        String description = newsArticle.getString("description");
+                        String articleUrl = newsArticle.getString("url");
+                        String imageUrl = newsArticle.getString("urlToImage");
+                        String content = newsArticle.getString("content");
 
-                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-                            sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-                            Date publishedAt =  sdf.parse(newsArticle.getString("publishedAt"));
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+                        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+                        Date publishedAt =  sdf.parse(newsArticle.getString("publishedAt"));
 
-                            NewsArticle article = new NewsArticle(title, description, imageUrl, articleUrl, content, publishedAt);
-                            topArticles.add(article);
+                        NewsArticle article = new NewsArticle(title, description, imageUrl, articleUrl, content, publishedAt);
+                        topArticles.add(article);
 
-                            // Call the user's callback for post fetching news articles
-                            NewsHandler.this.postFetchingNewsArticles(topArticles);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        // Call the user's callback for post fetching news articles
+                        NewsHandler.this.postFetchingNewsArticles(topArticles);
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    // TODO: Handle error
-                    Log.d("News Handler", error.toString());
-                }
-            });
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO: Handle error
+                Log.d("News Handler", error.toString());
+            }
+        });
         requestQueue.add(jsonObjectRequest);
     }
 

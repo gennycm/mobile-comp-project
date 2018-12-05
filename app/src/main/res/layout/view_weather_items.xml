@@ -13,6 +13,7 @@
         android:minWidth="150dp"
         android:layout_height="match_parent">
 
+        <!--Weather Image Icon-->
         <ImageView
             android:id="@+id/weatherImage"
             android:layout_width="50dp"
@@ -20,6 +21,7 @@
             android:layout_gravity="center"
             android:src="@mipmap/ic_launcher"/>
 
+        <!--Temperature Label-->
         <TextView
             android:id="@+id/lblTempeature"
             android:textSize="18dp"
@@ -27,8 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/raleway"
-            android:text="temp"/>
+            android:text="@string/weather_temprature"/>
 
+        <!--Description Label-->
         <TextView
             android:id="@+id/lblDescription"
             android:textStyle="bold"
@@ -36,23 +39,25 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/raleway"
-            android:text="desc"/>
+            android:text="@string/weather_item_description"/>
 
+        <!--Date Label-->
         <TextView
             android:id="@+id/lblDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/raleway"
-            android:text="date"/>
+            android:text="@string/weather_item_date"/>
 
+        <!--Time Label-->
         <TextView
             android:id="@+id/lblTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/raleway"
-            android:text="time"/>
+            android:text="@string/weather_item_time"/>
 
     </LinearLayout>
 

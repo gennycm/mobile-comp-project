@@ -6,21 +6,25 @@ import java.util.ArrayList;
 
 public class ImmigrationItem
 {
+    //API components
     private String name;
     private String description;
 
     public ImmigrationItem(String name,String description)
         {
+            //Setting name and description
         this.name = name;
         this.description = description;
+
         }
 
-    public String getName()
+    //Getting name and description
+        public String getName()
     {
         return name;
     }
 
-    public String getDescription()
+       public String getDescription()
     {
         return description;
     }

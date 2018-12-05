@@ -65,15 +65,10 @@ public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardAdapter.
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             weatherImage = itemView.findViewById(R.id.weatherImage);
-            //CityName = itemView.findViewById(R.id.lblCityName);
             Temprature = itemView.findViewById(R.id.lblTempeature);
-            //Maximum_Temprature = itemView.findViewById(R.id.lblMaximumValue);
-            //Minimum_Temprature = itemView.findViewById(R.id.lblMinimumValue);
-            //Main = itemView.findViewById(R.id.lblMain);
             Description = itemView.findViewById(R.id.lblDescription);
             ForecastDate=itemView.findViewById(R.id.lblDate);
             ForecastTime=itemView.findViewById(R.id.lblTime);
-            //Humidity=itemView.findViewById(R.id.lblHumidityValue);
         }
     }
 

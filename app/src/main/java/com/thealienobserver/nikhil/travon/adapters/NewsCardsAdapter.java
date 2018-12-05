@@ -20,6 +20,9 @@ import com.thealienobserver.nikhil.travon.models.NewsArticle;
 
 import java.util.ArrayList;
 
+/**
+ * Class to set values for News Item
+ */
 public class NewsCardsAdapter extends RecyclerView.Adapter<NewsCardsAdapter.ViewHolder> {
     private static final String TAG = "NewsCardsAdapter";
 

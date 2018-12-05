@@ -19,16 +19,25 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ImmigrationHandler {
+    //Tag for logging messages
     private static final String TAG = "ImmigrationHandler";
+
+    // Instance for singleton
     private static ImmigrationHandler mInstance;
     private Context applicationContext;
     private RequestQueue requestQueue;
 
+    //ArrayList Creation for Immigration submenus
     private ArrayList importantThings = new ArrayList<>();
     private ArrayList offices = new ArrayList<>();
     private ArrayList forms = new ArrayList<>();
     private ArrayList faqs = new ArrayList<>();
 
+    /**
+     * Constructor
+     *
+     * @param context
+     */
     public ImmigrationHandler(Context context) {
         this.applicationContext = context;
     }
@@ -40,6 +49,10 @@ public class ImmigrationHandler {
         return mInstance;
     }
 
+
+    /**
+     * Sends the request to Immigration API to get the results for the selected city
+     */
     public void getImmigrationInformation() {
         requestQueue = Volley.newRequestQueue(applicationContext);
         String URL = "https://mc-project.herokuapp.com/immigration?country=canada";
@@ -48,9 +61,13 @@ public class ImmigrationHandler {
             @Override
             public void onResponse(JSONObject response) {
                 try {
+                    // Get Important Things To Do json array from response
                     JSONArray importantThingsJSONArray = response.getJSONArray("important_things");
+                    // Get forms json array from response
                     JSONArray formsJSONArray = response.getJSONArray("forms");
+                    // Get offices json array from response
                     JSONArray officesJSONArray = response.getJSONArray("offices");
+                    // Get faqs json array from response
                     JSONArray faqsJSONArray = response.getJSONArray("FAQs");
 
                     importantThings = getResults(importantThingsJSONArray);
@@ -72,9 +89,18 @@ public class ImmigrationHandler {
         requestQueue.add(jsonObjectRequest);
     }
 
+    /**
+     * Classifies the results to be able to show them in the designated categories
+     *
+     * @param resultArray
+     * @throws JSONException
+     */
+
     public ArrayList getResults(JSONArray resultArray) throws JSONException {
         ArrayList<ImmigrationItem> results = new ArrayList<>();
         for (int pos = 0; pos < resultArray.length(); pos++) {
+
+            //Getting name and description from API
             JSONObject itemJSON = resultArray.getJSONObject(pos);
             String name;
             if (itemJSON.has("name")) {
@@ -87,6 +113,9 @@ public class ImmigrationHandler {
         return results;
     }
 
+    /**
+     * Getters for the immigration submenu options results array
+     */
     public ArrayList getImportantThings() {
         return importantThings;
     }

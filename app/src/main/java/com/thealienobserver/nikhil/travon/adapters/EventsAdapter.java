@@ -15,6 +15,9 @@ import com.thealienobserver.nikhil.travon.models.Event;
 
 import java.util.ArrayList;
 
+/**
+ * Set the values for Event Items
+ */
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder> {
 
     private Context callerContext;

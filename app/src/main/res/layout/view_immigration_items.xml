@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
+    <!-- Header Start-->
+    <!-- Textview for name start -->
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/immigrationName"
         android:layout_width="fill_parent"
@@ -13,7 +14,9 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         android:textStyle="normal"></TextView>
+    <!-- Textview for name end-->
 
+    <!-- Textview for description start -->
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/immigrationDescription"
         android:layout_width="fill_parent"
@@ -24,5 +27,7 @@
         android:textColor="@color/colorBlack"
         android:fontFamily="@font/raleway_semibold">
     </TextView>
+    <!-- Textview for description end -->
+    <!-- Header End -->
 
 </LinearLayout>
