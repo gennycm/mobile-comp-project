@@ -238,7 +238,7 @@ In order to push new changes to the repository, if the user has a _Developer_ pe
 
 ## Travon Test Cases
 
-### Home page Test Cases
+The test cases can be seen [here](Travon_TestCases.xlsx)
 
 
 ## Final Project Status
