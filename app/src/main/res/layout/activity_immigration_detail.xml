@@ -9,7 +9,7 @@
     android:weightSum="1"
     tools:context=".controllers.ImmigrationDetailActivity">
 
-    <!-- Category header start -->
+    <!-- Immigration submenu header start -->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/immigrationLayout"
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:gravity="bottom"
             android:orientation="vertical">
 
-            <!-- Category Title start -->
+            <!-- Immigration SubTitle start -->
             <TextView
                 android:id="@+id/immigrationTitleTextView"
                 android:layout_width="match_parent"
@@ -34,14 +34,14 @@
                 android:text="@string/placeholder"
                 android:textColor="@color/colorWhite"
                 android:textSize="40sp" />
-            <!-- Category Title end -->
+            <!-- Immigration Title end -->
 
 
         </LinearLayout>
     </RelativeLayout>
-    <!-- Category header end -->
+    <!-- Immigration submenu header end -->
 
-    <!-- Items list view start -->
+    <!-- Immigration Items list view start -->
     <ListView
         android:id="@+id/immigrationItemsLv"
         android:layout_width="match_parent"
@@ -55,6 +55,6 @@
         android:dividerHeight="0dp">
 
     </ListView>
-
+    <!-- Immigration Items list view end -->
 
 </LinearLayout>

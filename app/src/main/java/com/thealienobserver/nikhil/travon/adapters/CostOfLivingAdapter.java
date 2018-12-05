@@ -46,7 +46,7 @@ public class CostOfLivingAdapter extends ArrayAdapter<CostOfLivingItem> {
     }
 
     /**
-     * Sets the values gotten from the array list in each item that will be shown in the view.
+     * Sets the values received from the array list in each item that will be shown in the view.
      *
      * @param position
      * @param convertView

@@ -15,11 +15,12 @@ import com.thealienobserver.nikhil.travon.models.ImmigrationItem;
 import java.util.ArrayList;
 
 public class ImmigrationDetailActivity extends AppCompatActivity {
+    // Intent extras parameters
     public static final String CATEGORY_TITLE = "CATEGORY_TITLE";
     public static final String BG_COLOR = "BG_COLOR";
 
 
-    // Intent extras parameters
+    // Private parameters
     private int mBgColor;
     private String mCategoryTitle;
 
