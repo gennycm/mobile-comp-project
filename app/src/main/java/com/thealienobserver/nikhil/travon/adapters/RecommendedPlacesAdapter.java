@@ -21,6 +21,10 @@ import com.thealienobserver.nikhil.travon.models.RecommendedPlace;
 
 import java.util.ArrayList;
 
+/**
+ * Class to set the values of each item in Recommended Places Card.
+ */
+
 public class RecommendedPlacesAdapter extends RecyclerView.Adapter<RecommendedPlacesAdapter.ViewHolder> {
     private static final String TAG = "PlaceCardsAdapter";
     public static final String PLACE_ADDRESS = "address";

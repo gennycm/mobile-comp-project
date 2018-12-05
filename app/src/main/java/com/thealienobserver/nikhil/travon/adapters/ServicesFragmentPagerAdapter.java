@@ -6,6 +6,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.thealienobserver.nikhil.travon.fragments.ServicesFragment;
 
+/**
+ * Class to handle the items from the services fragment (per tab).
+ */
+
 public class ServicesFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private String tabTitles[] = new String[]{"Plumbers", "Electricians", "Moving companies","Accounting"};

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 /**
- * To create a Image ViewPage Adapter for sliding images for Finding Rooms.
+ * Class to create a Image ViewPage Adapter for sliding images for Finding Rooms.
  */
 public class ImageViewPagerAdapter extends PagerAdapter {
     private String[] imageUrls;

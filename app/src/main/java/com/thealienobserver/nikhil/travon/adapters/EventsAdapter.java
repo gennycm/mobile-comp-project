@@ -15,19 +15,30 @@ import com.thealienobserver.nikhil.travon.models.Event;
 
 import java.util.ArrayList;
 
-/**
- * Set the values for Event Items
- */
+
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder> {
 
     private Context callerContext;
     ArrayList<Event> eventList;
 
+    /**
+     * Adapter for setting values for Event items
+     *
+     * @param context
+     * @param eventList
+     */
     public EventsAdapter(Context context, ArrayList<Event> eventList) {
         this.callerContext = context;
         this.eventList = eventList;
     }
 
+    /**
+     * Creates the view holder from the selected layout
+     *
+     * @param parent
+     * @param i
+     * @return
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
@@ -36,6 +47,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         return holder;
     }
 
+    /**
+     * Sets the values on the layout elements
+     *
+     * @param viewHolder
+     * @param i
+     */
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Event currentEvent = this.eventList.get(i);
@@ -43,8 +61,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         String description = currentEvent.getDescription();
         if (description.length() <= 200) {
             viewHolder.eventDescription.setText(description);
-        }
-        else {
+        } else {
             viewHolder.eventDescription.setText(description.substring(0, 200) + "...");
         }
         viewHolder.eventName.setText(currentEvent.getName());
@@ -58,8 +75,15 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
 
     }
 
+    /**
+     * Gets the elements of the view for further manipulation
+     *
+     * @return
+     */
     @Override
-    public int getItemCount() { return this.eventList.size(); }
+    public int getItemCount() {
+        return this.eventList.size();
+    }
 
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView eventImage;

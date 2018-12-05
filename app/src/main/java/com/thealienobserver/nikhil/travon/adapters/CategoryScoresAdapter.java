@@ -35,6 +35,12 @@ public class CategoryScoresAdapter extends RecyclerView.Adapter<CategoryScoresAd
         this.categoryScores = categoryScores;
     }
 
+    /**
+     * Creates the view holder from the selected layout
+     * @param parent
+     * @param i
+     * @return
+     */
     @NonNull
     @Override
     public CategoryScoresAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
