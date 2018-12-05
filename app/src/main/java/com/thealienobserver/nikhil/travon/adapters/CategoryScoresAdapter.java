@@ -52,6 +52,7 @@ public class CategoryScoresAdapter extends RecyclerView.Adapter<CategoryScoresAd
         return this.categoryScores.size();
     }
 
+    
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView categoryNameTv, scoreTv;
         ProgressBar progressBarScore;
