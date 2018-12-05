@@ -24,7 +24,7 @@
             android:scaleType="centerCrop"
             android:tint="#6F000000" />
 
-
+        <!-- Welcome title -->
         <TextView
             android:id="@+id/welcomingTitleTV"
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
         android:padding="10sp"
         android:weightSum="1">
 
-
+        <!-- City description -->
         <TextView
             android:id="@+id/descriptionTv"
             android:layout_width="match_parent"
