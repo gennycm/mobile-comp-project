@@ -169,7 +169,7 @@ This feature will help the people moving to a different country or province as w
 The user can just type in the search bar or can give a voice command to select a city and they will get the answer accordingly. It uses voice recognition techniques and understands what you say, and it will reply to you accordingly.
 
 ### Services
-These are services that help you get things done around your residence. It will use your GPS location like some of the previous features to give you the location and phone number of the closest services you require. If there are multiple of the same services, it will give you a description of their working hours, price, and other details.
+These are services that help you get things done around your residence. It will use your GPS location like some of the previous features to give you the location and phone number of the closest services you require. 
 
 
 ## Sitemap
