@@ -26,7 +26,7 @@ public abstract class RecommendedPlacesHandler {
 
     private ArrayList<RecommendedPlace> recommendedPlaces;
 
-
+    //API URLs to fech values and description of places
     private static final String RecommendedPlaces_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
 
     private static final String RecommendedPLaces_Photo_Url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";

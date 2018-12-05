@@ -6,6 +6,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.thealienobserver.nikhil.travon.fragments.RecommendedPlacesFragment;
 
+/**
+ * Class to set the bottom navigation for Recommended places
+ */
+
 public class RecommendedFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private String tabTitles[] = new String[]{"Attractions", "Hospitals", "Universities","Restaurants"};

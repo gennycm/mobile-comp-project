@@ -19,6 +19,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/**
+ * Class to set values to describe the city which user as requested.
+ */
 public abstract class WelcomingHandler {
 
     private Context applicationContext;
@@ -30,6 +33,10 @@ public abstract class WelcomingHandler {
         this.descriptionTv = descriptionTv;
     }
 
+    /**
+     * Method to display the scores for different parameter in particular city
+     * @param cityName
+     */
     public void getCityScores(String cityName) {
         requestQueue = Volley.newRequestQueue(applicationContext);
         String getCityScoresURL = "https://api.teleport.org/api/urban_areas/slug:" + cityName.toLowerCase() + "/scores/";
@@ -71,6 +78,11 @@ public abstract class WelcomingHandler {
         requestQueue.add(jsonObjectRequest);
     }
 
+    /**
+     * Method to set description for each parameter in scores
+     * @param description
+     */
+
     public void setDescription(String description) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             this.descriptionTv.setText(Html.fromHtml(description, Html.FROM_HTML_MODE_COMPACT));
@@ -79,6 +91,10 @@ public abstract class WelcomingHandler {
         }
     }
 
+    /**
+     * Abstract method implemented in the WelcomingActivity Controller.
+     * @param categoryScores
+     */
     public abstract void postFetchingCategoriesScores(ArrayList<CategoryScore> categoryScores);
 
 
