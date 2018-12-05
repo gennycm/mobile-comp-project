@@ -290,7 +290,11 @@ In order to push new changes to the repository, if the user has a _Developer_ pe
 
 ## Travon Test Cases
 
-The test cases can be seen [here](https://git.cs.dal.ca/metri/mobile-comp-project/Travon_TestCases.xlsx)
+<<<<<<< HEAD
+The test cases can be seen []()<https://git.cs.dal.ca/metri/mobile-comp-project/Travon_TestCases.xlsx>
+=======
+The test cases can be seen [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/Travon_TestCases.xlsx)
+>>>>>>> d8b63d0b818723e83aee347c8a939c0242da51f2
 
 
 ## Final Project Status
