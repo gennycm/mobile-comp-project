@@ -13,9 +13,8 @@ import com.thealienobserver.nikhil.travon.R;
 import com.thealienobserver.nikhil.travon.adapters.WeatherCardAdapter;
 import com.thealienobserver.nikhil.travon.apihandlers.CityWeatherHandler;
 import com.thealienobserver.nikhil.travon.apihandlers.WeatherHandler;
-import com.thealienobserver.nikhil.travon.models.Weather;
 import com.thealienobserver.nikhil.travon.models.CityWeather;
-
+import com.thealienobserver.nikhil.travon.models.Weather;
 
 import java.util.ArrayList;
 

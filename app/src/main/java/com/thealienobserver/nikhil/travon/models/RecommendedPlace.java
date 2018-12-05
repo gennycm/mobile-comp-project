@@ -17,11 +17,6 @@
 package com.thealienobserver.nikhil.travon.models;
 
 import android.graphics.Bitmap;
-import android.net.Uri;
-
-import com.google.android.gms.maps.model.LatLng;
-
-import java.util.Date;
 
 
 public class RecommendedPlace {
