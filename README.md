@@ -426,7 +426,7 @@ public class CostOfLivingHandler {
 
 [2]"MVC Framework Introduction", www.tutorialspoint.com, 2018. [Online]. Available: https://www.tutorialspoint.com/mvc_framework/mvc_framework_introduction.htm. [Accessed: 28- Oct- 2018]
 
-[3]"Recursos de strings  |  Android Developers", Android Developers, 2018. [Online]. Available: https://developer.android.com/guide/topics/resources/string-resource?hl=es-419. [Accessed: 2018].
+[3]"Organizing information with tables - User Documentation", Help.github.com, 2018. [Online]. Available: https://help.github.com/articles/organizing-information-with-tables/. [Accessed: 2018].
 
 [4]"Recursos de strings  |  Android Developers", Android Developers, 2018. [Online]. Available: https://developer.android.com/guide/topics/resources/string-resource?hl=es-419. [Accessed: 2018].
 
