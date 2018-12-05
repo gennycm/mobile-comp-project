@@ -20,6 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
+            <!--Label Short Description-->
             <TextView
                 android:textSize="15sp"
                 android:id="@+id/shortdescription"
@@ -27,10 +29,11 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:padding="8dp"
-                android:text="short description"
+                android:text="@string/Rooms_short_description"
                 />
         </LinearLayout>
 
+        <!--Rooms Images-->
         <ImageView
             android:id="@+id/roomsImage"
             android:layout_width="match_parent"
@@ -39,12 +42,14 @@
             android:padding="8dp"
             android:src="@mipmap/ic_launcher" />
 
+        <!--TO display multiple images in slider-->
         <android.support.v4.view.ViewPager
             android:id="@+id/roomImages"
             android:layout_width="match_parent"
             android:layout_height="300dp">
         </android.support.v4.view.ViewPager>
 
+        <!--TabLayout to display image dots-->
         <android.support.design.widget.TabLayout
             android:id="@+id/image_dots"
             android:layout_gravity="center"
@@ -57,6 +62,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <!--Image Icon for Phone Number-->
             <ImageView
                 android:id="@+id/iv_call"
                 android:layout_width="30dp"
@@ -66,6 +72,7 @@
                 android:src="@drawable/ic_baseline_call_24px"
                 />
 
+            <!--Phone Number Label-->
             <TextView
                 android:id="@+id/sellernumber"
                 android:layout_width="match_parent"
@@ -73,7 +80,7 @@
                 android:ellipsize="end"
                 android:lines="1"
                 android:padding="8dp"
-                android:text="phone number"
+                android:text="@string/Rooms_phone_number"
                 />
         </LinearLayout>
         <LinearLayout
@@ -81,6 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!--Location Icon-->
             <ImageView
                 android:id="@+id/iv_location"
                 android:layout_width="30dp"
@@ -89,13 +97,14 @@
                 android:tint="@color/colorPrimary"
                 android:src="@drawable/ic_location_24px" />
 
+        <!--Location Label-->
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/sellerlocation"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:scrollbars="vertical"
-                android:text="Location"
+                android:text="@string/Rooms_location"
                 />
         </LinearLayout>
 
@@ -106,12 +115,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <!--Dollar Icon-->
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:tint="@color/colorPrimary"
                 android:src="@drawable/money"/>
 
+            <!--Rent Label-->
             <TextView
                 android:id="@+id/rent"
                 android:layout_width="match_parent"
