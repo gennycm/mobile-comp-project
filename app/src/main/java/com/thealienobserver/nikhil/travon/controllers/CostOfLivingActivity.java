@@ -33,7 +33,7 @@ public class CostOfLivingActivity extends AppCompatActivity {
         mCountry = getIntent().getStringExtra(COUNTRY);
 
         // Set title on action bar
-        setTitle(getString(R.string.cost_of_living_title) + mCity);
+        setTitle(getString(R.string.cost_of_living_title) + " " + mCity);
 
         // Get Cost Of Living Handler instance
         CostOfLivingHandler.getInstance(getApplicationContext()).getCostOfLivingFromCity(mCity, mCountry);

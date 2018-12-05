@@ -140,7 +140,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
     }
 
-    public void ServicesOnClick(View view) {
+    public void servicesOnClick(View view) {
         String latitude = String.valueOf(addresses.get(0).getLatitude());
         String longitude = String.valueOf(addresses.get(0).getLongitude());
         String city = addresses.get(0).getLocality();
