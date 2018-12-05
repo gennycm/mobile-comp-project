@@ -38,12 +38,14 @@
         </activity>
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".controllers.MainMenuActivity"
             android:label=" "
             android:launchMode="singleTop"
             android:parentActivityName=".controllers.MainActivity"></activity>
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".controllers.WeatherActivity"
             android:parentActivityName=".controllers.MainMenuActivity" />
 
@@ -53,13 +55,17 @@
             android:parentActivityName=".controllers.MainMenuActivity" />
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".controllers.ImmigrationDetailActivity"
             android:label=" "
             android:parentActivityName=".controllers.ImmigrationActivity" />
 
-        <activity android:name=".controllers.NewsActivity" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".controllers.NewsActivity" />
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".controllers.RecommendedPlacesActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".controllers.MainMenuActivity" />
@@ -67,14 +73,17 @@
         <activity android:name=".controllers.FindingRoomsActivity" />
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".controllers.EventsActivity"
             android:parentActivityName=".controllers.MainMenuActivity" />
 
 
-        <activity android:name=".controllers.RecommendedPlacesDetailActivity"
+        <activity
+            android:screenOrientation="portrait" android:name=".controllers.RecommendedPlacesDetailActivity"
             android:parentActivityName=".controllers.RecommendedPlacesActivity"/>
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".controllers.CostOfLivingActivity"
             android:label="Menu"
             android:launchMode="singleTop"
@@ -86,11 +95,13 @@
             android:parentActivityName=".controllers.CostOfLivingActivity" />
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".controllers.WelcomingActivity"
             android:label=" "
             android:parentActivityName=".controllers.MainMenuActivity" />
 
         <activity
+            android:screenOrientation="portrait"
             android:name=".controllers.ServicesActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".controllers.MainMenuActivity" />
