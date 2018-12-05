@@ -171,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
     private void setMapToUserLocation() {
         FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            this.setHalifaxAsDefaultLocation();
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION}, 10);
         }
         if (Build.VERSION.SDK_INT >= 23 &&
@@ -186,14 +187,18 @@ public class MainActivity extends AppCompatActivity {
                     LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
                     updateUserSelectedLocation(userLocation);
                     moveMapToPlace(userLocation);
-                } else {
-                    // Set halifax location as default if user location not found
-                    LatLng halifaxLocation = new LatLng(44.65054250000001, -63.606195099999994);
-                    updateUserSelectedLocation(halifaxLocation);
-                    moveMapToPlace(halifaxLocation);
+                    return;
                 }
+                MainActivity.this.setHalifaxAsDefaultLocation();
             }
         });
+    }
+
+    public void setHalifaxAsDefaultLocation() {
+        // Set halifax location as default if user location not found
+        LatLng halifaxLocation = new LatLng(44.65054250000001, -63.606195099999994);
+        updateUserSelectedLocation(halifaxLocation);
+        moveMapToPlace(halifaxLocation);
     }
 
     public void shortcutsOnClick(View view) {
