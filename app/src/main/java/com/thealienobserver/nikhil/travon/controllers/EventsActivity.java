@@ -1,3 +1,6 @@
+/**
+ * Created by Charley LeBlanc
+ */
 package com.thealienobserver.nikhil.travon.controllers;
 
 import android.os.Bundle;
@@ -20,10 +23,6 @@ import com.thealienobserver.nikhil.travon.apihandlers.EventsHandler;
 import com.thealienobserver.nikhil.travon.models.Event;
 
 import java.util.ArrayList;
-
-/**
- * Created by Charley LeBlanc
- */
 
 public class EventsActivity extends AppCompatActivity {
 
@@ -74,16 +73,16 @@ public class EventsActivity extends AppCompatActivity {
                     prev.setEnabled(false);
             }
         };
-        // TODO: Handle options such as distance and search, as well as multiple pages.
+
         eventsHandler.getEventList(currentlocation, distanceBar.getProgress(), freeOnly.isChecked(), searchQuery.getText().toString(), page);
 
         advanced.setOnClickListener(new View.OnClickListener() {
-           public void onClick(View v) {
-               if (advSearch.getVisibility() == View.VISIBLE)
-                   advSearch.setVisibility(View.GONE);
-               else
-                   advSearch.setVisibility(View.VISIBLE);
-           }
+            public void onClick(View v) {
+                if (advSearch.getVisibility() == View.VISIBLE)
+                    advSearch.setVisibility(View.GONE);
+                else
+                    advSearch.setVisibility(View.VISIBLE);
+            }
         });
         prev.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -94,7 +93,8 @@ public class EventsActivity extends AppCompatActivity {
                     eventsHandler.getEventList(currentlocation, Integer.parseInt(distanceText.getText().toString()), freeOnly.isChecked(), searchQuery.getText().toString(), page);
                 } catch (NumberFormatException e) {
                     eventsHandler.getEventList(currentlocation, distanceBar.getProgress(), freeOnly.isChecked(), searchQuery.getText().toString(), page);
-                }            }
+                }
+            }
         });
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -126,32 +126,43 @@ public class EventsActivity extends AppCompatActivity {
                 if (fromUser)
                     distanceText.setText(Integer.toString(progress));
             }
+
             public void onStartTrackingTouch(SeekBar seekBar) {
 
             }
+
             public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
         });
 
         distanceText.addTextChangedListener(new TextWatcher() {
-           public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-           public void onTextChanged(CharSequence s, int start, int before, int count) {}
-           public void afterTextChanged(Editable s) {
-               if (s.toString().equals("")) {
-                   distanceText.setText("0");
-                   return;
-               }
-               distanceBar.setProgress(Integer.parseInt(s.toString()));
-           }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            public void afterTextChanged(Editable s) {
+                if (s.toString().equals("")) {
+                    distanceText.setText("0");
+                    return;
+                }
+                distanceBar.setProgress(Integer.parseInt(s.toString()));
+            }
         });
     }
+
+    /**
+     * Shows the list of events on the view
+     *
+     * @param events
+     */
 
     private void setupEvents(ArrayList<Event> events) {
 
         RecyclerView eventsRecyclerView = findViewById(R.id.eventsRecyclerView);
         eventsRecyclerView.setAdapter(new EventsAdapter(this, events));
         eventsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //eventsRecyclerView.setAdapter();
     }
 }
