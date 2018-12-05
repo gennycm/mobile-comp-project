@@ -396,6 +396,19 @@ public class CostOfLivingHandler {
 
 ```
 
+**Problem 2: To create chain of Adapters to implement Image Viewer in Card View of FindingRoom**
+
+The task of displaying multiple image on a Card view was challenging. It required us to create An Adapter inside a Card Adapter for FindingRooms. We were able to implement View Pager with Tab Layout for the slider dots using following line of code :  
+
+```java
+ public void onBindViewHolder(@NonNull FindingRoomsAdapter.ViewHolder viewHolder, int i) {
+String[] images = {availableroomsElement.getImg1(), availableroomsElement.getImg2(), availableroomsElement.getImg3()};
+
+//Code to create image view adapter inside card adapter
+ImageViewPagerAdapter imageViewPagerAdapter = new ImageViewPagerAdapter(callerContext, images);
+}
+```
+
 ## Sources
 
 [1]"Trello", Es.wikipedia.org, 2018. [Online]. Available: https://es.wikipedia.org/wiki/Trello. [Accessed: 31- Oct- 2018]
