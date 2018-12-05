@@ -1,9 +1,5 @@
 package com.thealienobserver.nikhil.travon.models;
 
-import android.widget.ListAdapter;
-
-import java.util.ArrayList;
-
 public class ImmigrationItem
 {
     //API components

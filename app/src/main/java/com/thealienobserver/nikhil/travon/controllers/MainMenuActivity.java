@@ -1,6 +1,7 @@
 package com.thealienobserver.nikhil.travon.controllers;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.os.Bundle;
@@ -10,8 +11,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.graphics.Color;
-
 
 import com.google.android.gms.maps.model.LatLng;
 import com.thealienobserver.nikhil.travon.R;
