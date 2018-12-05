@@ -46,11 +46,11 @@
 	- [Travon Test Cases](#travon-test-cases)
 		- [Manual](#manual)
 		- [Automated Unit test cases](#automated-unit-test-cases)
+	- [Code Examples](#code-examples)
 	- [Final Project Status](#final-project-status)
 		- [Minimum Functionality](#minimum-functionality)
 		- [Expected Functionality](#expected-functionality)
 		- [Bonus Functionality](#bonus-functionality)
-	- [Code Examples](#code-examples)
 	- [Sources](#sources)
 
 <!-- /TOC -->
@@ -316,33 +316,6 @@ The results from the manual can be found [here](https://git.cs.dal.ca/metri/mobi
 ### Automated Unit test cases
 For the automated unit test cases we are using Espresso. These can be found in the actual code.
 
-## Final Project Status
-
-At the end, we managed to complete all our minimum, expected and one of our proposed bonus functionalities.
-At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver. For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user. The slides presented in the class can be found [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/read_me_rsc/documentation/MC_Complete_Presentation.pptx).
-
-
-### Minimum Functionality
-
--  Welcoming  (Completed)
--  Immigration (Completed)
-
-### Expected Functionality
-
--   News (Completed)
--   Weather  (Completed)
--   Events  (Completed)
--   Cost of Living (Completed)
--   Recommended Places (Completed)
--   Finding rooms (Completed)
--   Search Functionality (Completed)
-
-
-### Bonus Functionality
-
--   Services (Completed)
--   Bus stops (Not Implemented)
-
 ## Code Examples
 
 **Problem 1: Access to filtered results from CostOfLivingDetailActivity Controller**
@@ -417,6 +390,37 @@ public void onBindViewHolder(@NonNull FindingRoomsAdapter.ViewHolder viewHolder,
 This was not a code problem. Although, at first we thought we might have broken something in the code when refactoring. After a while, we figured out that it was related to the request limit for Google Maps API. This problem was fixed by creating another project and API key on Google Console Dashboard.
 
 ![quotalimit](read_me_rsc/pictures/quotalimit.png)
+
+## Final Project Status
+
+At the end, we managed to complete all our minimum, expected and one of our proposed bonus functionalities.
+At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver.
+
+For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user. The slides presented in the class can be found [here](https://git.cs.dal.ca/metri/mobile-comp-project/blob/master/read_me_rsc/documentation/MC_Complete_Presentation.pptx).
+
+
+### Minimum Functionality
+
+-  Welcoming  (Completed)
+-  Immigration (Completed)
+
+### Expected Functionality
+
+-   News (Completed)
+-   Weather  (Completed)
+-   Events  (Completed)
+-   Cost of Living (Completed)
+-   Recommended Places (Completed)
+-   Finding rooms (Completed)
+-   Search Functionality (Completed)
+
+
+### Bonus Functionality
+
+-   Services (Completed)
+-   Bus stops (Not Implemented)
+
+
 
 
 ## Sources
