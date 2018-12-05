@@ -1,4 +1,56 @@
 # Travon
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Travon](#travon)
+	- [Group members](#group-members)
+	- [How to access to the repository](#how-to-access-to-the-repository)
+	- [Installation Notes](#installation-notes)
+		- [Requirements](#requirements)
+	- [Summary](#summary)
+	- [Scope](#scope)
+	- [Users](#users)
+	- [Purpose and Benefits](#purpose-and-benefits)
+	- [Technical matters](#technical-matters)
+		- [Libraries](#libraries)
+		- [API](#api)
+	- [Features](#features)
+		- [Welcoming](#welcoming)
+		- [Immigration Information](#immigration-information)
+		- [News](#news)
+		- [Weather](#weather)
+		- [Events](#events)
+		- [Cost of Living](#cost-of-living)
+		- [Recommended Places](#recommended-places)
+		- [Finding rooms](#finding-rooms)
+		- [Search Functionality](#search-functionality)
+		- [Services](#services)
+	- [Sitemap](#sitemap)
+	- [Architecture](#architecture)
+		- [API Handlers, Adapters and Fragments](#api-handlers-adapters-and-fragments)
+	- [Prototyping](#prototyping)
+		- [Low fidelity prototype](#low-fidelity-prototype)
+		- [High fidelity prototype](#high-fidelity-prototype)
+	- [Clickstreams](#clickstreams)
+		- [Weather](#weather)
+		- [Events](#events)
+		- [News](#news)
+		- [Immigration](#immigration)
+		- [Services](#services)
+		- [Finding rooms](#finding-rooms)
+		- [Recommended places](#recommended-places)
+		- [Services](#services)
+	- [Project management](#project-management)
+	- [Task Assignment](#task-assignment)
+	- [Version control](#version-control)
+	- [Travon Test Cases](#travon-test-cases)
+	- [Final Project Status](#final-project-status)
+		- [Minimum Functionality](#minimum-functionality)
+		- [Expected Functionality](#expected-functionality)
+		- [Bonus Functionality](#bonus-functionality)
+	- [Code Examples](#code-examples)
+	- [Sources](#sources)
+
+<!-- /TOC -->
 
 ## Group members
 
@@ -270,24 +322,59 @@ At the moment, Immigration feature works only for Canada. Also, Finding Rooms on
 
 ## Code Examples
 
-You will encounter roadblocks and problems while developing your project. Share 2-3 'problems' that your team solved while developing your project. Write a few sentences that describe your solution and provide a code snippet/block that shows your solution. Example:
+**Problem 1: Access to filtered results from CostOfLivingDetailActivity Controller**
 
-**Problem 1: We needed a method to calculate a Fibonacci sequence**
+The results from filtering by category the API results for Cost of Living were needed on the controller in order to show them on the view. The solution was turning CostOfLivingHandler into a Singleton class to have access to results without performing the API call more than once. Since all the categories are retrieved with the same API call, it did not make sense to do the request more than once.
 
-A short description.
+```java
+public class CostOfLivingHandler {
+  // more code ...
 
-    // The method we implemented that solved our problem
-    public static int fibonacci(int fibIndex) {
-        if (memoized.containsKey(fibIndex)) {
-            return memoized.get(fibIndex);
-        } else {
-            int answer = fibonacci(fibIndex - 1) + fibonacci(fibIndex - 2);
-            memoized.put(fibIndex, answer);
-            return answer;
-        }
+  /**
+  * Singleton method
+  *
+  * @param context
+  * @return
+  */
+  public static synchronized CostOfLivingHandler getInstance(Context context) {
+    if (mInstance == null) {
+        mInstance = new CostOfLivingHandler(context.getApplicationContext());
+    }
+    return mInstance;
+  }
+
+  // more code ...
+
+  /**
+     * Getters for the categories results array
+     */
+    public ArrayList getFood() {
+        return mFood;
     }
 
-    // Source: Wikipedia Java [1]
+    public ArrayList getTransportation() {
+        return mTransportation;
+    }
+
+    public ArrayList<CostOfLivingItem> getUtilities() {
+        return mUtilities;
+    }
+
+    public ArrayList<CostOfLivingItem> getRoom() {
+        return mRoom;
+    }
+
+    public ArrayList<CostOfLivingItem> getClothing() {
+        return mClothing;
+    }
+
+    public ArrayList<CostOfLivingItem> getChildcare() {
+        return mChildcare;
+    }
+
+}
+
+```
 
 ## Sources
 
@@ -310,3 +397,11 @@ What to include in your project sources:
 [3] Strings documentation <https://developer.android.com/guide/topics/resources/string-resource?hl=es-419>
 
 <https://www.tutorialspoint.com/Java-Ternary-Operator-Examples>
+
+https://help.github.com/articles/creating-and-highlighting-code-blocks/
+
+icons from https://www.freepik.com/
+
+https://material.io/tools/icons/?style=baseline
+
+https://www.apress.com/gp/book/9781430246145
