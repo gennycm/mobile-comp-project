@@ -238,13 +238,13 @@ In order to push new changes to the repository, if the user has a _Developer_ pe
 
 ## Travon Test Cases
 
-The test cases can be seen [here](Travon_TestCases.xlsx)
+The test cases can be seen [here](https://git.cs.dal.ca/metri/mobile-comp-project/Travon_TestCases.xlsx)
 
 
 ## Final Project Status
 
 At the end, we managed to complete all our minimum, expected and one of our proposed bonus functionalities.
-At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver. For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user. Additionally, we would like to add a reviews sections for the services. This would imply also implementing authentication for the users.
+At the moment, Immigration feature works only for Canada. Also, Finding Rooms only has information for cities such as Halifax, Toronto and Vancouver. For future work, we would like to expand these sections such to be available everywhere in the world as the rest of the functionalities. We would also like to keep improving our User Interfaces and User Experience to provide a better service for the user
 
 
 ### Minimum Functionality
