@@ -2,6 +2,7 @@ package com.thealienobserver.nikhil.travon.apihandlers;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -135,6 +136,7 @@ public abstract class RecommendedPlacesHandler {
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
+                                    Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                                 }
                             }
                         }, new Response.ErrorListener() {
@@ -142,6 +144,7 @@ public abstract class RecommendedPlacesHandler {
                             public void onErrorResponse(VolleyError error) {
                                 // TODO: Handle error
                                 Log.d("Place Handler", error.toString());
+                                Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                             }
                         });
                         requestQueue.add(jsonObjectRequest);
