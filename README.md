@@ -281,37 +281,13 @@ There are two possible ways to access to the news screen. You can directly acces
 ## Design
 
 For the actual design, we followed Nielsen's heuristics such as:
- * Visibility of system status: we procured to always keep users informed about what is going on.
- * Match between system and the real world: the words, phrases and concepts used matches the common English language used daily.
-
-(Read full article on the match between the system and the real world.)
-
-User control and freedom
-Users often choose system functions by mistake and will need a clearly marked "emergency exit" to leave the unwanted state without having to go through an extended dialogue. Support undo and redo.
-
-Consistency and standards
-Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform conventions.
-
-Error prevention
-Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action.
-
-(Read full article on preventing user errors.)
-
-Recognition rather than recall
-Minimize the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part of the dialogue to another. Instructions for use of the system should be visible or easily retrievable whenever appropriate.
-
-(Read full article on recognition vs. recall in UX.)
-
-Flexibility and efficiency of use
-Accelerators — unseen by the novice user — may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users. Allow users to tailor frequent actions.
-
-Aesthetic and minimalist design
-Dialogues should not contain information which is irrelevant or rarely needed. Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility.
-
-Help users recognize, diagnose, and recover from errors
-Error messages should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.
-
-Help and documentation
+ * _Visibility of system status_: we procured to always keep users informed about what is going on.
+ * _Match between system and the real world_: the words, phrases and concepts used matches the common English language used daily.
+ * _Consistency and standards_: followed platform conventions and familiar icons.
+ * _Error prevention_: the suggestion of options on the search bar for the city, reduces the error probabilities.
+ * _Recognition rather than recall_: all available options are visible and easy to find.
+ * _Aesthetic and minimalist design_: the interfaces show only the necessary information. Also, we kept a simple minimalistic-flat-clean design to make it easier to the eye.
+ * _Help users recognize, diagnose, and recover from errors_: the errors are displayed as Toasts. The messages are in plain language.
 
 ## Project management
 
