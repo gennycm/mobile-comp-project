@@ -21,7 +21,7 @@ public class MainMenuHandler {
 
     private Context applicationContext;
     private ImageView cityImageView;
-    private static String api_key = "&key=AIzaSyDCywJBYgafoLew81-vpeGTN03_2vBB7jk";
+    private static String api_key = "&key=AIzaSyDLrW7zOAD6qRghpih8gnxa0xIABryLyOw";
     private RequestQueue requestQueue;
 
     public MainMenuHandler(Context context, ImageView cityImageView) {

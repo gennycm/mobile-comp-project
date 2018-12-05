@@ -63,7 +63,6 @@ public abstract class EventsHandler {
                             imageUrl = jsonEvent.getJSONObject("logo").getJSONObject("original").getString("url");
                         } catch (JSONException e) {
                             imageUrl = "";
-                            Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                         }
                         String start = jsonEvent.getJSONObject("start").getString("local");
                         String end = jsonEvent.getJSONObject("end").getString("local");

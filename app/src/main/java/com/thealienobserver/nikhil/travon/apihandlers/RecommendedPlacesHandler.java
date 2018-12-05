@@ -33,7 +33,7 @@ public abstract class RecommendedPlacesHandler {
     //API URLs to fetch values and description of places
     private static final String RecommendedPlaces_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
     private static final String RecommendedPLaces_Photo_Url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";
-    private String api_key = "&key=AIzaSyDCywJBYgafoLew81-vpeGTN03_2vBB7jk";
+    private String api_key = "&key=AIzaSyDLrW7zOAD6qRghpih8gnxa0xIABryLyOw";
     private static final String Recommended_Place_Details_Url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=";
     private static final String Recommended_place_desc_url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=";
     private RequestQueue requestQueue;
@@ -61,6 +61,7 @@ public abstract class RecommendedPlacesHandler {
         // Replacing spaces with ASCII value %20
 
         url = url.replaceAll(" ", "%20");
+
 
         recommendedPlaces = new ArrayList<>();
 
@@ -135,7 +136,6 @@ public abstract class RecommendedPlacesHandler {
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
-                                    Toast.makeText(applicationContext, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
                                 }
                             }
                         }, new Response.ErrorListener() {

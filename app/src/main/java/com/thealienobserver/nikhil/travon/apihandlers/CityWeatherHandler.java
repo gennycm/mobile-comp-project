@@ -57,7 +57,7 @@ public abstract class CityWeatherHandler {
                     // Data response in incorrect format.
                     Log.d(TAG, "Error while parsing the json.");
                     CityWeatherHandler.this.postWeatherApiCall(null);
-                    Toast.makeText(context, "There was an error. Please try again later.", Toast.LENGTH_LONG).show();
+
                 }
             }
         }, new Response.ErrorListener() {
