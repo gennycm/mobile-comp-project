@@ -73,6 +73,7 @@
             android:layout_height="wrap_content">
 
             <Button
+                android:id="@+id/weatherBtn"
                 android:background="@drawable/rounded_btn_shape"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

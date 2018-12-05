@@ -18,7 +18,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/raleway_semibold"
-            android:text="@string/weather_city_name"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -27,7 +26,6 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:text="@string/weather_image"
             android:contentDescription="@string/weather_image" />
 
 
@@ -37,7 +35,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/raleway_semibold"
-            android:text="@string/weather_temprature"
             android:textSize="70sp"
             android:textStyle="bold" />
 
@@ -46,7 +43,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="@string/weather_minmax_temprature"
             android:fontFamily="@font/raleway"
             android:textSize="20sp" />
 
